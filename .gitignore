@@ -1,0 +1,23 @@
+# SQLite database (contains user data, auto-generated)
+db/thesis.db
+
+# Paper source files (potentially copyrighted PDFs/DOCXs)
+sources/
+
+# Generated paper reports
+papers/PAPER-*.md
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Export CSV
+papers_export.csv
