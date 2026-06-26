@@ -45,7 +45,7 @@
       height: var(--slide-height);
       background: var(--titanium);
       position: relative;
-      padding: 48px 64px 36px 64px;
+      padding: 52px 72px 40px 72px;
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
@@ -84,6 +84,7 @@
       flex-direction: column;
       justify-content: flex-start;
       gap: 16px;
+      line-height: 1.6;
     }
 
     /* ---------- 双栏布局 ---------- */
@@ -134,6 +135,9 @@
       padding: 8px 12px;
       border-bottom: 1px solid var(--light-gray);
       font-size: 14pt;
+    }
+    .data-table tr:nth-child(even) td {
+      background: #f9fafb;
     }
 
     /* ---------- 数据高亮 ---------- */
@@ -235,9 +239,10 @@
       align-items: center;
       text-align: center;
     }
-    .slide-dark .slide-title { color: white; }
+    .slide-dark .slide-title { color: white; font-size: 36pt; }
     .slide-dark .data-table th { color: var(--dark-overlay-text); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
     .slide-dark .data-table td { border-color: rgba(255,255,255,0.1); color: var(--dark-overlay-text); }
+    .slide-dark .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
   </style>
 </head>
 <body>
@@ -249,7 +254,7 @@
   <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(26,54,93,0.55);z-index:0;"></div>
   <div style="position:relative;z-index:1;">
     <div class="section-tag" style="color:rgba(255,255,255,0.6);">汇报主题</div>
-    <h1 class="slide-title" style="font-size:38pt;margin-bottom:12px;">黑滑石高值化商业化<br>初步研究汇报</h1>
+    <h1 class="slide-title" style="margin-bottom:12px;">黑滑石高值化商业化<br>初步研究汇报</h1>
     <p class="slide-subtitle">从 10 亿吨低品位资源到 5 条技术路线</p>
     <p class="slide-meta">汇报人：[你的名字] &nbsp;|&nbsp; 导师：[导师姓名] &nbsp;|&nbsp; 2026年7月 &nbsp;|&nbsp; [学校名称]</p>
   </div>
@@ -661,19 +666,19 @@
   <div class="content" style="gap:6px;">
     <div class="card-grid cols-5" style="gap:8px;">
       <!-- 第一行 -->
-      <div class="card route-d2"><div class="card-tag">综述框架</div><div class="card-header" style="font-size:11pt;">PAPER-002</div><div class="card-body" style="font-size:10pt;">杨华明 2023<br>材料导报<br>~90篇参考文献</div></div>
-      <div class="card route-d3"><div class="card-tag">热演化基础</div><div class="card-header" style="font-size:11pt;">PAPER-005</div><div class="card-body" style="font-size:10pt;">Meng 2022<br>Minerals (SCI)<br>15个温度点</div></div>
-      <div class="card route-d3"><div class="card-tag">N₂碳石墨烯</div><div class="card-header" style="font-size:11pt;">PAPER-006</div><div class="card-body" style="font-size:10pt;">吴小文 2017<br>陶瓷学报<br>抗弯+43%</div></div>
-      <div class="card route-d2"><div class="card-tag">D2基础陶瓷</div><div class="card-header" style="font-size:11pt;">PAPER-004</div><div class="card-body" style="font-size:10pt;">刘子峥 2024<br>电子元件与材料<br>Q×f=56,782</div></div>
-      <div class="card route-d2"><div class="card-tag">成本突破</div><div class="card-header" style="font-size:11pt;">PAPER-008</div><div class="card-body" style="font-size:10pt;">Xiao 2025<br>Ceramics Int. (Q1)<br>成本降80%</div></div>
+      <div class="card route-d2"><div class="card-tag">综述框架</div><div class="card-header">PAPER-002</div><div class="card-body" style="font-size:10pt;">杨华明 2023<br>材料导报<br>~90篇参考文献</div></div>
+      <div class="card route-d3"><div class="card-tag">热演化基础</div><div class="card-header">PAPER-005</div><div class="card-body" style="font-size:10pt;">Meng 2022<br>Minerals (SCI)<br>15个温度点</div></div>
+      <div class="card route-d3"><div class="card-tag">N₂碳石墨烯</div><div class="card-header">PAPER-006</div><div class="card-body" style="font-size:10pt;">吴小文 2017<br>陶瓷学报<br>抗弯+43%</div></div>
+      <div class="card route-d2"><div class="card-tag">D2基础陶瓷</div><div class="card-header">PAPER-004</div><div class="card-body" style="font-size:10pt;">刘子峥 2024<br>电子元件与材料<br>Q×f=56,782</div></div>
+      <div class="card route-d2"><div class="card-tag">成本突破</div><div class="card-header">PAPER-008</div><div class="card-body" style="font-size:10pt;">Xiao 2025<br>Ceramics Int. (Q1)<br>成本降80%</div></div>
     </div>
     <div class="card-grid cols-5" style="gap:8px;">
       <!-- 第二行 -->
-      <div class="card route-d2"><div class="card-tag">低温烧结</div><div class="card-header" style="font-size:11pt;">PAPER-009</div><div class="card-body" style="font-size:10pt;">Bu 2025<br>Ceramics Int. (Q1)<br>仅1075°C</div></div>
-      <div class="card route-d2"><div class="card-tag">Cu掺杂稳相</div><div class="card-header" style="font-size:11pt;">PAPER-010</div><div class="card-body" style="font-size:10pt;">Fang 2024<br>Ceramics Int. (Q1)<br>Q×f=93,600</div></div>
-      <div class="card route-d2"><div class="card-tag">Co掺杂高Qf</div><div class="card-header" style="font-size:11pt;">PAPER-011</div><div class="card-body" style="font-size:10pt;">Ullah 2019<br>J Mater Sci (SCI)<br>Q×f=145,846</div></div>
-      <div class="card route-d4"><div class="card-tag">Zn晶格重建</div><div class="card-header" style="font-size:11pt;">PAPER-003</div><div class="card-body" style="font-size:10pt;">裘林莉 2017<br>硅酸盐通报<br>Mg²⁺溶出352</div></div>
-      <div class="card route-d9"><div class="card-tag">酸浸突破</div><div class="card-header" style="font-size:11pt;">PAPER-007</div><div class="card-body" style="font-size:10pt;">Huang 2025<br>Minerals Eng. (Q1)<br>Mg浸出97.98%</div></div>
+      <div class="card route-d2"><div class="card-tag">低温烧结</div><div class="card-header">PAPER-009</div><div class="card-body" style="font-size:10pt;">Bu 2025<br>Ceramics Int. (Q1)<br>仅1075°C</div></div>
+      <div class="card route-d2"><div class="card-tag">Cu掺杂稳相</div><div class="card-header">PAPER-010</div><div class="card-body" style="font-size:10pt;">Fang 2024<br>Ceramics Int. (Q1)<br>Q×f=93,600</div></div>
+      <div class="card route-d2"><div class="card-tag">Co掺杂高Qf</div><div class="card-header">PAPER-011</div><div class="card-body" style="font-size:10pt;">Ullah 2019<br>J Mater Sci (SCI)<br>Q×f=145,846</div></div>
+      <div class="card route-d4"><div class="card-tag">Zn晶格重建</div><div class="card-header">PAPER-003</div><div class="card-body" style="font-size:10pt;">裘林莉 2017<br>硅酸盐通报<br>Mg²⁺溶出352</div></div>
+      <div class="card route-d9"><div class="card-tag">酸浸突破</div><div class="card-header">PAPER-007</div><div class="card-body" style="font-size:10pt;">Huang 2025<br>Minerals Eng. (Q1)<br>Mg浸出97.98%</div></div>
     </div>
     <div style="text-align:center;font-size:11pt;color:#6b7280;margin-top:8px;">
       期刊分布: 4篇 SCI Q1 + 2篇 SCI + 4篇中文核心 &nbsp;|&nbsp; 年份跨度: 2017&ndash;2025 &nbsp;|&nbsp; 路线覆盖: D1&ndash;D9 全覆盖
@@ -2250,7 +2255,7 @@
     <div class="card-grid cols-3" style="flex:0 0 auto;">
       <div class="card" style="border-top:3px solid var(--amber);">
         <div class="card-tag">立即 · 本周</div>
-        <div class="card-header" style="font-size:16pt;">确认设备</div>
+        <div class="card-header" style="font-size:15pt;">确认设备</div>
         <div class="card-body" style="font-size:13pt;line-height:1.8;">
           学校是否有 N&#8322; 气氛管式炉？<br>
           可用机时多少？<br>
@@ -2259,7 +2264,7 @@
       </div>
       <div class="card" style="border-top:3px solid var(--amber);">
         <div class="card-tag">立即 · 本周</div>
-        <div class="card-header" style="font-size:16pt;">启动检索</div>
+        <div class="card-header" style="font-size:15pt;">启动检索</div>
         <div class="card-body" style="font-size:13pt;line-height:1.8;">
           按 Phase 0a 检索策略<br>
           中英文数据库检索<br>
@@ -2268,7 +2273,7 @@
       </div>
       <div class="card" style="border-top:3px solid var(--amber);">
         <div class="card-tag">立即 · 本周</div>
-        <div class="card-header" style="font-size:16pt;">下载 Ge 论文</div>
+        <div class="card-header" style="font-size:15pt;">下载 Ge 论文</div>
         <div class="card-body" style="font-size:13pt;line-height:1.8;">
           Ge 4% 掺杂 Q&times;f=216,880<br>
           补充 D2 掺杂数据库<br>
@@ -2279,7 +2284,7 @@
     <div class="card-grid cols-3" style="flex:0 0 auto;">
       <div class="card" style="border-top:3px solid #3b82f6;">
         <div class="card-tag">短期 · 1-4 周</div>
-        <div class="card-header" style="font-size:16pt;">综述提纲</div>
+        <div class="card-header" style="font-size:15pt;">综述提纲</div>
         <div class="card-body" style="font-size:13pt;line-height:1.8;">
           D3 路线完整综述框架<br>
           确定目标期刊<br>
@@ -2288,7 +2293,7 @@
       </div>
       <div class="card" style="border-top:3px solid #3b82f6;">
         <div class="card-tag">短期 · 1-4 周</div>
-        <div class="card-header" style="font-size:16pt;">采购样品</div>
+        <div class="card-header" style="font-size:15pt;">采购样品</div>
         <div class="card-body" style="font-size:13pt;line-height:1.8;">
           黑滑石原料 5 kg<br>
           确认粒度 200 目<br>
@@ -2297,7 +2302,7 @@
       </div>
       <div class="card" style="border-top:3px solid #10b981;">
         <div class="card-tag">中期 · 1-6 月</div>
-        <div class="card-header" style="font-size:16pt;">数据论文+实验+专利</div>
+        <div class="card-header" style="font-size:15pt;">数据论文+实验+专利</div>
         <div class="card-body" style="font-size:13pt;line-height:1.8;">
           Phase 0b 相图论文<br>
           Phase 0c 管式炉实验<br>
@@ -2354,7 +2359,7 @@
   <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(26,54,93,0.55);z-index:0;"></div>
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;">
     <div class="section-tag" style="color:rgba(255,255,255,0.6);">收尾 · 致谢</div>
-    <h1 class="slide-title" style="font-size:40pt;margin-bottom:24px;">感谢导师的宝贵时间</h1>
+    <h1 class="slide-title" style="margin-bottom:24px;">感谢导师的宝贵时间</h1>
     <p style="font-size:18pt;opacity:0.85;margin-bottom:48px;">汇报人：[你的名字] &middot; [学校邮箱] &middot; 2026年7月</p>
     <p style="font-size:14pt;opacity:0.65;font-style:italic;border-top:1px solid rgba(255,255,255,0.2);padding-top:24px;">10 亿吨黑滑石，从一个本科生做起</p>
   </div>
