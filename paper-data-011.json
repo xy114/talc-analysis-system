@@ -1,0 +1,434 @@
+{
+  "paper": {
+    "title": "黑滑石煅烧产物的酸活化及晶格重建",
+    "authors": "裘林莉; 张平萍; 陈雪刚; 秦文莉; 葛柳钦; 叶瑛",
+    "institution": "浙江大学海洋学院",
+    "country": "中国",
+    "year": 2017,
+    "journal": "硅酸盐通报 (Bulletin of the Chinese Ceramic Society), Vol.36, No.6",
+    "doi": "10.16552/j.cnki.issn1001-1625.2017.06.001",
+    "research_type": "实验研究",
+    "problem_statement": "黑滑石被公认为不可插层的层状矿物，其煅烧产物因层状结构已被破坏，一般只能用于塑料填充剂等低端领域。若能将功能性离子引入滑石煅烧产物内部，将极大地拓宽其用途。本研究首次提出'酸活化-晶格重建'两步法将功能阳离子Zn²⁺植入黑滑石煅烧产物晶格中，制备抗菌功能材料。",
+    "raw_material_source": "江西广丰黑滑石煅烧产物（已煅烧，外观白色粉末）。主要物相：顽火辉石(enstatite)、硅灰石(wollastonite)和石英(quartz)。XRD：d=0.3168nm/0.2873nm为顽火辉石特征峰(PDF#19-0768)，d=0.2987nm为硅灰石特征峰(PDF#84-0654)，d=0.4051nm/0.3339nm为石英特征峰(PDF#82-1568)。",
+    "benchmark_tech": "传统黑滑石煅烧产物仅用于塑料填充剂、陶瓷基础原料等低端应用；常规抗菌材料制备采用离子交换法（如载Zn白炭黑）或有机金属配合物法",
+    "has_experiment": 1,
+    "has_economic_data": 0,
+    "experiment_scale": "实验室规模（5g/批次，50mL反应体系）",
+    "citation_quality": "中高 — 国家自然科学基金资助(21406193)，发表于中文核心期刊《硅酸盐通报》2017年第6期，通讯作者张平萍讲师，参考文献26篇覆盖矿物酸溶机理、阳离子交换和抗菌材料领域",
+    "tech_route_category": "C 湿法酸法（酸活化+离子植入）",
+    "tech_route_detail": "两步法：(1) 酸活化：2 mol/L HCl, 固液比1:10, 80°C水浴, 4/8/16/32h → 水洗至pH≈7 → 70°C烘干；(2) Zn²⁺晶格重建：酸活化16h产物加入到2 mol/L ZnSO4溶液, 固液比1:10, 80°C水浴, 4/8/16h → 水洗至pH≈7 → 70°C烘干。全过程常压操作，无需特殊气氛保护。",
+    "target_product_category": "分离型/功能材料 — 抗菌矿物材料",
+    "target_product_name": "载Zn晶格重建黑滑石煅烧产物抗菌材料——Zn²⁺植入顽火辉石/硅灰石八面体晶格中的新型无机抗菌功能材料",
+    "target_product_purity": null,
+    "total_yield": null,
+    "trl_level": 3,
+    "trl_scale": "实验室小试（5g/批次），完成工艺条件优化、结构表征和抗菌性能初步验证",
+    "capex_has_data": "无",
+    "capex_equipment": null,
+    "capex_total_per_10kt": null,
+    "opex_has_data": "无",
+    "opex_raw_material_per_ton": null,
+    "opex_energy_per_ton": null,
+    "total_cost_per_ton": null,
+    "product_price_per_ton": null,
+    "gross_profit_per_ton": null,
+    "gross_margin": null,
+    "payback_period": null,
+    "tech_feasibility_score": 7,
+    "econ_feasibility_score": 5,
+    "market_attractiveness_score": 6,
+    "scaleup_feasibility_score": 5,
+    "composite_score": 57.5,
+    "analysis_date": "2026-06-26",
+    "analyst_notes": "论文核心创新：首次在黑滑石体系上完整验证了'酸活化溶出Mg²⁺→Zn²⁺植入重建晶格'的技术路径。酸活化定量数据出色：Mg²⁺溶出达352 mmol/L(16h)，晶胞参数c从0.51052→0.52587nm(32h)清晰记录八面体膨胀过程。Zn²⁺重建后FWHM从0.280降至0.199，结晶度恢复显著。抗菌实验表明载Zn产物对大肠杆菌和金黄色葡萄球菌生长有明显抑制（非完全杀菌），证明了Zn²⁺从晶格中可控释放的机制。与论文#7综述直接关联：#7 §5.4引用的CN111517649B抗菌岩板专利和抗菌金属离子植入技术路线，本文是该路线的早期基础研究论文。技术可行性7分（机理清晰、数据完整、常压操作）；经济可行性5分（HCl/ZnSO4消耗、多步加热、无经济数据）；市场吸引力6分（无机抗菌材料市场增长但竞争激烈、黑滑石原料成本优势）；放大可行性5分（酸活化放大有工业先例但Zn²⁺晶格重建为批次间歇过程、含锌废水需处理）。"
+  },
+  "process_steps": [
+    {
+      "step_order": 1,
+      "step_name": "酸活化（2M HCl, 80°C, 4-32h）",
+      "conversion_rate": null,
+      "is_bottleneck": 0,
+      "notes": "H⁺取代八面体Mg²⁺/Ca²⁺，Mg²⁺溶出量16h达352 mmol/L，顽火辉石和硅灰石结晶度随酸溶时间降低"
+    },
+    {
+      "step_order": 2,
+      "step_name": "水洗至中性+烘干（70°C）",
+      "conversion_rate": null,
+      "is_bottleneck": 0,
+      "notes": "多次水洗离心至pH≈7，去除残余HCl和溶出离子"
+    },
+    {
+      "step_order": 3,
+      "step_name": "Zn²⁺溶液处理晶格重建（2M ZnSO4, 80°C, 4-16h）",
+      "conversion_rate": null,
+      "is_bottleneck": 1,
+      "notes": "关键步骤：Zn²⁺进入酸活化后八面体空穴，取代H⁺占据八面体中心，晶格收缩恢复。FWHM从0.280降至0.199"
+    },
+    {
+      "step_order": 4,
+      "step_name": "水洗+烘干（70°C）",
+      "conversion_rate": null,
+      "is_bottleneck": 0,
+      "notes": "去除残余ZnSO4，得到载Zn抗菌产物"
+    }
+  ],
+  "energy": [
+    {
+      "step_name": "酸活化 80°C水浴 4-32h",
+      "heat_energy": null,
+      "electricity": null,
+      "energy_share_pct": null,
+      "heat_recovery_potential": null
+    },
+    {
+      "step_name": "Zn²⁺晶格重建 80°C水浴 4-16h",
+      "heat_energy": null,
+      "electricity": null,
+      "energy_share_pct": null,
+      "heat_recovery_potential": null
+    },
+    {
+      "step_name": "烘干 70°C（两轮）",
+      "heat_energy": null,
+      "electricity": null,
+      "energy_share_pct": null,
+      "heat_recovery_potential": null
+    }
+  ],
+  "environmental": {
+    "waste_gas_type": null,
+    "waste_gas_amount": null,
+    "waste_gas_treatment": null,
+    "waste_gas_cost": null,
+    "waste_water_type": "酸性废水（含HCl、Mg²⁺、Ca²⁺）+ 含Zn废水（ZnSO4残余）",
+    "waste_water_amount": null,
+    "waste_water_treatment": "需中和处理+重金属去除（Zn²⁺环保排放标准≤2.0 mg/L）",
+    "waste_water_cost": null,
+    "solid_waste_type": null,
+    "solid_waste_amount": null,
+    "solid_waste_reusable": 0,
+    "byproduct_name": "MgCl2/CaCl2溶液（酸活化滤液）",
+    "byproduct_value": "理论上可回收MgCl2作为副产品，但浓度低、经济性待评估",
+    "byproduct_revenue_share": null,
+    "meets_env_policy": "需配套废水处理设施"
+  },
+  "attributes": [
+    {
+      "category": "raw_material_spec",
+      "attr_key": "source_mine",
+      "attr_value": "江西广丰黑滑石煅烧产物（原料已煅烧，白色粉末）",
+      "attr_unit": "",
+      "source_context": "§2.1 实验原料"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "XRD_phases_calcined",
+      "attr_value": "顽火辉石（主相）+ 硅灰石（次相）+ 石英（次相）",
+      "attr_unit": "",
+      "source_context": "图1 XRD图谱"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "enstatite_d_spacing",
+      "attr_value": "d=0.3168nm, 0.2873nm (PDF#19-0768)",
+      "attr_unit": "nm",
+      "source_context": "§2.1"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "wollastonite_d_spacing",
+      "attr_value": "d=0.2987nm (PDF#84-0654)",
+      "attr_unit": "nm",
+      "source_context": "§2.1"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "quartz_d_spacing",
+      "attr_value": "d=0.4051nm, 0.3339nm (PDF#82-1568)",
+      "attr_unit": "nm",
+      "source_context": "§2.1"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "HCl_concentration",
+      "attr_value": "2",
+      "attr_unit": "mol/L",
+      "source_context": "§2.3 实验方法"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "acid_activation_temp",
+      "attr_value": "80",
+      "attr_unit": "°C",
+      "source_context": "§2.3"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "acid_solid_liquid_ratio",
+      "attr_value": "1:10（5g样/50mL HCl）",
+      "attr_unit": "",
+      "source_context": "§2.3"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "acid_activation_time_range",
+      "attr_value": "4/8/16/32",
+      "attr_unit": "h",
+      "source_context": "§2.3"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "Mg_dissolution_16h",
+      "attr_value": "352",
+      "attr_unit": "mmol/L",
+      "source_context": "图3 Mg²⁺溶出量与时间关系（从图表估算：16h为最高点附近）"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "Mg_vs_Ca_dissolution",
+      "attr_value": "Mg²⁺溶出速度和溶出量均明显高于Ca²⁺——因顽火辉石为主成分，硅灰石由白云石杂质煅烧而成含量低",
+      "attr_unit": "",
+      "source_context": "图3 + §3.1"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "c_parameter_expansion",
+      "attr_value": "0.51052→0.52587 (32h酸活化)，增加约3.0%",
+      "attr_unit": "nm",
+      "source_context": "表2 晶胞参数c值变化"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "enstatite_FWHM_acid",
+      "attr_value": "0.214→0.280 (16h酸活化，结晶度下降)",
+      "attr_unit": "°",
+      "source_context": "表1 半高宽FWHM"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "quartz_acid_resistance",
+      "attr_value": "XRD衍射峰强度逐渐增强，半高宽基本不变——石英中Si-O共价键结合力强，耐酸性良好",
+      "attr_unit": "",
+      "source_context": "§3.1"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "ZnSO4_concentration",
+      "attr_value": "2",
+      "attr_unit": "mol/L",
+      "source_context": "§2.3 晶格重建"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "Zn_reconstruction_temp",
+      "attr_value": "80",
+      "attr_unit": "°C",
+      "source_context": "§2.3"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "Zn_reconstruction_time_range",
+      "attr_value": "4/8/16",
+      "attr_unit": "h",
+      "source_context": "§2.3"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "Zn_reconstruction_FWHM_recovery",
+      "attr_value": "0.280→0.199 (16h Zn重建，结晶度恢复)，优于酸化前原矿的0.214",
+      "attr_unit": "°",
+      "source_context": "表3 晶格重建产物XRD参数"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "peak_ratio_recovery",
+      "attr_value": "I'/I（顽火辉石220/石英101峰高比）：酸化16h后0.952→Zn重建4h后1.102→8h后1.284→16h后1.226（原矿为2.632，不可完全恢复）",
+      "attr_unit": "",
+      "source_context": "表3"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "XRD_instrument",
+      "attr_value": "岛津 XRD-6000 型X射线衍射仪",
+      "attr_unit": "",
+      "source_context": "§2.2 表征"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "SEM_instrument",
+      "attr_value": "Zeiss Ultra 55 型场发射扫描电镜 + INCA MAX20 能谱仪",
+      "attr_unit": "",
+      "source_context": "§2.2"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "ICP_MS_instrument",
+      "attr_value": "XSeries Ⅱ 型电感耦合等离子质谱仪 (ICP-MS)",
+      "attr_unit": "",
+      "source_context": "§2.2"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "E_coli_6h_absorbance",
+      "attr_value": "未加矿物0.180 → 2.5mg原矿0.220（促进生长）→ 2.5mg载Zn矿物0.157（抑制）",
+      "attr_unit": "OD值",
+      "source_context": "表4 大肠杆菌培养液吸光度"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "S_aureus_6h_absorbance",
+      "attr_value": "未加矿物0.079 → 2.5mg原矿0.106（略有促进）→ 2.5mg载Zn矿物0.088（抑制接近空白水平）",
+      "attr_unit": "OD值",
+      "source_context": "表5 金黄色葡萄球菌培养液吸光度"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "antibacterial_mechanism",
+      "attr_value": "Zn²⁺植入晶格后可在特定条件下可控释放，抑制细菌生长。非完全杀菌型，而是显著降低生长速率",
+      "attr_unit": "",
+      "source_context": "§4 抗菌实验讨论"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "SEM_acid_erosion",
+      "attr_value": "酸活化后颗粒表面出现溶蚀现象，随时间延长溶蚀面积和深度逐渐增大；32h时颗粒表面全部被溶蚀；酸溶是由表及里的过程",
+      "attr_unit": "",
+      "source_context": "图4 SEM + §3.2"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "SEM_Zn_reconstruction",
+      "attr_value": "晶格重建不改变矿物形貌，但颗粒表面粗糙程度逐渐降低",
+      "attr_unit": "",
+      "source_context": "图6 SEM + §3.3"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "EDS_Zn_confirmation",
+      "attr_value": "EDS显示顽火辉石颗粒中含Zn，证实Zn参与矿物晶格而非简单表面吸附",
+      "attr_unit": "",
+      "source_context": "图6 EDS + §3.3"
+    },
+    {
+      "category": "product_market",
+      "attr_key": "antibacterial_market",
+      "attr_value": "无机抗菌剂市场（抗菌陶瓷、抗菌塑料、抗菌涂料、抗菌纺织品）。载Zn抗菌材料相较载Ag成本更低、无变色问题",
+      "attr_unit": "",
+      "source_context": "§1 引言 + 分析者补充"
+    },
+    {
+      "category": "product_market",
+      "attr_key": "functional_mineral_materials",
+      "attr_value": "功能矿物材料是矿物加工前沿方向——将功能性阳离子植入天然矿物晶格制备新型功能材料是区别于传统填料的高值化路径",
+      "attr_unit": "",
+      "source_context": "§5 结论"
+    },
+    {
+      "category": "scaleup_risk",
+      "attr_key": "acid_wastewater_treatment",
+      "attr_value": "两步湿法工艺产生酸性含Mg/Ca废水和含Zn废水——Zn²⁺排放标准严格(≤2.0 mg/L)，需配套中和+重金属去除设施",
+      "attr_unit": "",
+      "source_context": "§2.3 + 分析者判断"
+    },
+    {
+      "category": "scaleup_risk",
+      "attr_key": "batch_process",
+      "attr_value": "酸活化和晶格重建均为间歇式批次反应（80°C水浴，4-32h）——连续化生产需重新设计反应器",
+      "attr_unit": "",
+      "source_context": "§2.3 + 分析者判断"
+    },
+    {
+      "category": "scaleup_risk",
+      "attr_key": "partial_reconstruction",
+      "attr_value": "晶格重建不可完全恢复（I'/I无法回到原矿水平）——需优化酸活化程度控制（部分溶出vs过度破坏）以平衡八面体空穴数量和结构完整性",
+      "attr_unit": "",
+      "source_context": "表3 + §3.3 讨论"
+    },
+    {
+      "category": "scaleup_precedent",
+      "attr_key": "acid_activation_industrial",
+      "attr_value": "酸活化粘土矿物（蒙脱石、坡缕石）已有工业化先例；滑石酸浸提纯在工业上亦有应用。ZnSO4为大宗廉价化工原料",
+      "attr_unit": "",
+      "source_context": "§1 引言"
+    },
+    {
+      "category": "scaleup_precedent",
+      "attr_key": "patent_reference",
+      "attr_value": "论文#7引用相关专利：CN111517649B（抗菌岩板，抗菌率>90%，耐磨6000转）——晶格重建技术可能是该专利的核心技术路线之一",
+      "attr_unit": "",
+      "source_context": "§5 + 论文#7综述"
+    },
+    {
+      "category": "value_proposition",
+      "attr_key": "mechanism_innovation",
+      "attr_value": "首次阐明黑滑石煅烧产物的'酸溶-重建'晶格工程机制：H⁺溶出八面体Mg²⁺→八面体空穴产生→Zn²⁺占据空穴→晶格恢复/功能离子植入。这一机理可推广至其他功能阳离子（Cu²⁺、Ag⁺、稀土等）的植入",
+      "attr_unit": "",
+      "source_context": "§5 结论"
+    },
+    {
+      "category": "value_proposition",
+      "attr_key": "quartz_selectivity",
+      "attr_value": "石英的耐酸性是关键工艺优势——酸活化选择性溶蚀顽火辉石/硅灰石而保留石英骨架，提供天然的模板化溶出结构",
+      "attr_unit": "",
+      "source_context": "§3.2 SEM+EDS + 图4f"
+    },
+    {
+      "category": "barrier",
+      "attr_key": "no_bactericidal",
+      "attr_value": "载Zn产物为抑菌而非杀菌——抗菌能力弱于载Ag材料，限制了在医疗/高要求卫生领域的应用",
+      "attr_unit": "",
+      "source_context": "§4 抗菌结果"
+    },
+    {
+      "category": "barrier",
+      "attr_key": "Zn_loading_capacity",
+      "attr_value": "Zn²⁺植入量受八面体空穴数量限制（由酸活化程度决定），载Zn量可能低于传统离子交换法",
+      "attr_unit": "",
+      "source_context": "§3.3 + 分析者判断"
+    },
+    {
+      "category": "barrier",
+      "attr_key": "long_term_stability",
+      "attr_value": "载Zn产物在应用环境中的长期稳定性和Zn²⁺释放动力学未研究——对产品使用寿命和环保合规性至关重要",
+      "attr_unit": "",
+      "source_context": "分析者判断"
+    },
+    {
+      "category": "commercial_path",
+      "attr_key": "near_term_application",
+      "attr_value": "抗菌陶瓷（抗菌岩板/抗菌瓷砖）→ 抗菌涂料/抗菌塑料填料。抗菌陶瓷已有专利布局(CN111517649B)，晶格重建技术可作为差异化壁垒",
+      "attr_unit": "",
+      "source_context": "分析者建议 + 论文#7专利信息"
+    },
+    {
+      "category": "commercial_path",
+      "attr_key": "platform_technology",
+      "attr_value": "'酸活化-晶格重建'可发展为平台技术——植入不同功能性阳离子（Cu抗菌、Ag高效杀菌、稀土发光/催化）制备系列功能矿物材料",
+      "attr_unit": "",
+      "source_context": "§5 结论 + 分析者建议"
+    },
+    {
+      "category": "competitive_landscape",
+      "attr_key": "ion_exchange_competition",
+      "attr_value": "传统离子交换法（蒙脱石载Ag/Cu/Zn、沸石载Zn）工艺更简单成熟，但载体成本高于黑滑石煅烧产物",
+      "attr_unit": "",
+      "source_context": "§1 引言"
+    },
+    {
+      "category": "competitive_landscape",
+      "attr_key": "nano_ZnO_competition",
+      "attr_value": "纳米ZnO抗菌剂是直接竞争对手——制备更简单。但晶格重建产物的优势在于Zn²⁺缓释控制更好（晶格束缚vs自由纳米颗粒）",
+      "attr_unit": "",
+      "source_context": "§1 + 分析者判断"
+    }
+  ],
+  "synergies": [
+    {
+      "paper_id_b": 2,
+      "synergy_type": "上下游衔接",
+      "synergy_strength": "强",
+      "synergy_description": "#7综述§5.4系统总结了煅烧-酸活化-抗菌金属离子植入技术路线，并引用已授权专利CN111517649B（抗菌岩板，抗菌率>90%）。本文(#11)是#7所述技术路线的早期核心基础研究论文（同一课题组，浙江大学海洋学院 vs #7杨华明/中南大学课题组）。#11提供了#7路线的完整机理验证：酸活化溶出Mg²⁺→Zn²⁺植入晶格→结构恢复→抗菌功能。两者构成'综述路线图+原始实验数据'的完整证据链。",
+      "combined_potential_score": null
+    }
+  ]
+}

@@ -132,9 +132,9 @@ def check_doi_exists(conn, doi: str):
 def insert_paper(conn, paper: dict) -> int:
     """写入 papers 表，返回 paper_id。"""
     fields = [
-        "title", "authors", "institution", "country", "year", "journal",
+        "title", "title_en", "authors", "institution", "country", "year", "journal",
         "doi", "research_type", "problem_statement", "raw_material_source",
-        "benchmark_tech", "has_experiment", "has_economic_data",
+        "funding", "benchmark_tech", "has_experiment", "has_economic_data",
         "experiment_scale", "citation_quality", "tech_route_category",
         "tech_route_detail", "target_product_category", "target_product_name",
         "target_product_purity", "total_yield", "trl_level", "trl_scale",
@@ -143,9 +143,16 @@ def insert_paper(conn, paper: dict) -> int:
         "total_cost_per_ton", "product_price_per_ton", "gross_profit_per_ton",
         "gross_margin", "payback_period", "tech_feasibility_score",
         "econ_feasibility_score", "market_attractiveness_score",
-        "scaleup_feasibility_score", "composite_score", "analyst_notes"
+        "scaleup_feasibility_score", "composite_score", "analyst_notes",
+        "competitor_comparison", "target_market",
+        "key_performance", "process_params"
     ]
-    values = {f: paper.get(f) for f in fields}
+    values = {}
+    for f in fields:
+        v = paper.get(f)
+        if isinstance(v, (dict, list)):
+            v = json.dumps(v, ensure_ascii=False)
+        values[f] = v
     values["analysis_date"] = paper.get("analysis_date", str(date.today()))
 
     columns = ", ".join(values.keys())
@@ -275,7 +282,8 @@ def auto_detect_synergies(conn, paper_id: int, paper: dict) -> list:
                     "synergy_strength": "中",
                     "auto_detected": True
                 })
-        except sqlite3.Error:
+        except sqlite3.Error as e:
+            print(f" [WARN] 规则 '{rule['name']}' 执行异常: {e}", file=sys.stderr)
             continue
 
     return found
@@ -311,8 +319,19 @@ def ingest(json_path: str, force: bool = False, dry_run: bool = False) -> int:
             return existing_id
 
         if existing_id and force:
+            # 检查将被级联删除的关联
+            cascade_syns = conn.execute(
+                "SELECT COUNT(*) FROM synergies WHERE paper_id_a = ? OR paper_id_b = ?",
+                (existing_id, existing_id)).fetchone()[0]
+            if cascade_syns > 0:
+                print(f"[WARN] --force 将级联删除 {cascade_syns} 条关联记录")
+                print(f"       其他论文指向该论文的关联需手动重建")
+            cascade_attrs = conn.execute(
+                "SELECT COUNT(*) FROM paper_attributes WHERE paper_id = ?",
+                (existing_id,)).fetchone()[0]
             conn.execute("DELETE FROM papers WHERE id = ?", (existing_id,))
-            print(f"[UPDATE] 覆盖已有论文 paper_id={existing_id}")
+            print(f"[UPDATE] 覆盖已有论文 paper_id={existing_id} "
+                  f"(已删除 {cascade_syns} 条关联 + {cascade_attrs} 条属性)")
 
         # 写入主表
         paper_id = insert_paper(conn, paper)

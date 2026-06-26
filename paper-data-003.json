@@ -1,0 +1,326 @@
+{
+  "paper": {
+    "title": "Evolution of Black Talc upon Thermal Treatment",
+    "authors": "Yuhang Meng; Weimin Xie; Haiyan Wu; Sarwar Muhammad Tariq; Huaming Yang",
+    "institution": "中南大学资源加工与生物工程学院 矿物材料及其应用湖南省重点实验室; 中国地质大学(武汉) 纳米矿物材料及应用教育部工程研究中心; 中国地质大学(武汉) 非金属矿行业矿物功能材料重点实验室",
+    "country": "中国",
+    "year": 2022,
+    "journal": "Minerals 2022, 12, 155 (MDPI, SCI, Open Access)",
+    "doi": "10.3390/min12020155",
+    "research_type": "基础实验研究",
+    "problem_statement": "黑滑石因颜色限制当前仅用于传统烧制陶瓷和低端工业。煅烧是粘土矿物改性的常用方法，但黑滑石在热处理过程中的结构和性质变化不清晰，严重限制了其煅烧产物在复合材料中的应用。需要系统研究黑滑石在热处理过程中的形态、表面性质和晶体结构演化，为实现黑滑石的功能化设计提供理论基础。",
+    "raw_material_source": "江西省广丰县黑滑石原矿（含滑石和少量石英、白云石、有机碳杂质）。XRF成分（质量分数%）：SiO2 65.03, MgO 30.669, CaO 2.716, F 0.697, P2O5 0.235, Al2O3 0.175, Na2O 0.156, Fe2O3 0.150, SO3 0.068, ZnO 0.038, K2O 0.025, MnO 0.022, TiO2 0.020。15个温度点取样（T100-T1000，梯度50-100°C）。",
+    "benchmark_tech": "传统滑石热演化研究（普通滑石脱羟基温度850-900°C，文献报道的ex-situ XRD/TG分析），缺乏in-situ实时追踪和系统性理化性质表征",
+    "has_experiment": 1,
+    "has_economic_data": 0,
+    "experiment_scale": "实验室规模（马弗炉批式煅烧，TG/DSC微量样品，in-situ XRD实时追踪）",
+    "citation_quality": "高 — 国家杰出青年科学基金(51225403)+国家自然科学基金(51974367)+湖南省研究生创新基金资助(CX2017B057)。通讯作者杨华明为国家杰青。发表于Minerals (MDPI, SCI, IF~2.5)。参考文献51篇，覆盖滑石矿物学和粘土矿物功能材料主流期刊。论文#7综述的核心基础文献之一。",
+    "tech_route_category": "B 热化学路线（基础热演化机理研究）",
+    "tech_route_detail": "系统研究30-1000°C热处理过程中黑滑石的晶体结构、物理化学性质和形貌演化：(1) 15个温度点马弗炉煅烧（10°C/min升温，保温120min）；(2) TG/DSC+TG-MS热分析（30-1000°C，10°C/min）；(3) in-situ变温XRD实时追踪（30-1000°C，每目标温度保温10min扫描）；(4) in-situ FTIR实时追踪官能团变化；(5) BET比表面积+分形维数；(6) 激光粒度；(7) Zeta电位-pH曲线；(8) SEM+EDS/TEM+SAED形貌和结晶度。研究方法论体系完整，是黑滑石热演化领域最全面的基础数据论文。",
+    "target_product_category": "基础研究（为所有热化学路线的煅烧工艺设计提供理论依据）",
+    "target_product_name": "各温度节点（100-1000°C）的煅烧黑滑石产物——阐明从原矿滑石→脱水→有机碳氧化→脱羟基→相转变→顽火辉石的完整演化路径",
+    "target_product_purity": null,
+    "total_yield": null,
+    "trl_level": 2,
+    "trl_scale": "实验室基础研究（微量到克级），提供机理层面理解",
+    "capex_has_data": "无",
+    "capex_equipment": null,
+    "capex_total_per_10kt": null,
+    "opex_has_data": "无",
+    "opex_raw_material_per_ton": null,
+    "opex_energy_per_ton": null,
+    "total_cost_per_ton": null,
+    "product_price_per_ton": null,
+    "gross_profit_per_ton": null,
+    "gross_margin": null,
+    "payback_period": null,
+    "tech_feasibility_score": 9,
+    "econ_feasibility_score": 3,
+    "market_attractiveness_score": 7,
+    "scaleup_feasibility_score": 5,
+    "composite_score": 60.0,
+    "analysis_date": "2026-06-26",
+    "analyst_notes": "这是黑滑石热演化领域最全面、方法论最先进的基础研究论文。核心贡献：(1)首次用in-situ XRD+in-situ FTIR实时追踪黑滑石热演化全过程，发现黑滑石脱羟基起始温度(800°C)低于普通滑石(850-900°C)——这是节能优势的直接证据；(2)建立了完整的四阶段热演化模型（脱水30-165°C→有机碳氧化165-580°C→脱羟基800-900°C→相转变900-1000°C）；(3)定量给出每个温度节点的结晶度指数(CI)、晶格变形度、无定形SiO2/MgO含量、比表面积、分形维数、粒径、Zeta电位——这些是所有煅烧类工艺（D1陶瓷/D2微波介质/D3 N2气氛/D4抗菌/酸浸分离）设计煅烧制度的直接工程参数。与论文#7综述来自同一课题组(杨华明)，#7的煅烧四阶段反应方程(§2.1)直接引用本文数据。技术可行性9分因方法论极其完善(in-situ+ex-situ多技术交叉验证)；经济可行性3分因纯基础研究无经济数据；市场吸引力7分因支撑所有热化学路线的工艺设计；放大可行性5分因参数直接可用于中试煅烧制度设计。"
+  },
+  "process_steps": [
+    {
+      "step_order": 1,
+      "step_name": "马弗炉煅烧（30→目标温度，10°C/min，保温120min）",
+      "conversion_rate": null,
+      "is_bottleneck": 0,
+      "notes": "15个温度点：T100/T200/T300/T400/T500/T550/T600/T650/T700/T750/T800/T850/T900/T950/T1000"
+    },
+    {
+      "step_order": 2,
+      "step_name": "无定形SiO2/MgO含量定量（H2SO4+NaOH分别浸取，ICP分析）",
+      "conversion_rate": null,
+      "is_bottleneck": 0,
+      "notes": "2M H2SO4浸取MgO，4M NaOH浸取SiO2，70°C搅拌4h"
+    }
+  ],
+  "energy": [],
+  "environmental": {},
+  "attributes": [
+    {
+      "category": "raw_material_spec",
+      "attr_key": "source_mine",
+      "attr_value": "江西省广丰县黑滑石原矿（Guangfeng County, Jiangxi Province）",
+      "attr_unit": "",
+      "source_context": "§2.1 Materials"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "XRF_SiO2",
+      "attr_value": "65.03",
+      "attr_unit": "%",
+      "source_context": "Table 1"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "XRF_MgO",
+      "attr_value": "30.669",
+      "attr_unit": "%",
+      "source_context": "Table 1 — 广丰矿区最高MgO记录"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "XRF_CaO",
+      "attr_value": "2.716",
+      "attr_unit": "%",
+      "source_context": "Table 1 — 来自白云石杂质"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "XRF_Fe2O3",
+      "attr_value": "0.150",
+      "attr_unit": "%",
+      "source_context": "Table 1"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "XRF_Al2O3",
+      "attr_value": "0.175",
+      "attr_unit": "%",
+      "source_context": "Table 1"
+    },
+    {
+      "category": "raw_material_spec",
+      "attr_key": "mineral_composition",
+      "attr_value": "滑石（主相）+ 少量石英、白云石、有机碳",
+      "attr_unit": "",
+      "source_context": "§2.1"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "stage1_dehydration",
+      "attr_value": "30-165°C，质量损失0.32%，表面吸附水脱除。MS m/z=18在152°C趋近于0。d(006)未减小→水仅吸附于表面，未进入层间",
+      "attr_unit": "",
+      "source_context": "§3.1 + Fig.1-2"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "stage2_organic_carbon_oxidation",
+      "attr_value": "165-580°C，质量损失0.65%。MS m/z=44在600°C出现峰值→CO2释放。T550的d(006)=0.315nm>原矿0.313nm→CO2逸出撑开层间距。DSC 336.7°C弱吸热谷",
+      "attr_unit": "",
+      "source_context": "§3.1-3.2 + Fig.1-2"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "stage3_dihydroxylation",
+      "attr_value": "800°C开始脱羟基（低于普通滑石850-900°C！），相对结晶度CI从T800的75.8%骤降至T900的51.0%。FTIR：O-H伸缩振动3676→3666 cm⁻¹红移，Si-O-Si 1017→1000 cm⁻¹红移，OH⁻振动669 cm⁻¹减弱并分裂",
+      "attr_unit": "",
+      "source_context": "§3.1-3.3 + Fig.2-4"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "stage4_phase_transition",
+      "attr_value": "900-1000°C滑石→顽火辉石相转变。T950 CI=27.3%，顽火辉石XRD反射出现。T1000滑石结构反射完全消失→完全转变为顽火辉石。DSC 920.7°C吸热谷",
+      "attr_unit": "",
+      "source_context": "§3.1-3.2 + Fig.2"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "total_mass_loss_580_1000C",
+      "attr_value": "7.02%（580-1000°C），包含白云石分解+滑石脱羟基+相转变",
+      "attr_unit": "%",
+      "source_context": "§3.1"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "dolomite_decomposition",
+      "attr_value": "DSC 629.7°C和657.2°C两个吸热谷→白云石分解CaMg(CO3)2→CaCO3+MgO+CO2。白云石XRD峰在T700减弱，T750完全消失。FTIR 1440 cm⁻¹ CO3²⁻峰在T700消失",
+      "attr_unit": "",
+      "source_context": "§3.1-3.3"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "crystallinity_index_T950",
+      "attr_value": "27.3",
+      "attr_unit": "% (相对结晶度，T100为100%基准)",
+      "source_context": "Fig.2c + §3.2"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "lattice_deformation_onset",
+      "attr_value": "800°C时βcosθ~sinθ拟合线斜率显著增大→晶格变形开始（脱羟基驱动）。T950斜率急剧增大→结构极度无序→相转变",
+      "attr_unit": "",
+      "source_context": "Fig.2d-e + §3.2"
+    },
+    {
+      "category": "process_params",
+      "attr_key": "amorphous_SiO2_MgO_evolution",
+      "attr_value": ">800°C后无定形SiO2和MgO含量显著增加。T1000无定形SiO2含量达最高。热活化可提升黑滑石表面活性",
+      "attr_unit": "",
+      "source_context": "Fig.6b + §3.4"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "BET_surface_area_evolution",
+      "attr_value": "Talc 18.8 → T700 17.9 → T800 15.0 → T900 11.2 → T1000 5.3 m²/g。800°C以下变化不大，脱羟基后比表面积下降（结构烧结）",
+      "attr_unit": "m²/g",
+      "source_context": "Table 2 + Fig.5"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "fractal_dimension_D",
+      "attr_value": "D(Talc)=2.68 → D(T800)=2.54 → D(T1000)=2.45（Equation 9）。温度升高→表面趋于光滑",
+      "attr_unit": "",
+      "source_context": "Table 2 + §3.4"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "particle_size_evolution",
+      "attr_value": "Talc 21.94 → T800 28.17 → T1000 32.78 μm。脱羟基后粒径增大",
+      "attr_unit": "μm",
+      "source_context": "Fig.6a + §3.4"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "Zeta_potential_T800",
+      "attr_value": "T800表面电位约为原矿的一半，且几乎不随pH变化→脱羟基降低了表面去质子化能力",
+      "attr_unit": "",
+      "source_context": "Fig.7 + §3.5"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "pore_structure_retention",
+      "attr_value": "T1000仍保持4.0nm介孔结构→黑滑石高温下可维持一定孔隙结构",
+      "attr_unit": "",
+      "source_context": "Fig.5b + §3.4"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "SEM_TEM_morphology",
+      "attr_value": "SEM：原矿为不规则小片层（径向数十至数百纳米），煅烧后层间变蓬松，高温仍保持良好层状结构。TEM+SAED：<700°C晶体结构良好，900°C显著恶化（脱羟基破坏），T1000晶体多为圆形不规则形状",
+      "attr_unit": "",
+      "source_context": "Fig.8-10 + §3.6"
+    },
+    {
+      "category": "product_quality",
+      "attr_key": "whiteness_change",
+      "attr_value": "随煅烧温度升高白度显著增加（有机碳氧化+相转变）",
+      "attr_unit": "",
+      "source_context": "Fig.8 + §3.6"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "calcination_furnace",
+      "attr_value": "实验室可编程马弗炉（laboratory-programmable muffle furnace）",
+      "attr_unit": "",
+      "source_context": "§2.2.1"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "XRF_instrument",
+      "attr_value": "PANalytical Axios 波长色散X射线荧光光谱仪（荷兰）",
+      "attr_unit": "",
+      "source_context": "§2.2.3"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "TGDSC_instrument",
+      "attr_value": "NETZSCH STA 449F3（德国）",
+      "attr_unit": "",
+      "source_context": "§2.2.3"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "TGMS_instrument",
+      "attr_value": "Rigaku thermo plus EV2（日本）",
+      "attr_unit": "",
+      "source_context": "§2.2.3"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "in_situ_XRD_instrument",
+      "attr_value": "PANalytical Empyrean（荷兰），in-situ变温，5-90°，4°/min扫描",
+      "attr_unit": "",
+      "source_context": "§2.2.3"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "in_situ_FTIR_instrument",
+      "attr_value": "Thermo Scientific Nicolet iS50（美国），4000-550 cm⁻¹，64次扫描，8 cm⁻¹分辨率",
+      "attr_unit": "",
+      "source_context": "§2.2.3"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "BET_instrument",
+      "attr_value": "Quantachrome NOVA 4200e（美国）",
+      "attr_unit": "",
+      "source_context": "§2.2.3"
+    },
+    {
+      "category": "equipment",
+      "attr_key": "TEM_instrument",
+      "attr_value": "JEOL JEM-2100F（日本），200 kV",
+      "attr_unit": "",
+      "source_context": "§2.2.3"
+    },
+    {
+      "category": "value_proposition",
+      "attr_key": "lower_dihydroxylation_temp",
+      "attr_value": "首次发现黑滑石脱羟基起始温度(800°C)低于普通滑石(850-900°C)——因有机碳和杂质降低了热稳定性，是煅烧工艺的节能优势",
+      "attr_unit": "",
+      "source_context": "§3.2"
+    },
+    {
+      "category": "value_proposition",
+      "attr_key": "activation_window",
+      "attr_value": "800-900°C为'活化窗口'：无定形SiO2/MgO含量增加→表面活性提升，同时仍保持层状结构和介孔——是表面功能化改性的最佳煅烧区间",
+      "attr_unit": "",
+      "source_context": "§3.4 + §4 结论"
+    },
+    {
+      "category": "value_proposition",
+      "attr_key": "four_stage_model",
+      "attr_value": "建立了完整的黑滑石四阶段热演化模型：(I)30-165°C脱水→(II)165-580°C有机碳氧化→(III)800-900°C脱羟基→(IV)900-1000°C相转变→顽火辉石。是论文#7综述煅烧四阶段反应的原始实验数据来源",
+      "attr_unit": "",
+      "source_context": "§4 结论 + Fig.11示意图"
+    }
+  ],
+  "synergies": [
+    {
+      "paper_id_b": 2,
+      "synergy_type": "上下游衔接",
+      "synergy_strength": "强",
+      "synergy_description": "同一课题组(杨华明)的基础→综述证据链。本文是论文#7综述§2.1'煅烧四阶段反应方程'的原始实验数据来源。#7引用本文数据构建了750-1150°C四阶段煅烧模型，本文的in-situ XRD/FTIR数据为#7的综述框架提供了最底层的机理验证。两者构成'基础热演化机理→全技术路线图'的完整知识体系。此外，本文的XRF数据(MgO 30.669%)补充了#7表1中广丰矿区的成分记录。",
+      "combined_potential_score": null
+    },
+    {
+      "paper_id_b": 4,
+      "synergy_type": "条件优化借鉴",
+      "synergy_strength": "强",
+      "synergy_description": "本文的800°C活化窗口直接验证了论文#8(刘子峥2024)选择800°C预煅烧2h的合理性。#8的预煅烧温度恰好处于本文确定的'脱羟基起始点'——此时有机碳已完全去除但层状结构尚存、无定形SiO2/MgO开始生成但尚未过度烧结（比表面积从18.8仅降至15.0 m²/g）。本文的粒径数据(800°C后从21.94→28.17μm)提示#8需要关注球磨工艺优化。此外，本文揭示黑滑石热稳定性低于普通滑石——#8的烧结制度设计中可考虑利用这一特性适当降低烧结温度。",
+      "combined_potential_score": null
+    },
+    {
+      "paper_id_b": 3,
+      "synergy_type": "条件优化借鉴",
+      "synergy_strength": "中",
+      "synergy_description": "本文提供的基础数据为论文#11(裘林莉2017)的酸活化研究提供了机理层面的解释：(1)本文定量显示>800°C后无定形MgO含量随温度升高而增加——这解释了为什么#11使用的煅烧产物(预煅烧过的白色粉末)在酸中可溶出大量Mg²⁺(352 mmol/L@16h)；(2)本文发现石英在高温下保持结晶态、耐酸性——与#11的SEM+EDS观察石英颗粒表面无溶蚀完全一致；(3)本文的Zeta电位数据(T800电位减半)解释了#11煅烧产物酸活化前的水洗行为。",
+      "combined_potential_score": null
+    }
+  ]
+}

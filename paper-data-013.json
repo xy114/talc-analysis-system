@@ -1,0 +1,47 @@
+{
+  "paper": {
+    "title": "Low-cost preparation and microwave dielectric properties of a novel talc-based Li2-xMgSiO4 (x = 0–0.4) ceramic",
+    "title_en": "Low-cost preparation and microwave dielectric properties of a novel talc-based Li2-xMgSiO4 (x = 0–0.4) ceramic",
+    "authors": "Danni Bu; Weilin Chen; Yang Liu; Meiyan Yao; Yingying He; Haibing Li; Lixian Tang; Fangyi Huang; Huanfu Zhou",
+    "institution": "桂林理工大学材料科学与工程学院; 广西光学与电子材料与器件重点实验室",
+    "country": "中国", "year": 2025, "analysis_date": "2026-06-26",
+    "journal": "Ceramics International, 51, 49628–49634 (Elsevier, SCI, JCR Q1)",
+    "doi": "10.1016/j.ceramint.2025.09.XXX",
+    "research_type": "基础实验研究",
+    "problem_statement": "Li2MgSiO4是一种有前景的低介微波介质陶瓷，但传统使用高纯SiO2+MgO原料合成成本高。本研究首次用廉价滑石替代高纯SiO2及部分MgO原料→制备Li2-xMgSiO4陶瓷，并通过Li非化学计量比(x=0–0.4)进一步优化Q×f值。滑石基陶瓷展现优于高纯原料的微波介电性能，同时降低了生产成本。",
+    "raw_material_source": "滑石粉(替代高纯SiO2原料及部分MgO原料) + Li2CO3 + MgO(补足)。滑石来源推测与#10同课题组(广西龙胜华美)。",
+    "funding": "推测与#10同课题组(广西自然科学基金+广西科技计划)",
+    "benchmark_tech": "高纯SiO2+MgO+Li2CO3固相法合成Li2MgSiO4陶瓷",
+    "has_experiment": 1, "has_economic_data": 0,
+    "experiment_scale": "实验室规模(固相反应法, 常规陶瓷工艺)",
+    "citation_quality": "高 — 与#10同课题组(桂林理工 Fangyi Huang/Huanfu Zhou组), 发表于Ceramics International(JCR Q1)。微波介质陶瓷领域活跃课题组的最新系列成果。",
+    "tech_route_category": "A 陶瓷路线(固相反应-滑石替代高纯原料制备Li2MgSiO4微波介质陶瓷)",
+    "tech_route_detail": "固相反应法: 滑石+Li2CO3+MgO→球磨混合→煅烧→二次球磨→造粒→成型→烧结。Li非化学计量比设计(x=0–0.4, Li2-xMgSiO4)→Li缺位改变了物相组成但主晶相保持单斜Li2MgSiO4(P12₁/n1空间群)。最优组分L1.8MS在1075°C/4h烧结→εr=6.08, Q×f=55723 GHz, τf=−189.28 ppm/°C。",
+    "target_product_category": "微波介质陶瓷(Li2MgSiO4基, 低介低损)",
+    "target_product_name": "Li2-xMgSiO4微波介质陶瓷——低介电常数(εr~6)适用于毫米波通信基板/天线",
+    "trl_level": 3, "trl_scale": "实验室Φ10mm小样",
+    "tech_feasibility_score": 8, "econ_feasibility_score": 7, "market_attractiveness_score": 7, "scaleup_feasibility_score": 6, "composite_score": 70.0,
+    "analyst_notes": "与#10(同课题组同日处理)构成'滑石基微波介质陶瓷'系列。关键差异: #10做CaMgSiO4(Q×f~59000), 本文做Li2MgSiO4(Q×f~55723, εr更低6.08)。τf=−189 ppm/°C太负——需要TiO2/CaTiO3补偿(同D2路线策略)。烧结温度仅1075°C比#10的1370°C低~300°C——节能优势显著。Li非化学计量比策略可借鉴到其他滑石基陶瓷体系。",
+    "competitor_comparison": "滑石基L1.8MS: εr=6.08, Q×f=55723 vs 高纯原料Li2MgSiO4。Li缺位优化后Q×f提升",
+    "target_market": "毫米波通信(30-300GHz)低介电常数陶瓷基板/天线/滤波器"
+  },
+  "attributes": [
+    {"category":"process_params","attr_key":"合成方法","attr_value":"固相反应法","attr_unit":"","source_context":"论文摘要"},
+    {"category":"process_params","attr_key":"Li非化学计量比范围","attr_value":"x = 0–0.4 (Li2-xMgSiO4)","attr_unit":"","source_context":"论文摘要"},
+    {"category":"process_params","attr_key":"最优烧结温度","attr_value":"1075","attr_unit":"°C","source_context":"论文摘要"},
+    {"category":"process_params","attr_key":"烧结时间","attr_value":"4","attr_unit":"h","source_context":"论文摘要"},
+    {"category":"performance_metrics","attr_key":"最优组分","attr_value":"L1.8MS (x=0.2)","attr_unit":"","source_context":"论文摘要"},
+    {"category":"performance_metrics","attr_key":"εr","attr_value":"6.08","attr_unit":"","source_context":"论文摘要"},
+    {"category":"performance_metrics","attr_key":"Q×f","attr_value":"55723","attr_unit":"GHz","source_context":"论文摘要"},
+    {"category":"performance_metrics","attr_key":"τf","attr_value":"-189.28","attr_unit":"ppm/°C","source_context":"论文摘要"},
+    {"category":"performance_metrics","attr_key":"主晶相","attr_value":"单斜Li2MgSiO4, 空间群P12₁/n1","attr_unit":"","source_context":"论文摘要+XRD"},
+    {"category":"raw_material_spec","attr_key":"原料策略","attr_value":"滑石替代高纯SiO2+部分MgO","attr_unit":"","source_context":"论文摘要"},
+    {"category":"publication_meta","attr_key":"期刊","attr_value":"Ceramics International (JCR Q1)","attr_unit":"","source_context":"论文元信息"},
+    {"category":"publication_meta","attr_key":"通讯作者","attr_value":"Fangyi Huang; Huanfu Zhou (桂林理工)","attr_unit":"","source_context":"论文推断(同#10课题组)"}
+  ],
+  "synergies": [
+    {"paper_id_b":2,"synergy_type":"上下游衔接","synergy_strength":"强","synergy_description":"同#10逻辑——本文用滑石替代高纯原料制备Li2MgSiO4, 直接验证#7综述的'滑石→硅酸盐微波介质陶瓷'战略方向。与#10构成同课题组双验证(CaMgSiO4+Li2MgSiO4)。","combined_potential_score":null},
+    {"paper_id_b":4,"synergy_type":"条件优化借鉴","synergy_strength":"强","synergy_description":"与#8(刘子峥2024, 黑滑石→MgSiO3)互补: #8做MgSiO3(εr=5.11, Q×f=56782), 本文做Li2MgSiO4(εr=6.08, Q×f=55723)——两个体系性能接近但烧结温度差异显著(1075°C vs 1325°C)。本文的低温烧结策略(Li缺位助烧)可借鉴到#8体系降低烧结温度。","combined_potential_score":null},
+    {"paper_id_b":10,"synergy_type":"条件优化借鉴","synergy_strength":"强","synergy_description":"同课题组(Fangyi Huang/Huanfu Zhou/Weilin Chen共同作者)同日处理的'滑石→微波介质陶瓷'系列: #10做CaMgSiO4, 本文做Li2MgSiO4。两篇论文共享相同的方法论(固相反应+滑石替代)但不同的陶瓷体系——共同构建了'滑石基微波介质陶瓷材料库'。","combined_potential_score":null}
+  ]
+}
