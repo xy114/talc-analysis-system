@@ -13,7 +13,7 @@
     /* ---------- CSS 变量 ---------- */
     :root {
       --deep-blue: #1a365d;
-      --amber: #d97706;
+      --amber: #a0520a;
       --graphite: #374151;
       --light-gray: #e5e7eb;
       --titanium: #f7f8fa;
@@ -56,7 +56,7 @@
     /* ---------- 章节标签 — 左上角固定 ---------- */
     .section-tag {
       font-family: var(--font-title);
-      font-size: 8pt;
+      font-size: 10pt;
       font-weight: 500;
       color: var(--amber);
       text-transform: uppercase;
@@ -93,8 +93,8 @@
 
     /* ---------- 图表占位框 ---------- */
     .placeholder {
-      border: 2px dashed var(--light-gray);
-      background: #f9fafb;
+      border: 1.5px dashed var(--light-gray);
+      background: #f7f6f3;
       border-radius: 6px;
       display: flex;
       flex-direction: column;
@@ -121,15 +121,17 @@
       width: 100%;
       border-collapse: collapse;
       font-size: 14pt;
+      border-top: 2px solid var(--deep-blue);
+      border-bottom: 2px solid var(--deep-blue);
     }
     .data-table th {
       font-family: var(--font-title);
       font-size: 12pt;
       color: var(--deep-blue);
-      background: var(--light-gray);
+      background: transparent;
       padding: 8px 12px;
       text-align: left;
-      border-bottom: 2px solid var(--deep-blue);
+      border-bottom: 1.5px solid var(--deep-blue);
     }
     .data-table td {
       padding: 8px 12px;
@@ -240,8 +242,9 @@
       text-align: center;
     }
     .slide-dark .slide-title { color: white; font-size: 36pt; }
-    .slide-dark .data-table th { color: var(--dark-overlay-text); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-    .slide-dark .data-table td { border-color: rgba(255,255,255,0.1); color: var(--dark-overlay-text); }
+    .slide-dark .data-table { border-top-color: rgba(255,255,255,0.2); border-bottom-color: rgba(255,255,255,0.2); }
+    .slide-dark .data-table th { color: var(--dark-overlay-text); background: rgba(255,255,255,0.08); border-bottom-color: rgba(255,255,255,0.2); }
+    .slide-dark .data-table td { border-bottom-color: rgba(255,255,255,0.1); color: var(--dark-overlay-text); }
     .slide-dark .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
   </style>
 </head>
@@ -372,27 +375,27 @@
       <text x="520" y="186" text-anchor="middle" fill="white" font-family="var(--font-title)" font-size="16" font-weight="700">黑滑石原矿</text>
       <!-- 五条分支线 -->
       <!-- D1 传统煅烧 -->
-      <line x1="620" y1="170" x2="850" y2="40" stroke="#6b7280" stroke-width="2"/>
+      <line x1="620" y1="170" x2="850" y2="40" stroke="#6b7280" stroke-width="1.5"/>
       <rect x="855" y="15" width="170" height="50" rx="6" fill="white" stroke="#6b7280" stroke-width="1.5"/>
       <text x="940" y="38" text-anchor="middle" fill="#6b7280" font-family="var(--font-title)" font-size="13" font-weight="700">D1 传统煅烧</text>
       <text x="940" y="54" text-anchor="middle" fill="#6b7280" font-size="10">白滑石填料</text>
       <!-- D2 5G陶瓷 -->
-      <line x1="620" y1="175" x2="850" y2="100" stroke="#3b82f6" stroke-width="2.5"/>
-      <rect x="855" y="75" width="170" height="50" rx="6" fill="white" stroke="#3b82f6" stroke-width="2"/>
+      <line x1="620" y1="175" x2="850" y2="100" stroke="#3b82f6" stroke-width="1.5"/>
+      <rect x="855" y="75" width="170" height="50" rx="6" fill="white" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="940" y="98" text-anchor="middle" fill="#3b82f6" font-family="var(--font-title)" font-size="13" font-weight="700">D2 5G微波陶瓷</text>
       <text x="940" y="114" text-anchor="middle" fill="#3b82f6" font-size="10">滤波器/基站</text>
       <!-- D3 N₂碳石墨烯 (高亮 — 初阶旗帜) -->
-      <line x1="620" y1="185" x2="850" y2="170" stroke="#10b981" stroke-width="3.5"/>
-      <rect x="855" y="145" width="170" height="50" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="2.5"/>
+      <line x1="620" y1="185" x2="850" y2="170" stroke="#10b981" stroke-width="1.5"/>
+      <rect x="855" y="145" width="170" height="50" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
       <text x="940" y="168" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="13" font-weight="700">D3 N₂碳石墨烯 ★</text>
       <text x="940" y="184" text-anchor="middle" fill="#10b981" font-size="10">导电/导热功能填料</text>
       <!-- D4 抗菌 -->
-      <line x1="620" y1="190" x2="850" y2="240" stroke="#8b5cf6" stroke-width="2"/>
+      <line x1="620" y1="190" x2="850" y2="240" stroke="#8b5cf6" stroke-width="1.5"/>
       <rect x="855" y="215" width="170" height="50" rx="6" fill="white" stroke="#8b5cf6" stroke-width="1.5"/>
       <text x="940" y="238" text-anchor="middle" fill="#8b5cf6" font-family="var(--font-title)" font-size="13" font-weight="700">D4 抗菌岩板</text>
       <text x="940" y="254" text-anchor="middle" fill="#8b5cf6" font-size="10">功能建材</text>
       <!-- D9 酸浸 -->
-      <line x1="620" y1="195" x2="850" y2="310" stroke="#f59e0b" stroke-width="2"/>
+      <line x1="620" y1="195" x2="850" y2="310" stroke="#f59e0b" stroke-width="1.5"/>
       <rect x="855" y="285" width="170" height="50" rx="6" fill="white" stroke="#f59e0b" stroke-width="1.5"/>
       <text x="940" y="308" text-anchor="middle" fill="#f59e0b" font-family="var(--font-title)" font-size="13" font-weight="700">D9 酸浸分离</text>
       <text x="940" y="324" text-anchor="middle" fill="#f59e0b" font-size="10">MgO + 白炭黑</text>
@@ -460,11 +463,11 @@
       <text x="500" y="52" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">碳是"杂质"还是"资源"？</text>
 
       <!-- 分叉线 -->
-      <line x1="500" y1="60" x2="260" y2="120" stroke="#ef4444" stroke-width="2.5"/>
-      <line x1="500" y1="60" x2="740" y2="120" stroke="#10b981" stroke-width="3"/>
+      <line x1="500" y1="60" x2="260" y2="120" stroke="#ef4444" stroke-width="1.5"/>
+      <line x1="500" y1="60" x2="740" y2="120" stroke="#10b981" stroke-width="1.5"/>
 
       <!-- 左分支：空气煅烧 -->
-      <rect x="110" y="120" width="280" height="50" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+      <rect x="110" y="120" width="280" height="50" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
       <text x="250" y="143" text-anchor="middle" fill="#991b1b" font-family="var(--font-title)" font-size="14" font-weight="700">空气煅烧</text>
       <text x="250" y="160" text-anchor="middle" fill="#991b1b" font-size="11">有机碳 → CO₂↑（碳资源浪费）</text>
 
@@ -474,12 +477,12 @@
       <text x="250" y="250" text-anchor="middle" fill="#6b7280" font-size="11">售价仅 500–800 元/吨</text>
 
       <!-- 右分支：N₂气氛 -->
-      <rect x="610" y="120" width="280" height="50" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="2.5"/>
+      <rect x="610" y="120" width="280" height="50" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
       <text x="750" y="143" text-anchor="middle" fill="#065f46" font-family="var(--font-title)" font-size="14" font-weight="700">N₂ 气氛保护</text>
       <text x="750" y="160" text-anchor="middle" fill="#065f46" font-size="11">碳保留 → 原位石墨烯化</text>
 
-      <line x1="750" y1="170" x2="750" y2="210" stroke="#10b981" stroke-width="2"/>
-      <rect x="630" y="210" width="240" height="50" rx="6" fill="white" stroke="#10b981" stroke-width="2"/>
+      <line x1="750" y1="170" x2="750" y2="210" stroke="#10b981" stroke-width="1.5"/>
+      <rect x="630" y="210" width="240" height="50" rx="6" fill="white" stroke="#10b981" stroke-width="1.5"/>
       <text x="750" y="233" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="14" font-weight="700">碳/石墨烯复合填料</text>
       <text x="750" y="250" text-anchor="middle" fill="#10b981" font-size="11">售价可达 5,000–20,000 元/吨</text>
 
@@ -514,28 +517,28 @@
         <!-- 四个阶段 -->
         <rect x="70" y="340" width="80" height="36" rx="4" fill="#dbeafe"/>
         <text x="110" y="356" text-anchor="middle" font-size="10" fill="#1e40af">Stage I</text>
-        <text x="110" y="370" text-anchor="middle" font-size="9" fill="#1e40af">30-165°C</text>
+        <text x="110" y="370" text-anchor="middle" font-size="10" fill="#1e40af">30-165°C</text>
         <rect x="160" y="340" width="90" height="36" rx="4" fill="#fee2e2"/>
         <text x="205" y="356" text-anchor="middle" font-size="10" fill="#991b1b">Stage II</text>
-        <text x="205" y="370" text-anchor="middle" font-size="9" fill="#991b1b">165-580°C</text>
+        <text x="205" y="370" text-anchor="middle" font-size="10" fill="#991b1b">165-580°C</text>
         <rect x="260" y="340" width="80" height="36" rx="4" fill="#fef3c7"/>
         <text x="300" y="356" text-anchor="middle" font-size="10" fill="#92400e">Stage III</text>
-        <text x="300" y="370" text-anchor="middle" font-size="9" fill="#92400e">800-900°C</text>
+        <text x="300" y="370" text-anchor="middle" font-size="10" fill="#92400e">800-900°C</text>
         <rect x="350" y="340" width="80" height="36" rx="4" fill="#d1fae5"/>
         <text x="390" y="356" text-anchor="middle" font-size="10" fill="#065f46">Stage IV</text>
-        <text x="390" y="370" text-anchor="middle" font-size="9" fill="#065f46">900-1000°C</text>
+        <text x="390" y="370" text-anchor="middle" font-size="10" fill="#065f46">900-1000°C</text>
         <!-- 标注 -->
-        <text x="110" y="320" text-anchor="middle" font-size="9" fill="#6b7280">脱水</text>
-        <text x="205" y="320" text-anchor="middle" font-size="9" fill="#6b7280">碳氧化→CO₂↑</text>
-        <text x="300" y="320" text-anchor="middle" font-size="9" fill="#6b7280">脱羟基</text>
-        <text x="390" y="320" text-anchor="middle" font-size="9" fill="#6b7280">相转变</text>
+        <text x="110" y="320" text-anchor="middle" font-size="10" fill="#6b7280">脱水</text>
+        <text x="205" y="320" text-anchor="middle" font-size="10" fill="#6b7280">碳氧化→CO₂↑</text>
+        <text x="300" y="320" text-anchor="middle" font-size="10" fill="#6b7280">脱羟基</text>
+        <text x="390" y="320" text-anchor="middle" font-size="10" fill="#6b7280">相转变</text>
         <!-- 关键标注框 -->
         <rect x="245" y="240" width="200" height="36" rx="4" fill="var(--amber)" opacity="0.12" stroke="var(--amber)" stroke-width="1.5" stroke-dasharray="4,2"/>
         <text x="345" y="254" text-anchor="middle" font-size="10" fill="var(--amber)" font-weight="700">活化窗口 800-900°C</text>
-        <text x="345" y="268" text-anchor="middle" font-size="9" fill="var(--amber)">无定形 SiO₂/MgO 峰值</text>
+        <text x="345" y="268" text-anchor="middle" font-size="10" fill="var(--amber)">无定形 SiO₂/MgO 峰值</text>
         <rect x="145" y="240" width="200" height="36" rx="4" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2"/>
         <text x="245" y="254" text-anchor="middle" font-size="10" fill="#3b82f6" font-weight="700">N₂保护窗口 &gt;165°C</text>
-        <text x="245" y="268" text-anchor="middle" font-size="9" fill="#3b82f6">阻止碳氧化，保留碳资源</text>
+        <text x="245" y="268" text-anchor="middle" font-size="10" fill="#3b82f6">阻止碳氧化，保留碳资源</text>
       </svg>
     </div>
   </div>
@@ -576,7 +579,7 @@
         <rect x="240" y="240" width="12" height="12" rx="2" fill="#10b981"/>
         <text x="258" y="250" fill="#10b981" font-size="11">N₂ 气氛</text>
         <!-- 数据来源 -->
-        <text x="220" y="290" text-anchor="middle" fill="#9ca3af" font-size="9">来源: PAPER-006 吴小文 2017 Fig.3-5, PDF 约45-55%位置</text>
+        <text x="220" y="290" text-anchor="middle" fill="#9ca3af" font-size="10">来源: PAPER-006 吴小文 2017 Fig.3-5, PDF 约45-55%位置</text>
       </svg>
     </div>
     <div class="col-right">
@@ -616,28 +619,28 @@
       </defs>
 
       <!-- 三个圆圈 -->
-      <circle cx="160" cy="140" r="85" fill="var(--amber)" opacity="0.08" stroke="var(--amber)" stroke-width="2"/>
+      <circle cx="160" cy="140" r="85" fill="var(--amber)" opacity="0.08" stroke="var(--amber)" stroke-width="1.5"/>
       <text x="160" y="118" text-anchor="middle" fill="var(--amber)" font-family="var(--font-title)" font-size="14" font-weight="700">事实一</text>
       <text x="160" y="140" text-anchor="middle" fill="var(--graphite)" font-size="12" font-weight="700">10 亿吨储量</text>
       <text x="160" y="158" text-anchor="middle" fill="#6b7280" font-size="10">全球最大黑滑石矿床</text>
       <text x="160" y="174" text-anchor="middle" fill="#6b7280" font-size="10">原料供应无瓶颈</text>
 
-      <circle cx="450" cy="140" r="85" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="2"/>
+      <circle cx="450" cy="140" r="85" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="450" y="118" text-anchor="middle" fill="#3b82f6" font-family="var(--font-title)" font-size="14" font-weight="700">事实二</text>
       <text x="450" y="140" text-anchor="middle" fill="var(--graphite)" font-size="12" font-weight="700">四阶段热演化模型</text>
       <text x="450" y="158" text-anchor="middle" fill="#6b7280" font-size="10">800-900°C 活化窗口</text>
       <text x="450" y="174" text-anchor="middle" fill="#6b7280" font-size="10">无定形 SiO₂/MgO 峰值</text>
 
-      <circle cx="740" cy="140" r="85" fill="#10b981" opacity="0.08" stroke="#10b981" stroke-width="2"/>
+      <circle cx="740" cy="140" r="85" fill="#10b981" opacity="0.08" stroke="#10b981" stroke-width="1.5"/>
       <text x="740" y="118" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="14" font-weight="700">事实三</text>
       <text x="740" y="140" text-anchor="middle" fill="var(--graphite)" font-size="12" font-weight="700">N₂ 碳石墨烯化</text>
       <text x="740" y="158" text-anchor="middle" fill="#6b7280" font-size="10">原位生成导电网络</text>
       <text x="740" y="174" text-anchor="middle" fill="#6b7280" font-size="10">抗弯 +43% · 电阻率↓</text>
 
       <!-- 汇聚箭头 -->
-      <line x1="245" y1="140" x2="360" y2="250" stroke="var(--amber)" stroke-width="2" marker-end="url(#arrow-amber)"/>
-      <line x1="450" y1="225" x2="450" y2="250" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
-      <line x1="655" y1="140" x2="540" y2="250" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+      <line x1="245" y1="140" x2="360" y2="250" stroke="var(--amber)" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+      <line x1="450" y1="225" x2="450" y2="250" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+      <line x1="655" y1="140" x2="540" y2="250" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrow-green)"/>
 
       <!-- 汇聚结果 -->
       <rect x="350" y="255" width="200" height="50" rx="8" fill="var(--deep-blue)"/>
@@ -769,11 +772,11 @@
         <line x1="430" y1="200" x2="260" y2="282" marker-end="url(#arrow-blue)"/>
         <line x1="430" y1="200" x2="380" y2="282" marker-end="url(#arrow-blue)"/>
       </g>
-      <g stroke="#3b82f6" stroke-width="2" fill="none">
+      <g stroke="#3b82f6" stroke-width="1.5" fill="none">
         <line x1="305" y1="288" x2="318" y2="288" marker-end="url(#arrow-blue)"/>
         <line x1="325" y1="302" x2="312" y2="302" marker-end="url(#arrow-blue)"/>
       </g>
-      <text x="315" y="295" text-anchor="middle" fill="#3b82f6" font-size="8">↔</text>
+      <text x="315" y="295" text-anchor="middle" fill="#3b82f6" font-size="10">↔</text>
 
       <!-- D2 节点 -->
       <rect x="110" y="165" width="140" height="40" rx="5" fill="white" stroke="#3b82f6" stroke-width="1.8"/>
@@ -797,15 +800,15 @@
       <!-- D3+D4+D9 节点 -->
       <rect x="720" y="165" width="120" height="40" rx="5" fill="white" stroke="#10b981" stroke-width="1.8"/>
       <text x="780" y="182" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="11" font-weight="700">PAPER-006</text>
-      <text x="780" y="197" text-anchor="middle" fill="#6b7280" font-size="9">D3</text>
+      <text x="780" y="197" text-anchor="middle" fill="#6b7280" font-size="10">D3</text>
 
       <rect x="720" y="245" width="120" height="40" rx="5" fill="white" stroke="#8b5cf6" stroke-width="1.8"/>
       <text x="780" y="262" text-anchor="middle" fill="#8b5cf6" font-family="var(--font-title)" font-size="11" font-weight="700">PAPER-003</text>
-      <text x="780" y="277" text-anchor="middle" fill="#6b7280" font-size="9">D4</text>
+      <text x="780" y="277" text-anchor="middle" fill="#6b7280" font-size="10">D4</text>
 
       <rect x="720" y="325" width="120" height="40" rx="5" fill="white" stroke="#f59e0b" stroke-width="1.8"/>
       <text x="780" y="342" text-anchor="middle" fill="#f59e0b" font-family="var(--font-title)" font-size="11" font-weight="700">PAPER-007</text>
-      <text x="780" y="357" text-anchor="middle" fill="#6b7280" font-size="9">D9</text>
+      <text x="780" y="357" text-anchor="middle" fill="#6b7280" font-size="10">D9</text>
 
       <!-- 图例 -->
       <defs>
@@ -902,29 +905,29 @@
       <text x="400" y="338" text-anchor="middle" fill="#1e40af" font-size="11">四阶段模型 · 15个温度点 · 完整物化性质数据</text>
 
       <!-- 中层 — PAPER-002 -->
-      <polygon points="300,170 500,170 590,260 210,260" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <polygon points="300,170 500,170 590,260 210,260" fill="#fef3c7" stroke="var(--amber)" stroke-width="1.5"/>
       <text x="400" y="218" text-anchor="middle" fill="#92400e" font-family="var(--font-title)" font-size="12" font-weight="700">PAPER-002 杨华明 2023</text>
       <text x="400" y="236" text-anchor="middle" fill="#92400e" font-size="11">综述框架 · ~90篇参考文献</text>
 
       <!-- 顶层 (分割为4) — 实验论文 -->
       <polygon points="400,70 350,170 300,170" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
       <text x="325" y="138" text-anchor="middle" fill="#065f46" font-family="var(--font-title)" font-size="10" font-weight="700">D2</text>
-      <text x="325" y="152" text-anchor="middle" fill="#065f46" font-size="9">(5篇)</text>
+      <text x="325" y="152" text-anchor="middle" fill="#065f46" font-size="10">(5篇)</text>
 
       <polygon points="400,70 400,170 350,170" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="375" y="138" text-anchor="middle" fill="#1e40af" font-family="var(--font-title)" font-size="10" font-weight="700">D3</text>
-      <text x="375" y="152" text-anchor="middle" fill="#1e40af" font-size="9">(2篇)</text>
+      <text x="375" y="152" text-anchor="middle" fill="#1e40af" font-size="10">(2篇)</text>
 
       <polygon points="400,70 450,170 400,170" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
       <text x="425" y="138" text-anchor="middle" fill="#5b21b6" font-family="var(--font-title)" font-size="10" font-weight="700">D4</text>
-      <text x="425" y="152" text-anchor="middle" fill="#5b21b6" font-size="9">(1篇)</text>
+      <text x="425" y="152" text-anchor="middle" fill="#5b21b6" font-size="10">(1篇)</text>
 
-      <polygon points="400,70 500,170 450,170" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <polygon points="400,70 500,170 450,170" fill="#fef3c7" stroke="var(--amber)" stroke-width="1.5"/>
       <text x="475" y="138" text-anchor="middle" fill="#92400e" font-family="var(--font-title)" font-size="10" font-weight="700">D9</text>
-      <text x="475" y="152" text-anchor="middle" fill="#92400e" font-size="9">(1篇)</text>
+      <text x="475" y="152" text-anchor="middle" fill="#92400e" font-size="10">(1篇)</text>
 
       <!-- 金字塔外框线 -->
-      <polygon points="400,70 700,370 100,370" fill="none" stroke="var(--deep-blue)" stroke-width="2.5" opacity="0.4"/>
+      <polygon points="400,70 700,370 100,370" fill="none" stroke="var(--deep-blue)" stroke-width="1.5" opacity="0.4"/>
     </svg>
     <div style="text-align:center;font-size:12pt;color:#6b7280;margin-top:8px;">
       金字塔结构 → 不是零散的10篇，而是三层递进的知识体系
@@ -1073,39 +1076,39 @@
         <!-- 标题 -->
         <text x="230" y="18" text-anchor="middle" fill="var(--deep-blue)" font-family="var(--font-title)" font-size="12" font-weight="700">气氛 × 温度 → 产物矩阵</text>
         <!-- Air 列 -->
-        <rect x="30" y="30" width="180" height="28" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+        <rect x="30" y="30" width="180" height="28" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="0.75"/>
         <text x="120" y="49" text-anchor="middle" fill="#991b1b" font-size="11" font-weight="700">Air 空气</text>
         <!-- N2 列 -->
-        <rect x="240" y="30" width="190" height="28" rx="4" fill="#f0fdf4" stroke="#10b981" stroke-width="1"/>
+        <rect x="240" y="30" width="190" height="28" rx="4" fill="#f0fdf4" stroke="#10b981" stroke-width="0.75"/>
         <text x="335" y="49" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">N2 气氛</text>
         <!-- 行标签 -->
         <text x="20" y="85" fill="var(--graphite)" font-size="10">30-165degC</text>
         <rect x="100" y="70" width="110" height="22" rx="3" fill="#dbeafe"/>
-        <text x="155" y="85" text-anchor="middle" fill="#1e40af" font-size="9">物理吸附水脱除</text>
+        <text x="155" y="85" text-anchor="middle" fill="#1e40af" font-size="10">物理吸附水脱除</text>
         <rect x="240" y="70" width="190" height="22" rx="3" fill="#dbeafe"/>
-        <text x="335" y="85" text-anchor="middle" fill="#1e40af" font-size="9">物理吸附水脱除（同）</text>
+        <text x="335" y="85" text-anchor="middle" fill="#1e40af" font-size="10">物理吸附水脱除（同）</text>
         <text x="20" y="135" fill="var(--graphite)" font-size="10">165-580degC</text>
         <rect x="100" y="118" width="110" height="22" rx="3" fill="#fee2e2"/>
-        <text x="155" y="133" text-anchor="middle" fill="#991b1b" font-size="9">碳氧化->CO2</text>
+        <text x="155" y="133" text-anchor="middle" fill="#991b1b" font-size="10">碳氧化->CO2</text>
         <rect x="240" y="118" width="190" height="22" rx="3" fill="#f0fdf4"/>
-        <text x="335" y="133" text-anchor="middle" fill="#065f46" font-size="9">碳保留->石墨烯化</text>
+        <text x="335" y="133" text-anchor="middle" fill="#065f46" font-size="10">碳保留->石墨烯化</text>
         <text x="20" y="185" fill="var(--graphite)" font-size="10">800-900degC</text>
         <rect x="100" y="168" width="110" height="22" rx="3" fill="#fef3c7"/>
-        <text x="155" y="183" text-anchor="middle" fill="#92400e" font-size="9">脱羟基 无定形MgO</text>
+        <text x="155" y="183" text-anchor="middle" fill="#92400e" font-size="10">脱羟基 无定形MgO</text>
         <rect x="240" y="168" width="190" height="22" rx="3" fill="#f0fdf4"/>
-        <text x="335" y="183" text-anchor="middle" fill="#065f46" font-size="9">脱羟基+碳石墨化</text>
+        <text x="335" y="183" text-anchor="middle" fill="#065f46" font-size="10">脱羟基+碳石墨化</text>
         <text x="20" y="235" fill="var(--graphite)" font-size="10">900-1000degC</text>
         <rect x="100" y="218" width="110" height="22" rx="3" fill="#d1fae5"/>
-        <text x="155" y="233" text-anchor="middle" fill="#065f46" font-size="9">顽火辉石结晶</text>
+        <text x="155" y="233" text-anchor="middle" fill="#065f46" font-size="10">顽火辉石结晶</text>
         <rect x="240" y="218" width="190" height="22" rx="3" fill="#f0fdf4"/>
-        <text x="335" y="233" text-anchor="middle" fill="#065f46" font-size="9">顽火辉石+石墨复合</text>
+        <text x="335" y="233" text-anchor="middle" fill="#065f46" font-size="10">顽火辉石+石墨复合</text>
         <!-- 性能标注 -->
-        <rect x="60" y="270" width="340" height="20" rx="3" fill="var(--amber)" opacity="0.1" stroke="var(--amber)" stroke-width="1" stroke-dasharray="3,2"/>
-        <text x="230" y="284" text-anchor="middle" fill="var(--amber)" font-size="9" font-weight="700">N2: 抗弯+43% N2导电率x10 N2导热+0.62</text>
+        <rect x="60" y="270" width="340" height="20" rx="3" fill="var(--amber)" opacity="0.1" stroke="var(--amber)" stroke-width="0.75" stroke-dasharray="3,2"/>
+        <text x="230" y="284" text-anchor="middle" fill="var(--amber)" font-size="10" font-weight="700">N2: 抗弯+43% N2导电率x10 N2导热+0.62</text>
         <!-- 关键定量区 -->
         <rect x="80" y="305" width="300" height="44" rx="4" fill="var(--deep-blue)" opacity="0.06"/>
         <text x="230" y="323" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">核心发现: 交叉PAPER-005+PAPER-006=PAPER的新生长点</text>
-        <text x="230" y="340" text-anchor="middle" fill="var(--deep-blue)" font-size="9">仅空气气氛 vs 仅单一N2温度 → 组合=三位一体相图</text>
+        <text x="230" y="340" text-anchor="middle" fill="var(--deep-blue)" font-size="10">仅空气气氛 vs 仅单一N2温度 → 组合=三位一体相图</text>
       </svg>
     </div>
   </div>
@@ -1195,48 +1198,48 @@
         <text x="200" y="20" text-anchor="middle" fill="var(--deep-blue)" font-family="var(--font-title)" font-size="13" font-weight="700">实验矩阵: 4温度 x 3流量 = 12组</text>
         <!-- 列头 -->
         <rect x="30" y="30" width="80" height="24" rx="3" fill="var(--deep-blue)"/>
-        <text x="70" y="47" text-anchor="middle" fill="white" font-size="9">温度 / 流量</text>
+        <text x="70" y="47" text-anchor="middle" fill="white" font-size="10">温度 / 流量</text>
         <rect x="120" y="30" width="75" height="24" rx="3" fill="#d1d5db"/>
-        <text x="157" y="47" text-anchor="middle" fill="var(--graphite)" font-size="9">50 mL/min</text>
+        <text x="157" y="47" text-anchor="middle" fill="var(--graphite)" font-size="10">50 mL/min</text>
         <rect x="205" y="30" width="75" height="24" rx="3" fill="#d1d5db"/>
-        <text x="242" y="47" text-anchor="middle" fill="var(--graphite)" font-size="9">100 mL/min</text>
+        <text x="242" y="47" text-anchor="middle" fill="var(--graphite)" font-size="10">100 mL/min</text>
         <rect x="290" y="30" width="75" height="24" rx="3" fill="#d1d5db"/>
-        <text x="327" y="47" text-anchor="middle" fill="var(--graphite)" font-size="9">200 mL/min</text>
+        <text x="327" y="47" text-anchor="middle" fill="var(--graphite)" font-size="10">200 mL/min</text>
         <!-- 行: 4个温度 -->
-        <rect x="30" y="62" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="1"/>
+        <rect x="30" y="62" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="0.75"/>
         <text x="70" y="85" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">800degC</text>
         <rect x="120" y="62" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="157" y="85" text-anchor="middle" fill="#10b981" font-size="9">G1</text>
+        <text x="157" y="85" text-anchor="middle" fill="#10b981" font-size="10">G1</text>
         <rect x="205" y="62" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="242" y="85" text-anchor="middle" fill="#10b981" font-size="9">G2</text>
+        <text x="242" y="85" text-anchor="middle" fill="#10b981" font-size="10">G2</text>
         <rect x="290" y="62" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="327" y="85" text-anchor="middle" fill="#10b981" font-size="9">G3</text>
-        <rect x="30" y="106" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="1"/>
+        <text x="327" y="85" text-anchor="middle" fill="#10b981" font-size="10">G3</text>
+        <rect x="30" y="106" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="0.75"/>
         <text x="70" y="129" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">850degC</text>
         <rect x="120" y="106" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="157" y="129" text-anchor="middle" fill="#10b981" font-size="9">G4</text>
+        <text x="157" y="129" text-anchor="middle" fill="#10b981" font-size="10">G4</text>
         <rect x="205" y="106" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="242" y="129" text-anchor="middle" fill="#10b981" font-size="9">G5</text>
+        <text x="242" y="129" text-anchor="middle" fill="#10b981" font-size="10">G5</text>
         <rect x="290" y="106" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="327" y="129" text-anchor="middle" fill="#10b981" font-size="9">G6</text>
-        <rect x="30" y="150" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="1"/>
+        <text x="327" y="129" text-anchor="middle" fill="#10b981" font-size="10">G6</text>
+        <rect x="30" y="150" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="0.75"/>
         <text x="70" y="173" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">900degC</text>
         <rect x="120" y="150" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="157" y="173" text-anchor="middle" fill="#10b981" font-size="9">G7</text>
+        <text x="157" y="173" text-anchor="middle" fill="#10b981" font-size="10">G7</text>
         <rect x="205" y="150" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="242" y="173" text-anchor="middle" fill="#10b981" font-size="9">G8</text>
+        <text x="242" y="173" text-anchor="middle" fill="#10b981" font-size="10">G8</text>
         <rect x="290" y="150" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="327" y="173" text-anchor="middle" fill="#10b981" font-size="9">G9</text>
-        <rect x="30" y="194" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="1"/>
+        <text x="327" y="173" text-anchor="middle" fill="#10b981" font-size="10">G9</text>
+        <rect x="30" y="194" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="0.75"/>
         <text x="70" y="217" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">950degC</text>
         <rect x="120" y="194" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="157" y="217" text-anchor="middle" fill="#10b981" font-size="9">G10</text>
+        <text x="157" y="217" text-anchor="middle" fill="#10b981" font-size="10">G10</text>
         <rect x="205" y="194" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="242" y="217" text-anchor="middle" fill="#10b981" font-size="9">G11</text>
+        <text x="242" y="217" text-anchor="middle" fill="#10b981" font-size="10">G11</text>
         <rect x="290" y="194" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="327" y="217" text-anchor="middle" fill="#10b981" font-size="9">G12</text>
+        <text x="327" y="217" text-anchor="middle" fill="#10b981" font-size="10">G12</text>
         <!-- 标注 -->
-        <text x="200" y="260" text-anchor="middle" fill="#6b7280" font-size="9">总计: 12组实验 + 3个平行样 = 36个样品</text>
+        <text x="200" y="260" text-anchor="middle" fill="#6b7280" font-size="10">总计: 12组实验 + 3个平行样 = 36个样品</text>
         <text x="200" y="278" text-anchor="middle" fill="var(--amber)" font-size="10" font-weight="700">含碳2%黑滑石 + 含碳0.5%黑滑石 对比</text>
       </svg>
       <div style="display:flex;gap:12px;">
@@ -1439,21 +1442,21 @@
         <line x1="200" y1="168" x2="200" y2="186" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#arrow-down)"/>
         <!-- 两阶段展开 -->
         <rect x="30" y="186" width="160" height="28" rx="4" fill="#dbeafe"/>
-        <text x="110" y="204" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="700">Stage1: 165-580degC</text>
+        <text x="110" y="204" text-anchor="middle" fill="#1e40af" font-size="10" font-weight="700">Stage1: 165-580degC</text>
         <rect x="210" y="186" width="160" height="28" rx="4" fill="#f0fdf4"/>
-        <text x="290" y="204" text-anchor="middle" fill="#065f46" font-size="9" font-weight="700">Stage2: 800-900degC</text>
-        <line x1="110" y1="214" x2="110" y2="236" stroke="var(--graphite)" stroke-width="1" marker-end="url(#arrow-down)"/>
-        <line x1="290" y1="214" x2="290" y2="236" stroke="var(--graphite)" stroke-width="1" marker-end="url(#arrow-down)"/>
-        <text x="110" y="250" text-anchor="middle" fill="#6b7280" font-size="9">慢升温5degC/min</text>
-        <text x="290" y="250" text-anchor="middle" fill="#6b7280" font-size="9">保温2h</text>
+        <text x="290" y="204" text-anchor="middle" fill="#065f46" font-size="10" font-weight="700">Stage2: 800-900degC</text>
+        <line x1="110" y1="214" x2="110" y2="236" stroke="var(--graphite)" stroke-width="0.75" marker-end="url(#arrow-down)"/>
+        <line x1="290" y1="214" x2="290" y2="236" stroke="var(--graphite)" stroke-width="0.75" marker-end="url(#arrow-down)"/>
+        <text x="110" y="250" text-anchor="middle" fill="#6b7280" font-size="10">慢升温5degC/min</text>
+        <text x="290" y="250" text-anchor="middle" fill="#6b7280" font-size="10">保温2h</text>
         <!-- 汇聚 -->
-        <line x1="110" y1="262" x2="200" y2="282" stroke="var(--graphite)" stroke-width="1"/>
-        <line x1="290" y1="262" x2="200" y2="282" stroke="var(--graphite)" stroke-width="1"/>
+        <line x1="110" y1="262" x2="200" y2="282" stroke="var(--graphite)" stroke-width="0.75"/>
+        <line x1="290" y1="262" x2="200" y2="282" stroke="var(--graphite)" stroke-width="0.75"/>
         <line x1="200" y1="282" x2="200" y2="296" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#arrow-down)"/>
         <rect x="120" y="296" width="160" height="28" rx="4" fill="var(--deep-blue)" opacity="0.7"/>
         <text x="200" y="315" text-anchor="middle" fill="white" font-size="10">N2冷却 + 球磨分级</text>
         <line x1="200" y1="324" x2="200" y2="340" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#arrow-down)"/>
-        <rect x="80" y="340" width="240" height="20" rx="4" fill="var(--amber)" opacity="0.15" stroke="var(--amber)" stroke-width="1"/>
+        <rect x="80" y="340" width="240" height="20" rx="4" fill="var(--amber)" opacity="0.15" stroke="var(--amber)" stroke-width="0.75"/>
         <text x="200" y="354" text-anchor="middle" fill="var(--amber)" font-size="10" font-weight="700">导电/导热功能填料</text>
         <!-- marker -->
         <defs>
@@ -1611,35 +1614,35 @@
       <text x="660" y="380" text-anchor="middle" fill="var(--graphite)" font-size="10">学期5-6</text>
       <text x="910" y="380" text-anchor="middle" fill="var(--graphite)" font-size="10">学期7-8</text>
       <!-- 学期分隔 -->
-      <line x1="280" y1="350" x2="280" y2="370" stroke="var(--light-gray)" stroke-width="1"/>
-      <line x1="530" y1="350" x2="530" y2="370" stroke="var(--light-gray)" stroke-width="1"/>
-      <line x1="780" y1="350" x2="780" y2="370" stroke="var(--light-gray)" stroke-width="1"/>
+      <line x1="280" y1="350" x2="280" y2="370" stroke="var(--light-gray)" stroke-width="0.75"/>
+      <line x1="530" y1="350" x2="530" y2="370" stroke="var(--light-gray)" stroke-width="0.75"/>
+      <line x1="780" y1="350" x2="780" y2="370" stroke="var(--light-gray)" stroke-width="0.75"/>
       <!-- Phase 0a -->
       <rect x="70" y="280" width="180" height="60" rx="6" fill="var(--deep-blue)" opacity="0.15" stroke="var(--deep-blue)" stroke-width="1.5"/>
       <text x="160" y="308" text-anchor="middle" fill="var(--deep-blue)" font-family="var(--font-title)" font-size="11" font-weight="700">Phase 0a</text>
-      <text x="160" y="325" text-anchor="middle" fill="var(--deep-blue)" font-size="9">文献综述</text>
+      <text x="160" y="325" text-anchor="middle" fill="var(--deep-blue)" font-size="10">文献综述</text>
       <!-- Phase 0b -->
       <rect x="200" y="200" width="160" height="60" rx="6" fill="#3b82f6" opacity="0.12" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="280" y="228" text-anchor="middle" fill="#3b82f6" font-family="var(--font-title)" font-size="11" font-weight="700">Phase 0b</text>
-      <text x="280" y="245" text-anchor="middle" fill="#3b82f6" font-size="9">数据再分析</text>
+      <text x="280" y="245" text-anchor="middle" fill="#3b82f6" font-size="10">数据再分析</text>
       <!-- Phase 0c -->
-      <rect x="310" y="100" width="220" height="70" rx="6" fill="#10b981" opacity="0.12" stroke="#10b981" stroke-width="2"/>
+      <rect x="310" y="100" width="220" height="70" rx="6" fill="#10b981" opacity="0.12" stroke="#10b981" stroke-width="1.5"/>
       <text x="420" y="130" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="12" font-weight="700">Phase 0c</text>
-      <text x="420" y="148" text-anchor="middle" fill="#10b981" font-size="9">管式炉实验</text>
-      <text x="420" y="162" text-anchor="middle" fill="#6b7280" font-size="8">论文投出+专利提交</text>
+      <text x="420" y="148" text-anchor="middle" fill="#10b981" font-size="10">管式炉实验</text>
+      <text x="420" y="162" text-anchor="middle" fill="#6b7280" font-size="10">论文投出+专利提交</text>
       <!-- Phase 1a -->
       <rect x="560" y="180" width="220" height="60" rx="6" fill="#8b5cf6" opacity="0.12" stroke="#8b5cf6" stroke-width="1.5"/>
       <text x="670" y="208" text-anchor="middle" fill="#8b5cf6" font-family="var(--font-title)" font-size="11" font-weight="700">Phase 1a</text>
-      <text x="670" y="225" text-anchor="middle" fill="#8b5cf6" font-size="9">回转窑N2改造 (公斤->百公斤)</text>
+      <text x="670" y="225" text-anchor="middle" fill="#8b5cf6" font-size="10">回转窑N2改造 (公斤->百公斤)</text>
       <!-- Phase 1b -->
       <rect x="810" y="260" width="220" height="60" rx="6" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
       <text x="920" y="288" text-anchor="middle" fill="#f59e0b" font-family="var(--font-title)" font-size="11" font-weight="700">Phase 1b</text>
-      <text x="920" y="305" text-anchor="middle" fill="#f59e0b" font-size="9">D1煅烧优化 (能耗-15~20%)</text>
+      <text x="920" y="305" text-anchor="middle" fill="#f59e0b" font-size="10">D1煅烧优化 (能耗-15~20%)</text>
       <!-- 连接箭头 -->
       <line x1="250" y1="310" x2="280" y2="260" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#arr-blue-sm)"/>
       <line x1="360" y1="260" x2="420" y2="170" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#arr-blue-sm)"/>
       <line x1="530" y1="170" x2="560" y2="210" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#arr-blue-sm)"/>
-      <line x1="780" y1="210" x2="810" y2="290" stroke="var(--graphite)" stroke-width="1" marker-end="url(#arr-blue-sm)"/>
+      <line x1="780" y1="210" x2="810" y2="290" stroke="var(--graphite)" stroke-width="0.75" marker-end="url(#arr-blue-sm)"/>
       <!-- 成果检验节点 -->
       <rect x="980" y="30" width="100" height="36" rx="6" fill="var(--amber)"/>
       <text x="1030" y="53" text-anchor="middle" fill="white" font-size="10" font-weight="700">成果检验</text>
@@ -1777,33 +1780,33 @@
   <div class="content" style="align-items:center;justify-content:center;">
     <svg viewBox="0 0 1000 350" style="width:100%;max-height:380px;">
       <!-- Gate 1 -->
-      <rect x="30" y="80" width="200" height="80" rx="8" fill="var(--deep-blue)" opacity="0.1" stroke="var(--deep-blue)" stroke-width="2"/>
+      <rect x="30" y="80" width="200" height="80" rx="8" fill="var(--deep-blue)" opacity="0.1" stroke="var(--deep-blue)" stroke-width="1.5"/>
       <text x="130" y="110" text-anchor="middle" fill="var(--deep-blue)" font-family="var(--font-title)" font-size="14" font-weight="700">Gate 1</text>
       <text x="130" y="130" text-anchor="middle" fill="var(--deep-blue)" font-size="12" font-weight="700">论文发表</text>
       <text x="130" y="148" text-anchor="middle" fill="#6b7280" font-size="10">1-2篇 (SCI+中文核心)</text>
       <!-- 箭头 Gate 1->2 -->
-      <line x1="230" y1="120" x2="290" y2="120" stroke="var(--graphite)" stroke-width="2" marker-end="url(#gate-arrow)"/>
+      <line x1="230" y1="120" x2="290" y2="120" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#gate-arrow)"/>
       <!-- Gate 2 -->
-      <rect x="300" y="80" width="200" height="80" rx="8" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="2"/>
+      <rect x="300" y="80" width="200" height="80" rx="8" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="400" y="110" text-anchor="middle" fill="#3b82f6" font-family="var(--font-title)" font-size="14" font-weight="700">Gate 2</text>
       <text x="400" y="130" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="700">专利授权</text>
       <text x="400" y="148" text-anchor="middle" fill="#6b7280" font-size="10">1-2项发明专利</text>
       <!-- 箭头 Gate 2->3 -->
-      <line x1="500" y1="120" x2="560" y2="120" stroke="var(--graphite)" stroke-width="2" marker-end="url(#gate-arrow)"/>
+      <line x1="500" y1="120" x2="560" y2="120" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#gate-arrow)"/>
       <!-- Gate 3 -->
-      <rect x="570" y="80" width="200" height="80" rx="8" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="2"/>
+      <rect x="570" y="80" width="200" height="80" rx="8" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1.5"/>
       <text x="670" y="110" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="14" font-weight="700">Gate 3</text>
       <text x="670" y="130" text-anchor="middle" fill="#10b981" font-size="12" font-weight="700">企业意向</text>
       <text x="670" y="148" text-anchor="middle" fill="#6b7280" font-size="10">Phase 1 反馈</text>
       <!-- 箭头 Gate 3->4 -->
-      <line x1="770" y1="120" x2="830" y2="120" stroke="var(--graphite)" stroke-width="2" marker-end="url(#gate-arrow)"/>
+      <line x1="770" y1="120" x2="830" y2="120" stroke="var(--graphite)" stroke-width="1.5" marker-end="url(#gate-arrow)"/>
       <!-- Gate 4 -->
-      <rect x="840" y="80" width="130" height="80" rx="8" fill="var(--amber)" opacity="0.12" stroke="var(--amber)" stroke-width="2"/>
+      <rect x="840" y="80" width="130" height="80" rx="8" fill="var(--amber)" opacity="0.12" stroke="var(--amber)" stroke-width="1.5"/>
       <text x="905" y="110" text-anchor="middle" fill="var(--amber)" font-family="var(--font-title)" font-size="14" font-weight="700">Gate 4</text>
       <text x="905" y="130" text-anchor="middle" fill="var(--amber)" font-size="12" font-weight="700">中试数据</text>
       <text x="905" y="148" text-anchor="middle" fill="#6b7280" font-size="10">公斤->百公斤</text>
       <!-- 汇聚箭头 -->
-      <line x1="500" y1="180" x2="500" y2="210" stroke="var(--amber)" stroke-width="2.5" marker-end="url(#gate-arrow)"/>
+      <line x1="500" y1="180" x2="500" y2="210" stroke="var(--amber)" stroke-width="1.5" marker-end="url(#gate-arrow)"/>
       <!-- 结果 -->
       <rect x="350" y="215" width="300" height="50" rx="8" fill="var(--deep-blue)"/>
       <text x="500" y="240" text-anchor="middle" fill="white" font-family="var(--font-title)" font-size="14" font-weight="700">进入中阶合作谈判</text>
@@ -1942,7 +1945,7 @@
   <div class="content" style="align-items:center;justify-content:center;">
     <svg viewBox="0 0 1050 400" style="width:100%;max-height:440px;">
       <!-- D3 快赢通道 -->
-      <rect x="20" y="20" width="100" height="140" rx="6" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="2"/>
+      <rect x="20" y="20" width="100" height="140" rx="6" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1.5"/>
       <text x="70" y="56" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="14" font-weight="700">D3 快赢</text>
       <text x="70" y="76" text-anchor="middle" fill="#10b981" font-size="10">CAPEX ~50万</text>
       <text x="70" y="94" text-anchor="middle" fill="#10b981" font-size="10">毛利率 ~93%</text>
@@ -1950,25 +1953,25 @@
       <!-- D3 四个阶段 -->
       <rect x="150" y="30" width="180" height="48" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
       <text x="240" y="53" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">吨级中试</text>
-      <text x="240" y="69" text-anchor="middle" fill="#6b7280" font-size="9">0-6月</text>
+      <text x="240" y="69" text-anchor="middle" fill="#6b7280" font-size="10">0-6月</text>
       <line x1="330" y1="54" x2="360" y2="54" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-d3)"/>
 
       <rect x="370" y="30" width="180" height="48" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
       <text x="460" y="53" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">送样客户</text>
-      <text x="460" y="69" text-anchor="middle" fill="#6b7280" font-size="9">6-12月</text>
+      <text x="460" y="69" text-anchor="middle" fill="#6b7280" font-size="10">6-12月</text>
       <line x1="550" y1="54" x2="580" y2="54" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-d3)"/>
 
       <rect x="590" y="30" width="180" height="48" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
       <text x="680" y="53" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">首批订单</text>
-      <text x="680" y="69" text-anchor="middle" fill="#6b7280" font-size="9">12-18月</text>
+      <text x="680" y="69" text-anchor="middle" fill="#6b7280" font-size="10">12-18月</text>
       <line x1="770" y1="54" x2="800" y2="54" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-d3)"/>
 
       <rect x="810" y="30" width="180" height="48" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
       <text x="900" y="53" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">扩产</text>
-      <text x="900" y="69" text-anchor="middle" fill="#6b7280" font-size="9">18-24月</text>
+      <text x="900" y="69" text-anchor="middle" fill="#6b7280" font-size="10">18-24月</text>
 
       <!-- D2 高壁垒通道 -->
-      <rect x="20" y="200" width="100" height="140" rx="6" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="2"/>
+      <rect x="20" y="200" width="100" height="140" rx="6" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="70" y="236" text-anchor="middle" fill="#3b82f6" font-family="var(--font-title)" font-size="14" font-weight="700">D2 高壁垒</text>
       <text x="70" y="256" text-anchor="middle" fill="#3b82f6" font-size="10">CAPEX ~500万</text>
       <text x="70" y="274" text-anchor="middle" fill="#3b82f6" font-size="10">毛利率 ~40-60%</text>
@@ -1976,17 +1979,17 @@
       <!-- D2 三个阶段 -->
       <rect x="150" y="210" width="220" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="260" y="233" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="700">配方定型</text>
-      <text x="260" y="249" text-anchor="middle" fill="#6b7280" font-size="9">0-6月</text>
+      <text x="260" y="249" text-anchor="middle" fill="#6b7280" font-size="10">0-6月</text>
       <line x1="370" y1="234" x2="420" y2="234" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-d2)"/>
 
       <rect x="430" y="210" width="220" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="540" y="233" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="700">中试烧结</text>
-      <text x="540" y="249" text-anchor="middle" fill="#6b7280" font-size="9">6-18月</text>
+      <text x="540" y="249" text-anchor="middle" fill="#6b7280" font-size="10">6-18月</text>
       <line x1="650" y1="234" x2="700" y2="234" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-d2)"/>
 
       <rect x="710" y="210" width="220" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="820" y="233" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="700">基站验证</text>
-      <text x="820" y="249" text-anchor="middle" fill="#6b7280" font-size="9">18-30月</text>
+      <text x="820" y="249" text-anchor="middle" fill="#6b7280" font-size="10">18-30月</text>
 
       <!-- 图例说明 -->
       <rect x="150" y="310" width="14" height="14" rx="3" fill="#10b981"/>
@@ -2091,27 +2094,27 @@
 
       <!-- 五条线 -->
       <!-- D1 -->
-      <line x1="370" y1="180" x2="120" y2="280" stroke="#6b7280" stroke-width="2"/>
+      <line x1="370" y1="180" x2="120" y2="280" stroke="#6b7280" stroke-width="1.5"/>
       <rect x="30" y="260" width="180" height="50" rx="8" fill="white" stroke="#6b7280" stroke-width="1.5"/>
       <text x="120" y="283" text-anchor="middle" fill="#6b7280" font-family="var(--font-title)" font-size="14" font-weight="700">D1 传统煅烧</text>
       <text x="120" y="301" text-anchor="middle" fill="#6b7280" font-size="10">50 万吨/年</text>
       <!-- D2 -->
-      <line x1="420" y1="180" x2="120" y2="320" stroke="#3b82f6" stroke-width="2"/>
+      <line x1="420" y1="180" x2="120" y2="320" stroke="#3b82f6" stroke-width="1.5"/>
       <rect x="30" y="300" width="180" height="50" rx="8" fill="white" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="120" y="323" text-anchor="middle" fill="#3b82f6" font-family="var(--font-title)" font-size="14" font-weight="700">D2 5G陶瓷量产</text>
       <text x="120" y="341" text-anchor="middle" fill="#3b82f6" font-size="10">千吨级</text>
       <!-- D3 -->
-      <line x1="500" y1="180" x2="500" y2="280" stroke="#10b981" stroke-width="2"/>
+      <line x1="500" y1="180" x2="500" y2="280" stroke="#10b981" stroke-width="1.5"/>
       <rect x="410" y="260" width="180" height="50" rx="8" fill="white" stroke="#10b981" stroke-width="1.5"/>
       <text x="500" y="283" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="14" font-weight="700">D3 出口产品线</text>
       <text x="500" y="301" text-anchor="middle" fill="#10b981" font-size="10">万吨级</text>
       <!-- D4 -->
-      <line x1="580" y1="180" x2="880" y2="290" stroke="#8b5cf6" stroke-width="2"/>
+      <line x1="580" y1="180" x2="880" y2="290" stroke="#8b5cf6" stroke-width="1.5"/>
       <rect x="790" y="270" width="180" height="50" rx="8" fill="white" stroke="#8b5cf6" stroke-width="1.5"/>
       <text x="880" y="293" text-anchor="middle" fill="#8b5cf6" font-family="var(--font-title)" font-size="14" font-weight="700">D4 独立产品线</text>
       <text x="880" y="311" text-anchor="middle" fill="#8b5cf6" font-size="10">抗菌岩板</text>
       <!-- D9 -->
-      <line x1="630" y1="180" x2="880" y2="340" stroke="#f59e0b" stroke-width="2"/>
+      <line x1="630" y1="180" x2="880" y2="340" stroke="#f59e0b" stroke-width="1.5"/>
       <rect x="790" y="320" width="180" height="50" rx="8" fill="white" stroke="#f59e0b" stroke-width="1.5"/>
       <text x="880" y="343" text-anchor="middle" fill="#f59e0b" font-family="var(--font-title)" font-size="14" font-weight="700">D9 全线启动</text>
       <text x="880" y="361" text-anchor="middle" fill="#f59e0b" font-size="10">酸浸分离</text>
@@ -2137,35 +2140,35 @@
 
       <!-- 五个分支 -->
       <!-- 特选 ~5% -->
-      <line x1="420" y1="54" x2="120" y2="120" stroke="#8b5cf6" stroke-width="2"/>
+      <line x1="420" y1="54" x2="120" y2="120" stroke="#8b5cf6" stroke-width="1.5"/>
       <rect x="30" y="100" width="180" height="60" rx="6" fill="white" stroke="#8b5cf6" stroke-width="1.5"/>
       <text x="120" y="125" text-anchor="middle" fill="#8b5cf6" font-family="var(--font-title)" font-size="12" font-weight="700">~5% 特选</text>
       <text x="120" y="142" text-anchor="middle" fill="#6b7280" font-size="10">MgO&gt;30%, Fe&#8322;O&#8323;&lt;0.1%</text>
       <text x="120" y="155" text-anchor="middle" fill="#8b5cf6" font-size="10" font-weight="600">D4 抗菌岩板</text>
 
       <!-- 高镁 ~20% -->
-      <line x1="440" y1="54" x2="300" y2="120" stroke="#3b82f6" stroke-width="2"/>
+      <line x1="440" y1="54" x2="300" y2="120" stroke="#3b82f6" stroke-width="1.5"/>
       <rect x="210" y="100" width="180" height="60" rx="6" fill="white" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="300" y="125" text-anchor="middle" fill="#3b82f6" font-family="var(--font-title)" font-size="12" font-weight="700">~20% 高镁低铁</text>
       <text x="300" y="142" text-anchor="middle" fill="#6b7280" font-size="10">MgO 28-31%</text>
       <text x="300" y="155" text-anchor="middle" fill="#3b82f6" font-size="10" font-weight="600">D2 5G陶瓷</text>
 
       <!-- 高碳 ~10% -->
-      <line x1="500" y1="54" x2="500" y2="120" stroke="#10b981" stroke-width="2"/>
+      <line x1="500" y1="54" x2="500" y2="120" stroke="#10b981" stroke-width="1.5"/>
       <rect x="410" y="100" width="180" height="60" rx="6" fill="white" stroke="#10b981" stroke-width="1.5"/>
       <text x="500" y="125" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="12" font-weight="700">~10% 高碳</text>
       <text x="500" y="142" text-anchor="middle" fill="#6b7280" font-size="10">碳 &gt; 2%</text>
       <text x="500" y="155" text-anchor="middle" fill="#10b981" font-size="10" font-weight="600">D3 碳石墨烯</text>
 
       <!-- 中等 ~50% -->
-      <line x1="560" y1="54" x2="700" y2="120" stroke="#f59e0b" stroke-width="2"/>
+      <line x1="560" y1="54" x2="700" y2="120" stroke="#f59e0b" stroke-width="1.5"/>
       <rect x="610" y="100" width="180" height="60" rx="6" fill="white" stroke="#f59e0b" stroke-width="1.5"/>
       <text x="700" y="125" text-anchor="middle" fill="#f59e0b" font-family="var(--font-title)" font-size="12" font-weight="700">~50% 中等品位</text>
       <text x="700" y="142" text-anchor="middle" fill="#6b7280" font-size="10">综合指标中等</text>
       <text x="700" y="155" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">D9 酸浸分离</text>
 
       <!-- 低品位 ~15% -->
-      <line x1="580" y1="54" x2="880" y2="120" stroke="#6b7280" stroke-width="2"/>
+      <line x1="580" y1="54" x2="880" y2="120" stroke="#6b7280" stroke-width="1.5"/>
       <rect x="800" y="100" width="180" height="60" rx="6" fill="white" stroke="#6b7280" stroke-width="1.5"/>
       <text x="890" y="125" text-anchor="middle" fill="#6b7280" font-family="var(--font-title)" font-size="12" font-weight="700">~15% 低品位/尾矿</text>
       <text x="890" y="142" text-anchor="middle" fill="#6b7280" font-size="10">含杂质较高</text>
@@ -2194,22 +2197,22 @@
     <svg viewBox="0 0 1000 420" style="width:100%;max-height:440px;">
       <!-- 四个节点 -->
       <!-- D1 -->
-      <rect x="40" y="60" width="120" height="50" rx="6" fill="white" stroke="#6b7280" stroke-width="2"/>
+      <rect x="40" y="60" width="120" height="50" rx="6" fill="white" stroke="#6b7280" stroke-width="1.5"/>
       <text x="100" y="83" text-anchor="middle" fill="#6b7280" font-family="var(--font-title)" font-size="12" font-weight="700">D1 煅烧</text>
       <text x="100" y="101" text-anchor="middle" fill="#6b7280" font-size="10">尾矿处理</text>
 
       <!-- D2 -->
-      <rect x="240" y="10" width="120" height="50" rx="6" fill="white" stroke="#3b82f6" stroke-width="2"/>
+      <rect x="240" y="10" width="120" height="50" rx="6" fill="white" stroke="#3b82f6" stroke-width="1.5"/>
       <text x="300" y="33" text-anchor="middle" fill="#3b82f6" font-family="var(--font-title)" font-size="12" font-weight="700">D2 陶瓷</text>
       <text x="300" y="51" text-anchor="middle" fill="#3b82f6" font-size="10">高价值</text>
 
       <!-- D3 -->
-      <rect x="240" y="140" width="120" height="50" rx="6" fill="white" stroke="#10b981" stroke-width="2"/>
+      <rect x="240" y="140" width="120" height="50" rx="6" fill="white" stroke="#10b981" stroke-width="1.5"/>
       <text x="300" y="163" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="12" font-weight="700">D3 石墨烯</text>
       <text x="300" y="181" text-anchor="middle" fill="#10b981" font-size="10">快盈利</text>
 
       <!-- D9 -->
-      <rect x="440" y="60" width="120" height="50" rx="6" fill="white" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="440" y="60" width="120" height="50" rx="6" fill="white" stroke="#f59e0b" stroke-width="1.5"/>
       <text x="500" y="83" text-anchor="middle" fill="#f59e0b" font-family="var(--font-title)" font-size="12" font-weight="700">D9 酸浸</text>
       <text x="500" y="101" text-anchor="middle" fill="#f59e0b" font-size="10">全分离</text>
 
@@ -2220,7 +2223,7 @@
 
       <!-- 流向箭头 -->
       <line x1="160" y1="85" x2="180" y2="85" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr-syn)"/>
-      <line x1="220" y1="185" x2="180" y2="115" stroke="#10b981" stroke-width="1" stroke-dasharray="4,2"/>
+      <line x1="220" y1="185" x2="180" y2="115" stroke="#10b981" stroke-width="0.75" stroke-dasharray="4,2"/>
 
       <!-- 汇聚到废弃物 -->
       <line x1="360" y1="35" x2="680" y2="85" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-syn)"/>
@@ -2228,12 +2231,12 @@
       <line x1="560" y1="85" x2="680" y2="100" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr-syn)"/>
 
       <!-- 底部协同标注 -->
-      <rect x="80" y="240" width="840" height="50" rx="6" fill="#f0f5ff" stroke="#3b82f6" stroke-width="1"/>
+      <rect x="80" y="240" width="840" height="50" rx="6" fill="#f0f5ff" stroke="#3b82f6" stroke-width="0.75"/>
       <text x="500" y="262" text-anchor="middle" fill="var(--deep-blue)" font-size="12" font-weight="700">D3+D1 共用煅烧窑 | D2+D9 原料降本 | D9 副产 SiO&#8322; &rarr; D1/D4 原料</text>
       <text x="500" y="282" text-anchor="middle" fill="#1e40af" font-size="11">五线协同综合成本降低 ~35-40%</text>
 
       <!-- 证据 -->
-      <rect x="200" y="310" width="600" height="60" rx="6" fill="white" stroke="var(--amber)" stroke-width="1" stroke-dasharray="4,2"/>
+      <rect x="200" y="310" width="600" height="60" rx="6" fill="white" stroke="var(--amber)" stroke-width="0.75" stroke-dasharray="4,2"/>
       <text x="500" y="335" text-anchor="middle" fill="var(--amber)" font-size="11" font-weight="700">论文证据</text>
       <text x="500" y="355" text-anchor="middle" fill="#6b7280" font-size="10">PAPER-008 成本降 80% &nbsp;|&nbsp; PAPER-007 Mg 浸出 97.98% + SiO&#8322; 99.92%</text>
 
