@@ -246,6 +246,13 @@
     .slide-dark .data-table th { color: var(--dark-overlay-text); background: rgba(255,255,255,0.08); border-bottom-color: rgba(255,255,255,0.2); }
     .slide-dark .data-table td { border-bottom-color: rgba(255,255,255,0.1); color: var(--dark-overlay-text); }
     .slide-dark .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
+
+    /* ---------- 打印样式 ---------- */
+    @media print {
+      @page { size: 1280px 720px; margin: 0; }
+      .slide { page-break-after: always; box-shadow: none; margin-bottom: 0; }
+      body { background: white; }
+    }
   </style>
 </head>
 <body>
@@ -265,6 +272,7 @@
     <span class="placeholder-label" style="color:rgba(255,255,255,0.5);">背景图占位</span>
     <span class="placeholder-source" style="color:rgba(255,255,255,0.35);">广丰黑滑石矿区全景</span>
   </div>
+  <div class="slide-footer" style="border-top-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);"><span>黑滑石高值化商业化 · 初步研究汇报</span><span>1 / 44</span></div>
 </section>
 
   <!-- ==================== Slide 2: TOC ==================== -->
@@ -387,7 +395,7 @@
       <!-- D3 N₂碳石墨烯 (高亮 — 初阶旗帜) -->
       <line x1="620" y1="185" x2="850" y2="170" stroke="#10b981" stroke-width="1.5"/>
       <rect x="855" y="145" width="170" height="50" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-      <text x="940" y="168" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="13" font-weight="700">D3 N₂碳石墨烯 ★</text>
+      <text x="940" y="168" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="13" font-weight="700">D3 N₂碳石墨烯</text>
       <text x="940" y="184" text-anchor="middle" fill="#10b981" font-size="10">导电/导热功能填料</text>
       <!-- D4 抗菌 -->
       <line x1="620" y1="190" x2="850" y2="240" stroke="#8b5cf6" stroke-width="1.5"/>
