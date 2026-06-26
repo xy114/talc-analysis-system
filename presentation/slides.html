@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黑滑石商业化研究 · 学术汇报</title>
+  <style>
+    /* ==========================================================
+       CSS 设计系统 — 黑滑石商业化研究学术汇报
+       版本: 1.0
+       ========================================================== */
+
+    /* ---------- CSS 变量 ---------- */
+    :root {
+      --deep-blue: #1a365d;
+      --amber: #d97706;
+      --graphite: #374151;
+      --light-gray: #e5e7eb;
+      --titanium: #f7f8fa;
+      --dark-overlay-text: #e2e8f0;
+      --slide-width: 1280px;
+      --slide-height: 720px;
+      --font-title: 'Source Han Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      --font-body: 'Source Han Serif SC', 'Noto Serif SC', 'SimSun', serif;
+      --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace;
+    }
+
+    /* ---------- Reset ---------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16pt;
+      color: var(--graphite);
+      background: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* ---------- 幻灯片容器 — scroll-snap 翻页 ---------- */
+    .slide {
+      width: var(--slide-width);
+      height: var(--slide-height);
+      background: var(--titanium);
+      position: relative;
+      padding: 48px 64px 36px 64px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 4px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+
+    /* ---------- 章节标签 — 左上角固定 ---------- */
+    .section-tag {
+      font-family: var(--font-title);
+      font-size: 8pt;
+      font-weight: 500;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      position: absolute;
+      top: 28px;
+      left: 64px;
+    }
+    .section-tag::before { content: "▎"; margin-right: 6px; }
+
+    /* ---------- 页面标题 ---------- */
+    .slide-title {
+      font-family: var(--font-title);
+      font-size: 28pt;
+      font-weight: 700;
+      color: var(--deep-blue);
+      margin-bottom: 24px;
+      line-height: 1.25;
+    }
+
+    /* ---------- 正文内容区 ---------- */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 16px;
+    }
+
+    /* ---------- 双栏布局 ---------- */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; align-items: center; }
+    .col-left, .col-right { display: flex; flex-direction: column; gap: 12px; }
+
+    /* ---------- 图表占位框 ---------- */
+    .placeholder {
+      border: 2px dashed var(--light-gray);
+      background: #f9fafb;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      min-height: 180px;
+      gap: 8px;
+    }
+    .placeholder-label {
+      font-family: var(--font-title);
+      font-size: 13pt;
+      color: #9ca3af;
+    }
+    .placeholder-source {
+      font-family: var(--font-body);
+      font-size: 9pt;
+      color: #b0b7c3;
+      line-height: 1.4;
+    }
+
+    /* ---------- 数据表格 ---------- */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14pt;
+    }
+    .data-table th {
+      font-family: var(--font-title);
+      font-size: 12pt;
+      color: var(--deep-blue);
+      background: var(--light-gray);
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 2px solid var(--deep-blue);
+    }
+    .data-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--light-gray);
+      font-size: 14pt;
+    }
+
+    /* ---------- 数据高亮 ---------- */
+    .data-highlight {
+      font-family: var(--font-mono);
+      font-size: 18pt;
+      font-weight: 500;
+      color: var(--amber);
+    }
+
+    /* ---------- 卡片 ---------- */
+    .card-grid { display: grid; gap: 16px; flex: 1; }
+    .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card-grid.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .card-grid.cols-5 { grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
+
+    .card {
+      background: white;
+      border: 1px solid var(--light-gray);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card-header {
+      font-family: var(--font-title);
+      font-size: 15pt;
+      font-weight: 700;
+      color: var(--deep-blue);
+    }
+    .card-body {
+      font-size: 13pt;
+      color: var(--graphite);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card-tag {
+      font-family: var(--font-title);
+      font-size: 9pt;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ---------- 页脚 ---------- */
+    .slide-footer {
+      position: absolute;
+      bottom: 20px;
+      left: 64px;
+      right: 64px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10pt;
+      color: #9ca3af;
+      border-top: 1px solid var(--light-gray);
+      padding-top: 10px;
+    }
+
+    /* ---------- 流程步骤 ---------- */
+    .steps { display: flex; align-items: center; gap: 8px; }
+    .step {
+      background: var(--light-gray);
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-family: var(--font-title);
+      font-size: 13pt;
+      font-weight: 600;
+      color: var(--deep-blue);
+      text-align: center;
+    }
+    .step-arrow { color: var(--amber); font-size: 18pt; font-weight: 700; }
+
+    /* ---------- D2 路线卡片颜色 ---------- */
+    .route-d1 { border-left: 3px solid #6b7280; }
+    .route-d2 { border-left: 3px solid #3b82f6; }
+    .route-d3 { border-left: 3px solid #10b981; }
+    .route-d4 { border-left: 3px solid #8b5cf6; }
+    .route-d9 { border-left: 3px solid #f59e0b; }
+
+    /* ---------- 封面与大图背景页 ---------- */
+    .slide-cover {
+      background: linear-gradient(135deg, rgba(26,54,93,0.88) 0%, rgba(26,54,93,0.72) 100%);
+      color: var(--dark-overlay-text);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .slide-cover .slide-title { color: white; font-size: 36pt; }
+    .slide-cover .slide-subtitle { font-size: 18pt; opacity: 0.85; margin-top: 8px; }
+    .slide-cover .slide-meta { font-size: 14pt; opacity: 0.65; margin-top: 32px; }
+
+    /* ---------- 暗底覆盖页 ---------- */
+    .slide-dark {
+      background: linear-gradient(135deg, rgba(26,54,93,0.92) 0%, rgba(15,23,42,0.92) 100%);
+      color: var(--dark-overlay-text);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .slide-dark .slide-title { color: white; }
+    .slide-dark .data-table th { color: var(--dark-overlay-text); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+    .slide-dark .data-table td { border-color: rgba(255,255,255,0.1); color: var(--dark-overlay-text); }
+  </style>
+</head>
+<body>
+
+  <!-- 幻灯片将在此处由各 Task 追加 -->
+
+  <!-- JS navigation placeholder -->
+</body>
+</html>
