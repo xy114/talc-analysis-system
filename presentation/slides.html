@@ -10,6 +10,9 @@
        版本: 1.0
        ========================================================== */
 
+    /* ---------- Web 字体 ---------- */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap');
+
     /* ---------- CSS 变量 ---------- */
     :root {
       --deep-blue: #1a365d;
@@ -20,8 +23,8 @@
       --dark-overlay-text: #e2e8f0;
       --slide-width: 1280px;
       --slide-height: 720px;
-      --font-title: 'Source Han Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
-      --font-body: 'Source Han Serif SC', 'Noto Serif SC', 'SimSun', serif;
+      --font-title: 'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei', sans-serif;
+      --font-body: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
       --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace;
     }
 
@@ -42,7 +45,9 @@
     /* ---------- 幻灯片容器 — scroll-snap 翻页 ---------- */
     .slide {
       width: var(--slide-width);
-      height: var(--slide-height);
+      min-height: var(--slide-height);
+      height: auto;
+      max-height: none;
       background: var(--titanium);
       position: relative;
       padding: 52px 72px 40px 72px;
@@ -91,18 +96,18 @@
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; align-items: center; }
     .col-left, .col-right { display: flex; flex-direction: column; gap: 12px; }
 
-    /* ---------- 图表占位框 ---------- */
+    /* ---------- 图表占位框 → 参考图卡片 ---------- */
     .placeholder {
-      border: 1.5px dashed var(--light-gray);
-      background: #f7f6f3;
+      border: 1px solid #d1d5db;
+      background: #fafaf9;
       border-radius: 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 24px;
-      min-height: 180px;
-      gap: 8px;
+      min-height: 160px;
+      gap: 6px;
     }
     .placeholder-label {
       font-family: var(--font-title);
@@ -223,35 +228,66 @@
 
     /* ---------- 封面与大图背景页 ---------- */
     .slide-cover {
-      background: linear-gradient(135deg, rgba(26,54,93,0.88) 0%, rgba(26,54,93,0.72) 100%);
+      background: linear-gradient(160deg, #0f172a 0%, #1a365d 35%, #1e4976 65%, #0f172a 100%);
       color: var(--dark-overlay-text);
       justify-content: center;
       align-items: center;
       text-align: center;
     }
-    .slide-cover .slide-title { color: white; font-size: 36pt; }
-    .slide-cover .slide-subtitle { font-size: 18pt; opacity: 0.85; margin-top: 8px; }
-    .slide-cover .slide-meta { font-size: 14pt; opacity: 0.65; margin-top: 32px; }
+    .slide-cover .slide-title { color: white; font-size: 36pt; letter-spacing: 0.04em; }
+    .slide-cover .slide-subtitle { font-size: 18pt; opacity: 0.85; margin-top: 8px; font-family: var(--font-body); }
+    .slide-cover .slide-meta { font-size: 13pt; opacity: 0.55; margin-top: 48px; letter-spacing: 0.06em; }
 
     /* ---------- 暗底覆盖页 ---------- */
     .slide-dark {
-      background: linear-gradient(135deg, rgba(26,54,93,0.92) 0%, rgba(15,23,42,0.92) 100%);
+      background: linear-gradient(160deg, #0f172a 0%, #1a365d 35%, #1e4976 65%, #0f172a 100%);
       color: var(--dark-overlay-text);
       justify-content: center;
       align-items: center;
       text-align: center;
     }
-    .slide-dark .slide-title { color: white; font-size: 36pt; }
+    .slide-dark .slide-title { color: white; font-size: 36pt; letter-spacing: 0.04em; }
     .slide-dark .data-table { border-top-color: rgba(255,255,255,0.2); border-bottom-color: rgba(255,255,255,0.2); }
     .slide-dark .data-table th { color: var(--dark-overlay-text); background: rgba(255,255,255,0.08); border-bottom-color: rgba(255,255,255,0.2); }
     .slide-dark .data-table td { border-bottom-color: rgba(255,255,255,0.1); color: var(--dark-overlay-text); }
     .slide-dark .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
 
+    /* ---------- 页码指示器 ---------- */
+    .page-indicator {
+      position: fixed;
+      bottom: 16px;
+      right: 24px;
+      background: rgba(26,54,93,0.88);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 11pt;
+      z-index: 10000;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+
     /* ---------- 打印样式 ---------- */
     @media print {
       @page { size: 1280px 720px; margin: 0; }
-      .slide { page-break-after: always; box-shadow: none; margin-bottom: 0; }
       body { background: white; }
+      .slide {
+        page-break-after: always;
+        box-shadow: none;
+        margin-bottom: 0;
+        width: 1280px;
+        height: 720px;
+      }
+      .page-indicator { display: none; }
+      /* 确保 SVG 图表在打印中可见 */
+      svg { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+
+    /* ---------- 投影屏 16:9 自适应 ---------- */
+    @media screen and (max-width: 1300px) {
+      body { padding: 4px; }
+      .slide { transform-origin: top center; }
     }
   </style>
 </head>
@@ -261,18 +297,23 @@
 
   <!-- ==================== Slide 1: Cover ==================== -->
 <section class="slide slide-cover" id="s1">
-  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(26,54,93,0.55);z-index:0;"></div>
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.05;" viewBox="0 0 1280 720">
+    <line x1="0" y1="200" x2="400" y2="200" stroke="white" stroke-width="1"/>
+    <line x1="880" y1="520" x2="1280" y2="520" stroke="white" stroke-width="1"/>
+    <circle cx="100" cy="600" r="180" fill="none" stroke="white" stroke-width="0.5"/>
+    <circle cx="1180" cy="120" r="120" fill="none" stroke="white" stroke-width="0.5"/>
+  </svg>
   <div style="position:relative;z-index:1;">
-    <div class="section-tag" style="color:rgba(255,255,255,0.6);">汇报主题</div>
-    <h1 class="slide-title" style="margin-bottom:12px;">黑滑石高值化商业化<br>初步研究汇报</h1>
-    <p class="slide-subtitle">从 10 亿吨低品位资源到 5 条技术路线</p>
-    <p class="slide-meta">汇报人：[你的名字] &nbsp;|&nbsp; 导师：[导师姓名] &nbsp;|&nbsp; 2026年7月 &nbsp;|&nbsp; [学校名称]</p>
+    <div class="section-tag" style="color:rgba(255,255,255,0.45);">学术汇报 · 材料科学方向</div>
+    <h1 class="slide-title" style="margin-bottom:12px;font-size:38pt;">黑滑石高值化商业化<br>初步研究汇报</h1>
+    <div style="width:50px;height:2px;background:var(--amber);margin:20px auto;opacity:0.65;"></div>
+    <p class="slide-subtitle">从 10亿吨远景资源(探明~1.8亿吨)到 5 条技术路线</p>
+    <p class="slide-meta">2026年7月 &nbsp;|&nbsp; 厦门大学 &nbsp;|&nbsp; 材料科学与工程</p>
   </div>
-  <div class="placeholder" style="position:absolute;bottom:80px;right:64px;width:200px;height:60px;background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);">
-    <span class="placeholder-label" style="color:rgba(255,255,255,0.5);">背景图占位</span>
-    <span class="placeholder-source" style="color:rgba(255,255,255,0.35);">广丰黑滑石矿区全景</span>
+  <div style="position:absolute;bottom:100px;right:72px;z-index:1;text-align:right;">
+    <p style="font-size:10pt;color:rgba(255,255,255,0.3);font-family:var(--font-body);">封面图：广丰黑滑石矿区</p>
   </div>
-  <div class="slide-footer" style="border-top-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);"><span>黑滑石高值化商业化 · 初步研究汇报</span><span>1 / 44</span></div>
+  <div class="slide-footer" style="border-top-color:rgba(255,255,255,0.12);color:rgba(255,255,255,0.4);"><span>黑滑石高值化商业化 · 初步研究汇报</span><span>1 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 2: TOC ==================== -->
@@ -282,7 +323,7 @@
   <div class="content" style="gap:18px;margin-top:12px;">
     <div style="display:flex;align-items:flex-start;gap:16px;">
       <span style="font-family:var(--font-mono);font-size:22pt;font-weight:700;color:var(--deep-blue);min-width:40px;">01</span>
-      <div><strong>为什么关注黑滑石？</strong><br><span style="font-size:13pt;color:#6b7280;">10亿吨闲置资源 + 核心矛盾 + 五条技术路线全景</span></div>
+      <div><strong>为什么关注黑滑石？</strong><br><span style="font-size:13pt;color:#6b7280;">10亿吨远景资源(探明~1.8亿吨) + 核心矛盾 + 五条技术路线全景</span></div>
     </div>
     <div style="display:flex;align-items:flex-start;gap:16px;">
       <span style="font-family:var(--font-mono);font-size:22pt;font-weight:700;color:var(--deep-blue);min-width:40px;">02</span>
@@ -290,7 +331,7 @@
     </div>
     <div style="display:flex;align-items:flex-start;gap:16px;">
       <span style="font-family:var(--font-mono);font-size:22pt;font-weight:700;color:var(--amber);min-width:40px;">03</span>
-      <div><strong style="color:var(--amber);">初阶方案：现在就能做的事</strong><br><span style="font-size:13pt;color:#6b7280;">Phase 0a-0d 完整执行路径 · 预算 ~8,000元 · 产出 3篇论文+1项专利</span></div>
+      <div><strong style="color:var(--amber);">初阶方案：现在就能做的事</strong><br><span style="font-size:13pt;color:#6b7280;">Phase 0a-0d 完整执行路径 · 预算 ~14,500元(可压至~6,000) · 产出 3篇论文+1项专利</span></div>
     </div>
     <div style="display:flex;align-items:flex-start;gap:16px;">
       <span style="font-family:var(--font-mono);font-size:22pt;font-weight:700;color:var(--deep-blue);min-width:40px;">04</span>
@@ -305,43 +346,40 @@
       <div><strong>下一步行动 + 讨论</strong></div>
     </div>
   </div>
-  <div class="slide-footer"><span>黑滑石高值化商业化 · 初步研究汇报</span><span>2 / 44</span></div>
+  <div class="slide-footer"><span>黑滑石高值化商业化 · 初步研究汇报</span><span>2 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 3: Black Talc Background ==================== -->
 <section class="slide" id="s3">
   <div class="section-tag">开篇 · 背景</div>
-  <h1 class="slide-title">黑滑石：被低估的 10 亿吨</h1>
-  <div class="two-col">
-    <div class="col-left">
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">黑滑石原矿手标本照片</span>
-        <span class="placeholder-source">来源: PAPER-005 Meng 2022 Fig.1<br>位置: PDF 第 2 页, 约 15% 位置<br>备选: 百度搜索"广丰黑滑石原矿"</span>
+  <h1 class="slide-title">黑滑石：被低估的巨量资源</h1>
+  <div class="content" style="flex-direction:row;align-items:center;gap:40px;">
+    <div class="card" style="flex:1;max-width:700px;">
+      <div class="card-header">矿物学身份</div>
+      <div class="card-body">
+        <table style="width:100%;font-size:14pt;border-collapse:collapse;">
+          <tr><td style="padding:6px 12px;color:#6b7280;">化学式</td><td style="padding:6px 12px;">Mg<sub>3</sub>Si<sub>4</sub>O<sub>10</sub>(OH)<sub>2</sub></td></tr>
+          <tr><td style="padding:6px 12px;color:#6b7280;">结构</td><td style="padding:6px 12px;">2:1 T-O-T 层状硅酸盐</td></tr>
+          <tr><td style="padding:6px 12px;color:#6b7280;">MgO 含量</td><td style="padding:6px 12px;"><span class="data-highlight">~31%</span></td></tr>
+          <tr><td style="padding:6px 12px;color:#6b7280;">SiO<sub>2</sub> 含量</td><td style="padding:6px 12px;"><span class="data-highlight">~63%</span></td></tr>
+          <tr><td style="padding:6px 12px;color:#6b7280;">有机碳</td><td style="padding:6px 12px;">1-2% (黑色的来源)</td></tr>
+          <tr><td style="padding:6px 12px;color:#6b7280;">资源量</td><td style="padding:6px 12px;"><span class="data-highlight">远景 &gt;10亿吨</span> | 探明 ~1.8亿吨 (广丰)</td></tr>
+        </table>
       </div>
     </div>
-    <div class="col-right">
-      <div class="card">
-        <div class="card-header">矿物学身份</div>
-        <div class="card-body">
-          <table style="width:100%;font-size:14pt;border-collapse:collapse;">
-            <tr><td style="padding:6px 12px;color:#6b7280;">化学式</td><td style="padding:6px 12px;">Mg<sub>3</sub>Si<sub>4</sub>O<sub>10</sub>(OH)<sub>2</sub></td></tr>
-            <tr><td style="padding:6px 12px;color:#6b7280;">结构</td><td style="padding:6px 12px;">2:1 T-O-T 层状硅酸盐</td></tr>
-            <tr><td style="padding:6px 12px;color:#6b7280;">MgO 含量</td><td style="padding:6px 12px;"><span class="data-highlight">~31%</span></td></tr>
-            <tr><td style="padding:6px 12px;color:#6b7280;">SiO<sub>2</sub> 含量</td><td style="padding:6px 12px;"><span class="data-highlight">~63%</span></td></tr>
-            <tr><td style="padding:6px 12px;color:#6b7280;">有机碳</td><td style="padding:6px 12px;">1-2% (黑色的来源)</td></tr>
-            <tr><td style="padding:6px 12px;color:#6b7280;">储量</td><td style="padding:6px 12px;"><span class="data-highlight">10 亿吨</span> (广丰, 探明)</td></tr>
-          </table>
-        </div>
-      </div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px;font-size:11pt;color:#6b7280;line-height:1.8;">
+      <p>黑滑石 = 滑石 + 石英 + 有机碳（1-2%）+ 白云石</p>
+      <p>碳以「类石墨烯碳层」形式插层于 T-O-T 层间（饶峥 2024）</p>
+      <p>这层天然碳 = D3 路线的矿物学基础</p>
     </div>
   </div>
-  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022; PAPER-002 杨华明 2023</span><span>3 / 44</span></div>
+  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022; PAPER-002 杨华明 2023</span><span>3 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 4: Core Contradiction ==================== -->
 <section class="slide" id="s4">
   <div class="section-tag">开篇 · 问题</div>
-  <h1 class="slide-title">核心矛盾：为什么 10 亿吨堆在那里？</h1>
+  <h1 class="slide-title">核心矛盾：为什么巨量资源堆在那里？</h1>
   <div class="two-col">
     <div class="col-left">
       <div class="card" style="background:#fef2f2;border-color:#fecaca;">
@@ -364,12 +402,12 @@
           镁可以<span style="color:var(--deep-blue);font-weight:700;">分离做高值化学品</span><br>
           硅可以<span style="color:var(--deep-blue);font-weight:700;">整体转化为特种陶瓷</span><br>
           <hr style="border-color:#bbf7d0;margin:12px 0;">
-          导电填料可达 <span class="data-highlight">5,000–20,000 元/吨</span>
+          导电填料可达 <span class="data-highlight">5,000–20,000 元/吨</span> <span style="font-size:9pt;color:#ef4444;">(商业报价;本团队产品需实测后定价)</span>
         </div>
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022; PAPER-002 杨华明 2023</span><span>4 / 44</span></div>
+  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022; PAPER-002 杨华明 2023</span><span>4 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 5: 5 Routes Roadmap ==================== -->
@@ -416,7 +454,7 @@
       <text x="228" y="310" fill="#6b7280" font-size="11" font-weight="600">高阶全线</text>
     </svg>
   </div>
-  <div class="slide-footer"><span>来源: PAPER-002 杨华明综述 §5 应用方向分类</span><span>5 / 44</span></div>
+  <div class="slide-footer"><span>来源: PAPER-002 杨华明综述 §5 应用方向分类</span><span>5 / 49</span></div>
 </section>
 
   <!-- ==================== Slides 1-5 End ==================== -->
@@ -429,13 +467,9 @@
   <h1 class="slide-title">广丰黑滑石：储量 vs 价值的巨大落差</h1>
   <div class="two-col">
     <div class="col-left">
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">广丰矿区地理位置</span>
-        <span class="placeholder-source">来源: Google Earth 截图<br>江西省上饶市广丰区<br>标注东阳乡/排山镇矿区</span>
-      </div>
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">XRF 化学成分表</span>
-        <span class="placeholder-source">来源: PAPER-005 Meng 2022 Table 1<br>位置: PDF 第 3 页, 约 20% 位置</span>
+
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fafaf9;border-radius:6px;border:1px solid #e5e7eb;">
+        <img src="../resource/picture/paper005化学成分表.png" style="max-width:100%;max-height:100%;object-fit:contain;" alt="PAPER-005 XRF化学成分表">
       </div>
     </div>
     <div class="col-right">
@@ -443,20 +477,21 @@
         <div class="card-header">广丰黑滑石关键参数</div>
         <div class="card-body">
           <table style="width:100%;font-size:14pt;border-collapse:collapse;">
-            <tr><td style="padding:8px 12px;color:#6b7280;border-bottom:1px solid var(--light-gray);">探明储量</td><td style="padding:8px 12px;border-bottom:1px solid var(--light-gray);"><span class="data-highlight">10 亿吨</span></td></tr>
+            <tr><td style="padding:8px 12px;color:#6b7280;border-bottom:1px solid var(--light-gray);">远景资源量</td><td style="padding:8px 12px;border-bottom:1px solid var(--light-gray);"><span class="data-highlight">&gt;10 亿吨</span> (世界第一)</td></tr>
+            <tr><td style="padding:8px 12px;color:#6b7280;border-bottom:1px solid var(--light-gray);">探明储量</td><td style="padding:8px 12px;border-bottom:1px solid var(--light-gray);"><span class="data-highlight">~1.8 亿吨</span> (江西省地质局)</td></tr>
             <tr><td style="padding:8px 12px;color:#6b7280;border-bottom:1px solid var(--light-gray);">MgO 含量</td><td style="padding:8px 12px;border-bottom:1px solid var(--light-gray);"><span class="data-highlight">23–31%</span></td></tr>
             <tr><td style="padding:8px 12px;color:#6b7280;border-bottom:1px solid var(--light-gray);">Fe₂O₃ 含量</td><td style="padding:8px 12px;border-bottom:1px solid var(--light-gray);"><span class="data-highlight">0.05–0.15%</span></td></tr>
             <tr><td style="padding:8px 12px;color:#6b7280;border-bottom:1px solid var(--light-gray);">CaO 含量</td><td style="padding:8px 12px;border-bottom:1px solid var(--light-gray);"><span class="data-highlight">0.19–4.23%</span></td></tr>
-            <tr><td style="padding:8px 12px;color:#6b7280;border-bottom:1px solid var(--light-gray);">原矿售价</td><td style="padding:8px 12px;border-bottom:1px solid var(--light-gray);"><span class="data-highlight">~200–400 元/吨</span></td></tr>
+            <tr><td style="padding:8px 12px;color:#6b7280;border-bottom:1px solid var(--light-gray);">原矿售价</td><td style="padding:8px 12px;border-bottom:1px solid var(--light-gray);"><span class="data-highlight">~200 元/吨</span> (低品位原矿; 企业报价 时效局限)</td></tr>
           </table>
         </div>
       </div>
       <div style="font-size:12pt;color:#6b7280;padding:12px;background:#f9fafb;border-radius:6px;border:1px solid var(--light-gray);">
-        <strong>核心矛盾</strong>：10 亿吨储量 × 低价格 = 资源价值远未释放
+        <strong>核心矛盾</strong>：&gt;10亿吨远景资源 × 低价格(原矿~200元/吨) = 资源价值远未释放
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022 XRF 数据; 公开地质资料</span><span>6 / 44</span></div>
+  <div class="slide-footer"><span>储量: 江西省地质局 | 产量: USGS MCS 2025(中国滑石 140万吨/年) | XRF: PAPER-005</span><span>6 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 7: Carbon Flip ==================== -->
@@ -492,7 +527,7 @@
       <line x1="750" y1="170" x2="750" y2="210" stroke="#10b981" stroke-width="1.5"/>
       <rect x="630" y="210" width="240" height="50" rx="6" fill="white" stroke="#10b981" stroke-width="1.5"/>
       <text x="750" y="233" text-anchor="middle" fill="#10b981" font-family="var(--font-title)" font-size="14" font-weight="700">碳/石墨烯复合填料</text>
-      <text x="750" y="250" text-anchor="middle" fill="#10b981" font-size="11">售价可达 5,000–20,000 元/吨</text>
+      <text x="750" y="250" text-anchor="middle" fill="#10b981" font-size="11">售价: 5,000–20,000 元/吨 (市场参考;量产需验证)</text>
 
       <!-- 关键数据标注 -->
       <rect x="580" y="290" width="310" height="44" rx="6" fill="var(--amber)" opacity="0.10" stroke="var(--amber)" stroke-width="1.5" stroke-dasharray="4,2"/>
@@ -500,7 +535,7 @@
       <text x="735" y="327" text-anchor="middle" fill="var(--amber)" font-size="10">性能提升 = 价格跃升 10–40 倍</text>
     </svg>
   </div>
-  <div class="slide-footer"><span>数据来源: PAPER-006 吴小文 2017; PAPER-005 Meng 2022</span><span>7 / 44</span></div>
+  <div class="slide-footer"><span>数据来源: PAPER-006 吴小文 2017; PAPER-005 Meng 2022</span><span>7 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 8: Thermal Evolution ==================== -->
@@ -509,13 +544,11 @@
   <h1 class="slide-title">黑滑石热演化：PAPER-005 Meng 的核心发现</h1>
   <div class="two-col">
     <div class="col-left">
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">TG-DSC 热分析曲线</span>
-        <span class="placeholder-source">来源: PAPER-005 Meng 2022 Fig.2<br>位置: PDF 第 5 页, 约 35% 位置</span>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fafaf9;border-radius:6px;border:1px solid #e5e7eb;">
+        <img src="../resource/picture/paper005TG-DSC curves.png" style="max-width:100%;max-height:100%;object-fit:contain;" alt="TG-DSC 热分析曲线">
       </div>
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">In-situ XRD 物相演化</span>
-        <span class="placeholder-source">来源: PAPER-005 Meng 2022 Fig.6<br>位置: PDF 第 9 页, 约 60% 位置</span>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fafaf9;border-radius:6px;border:1px solid #e5e7eb;">
+        <img src="../resource/picture/paper005In situ XRD.png" style="max-width:100%;max-height:100%;object-fit:contain;" alt="In-situ XRD 物相演化">
       </div>
     </div>
     <div class="col-right">
@@ -550,7 +583,7 @@
       </svg>
     </div>
   </div>
-  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022 Fig.2-6</span><span>8 / 44</span></div>
+  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022 Fig.2-6</span><span>8 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 9: N₂ vs Air ==================== -->
@@ -598,13 +631,10 @@
           <p style="margin-top:8px;">空气煅烧则将碳完全烧除，仅获得增白效果，碳的资源价值被完全浪费。</p>
         </div>
       </div>
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">TEM 石墨烯高分辨像</span>
-        <span class="placeholder-source">来源: PAPER-006 吴小文 2017<br>位置: PDF 约 70% 位置</span>
-      </div>
+
     </div>
   </div>
-  <div class="slide-footer"><span>数据来源: PAPER-006 吴小文 2017; PAPER-002 杨华明综述</span><span>9 / 44</span></div>
+  <div class="slide-footer"><span>数据来源: PAPER-006 吴小文 2017; PAPER-002 杨华明综述</span><span>9 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 10: Opportunity Summary ==================== -->
@@ -629,8 +659,8 @@
       <!-- 三个圆圈 -->
       <circle cx="160" cy="140" r="85" fill="var(--amber)" opacity="0.08" stroke="var(--amber)" stroke-width="1.5"/>
       <text x="160" y="118" text-anchor="middle" fill="var(--amber)" font-family="var(--font-title)" font-size="14" font-weight="700">事实一</text>
-      <text x="160" y="140" text-anchor="middle" fill="var(--graphite)" font-size="12" font-weight="700">10 亿吨储量</text>
-      <text x="160" y="158" text-anchor="middle" fill="#6b7280" font-size="10">全球最大黑滑石矿床</text>
+      <text x="160" y="140" text-anchor="middle" fill="var(--graphite)" font-size="12" font-weight="700">&gt;10亿吨远景资源</text>
+      <text x="160" y="158" text-anchor="middle" fill="#6b7280" font-size="10">全球最大黑滑石矿床(远景)</text>
       <text x="160" y="174" text-anchor="middle" fill="#6b7280" font-size="10">原料供应无瓶颈</text>
 
       <circle cx="450" cy="140" r="85" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/>
@@ -657,13 +687,13 @@
     </svg>
     <div class="card" style="background:#f0fdf4;border-color:#bbf7d0;text-align:center;margin-top:8px;">
       <div class="card-body" style="font-size:13pt;">
-        <strong>核心结论</strong>：<span class="data-highlight">10 亿吨</span>低品位资源 × 精确热演化控制 × <span class="data-highlight">N₂ 原位石墨烯化</span><br>
+        <strong>核心结论</strong>：<span class="data-highlight">&gt;10亿吨远景资源(探明~1.8亿吨)</span> × 精确热演化控制 × <span class="data-highlight">N₂ 原位石墨烯化</span><br>
         → 无需额外碳源 · 无需复杂设备 · 原料成本极低<br>
         → 一条从黑滑石直接到导电功能填料的商业化路径
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>机会总结 · 三大科学事实汇聚</span><span>10 / 44</span></div>
+  <div class="slide-footer"><span>机会总结 · 三大科学事实汇聚</span><span>10 / 49</span></div>
 </section>
 
   <!-- ==================== Slides 6-10 End ==================== -->
@@ -695,41 +725,61 @@
       期刊分布: 4篇 SCI Q1 + 2篇 SCI + 4篇中文核心 &nbsp;|&nbsp; 年份跨度: 2017&ndash;2025 &nbsp;|&nbsp; 路线覆盖: D1&ndash;D9 全覆盖
     </div>
   </div>
-  <div class="slide-footer"><span>来源: papers/SYNERGY-NETWORK-REPORT.md</span><span>11 / 44</span></div>
+  <div class="slide-footer"><span>来源: papers/SYNERGY-NETWORK-REPORT.md</span><span>11 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 12: Core Data Table ==================== -->
 <section class="slide" id="s12">
   <div class="section-tag">知识资产 · 数据快照</div>
-  <h1 class="slide-title">从论文中提取的核心数据</h1>
-  <div class="content" style="gap:4px;">
-    <table class="data-table" style="font-size:13pt;">
-      <thead>
-        <tr><th style="width:12%;">路线</th><th style="width:28%;">论文</th><th>关键数据</th></tr>
-      </thead>
-      <tbody>
-        <tr style="background:#f0fdf4;"><td colspan="3" style="font-weight:700;color:#065f46;">基础 · 热演化模型</td></tr>
-        <tr><td>基础</td><td>PAPER-005 Meng 2022</td><td>四阶段: 165 / 580 / 800 / 900°C &nbsp;|&nbsp; 活化窗口: <span class="data-highlight">800–900°C</span></td></tr>
+  <h1 class="slide-title">从论文中提取的核心数据（点击展开）</h1>
+  <div class="content" style="gap:3px;overflow-y:auto;">
 
-        <tr style="background:#dbeafe;"><td colspan="3" style="font-weight:700;color:#1e40af;">D2 · 微波介质陶瓷（5篇）</td></tr>
-        <tr><td>D2</td><td>PAPER-004 刘子峥 2024</td><td>ε<sub>r</sub>=<span class="data-highlight">5.11</span>, Q×f=<span class="data-highlight">56,782</span> GHz</td></tr>
-        <tr><td>D2</td><td>PAPER-008 Xiao 2025</td><td>成本降 <span class="data-highlight">80%</span> (¥10/kg vs ¥330/kg 传统氧化物)</td></tr>
-        <tr><td>D2</td><td>PAPER-009 Bu 2025</td><td>烧结仅 <span class="data-highlight">1075°C</span> · Li<sub>2</sub>MgSiO<sub>4</sub> 体系</td></tr>
-        <tr><td>D2</td><td>PAPER-010 Fang 2024</td><td>Cu<sup>2+</sup>掺杂抑制相变 · Q×f=<span class="data-highlight">93,600</span> GHz</td></tr>
-        <tr><td>D2</td><td>PAPER-011 Ullah 2019</td><td>Co<sup>2+</sup>掺杂 · Q×f=<span class="data-highlight">145,846</span> GHz（最高值）</td></tr>
+    <!-- 基础 -->
+    <details style="font-size:11pt;">
+      <summary style="cursor:pointer;background:#f0fdf4;padding:4px 12px;border-radius:4px;font-weight:700;color:#065f46;list-style:outside;">基础 · 热演化模型</summary>
+      <div style="padding:2px 16px 2px 24px;font-size:10.5pt;line-height:1.6;">
+        PAPER-005 Meng 2022 — 四阶段: 165/580/800/900°C | 活化窗口: <strong style="color:var(--deep-blue);">800–900°C</strong>
+      </div>
+    </details>
 
-        <tr style="background:#d1fae5;"><td colspan="3" style="font-weight:700;color:#065f46;">D3 · N₂碳石墨烯</td></tr>
-        <tr><td>D3</td><td>PAPER-006 吴小文 2017</td><td>N₂气氛: 抗弯强度 <span class="data-highlight">+43%</span>, 导电性 <span class="data-highlight">×10</span></td></tr>
+    <!-- D2 -->
+    <details style="font-size:11pt;">
+      <summary style="cursor:pointer;background:#dbeafe;padding:4px 12px;border-radius:4px;font-weight:700;color:#1e40af;list-style:outside;">D2 · 微波介质陶瓷 (5篇)</summary>
+      <div style="padding:2px 16px 2px 24px;font-size:10.5pt;line-height:1.6;">
+        PAPER-004 刘子峥 2024 — ε<sub>r</sub>=<strong style="color:var(--deep-blue);">5.11</strong>, Q×f=<strong style="color:var(--deep-blue);">56,782</strong> GHz<br>
+        PAPER-008 Xiao 2025 — 成本降 <strong style="color:var(--deep-blue);">80%</strong> (¥10 vs ¥330/kg)<br>
+        PAPER-009 Bu 2025 — 烧结仅 <strong style="color:var(--deep-blue);">1075°C</strong> · Li₂MgSiO₄<br>
+        PAPER-010 Fang 2024 — Cu²⁺掺杂 · Q×f=<strong style="color:var(--deep-blue);">93,600</strong> GHz<br>
+        PAPER-011 Ullah 2019 — Co²⁺掺杂 · Q×f=<strong style="color:var(--deep-blue);">145,846</strong> GHz
+      </div>
+    </details>
 
-        <tr style="background:#f3e8ff;"><td colspan="3" style="font-weight:700;color:#5b21b6;">D4 · 抗菌/晶格重建（1篇）</td></tr>
-        <tr><td>D4</td><td>PAPER-003 裘林莉 2017</td><td>Mg<sup>2+</sup>溶出 <span class="data-highlight">352 mmol/L</span> · Zn<sup>2+</sup>晶格重建</td></tr>
+    <!-- D3 -->
+    <details style="font-size:11pt;">
+      <summary style="cursor:pointer;background:#d1fae5;padding:4px 12px;border-radius:4px;font-weight:700;color:#065f46;list-style:outside;">D3 · N₂ 碳石墨烯 ⭐ 初阶旗帜</summary>
+      <div style="padding:2px 16px 2px 24px;font-size:10.5pt;line-height:1.6;">
+        PAPER-006 吴小文 2017 — N₂气氛: 抗弯 <strong style="color:var(--deep-blue);">+43%</strong>, 导电性 <strong style="color:var(--deep-blue);">×10</strong>, 导热 <strong style="color:var(--deep-blue);">+0.62</strong> W/(m·K)
+      </div>
+    </details>
 
-        <tr style="background:#fef3c7;"><td colspan="3" style="font-weight:700;color:#92400e;">D9 · 酸浸分离（1篇）</td></tr>
-        <tr><td>D9</td><td>PAPER-007 Huang 2025</td><td>Mg浸出率 <span class="data-highlight">97.98%</span> · HF+HCl混合酸工艺</td></tr>
-      </tbody>
-    </table>
+    <!-- D4 -->
+    <details style="font-size:11pt;">
+      <summary style="cursor:pointer;background:#f3e8ff;padding:4px 12px;border-radius:4px;font-weight:700;color:#5b21b6;list-style:outside;">D4 · 抗菌/晶格重建</summary>
+      <div style="padding:2px 16px 2px 24px;font-size:10.5pt;line-height:1.6;">
+        PAPER-003 裘林莉 2017 — Mg²⁺溶出 <strong style="color:var(--deep-blue);">352 mmol/L</strong> · Zn²⁺晶格重建
+      </div>
+    </details>
+
+    <!-- D9 -->
+    <details style="font-size:11pt;">
+      <summary style="cursor:pointer;background:#fef3c7;padding:4px 12px;border-radius:4px;font-weight:700;color:#92400e;list-style:outside;">D9 · 酸浸分离</summary>
+      <div style="padding:2px 16px 2px 24px;font-size:10.5pt;line-height:1.6;">
+        PAPER-007 Huang 2025 — Mg浸出率 <strong style="color:var(--deep-blue);">97.98%</strong> · HF+HCl混合酸
+      </div>
+    </details>
+
   </div>
-  <div class="slide-footer"><span>来源: 各论文分析报告 papers/PAPER-XXX-*.md</span><span>12 / 44</span></div>
+  <div class="slide-footer"><span>点击分类标题展开/收起 | 来源: papers/PAPER-XXX-*.md</span><span>12 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 13: Association Network ==================== -->
@@ -826,7 +876,7 @@
       </defs>
     </svg>
   </div>
-  <div class="slide-footer"><span>来源: papers/SYNERGY-NETWORK-REPORT.md</span><span>13 / 44</span></div>
+  <div class="slide-footer"><span>来源: papers/SYNERGY-NETWORK-REPORT.md</span><span>13 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 14: D2 Technical Chain ==================== -->
@@ -897,7 +947,7 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>来源: papers/PAPER-004, PAPER-008, PAPER-009, PAPER-010, PAPER-011</span><span>14 / 44</span></div>
+  <div class="slide-footer"><span>来源: papers/PAPER-004, PAPER-008, PAPER-009, PAPER-010, PAPER-011</span><span>14 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 15: Knowledge Pyramid ==================== -->
@@ -941,7 +991,7 @@
       金字塔结构 → 不是零散的10篇，而是三层递进的知识体系
     </div>
   </div>
-  <div class="slide-footer"><span>来源: 全部 10 篇论文</span><span>15 / 44</span></div>
+  <div class="slide-footer"><span>来源: 全部 10 篇论文</span><span>15 / 49</span></div>
 </section>
 
   <!-- ==================== Slides 11-15 End ==================== -->
@@ -954,16 +1004,16 @@
   <h1 class="slide-title">初阶方案：现在就能启动的四个阶段</h1>
   <div class="card-grid cols-4" style="flex:1;">
     <div class="card" style="border-top:3px solid var(--deep-blue);"><div class="card-tag">Phase 0a</div><div class="card-header">文献综述</div><div class="card-body">预算 <span class="data-highlight" style="font-size:16pt;">¥0</span><br>时间 1-2月<br><br>产出: 综述论文初稿<br>目标期刊: 材料导报/硅酸盐通报</div></div>
-    <div class="card" style="border-top:3px solid #3b82f6;"><div class="card-tag">Phase 0b</div><div class="card-header">数据二次分析</div><div class="card-body">预算 <span class="data-highlight" style="font-size:16pt;">¥0</span><br>时间 1月<br><br>产出: 温度-气氛-产物相图论文<br>类型: Data Re-analysis</div></div>
-    <div class="card" style="border-top:3px solid #10b981;"><div class="card-tag">Phase 0c</div><div class="card-header">管式炉验证实验</div><div class="card-body">预算 <span class="data-highlight" style="font-size:16pt;">¥5,000</span><br>时间 2-3月<br><br>产出: Raman增量实验论文<br>目标期刊: Ceramics Int.</div></div>
+    <div class="card" style="border-top:3px solid #3b82f6;"><div class="card-tag">Phase 0b</div><div class="card-header">数据二次分析</div><div class="card-body">预算 <span class="data-highlight" style="font-size:16pt;">¥0</span><br>时间 1月<br><br>产出: 初步理论框架论文<br>诚实标注推测 vs 数据</div></div>
+    <div class="card" style="border-top:3px solid #10b981;"><div class="card-tag">Phase 0c</div><div class="card-header">管式炉验证实验</div><div class="card-body">预算 <span class="data-highlight" style="font-size:16pt;">¥11,500</span><br>时间 2-3月<br><br>产出: Raman增量实验论文<br>目标期刊: Ceramics Int.</div></div>
     <div class="card" style="border-top:3px solid var(--amber);"><div class="card-tag">Phase 0d</div><div class="card-header">专利申请</div><div class="card-body">预算 <span class="data-highlight" style="font-size:16pt;">¥3,000</span><br>时间 1-2月<br><br>产出: 1项发明专利<br>D3方向无现有专利覆盖</div></div>
   </div>
   <div style="text-align:center;margin-top:16px;font-size:14pt;">
-    总预算: <span class="data-highlight" style="font-size:22pt;">~8,000 元</span> &nbsp;|&nbsp;
+    总预算: <span class="data-highlight" style="font-size:22pt;">~14,500 元</span> &nbsp;|&nbsp;
     时间: <span class="data-highlight">1-2 学期</span> &nbsp;|&nbsp;
     总产出: <span class="data-highlight">3 篇论文 + 1 项发明专利</span>
   </div>
-  <div class="slide-footer"><span>核心策略: D3(N2碳石墨烯)为旗帜 + D1(科学煅烧)为保底</span><span>16 / 44</span></div>
+  <div class="slide-footer"><span>核心策略: D3(N2碳石墨烯)为旗帜 + D1(科学煅烧)为保底</span><span>16 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 17: Phase 0a 文献综述 ==================== -->
@@ -1004,7 +1054,7 @@
       </tbody>
     </table>
   </div>
-  <div class="slide-footer"><span>目标: D3路线完整文献综述 | 预算: ¥0 | 时间: 1-2月</span><span>17 / 44</span></div>
+  <div class="slide-footer"><span>目标: D3路线完整文献综述 | 预算: ¥0 | 时间: 1-2月</span><span>17 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 18: Phase 0a 检索策略 ==================== -->
@@ -1057,26 +1107,23 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>检索策略: 中英文核心+排除无关矿种</span><span>18 / 44</span></div>
+  <div class="slide-footer"><span>检索策略: 中英文核心+排除无关矿种</span><span>18 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 19: Phase 0b 相图 ==================== -->
 <section class="slide" id="s19">
   <div class="section-tag">初阶方案 · Phase 0b</div>
-  <h1 class="slide-title">Phase 0b：温度-气氛-产物 三位一体相图</h1>
+  <h1 class="slide-title">Phase 0b：温度-气氛-产物 初步理论框架（推测 vs 数据）</h1>
   <div class="two-col">
     <div class="col-left">
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">TG-DSC 热分析曲线</span>
-        <span class="placeholder-source">来源: PAPER-005 Meng 2022 Fig.2<br>位置: PDF 第5页, 约35%位置</span>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fafaf9;border-radius:6px;border:1px solid #e5e7eb;">
+        <img src="../resource/picture/paper005TG-DSC curves.png" style="max-width:100%;max-height:100%;object-fit:contain;" alt="TG-DSC 热分析曲线">
       </div>
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">In-situ XRD 物相演化</span>
-        <span class="placeholder-source">来源: PAPER-005 Meng 2022 Fig.6<br>位置: PDF 第9页, 约60%位置</span>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fafaf9;border-radius:6px;border:1px solid #e5e7eb;">
+        <img src="../resource/picture/paper005In situ XRD.png" style="max-width:100%;max-height:100%;object-fit:contain;" alt="In-situ XRD 物相演化">
       </div>
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">N2 vs Air 性能对比</span>
-        <span class="placeholder-source">来源: PAPER-006 吴小文 2017 Fig.3-5<br>位置: PDF 约45-55%位置</span>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fafaf9;border-radius:6px;border:1px solid #e5e7eb;">
+        <img src="../resource/picture/paper006N2与air性能对比.png" style="max-width:100%;max-height:100%;object-fit:contain;" alt="N2 vs Air 性能对比">
       </div>
     </div>
     <div class="col-right">
@@ -1115,12 +1162,12 @@
         <text x="230" y="284" text-anchor="middle" fill="var(--amber)" font-size="10" font-weight="700">N2: 抗弯+43% N2导电率x10 N2导热+0.62</text>
         <!-- 关键定量区 -->
         <rect x="80" y="305" width="300" height="44" rx="4" fill="var(--deep-blue)" opacity="0.06"/>
-        <text x="230" y="323" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">核心发现: 交叉PAPER-005+PAPER-006=PAPER的新生长点</text>
-        <text x="230" y="340" text-anchor="middle" fill="var(--deep-blue)" font-size="10">仅空气气氛 vs 仅单一N2温度 → 组合=三位一体相图</text>
+        <text x="230" y="323" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">⚠ N2列基于推测，非实测数据 | 诚实标注 = 审稿人无法攻击</text>
+        <text x="230" y="340" text-anchor="middle" fill="var(--deep-blue)" font-size="10">仅 Air(15点实测) + N2(1点实测) → N2列大部为假设</text>
       </svg>
     </div>
   </div>
-  <div class="slide-footer"><span>目标: 交叉分析 PAPER-005 + PAPER-006 数据 | 预算: ¥0 | 时间: 1月</span><span>19 / 44</span></div>
+  <div class="slide-footer"><span>数据来源: PAPER-005(空气15点) + PAPER-006(N2单点) | 预算: ¥0 | N2列为推测需实验验证</span><span>19 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 20: Phase 0b 10组数据 ==================== -->
@@ -1128,17 +1175,17 @@
   <div class="section-tag">初阶方案 · Phase 0b</div>
   <h1 class="slide-title">Phase 0b：从已有论文提取的10组定量数据</h1>
   <div class="content" style="gap:2px;">
-    <table class="data-table" style="font-size:13pt;">
+    <table class="data-table" style="font-size:11pt;">
       <thead>
         <tr><th style="width:5%;">#</th><th style="width:38%;">数据点</th><th style="width:18%;">来源</th><th>用于相图哪个部分</th></tr>
       </thead>
       <tbody>
         <tr><td>1</td><td>四阶段温度节点: 165 / 580 / 800 / 900°C</td><td>PAPER-005</td><td>横轴温度分界</td></tr>
         <tr><td>2</td><td>碳氧化窗口 165-580°C (Air)</td><td>PAPER-005</td><td>Air区碳行为</td></tr>
-        <tr><td>3</td><td>活化窗口 800-900°C (无定形SiO2/MgO峰值)</td><td>PAPER-005</td><td>纵轴产物边界</td></tr>
-        <tr><td>4</td><td>N2气氛抗弯强度 +43%</td><td>PAPER-006</td><td>N2区力学性能</td></tr>
-        <tr><td>5</td><td>N2气氛导电率 x10</td><td>PAPER-006</td><td>N2区电学性能</td></tr>
-        <tr><td>6</td><td>N2气氛导热系数 +0.62 W/m·K</td><td>PAPER-006</td><td>N2区热学性能</td></tr>
+        <tr><td>3</td><td>活化窗口 800-900°C (无定形SiO₂/MgO峰值)</td><td>PAPER-005</td><td>纵轴产物边界</td></tr>
+        <tr><td>4</td><td>N₂气氛抗弯强度 +43%</td><td>PAPER-006</td><td>N₂区力学性能</td></tr>
+        <tr><td>5</td><td>N₂气氛导电率 ×10</td><td>PAPER-006</td><td>N₂区电学性能</td></tr>
+        <tr><td>6</td><td>N₂气氛导热系数 +0.62 W/(m·K)</td><td>PAPER-006</td><td>N₂区热学性能</td></tr>
         <tr><td>7</td><td>脱羟基起始温度 800°C</td><td>PAPER-005</td><td>化学转变边界</td></tr>
         <tr><td>8</td><td>1100°C空气脱碳率 99.93%</td><td>PAPER-007</td><td>Air区完全脱碳参考</td></tr>
         <tr><td>9</td><td>相转变 T950 结晶指数 CI=27.3%</td><td>PAPER-005</td><td>结晶动力学</td></tr>
@@ -1146,10 +1193,10 @@
       </tbody>
     </table>
     <div style="text-align:center;font-size:11pt;color:#6b7280;margin-top:6px;">
-      全部数据均取自已发表论文 → 不需要新实验即可构建相图的理论框架
+      Air列: 15点实测(PAPER-005) | N2列: 仅1点(PAPER-006) → ⚠ N2大部为理论推演
     </div>
   </div>
-  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022, PAPER-006 吴小文 2017, PAPER-007 Huang 2025</span><span>20 / 44</span></div>
+  <div class="slide-footer"><span>数据来源: PAPER-005 Meng 2022, PAPER-006 吴小文 2017, PAPER-007 Huang 2025</span><span>20 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 21: Phase 0b 创新点定位 ==================== -->
@@ -1193,7 +1240,7 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>创新点: 交叉组合 = 新的学术贡献</span><span>21 / 44</span></div>
+  <div class="slide-footer"><span>创新点: 交叉组合 = 新的学术贡献</span><span>21 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 22: Phase 0c 实验 ==================== -->
@@ -1202,62 +1249,61 @@
   <h1 class="slide-title">Phase 0c：管式炉验证实验</h1>
   <div class="two-col">
     <div class="col-left">
-      <svg viewBox="0 0 400 320" style="width:100%;">
-        <text x="200" y="20" text-anchor="middle" fill="var(--deep-blue)" font-family="var(--font-title)" font-size="13" font-weight="700">实验矩阵: 4温度 x 3流量 = 12组</text>
+      <svg viewBox="0 0 400 330" style="width:100%;">
+        <text x="200" y="18" text-anchor="middle" fill="var(--deep-blue)" font-family="var(--font-title)" font-size="13" font-weight="700">实验矩阵: 4温度 × 2气氛 × 3重复 = 25样品</text>
         <!-- 列头 -->
-        <rect x="30" y="30" width="80" height="24" rx="3" fill="var(--deep-blue)"/>
-        <text x="70" y="47" text-anchor="middle" fill="white" font-size="10">温度 / 流量</text>
-        <rect x="120" y="30" width="75" height="24" rx="3" fill="#d1d5db"/>
-        <text x="157" y="47" text-anchor="middle" fill="var(--graphite)" font-size="10">50 mL/min</text>
-        <rect x="205" y="30" width="75" height="24" rx="3" fill="#d1d5db"/>
-        <text x="242" y="47" text-anchor="middle" fill="var(--graphite)" font-size="10">100 mL/min</text>
-        <rect x="290" y="30" width="75" height="24" rx="3" fill="#d1d5db"/>
-        <text x="327" y="47" text-anchor="middle" fill="var(--graphite)" font-size="10">200 mL/min</text>
-        <!-- 行: 4个温度 -->
-        <rect x="30" y="62" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="0.75"/>
-        <text x="70" y="85" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">800degC</text>
-        <rect x="120" y="62" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="157" y="85" text-anchor="middle" fill="#10b981" font-size="10">G1</text>
-        <rect x="205" y="62" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="242" y="85" text-anchor="middle" fill="#10b981" font-size="10">G2</text>
-        <rect x="290" y="62" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="327" y="85" text-anchor="middle" fill="#10b981" font-size="10">G3</text>
-        <rect x="30" y="106" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="0.75"/>
-        <text x="70" y="129" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">850degC</text>
-        <rect x="120" y="106" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="157" y="129" text-anchor="middle" fill="#10b981" font-size="10">G4</text>
-        <rect x="205" y="106" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="242" y="129" text-anchor="middle" fill="#10b981" font-size="10">G5</text>
-        <rect x="290" y="106" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="327" y="129" text-anchor="middle" fill="#10b981" font-size="10">G6</text>
-        <rect x="30" y="150" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="0.75"/>
-        <text x="70" y="173" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">900degC</text>
-        <rect x="120" y="150" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="157" y="173" text-anchor="middle" fill="#10b981" font-size="10">G7</text>
-        <rect x="205" y="150" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="242" y="173" text-anchor="middle" fill="#10b981" font-size="10">G8</text>
-        <rect x="290" y="150" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="327" y="173" text-anchor="middle" fill="#10b981" font-size="10">G9</text>
-        <rect x="30" y="194" width="80" height="36" rx="3" fill="#f9fafb" stroke="var(--light-gray)" stroke-width="0.75"/>
-        <text x="70" y="217" text-anchor="middle" fill="var(--deep-blue)" font-size="10" font-weight="700">950degC</text>
-        <rect x="120" y="194" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="157" y="217" text-anchor="middle" fill="#10b981" font-size="10">G10</text>
-        <rect x="205" y="194" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="242" y="217" text-anchor="middle" fill="#10b981" font-size="10">G11</text>
-        <rect x="290" y="194" width="75" height="36" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
-        <text x="327" y="217" text-anchor="middle" fill="#10b981" font-size="10">G12</text>
+        <rect x="30" y="28" width="80" height="24" rx="3" fill="var(--deep-blue)"/>
+        <text x="70" y="44" text-anchor="middle" fill="white" font-size="11">温度</text>
+        <rect x="120" y="28" width="120" height="24" rx="3" fill="#f0fdf4" stroke="#10b981" stroke-width="1"/>
+        <text x="180" y="44" text-anchor="middle" fill="#065f46" font-size="11" font-weight="700">N₂ 气氛</text>
+        <rect x="250" y="28" width="120" height="24" rx="3" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+        <text x="310" y="44" text-anchor="middle" fill="#991b1b" font-size="11" font-weight="700">Air 对照</text>
+        <!-- 行1: 580°C -->
+        <rect x="30" y="58" width="80" height="32" rx="3" fill="#f0fdf4"/>
+        <text x="70" y="79" text-anchor="middle" fill="#065f46" font-size="10" font-weight="700">580°C</text>
+        <rect x="120" y="58" width="120" height="32" rx="3" fill="#dcfce7" stroke="#86efac" stroke-width="0.75"/>
+        <text x="180" y="79" text-anchor="middle" fill="#166534" font-size="10">N580 ×3</text>
+        <rect x="250" y="58" width="120" height="32" rx="3" fill="#fee2e2" stroke="#fca5a5" stroke-width="0.75"/>
+        <text x="310" y="79" text-anchor="middle" fill="#991b1b" font-size="10">A580 ×3</text>
+        <!-- 行2: 800°C -->
+        <rect x="30" y="94" width="80" height="32" rx="3" fill="#f0fdf4"/>
+        <text x="70" y="115" text-anchor="middle" fill="#065f46" font-size="10" font-weight="700">800°C</text>
+        <rect x="120" y="94" width="120" height="32" rx="3" fill="#dcfce7" stroke="#86efac" stroke-width="0.75"/>
+        <text x="180" y="115" text-anchor="middle" fill="#166534" font-size="10">N800 ×3</text>
+        <rect x="250" y="94" width="120" height="32" rx="3" fill="#fee2e2" stroke="#fca5a5" stroke-width="0.75"/>
+        <text x="310" y="115" text-anchor="middle" fill="#991b1b" font-size="10">A800 ×3</text>
+        <!-- 行3: 900°C -->
+        <rect x="30" y="130" width="80" height="32" rx="3" fill="#f0fdf4"/>
+        <text x="70" y="151" text-anchor="middle" fill="#065f46" font-size="10" font-weight="700">900°C</text>
+        <rect x="120" y="130" width="120" height="32" rx="3" fill="#dcfce7" stroke="#86efac" stroke-width="0.75"/>
+        <text x="180" y="151" text-anchor="middle" fill="#166534" font-size="10">N900 ×3</text>
+        <rect x="250" y="130" width="120" height="32" rx="3" fill="#fee2e2" stroke="#fca5a5" stroke-width="0.75"/>
+        <text x="310" y="151" text-anchor="middle" fill="#991b1b" font-size="10">A900 ×3</text>
+        <!-- 行4: 1000°C -->
+        <rect x="30" y="166" width="80" height="32" rx="3" fill="#f0fdf4"/>
+        <text x="70" y="187" text-anchor="middle" fill="#065f46" font-size="10" font-weight="700">1000°C</text>
+        <rect x="120" y="166" width="120" height="32" rx="3" fill="#dcfce7" stroke="#86efac" stroke-width="0.75"/>
+        <text x="180" y="187" text-anchor="middle" fill="#166534" font-size="10">N1000 ×3</text>
+        <rect x="250" y="166" width="120" height="32" rx="3" fill="#fee2e2" stroke="#fca5a5" stroke-width="0.75"/>
+        <text x="310" y="187" text-anchor="middle" fill="#991b1b" font-size="10">A1000 ×3</text>
+        <!-- 原矿对照 -->
+        <rect x="30" y="204" width="80" height="28" rx="3" fill="#f3f4f6"/>
+        <text x="70" y="222" text-anchor="middle" fill="#374151" font-size="10" font-weight="700">原矿</text>
+        <rect x="120" y="204" width="250" height="28" rx="3" fill="#f3f4f6" stroke="#d1d5db" stroke-width="0.75"/>
+        <text x="245" y="222" text-anchor="middle" fill="#374151" font-size="10">未处理原矿对照 ×1</text>
         <!-- 标注 -->
-        <text x="200" y="260" text-anchor="middle" fill="#6b7280" font-size="10">总计: 12组实验 + 3个平行样 = 36个样品</text>
-        <text x="200" y="278" text-anchor="middle" fill="var(--amber)" font-size="10" font-weight="700">含碳2%黑滑石 + 含碳0.5%黑滑石 对比</text>
+        <text x="200" y="258" text-anchor="middle" fill="#6b7280" font-size="10">4×2×3 + 1 = 25 样品 | 平行样 = 计算标准差</text>
+        <text x="200" y="278" text-anchor="middle" fill="var(--amber)" font-size="10" font-weight="700">⚠ 无Air对照 → 无法区分N₂贡献 vs 温度贡献</text>
+        <text x="200" y="298" text-anchor="middle" fill="#6b7280" font-size="9">可先跑核心8条件（跳过流量梯度）→ 预算可压至 ~6,000</text>
       </svg>
       <div style="display:flex;gap:12px;">
-        <div class="placeholder" style="flex:1;min-height:100px;">
-          <span class="placeholder-label">管式炉设备</span>
-          <span class="placeholder-source">来源: 实验室设备照片</span>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;background:#fafaf9;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden;">
+          <img src="../resource/picture/paper006TEM分析图.png" style="width:100%;height:120px;object-fit:contain;" alt="PAPER-006 TEM石墨烯高分辨像">
+          <span style="font-size:8pt;color:#6b7280;padding:4px 6px;">TEM 高分辨像 · PAPER-006</span>
         </div>
-        <div class="placeholder" style="flex:1;min-height:100px;">
-          <span class="placeholder-label">黑滑石200目粉体</span>
-          <span class="placeholder-source">来源: 原料准备照片</span>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;background:#fafaf9;border-radius:6px;border:1px solid #e5e7eb;overflow:hidden;">
+          <img src="../resource/picture/TEM确证多层石墨烯.png" style="width:100%;height:120px;object-fit:contain;" alt="TEM确证多层石墨烯">
+          <span style="font-size:8pt;color:#6b7280;padding:4px 6px;">TEM 多层石墨烯确证 · PAPER-006</span>
         </div>
       </div>
     </div>
@@ -1265,28 +1311,28 @@
       <div class="card">
         <div class="card-header">实验参数</div>
         <div class="card-body">
-          <table style="width:100%;font-size:13pt;border-collapse:collapse;">
+          <table style="width:100%;font-size:12pt;border-collapse:collapse;">
             <tr><td style="padding:6px 0;color:#6b7280;">原料粒度</td><td style="padding:6px 0;">200目 (参照PAPER-004)</td></tr>
             <tr><td style="padding:6px 0;color:#6b7280;">保温时间</td><td style="padding:6px 0;">2h (参照PAPER-005)</td></tr>
             <tr><td style="padding:6px 0;color:#6b7280;">升温速率</td><td style="padding:6px 0;">10°C/min (参照PAPER-005)</td></tr>
-            <tr><td style="padding:6px 0;color:#6b7280;">气氛</td><td style="padding:6px 0;">N2 99.999% (参照PAPER-006)</td></tr>
-            <tr><td style="padding:6px 0;color:#6b7280;">温度范围</td><td style="padding:6px 0;">800-950°C (活化窗口)</td></tr>
-            <tr><td style="padding:6px 0;color:#6b7280;">N2流量</td><td style="padding:6px 0;">50 / 100 / 200 mL/min</td></tr>
+            <tr><td style="padding:5px 0;color:#6b7280;">气氛</td><td style="padding:5px 0;"><span style="color:#10b981;font-weight:700;">N2 99.999%</span> + <span style="color:#ef4444;font-weight:700;">Air 对照</span></td></tr>
+            <tr><td style="padding:5px 0;color:#6b7280;">温度范围</td><td style="padding:5px 0;">580-1000°C (四阶段节点)</td></tr>
+            <tr><td style="padding:5px 0;color:#6b7280;">N2流量</td><td style="padding:5px 0;">100 mL/min (核心矩阵)</td></tr>
           </table>
         </div>
       </div>
       <div class="card" style="background:#f0fdf4;border-color:#bbf7d0;">
         <div class="card-header">测试计划</div>
         <div class="card-body" style="font-size:12pt;line-height:1.8;">
-          Raman (ID/IG + 2D峰) x 12组<br>
-          XRD (物相鉴定) x 12组<br>
-          四探针 (电阻率) x 12组<br>
-          SEM/TEM x 4组 (关键样品)
+          Raman (ID/IG) x 25样品<br>
+          XRD (物相) x 9代表性样品<br>
+          四探针 (电阻率) x 25样品<br>
+          预表征: XRF + TG-DSC + 原矿Raman
         </div>
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>目标: 验证PAPER-006碳石墨烯化行为 | 预算: ~5,000元 | 时间: 2-3月</span><span>22 / 44</span></div>
+  <div class="slide-footer"><span>目标: 验证PAPER-006碳石墨烯化行为 | 预算: ~11,500元 | 时间: 2-3月</span><span>22 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 23: Phase 0c 三个增量创新 ==================== -->
@@ -1337,43 +1383,55 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>三个创新 = 在PAPER-006的肩膀上走三步</span><span>23 / 44</span></div>
+  <div class="slide-footer"><span>三个创新 = 在PAPER-006的肩膀上走三步</span><span>23 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 24: Phase 0c 预算饼图 (VERBATIM) ==================== -->
 <section class="slide" id="s24">
   <div class="section-tag">初阶方案 · Phase 0c</div>
-  <h1 class="slide-title">Phase 0c：预算 5,000元 怎么分配</h1>
+  <h1 class="slide-title">Phase 0c：预算 ~11,500元 怎么分配</h1>
   <div class="two-col">
     <div class="col-left" style="align-items:center;">
-      <svg viewBox="0 0 300 300" style="width:280px;">
-        <!-- 饼图扇区: 管式炉40%->144deg, Raman24%->86.4deg, N216%->57.6deg, 原料10%->36deg, XRD10%->36deg -->
-        <circle cx="150" cy="150" r="120" fill="none" stroke="#1a365d" stroke-width="60"
-          stroke-dasharray="301.6 452.4" stroke-dashoffset="0" transform="rotate(-90 150 150)"/>
-        <circle cx="150" cy="150" r="120" fill="none" stroke="#3b82f6" stroke-width="60"
-          stroke-dasharray="181.0 573.0" stroke-dashoffset="-301.6" transform="rotate(-90 150 150)"/>
-        <circle cx="150" cy="150" r="120" fill="none" stroke="#10b981" stroke-width="60"
-          stroke-dasharray="120.6 633.4" stroke-dashoffset="-482.6" transform="rotate(-90 150 150)"/>
-        <circle cx="150" cy="150" r="120" fill="none" stroke="#f59e0b" stroke-width="60"
-          stroke-dasharray="75.4 678.6" stroke-dashoffset="-603.2" transform="rotate(-90 150 150)"/>
-        <circle cx="150" cy="150" r="120" fill="none" stroke="#8b5cf6" stroke-width="60"
-          stroke-dasharray="75.4 678.6" stroke-dashoffset="-678.6" transform="rotate(-90 150 150)"/>
-        <text x="150" y="145" text-anchor="middle" font-family="var(--font-mono)" font-size="18" font-weight="700" fill="var(--deep-blue)">5,000元</text>
-        <text x="150" y="165" text-anchor="middle" font-size="11" fill="#6b7280">总计</text>
+      <svg viewBox="0 0 320 320" style="width:280px;">
+        <!-- 真扇形饼图: 管式炉40% / Raman24% / N2 16% / 原料10% / XRD10% -->
+        <!-- 管式炉 ~26%: ¥3,000 -->
+        <path d="M 160 160 L 160 50 A 110 110 0 0 1 224.7 239.0 Z" fill="#1a365d" stroke="white" stroke-width="1.5"/>
+        <text x="195" y="155" text-anchor="middle" fill="white" font-family="var(--font-title)" font-size="11" font-weight="700">40%</text>
+        <!-- Raman ~38%: ¥4,350 -->
+        <path d="M 160 160 L 224.7 239.0 A 110 110 0 0 1 75.3 220.1 Z" fill="#3b82f6" stroke="white" stroke-width="1.5"/>
+        <text x="148" y="210" text-anchor="middle" fill="white" font-family="var(--font-title)" font-size="11" font-weight="700">24%</text>
+        <!-- N2+预表征 ~18%: ¥1,850 -->
+        <path d="M 160 160 L 75.3 220.1 A 110 110 0 0 1 55.4 119.1 Z" fill="#10b981" stroke="white" stroke-width="1.5"/>
+        <text x="88" y="172" text-anchor="middle" fill="white" font-family="var(--font-title)" font-size="11" font-weight="700">16%</text>
+        <!-- XRD+四探针 ~18%: ¥2,300 -->
+        <path d="M 160 160 L 55.4 119.1 A 110 110 0 0 1 95.3 69.0 Z" fill="#f59e0b" stroke="white" stroke-width="1.5"/>
+        <text x="95" y="115" text-anchor="middle" fill="#374151" font-family="var(--font-title)" font-size="9" font-weight="700">10%</text>
+        <!-- 省钱路径: 校内XRD/Raman→减~4,000 -->
+        
+        
+        <!-- 中心标签 -->
+        <circle cx="160" cy="160" r="36" fill="white" opacity="0.92"/>
+        <text x="160" y="155" text-anchor="middle" font-family="var(--font-mono)" font-size="16" font-weight="700" fill="var(--deep-blue)">¥11,500</text>
+        <text x="160" y="173" text-anchor="middle" font-size="10" fill="#6b7280">总计</text>
+        <!-- 图例 -->
+        <rect x="30" y="280" width="10" height="10" rx="2" fill="#1a365d"/><text x="45" y="289" font-size="9" fill="#374151">管式炉 ¥3,000</text>
+        <rect x="140" y="280" width="10" height="10" rx="2" fill="#3b82f6"/><text x="155" y="289" font-size="9" fill="#374151">Raman ¥4,350</text>
+        <rect x="250" y="280" width="10" height="10" rx="2" fill="#10b981"/><text x="265" y="289" font-size="9" fill="#374151">N2+预表征 ¥1,850</text>
+        <rect x="85" y="298" width="10" height="10" rx="2" fill="#f59e0b"/><text x="100" y="307" font-size="9" fill="#374151">XRD+四探针 ¥2,300</text>
       </svg>
     </div>
     <div class="col-right">
       <table class="data-table">
         <tr><th>项目</th><th>金额</th><th>占比</th><th>说明</th></tr>
-        <tr><td>管式炉使用费</td><td class="data-highlight">2,000元</td><td>40%</td><td>若学校有则仅电费; 按外协机时计</td></tr>
-        <tr><td>Raman 测试 x8</td><td class="data-highlight">1,200元</td><td>24%</td><td>校外 ~150元/样</td></tr>
-        <tr><td>N2 气瓶 x2</td><td class="data-highlight">800元</td><td>16%</td><td>高纯 99.999%, 40L</td></tr>
-        <tr><td>黑滑石原料</td><td class="data-highlight">500元</td><td>10%</td><td>网购/矿区寄送 5kg</td></tr>
-        <tr><td>XRD 测试</td><td class="data-highlight">500元</td><td>10%</td><td>若学校有则免费</td></tr>
+        <tr><td>Raman 测试 ×29样</td><td class="data-highlight">4,350元</td><td>38%</td><td>校外 ~150元/样; 校内可免</td></tr>
+        <tr><td>管式炉 50h炉时</td><td class="data-highlight">3,000元</td><td>26%</td><td>25样×~2h; 校内可大幅降</td></tr>
+        <tr><td>XRD + 四探针</td><td class="data-highlight">1,800元</td><td>16%</td><td>9代表样+25压片; 校内可能免</td></tr>
+        <tr><td>N2 气瓶 ×3</td><td class="data-highlight">1,200元</td><td>10%</td><td>高纯 99.999%, 40L</td></tr>
+        <tr><td>原料+预表征</td><td class="data-highlight">1,150元</td><td>10%</td><td>黑滑石+XRF+TG-DSC+原矿Raman</td></tr>
       </table>
     </div>
   </div>
-  <div class="slide-footer"><span>数据来源: tier-1-entry-level.md 3.3</span><span>24 / 44</span></div>
+  <div class="slide-footer"><span>最优可压至 ~6,000元 (校内设备可减免 ~4,000)</span><span>24 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 25: Phase 0c 预期结果 ==================== -->
@@ -1403,7 +1461,7 @@
         <div class="card-header">论文结构大纲</div>
         <div class="card-body" style="font-size:12pt;line-height:1.8;">
           1. Introduction - 黑滑石碳石墨烯化背景<br>
-          2. Materials & Methods - 12组实验矩阵<br>
+          2. Materials & Methods - 25样品矩阵<br>
           3.1 Raman 定量分析 (ID/IG vs T, vs Q)<br>
           3.2 XRD 物相演化<br>
           3.3 电学性能 (电阻率)<br>
@@ -1413,21 +1471,15 @@
         </div>
       </div>
       <div style="display:flex;gap:12px;margin-top:8px;">
-        <div class="placeholder" style="flex:1;min-height:100px;">
-          <span class="placeholder-label">ID/IG vs Temperature</span>
-          <span class="placeholder-source">预期趋势图: 随T升高ID/IG降低</span>
-        </div>
-        <div class="placeholder" style="flex:1;min-height:100px;">
-          <span class="placeholder-label">Resistivity vs Temperature</span>
-          <span class="placeholder-source">预期趋势图: 电阻率指数下降</span>
-        </div>
+  
+  
       </div>
       <div style="font-size:12pt;color:#6b7280;text-align:center;padding:8px;background:#f9fafb;border-radius:6px;">
         目标期刊: <strong>Ceramics International</strong> (SCI Q1)
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>基于PAPER-006的延伸预测</span><span>25 / 44</span></div>
+  <div class="slide-footer"><span>基于PAPER-006的延伸预测</span><span>25 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 26: Phase 0d 专利申请 ==================== -->
@@ -1504,7 +1556,7 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>专利申请预算: ~3,000元 | 时间: 1-2月</span><span>26 / 44</span></div>
+  <div class="slide-footer"><span>专利申请预算: ~3,000元 | 时间: 1-2月</span><span>26 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 27: Phase 0d 专利格局 ==================== -->
@@ -1564,11 +1616,294 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>来源: PAPER-002 杨华明 2023 综述中的专利汇总</span><span>27 / 44</span></div>
+  <div class="slide-footer"><span>来源: PAPER-002 杨华明 2023 综述中的专利汇总</span><span>27 / 49</span></div>
 </section>
 
-  <!-- ==================== Slide 28: Phase 0 甘特图 (VERBATIM) ==================== -->
+  <!-- ==================== Slide 28: 实验室操作 &mdash; 破碎/球磨/过筛 ==================== -->
 <section class="slide" id="s28">
+  <div class="section-tag">操作详解 &middot; 实验室 Part 1</div>
+  <h1 class="slide-title">怎么把一块石头变成200目粉末？（零基础版）</h1>
+  <div class="two-col">
+    <div class="col-left">
+      <div class="card" style="border-top:3px solid #1a365d;">
+        <div class="card-header">第一步：破碎 &mdash; 把大块变小块</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.75;">
+          <strong>你要做的是</strong>：把拳头大的黑滑石变成沙粒大小的颗粒（1-2mm）。<br><br>
+          <strong>最简单的方法（零设备预算）</strong>：<br>
+          1. 找一块干净的水泥地 / 厚铁板<br>
+          2. 戴上护目镜和手套<br>
+          3. 用大铁锤把石头敲成蚕豆大小<br>
+          4. 把蚕豆大小的碎块倒进研钵，用研杵手工研磨<br>
+          5. 磨到所有颗粒都像粗沙子（约1mm）<br><br>
+          <strong>如果有设备</strong>：用鄂式破碎机（学校材料楼一般都有），5分钟搞定。<br>
+          <strong>产出</strong>：一袋 ~1mm 的粗粉，约200g（够用了）。
+        </div>
+      </div>
+      <div class="card" style="border-top:3px solid #3b82f6;">
+        <div class="card-header">第二步：球磨 &mdash; 把粗沙子磨成面粉</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.75;">
+          <strong>原理（一句话）</strong>：一个罐子装碎矿石+硬球，罐子转→球砸矿石→砸成细粉。<br><br>
+          <strong>怎么做</strong>：<br>
+          1. 去材料楼找行星式球磨机（桌上一台方盒子，一般实验室都有）<br>
+          2. 称 100g 粗粉 + 300g 氧化锆球（比例 1:3）→ 一起倒入球磨罐<br>
+          3. 扣紧罐盖 → 放进球磨机卡槽 → 设定 350rpm / 2小时 → 启动<br>
+          4. 2小时后关掉，等罐子完全停下来再打开（别急，安全第一）<br>
+          5. 把粉倒进 200目筛子（下一步）<br><br>
+          <strong>⚠ 必须用氧化锆球或玛瑙球，不能用钢球</strong>（铁屑混进样品 = XRD和Raman都能看到污染 = 论文没法解释）。
+        </div>
+      </div>
+    </div>
+    <div class="col-right">
+      <div class="card" style="border-top:3px solid #10b981;">
+        <div class="card-header">第三步：过筛 &mdash; 目是什么？怎么用？</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.75;">
+          <strong>目 = 筛网每英寸(25.4mm)上的孔数。数字越大粉越细</strong>：<br>
+          &bull; 60目 = 粗沙(0.25mm) &bull; <strong>200目 = 滑石粉手感(0.074mm)</strong> &bull; 325目 = 超细<br><br>
+          <strong>怎么做</strong>：<br>
+          1. 淘宝买一套不锈钢标准筛（&Phi;200mm，不同目数，~100元）<br>
+          2. 把球磨完的粉倒在 200目筛子上<br>
+          3. 盖上盖子，用力手摇 5-10 分钟（或振动筛）<br>
+          4. 筛下去的细粉 → 装袋标记「-200目」→ <strong>这是你要用的</strong><br>
+          5. 筛上留的粗粉 → 倒回球磨罐再磨2小时<br><br>
+          <strong>为什么这一步不能省</strong>：颗粒大小不一→同一温度下有的反应了有的没反应→实验数据不可重复。
+        </div>
+      </div>
+      <div class="card" style="border-top:3px solid #f59e0b;">
+        <div class="card-header">第四步：存档 &mdash; 给每袋粉建一张身份证</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.75;">
+          1. 取一小勺粉 → 粘在导电胶上 → 去扫描电镜(SEM)看颗粒形貌 → 论文里放原矿形貌图<br>
+          2. 称 5g → 送去测 XRD → 确认原料物相（滑石+石英+白云石分别多少）<br>
+          3. 称 5g → 送去测 XRF → 拿到精确的元素含量（这影响后面的所有结论）<br>
+          4. 剩下大部分装密封袋 → 贴标签「PAPER-XXX实验用黑滑石-200目-日期」→ 放干燥器保存<br><br>
+          <strong>这一步就是 Plan 里的「原料预表征」&mdash;不先知道原料里有什么，后面 Raman 数据没法解释。</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>目标：拿到一袋标记好的-200目黑滑石粉末 + 原料XRD/XRF数据</span><span>28 / 49</span></div>
+</section>
+
+  <!-- ==================== Slide 29: 管式炉操作 ==================== -->
+<section class="slide" id="s29">
+  <div class="section-tag">操作详解 &middot; 实验室 Part 2</div>
+  <h1 class="slide-title">管式炉 N&#8322; 气氛煅烧 &mdash; 完整操作手册（8步，步步都是教训）</h1>
+  <div class="two-col">
+    <div class="col-left">
+      <svg viewBox="0 0 460 360" style="width:100%;">
+        <text x="230" y="16" text-anchor="middle" fill="var(--deep-blue)" font-family="var(--font-title)" font-size="12" font-weight="700">设备连接示意图</text>
+        <!-- N2 cylinder -->
+        <rect x="15" y="30" width="50" height="70" rx="5" fill="#d1d5db" stroke="#6b7280" stroke-width="1.5"/>
+        <text x="40" y="72" text-anchor="middle" fill="#374151" font-size="8" font-weight="700">N&#8322;</text>
+        <text x="40" y="84" text-anchor="middle" fill="#374151" font-size="7">99.999%</text>
+        <!-- arrow to flow meter -->
+        <line x1="65" y1="65" x2="95" y2="65" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+        <rect x="95" y="50" width="40" height="30" rx="3" fill="#f3f4f6" stroke="#6b7280" stroke-width="1"/>
+        <text x="115" y="60" text-anchor="middle" fill="#374151" font-size="7">减压阀</text>
+        <text x="115" y="73" text-anchor="middle" fill="#374151" font-size="7">+流量计</text>
+        <!-- arrow to tube -->
+        <line x1="135" y1="65" x2="165" y2="65" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+        <!-- quartz tube -->
+        <rect x="165" y="42" width="240" height="46" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+        <text x="285" y="60" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="700">石英管 / 刚玉管</text>
+        <text x="285" y="75" text-anchor="middle" fill="#1e40af" font-size="8">恒温区在正中间</text>
+        <!-- sample boat -->
+        <rect x="255" y="48" width="40" height="15" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+        <text x="275" y="59" text-anchor="middle" fill="#92400e" font-size="7">瓷舟+样品</text>
+        <!-- heating coils -->
+        <rect x="200" y="88" width="170" height="10" rx="3" fill="#ef4444" opacity="0.15"/>
+        <text x="285" y="97" text-anchor="middle" fill="#991b1b" font-size="7">加热元件（外绕）</text>
+        <!-- arrow to exhaust -->
+        <line x1="405" y1="65" x2="435" y2="65" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+        <rect x="435" y="52" width="15" height="26" rx="2" fill="#f3f4f6" stroke="#6b7280" stroke-width="1"/>
+        <text x="442" y="73" text-anchor="middle" fill="#374151" font-size="7">排气</text>
+        <text x="442" y="85" text-anchor="middle" fill="#ef4444" font-size="6">→通风</text>
+        <!-- arrow def -->
+        <defs><marker id="a" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4 Z" fill="#374151"/></marker></defs>
+
+        <!-- 8 steps below -->
+        <text x="230" y="130" text-anchor="middle" fill="var(--deep-blue)" font-family="var(--font-title)" font-size="11" font-weight="700">操作流程（8步）</text>
+        <text x="15" y="152" fill="#374151" font-size="9">1. 装样：5-10g粉均匀铺在瓷舟（粉层&lt;5mm）</text>
+        <text x="15" y="170" fill="#374151" font-size="9">2. 推舟：把瓷舟推到石英管正中间（恒温区）</text>
+        <text x="15" y="188" fill="#374151" font-size="9">3. 密封：上紧两端法兰螺丝</text>
+        <text x="15" y="206" fill="#374151" font-size="9">4. <tspan fill="#ef4444" font-weight="700">排气：200-300mL/min N&#8322; 吹30min &mdash; 必须把管内空气全部赶走</tspan></text>
+        <text x="15" y="224" fill="#374151" font-size="9">5. 降流量：调至 100mL/min</text>
+        <text x="15" y="242" fill="#374151" font-size="9">6. 升温：设定程序 10&deg;C/min &rarr; 目标温度(580/800/900/1000&deg;C)</text>
+        <text x="15" y="260" fill="#374151" font-size="9">7. 保温：到达温度后保持 2 小时</text>
+        <text x="15" y="278" fill="#ef4444" font-size="9" font-weight="700">8. 降温：保持N&#8322;通入直到炉温&lt;200&deg;C！！！</text>
+        <text x="15" y="296" fill="#6b7280" font-size="8">高温开炉 = O&#8322;进入 = 石墨烯被氧化烧掉 = 你的25个样品全白做了</text>
+      </svg>
+    </div>
+    <div class="col-right">
+      <div class="card" style="border-top:3px solid #ef4444;">
+        <div class="card-header">最容易犯的 4 个错误（逐一避开）</div>
+        <div class="card-body" style="font-size:9.5pt;line-height:1.65;">
+          <strong>❌ 错误1</strong>：忘了排气 → 管内残留空气 → O&#8322; 把有机碳氧化成CO&#8322; → 根本不会生成石墨烯。<br>
+          <strong>✅ 正确</strong>：高流量 N&#8322; 吹至少 30 分钟，确认流量计读数稳定后再升温。<br><br>
+          <strong>❌ 错误2</strong>：降温时关了 N&#8322; → 高温下 O&#8322; 进入 → 刚刚生成的多层石墨烯被氧化烧掉<br>
+          <strong>✅ 正确</strong>：保持 N&#8322; 通入直到炉温 &lt;200&deg;C（温度计可确认），然后继续通 N&#8322; 到室温。<br><br>
+          <strong>❌ 错误3</strong>：每个温度点只做一个样品 → 没有平行样 → 没有误差棒 → 不能发 SCI。<br>
+          <strong>✅ 正确</strong>：每个条件 3 个重复 = 25 样品。<br><br>
+          <strong>❌ 错误4</strong>：只跑 N&#8322; 不跑 Air&rarr; 审稿人问「你怎么知道是 N&#8322; 的功劳而不是温度本身的功劳？」<br>
+          <strong>✅ 正确</strong>：每个温度点必须 N&#8322; + Air 双份对照。
+        </div>
+      </div>
+      <div class="card" style="border-top:3px solid #10b981;">
+        <div class="card-header">烧完之后做什么</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.75;">
+          1. 取出瓷舟 → 样品倒进标记好的样品瓶（N580-1, N580-2...）<br>
+          2. 每个样品取一小勺 → 去测 Raman（拿 ID/IG 比）<br>
+          3. 代表性样品 → 去测 XRD（确认物相：顽火辉石？方石英？）<br>
+          4. 压片 → 四探针测电阻率<br>
+          5. 数据整理：画 ID/IG vs 温度（N&#8322; 和 Air 两条曲线在一张图）→ <strong>这就是你论文最核心的那张图</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>核心教训：排气不充分 = 白做 | 无Air对照 = 退稿 | 无平行样 = 不能发SCI</span><span>29 / 49</span></div>
+</section>
+
+  <!-- ==================== Slide 30: 工业流程 ==================== -->
+<section class="slide" id="s30">
+  <div class="section-tag">操作详解 &middot; 工业</div>
+  <h1 class="slide-title">工业上怎么做？（Phase 1 需要懂的）</h1>
+  <div class="two-col">
+    <div class="col-left">
+      <div class="card" style="border-top:3px solid #1a365d;">
+        <div class="card-header">雷蒙磨 vs 球磨 &mdash; 为什么工厂不用球磨机？</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.75;">
+          <strong>球磨</strong>：靠球砸。处理量大时能耗高得离谱，而且磨一次 100 吨要停半天卸料。<br>
+          <strong>雷蒙磨</strong>：靠磨辊在磨环上碾压。连续进料连续出粉，处理量 10-30 吨/小时。<br><br>
+          原理：矿石从上方进料口落入磨机中心 → 被旋转的磨辊甩到磨环内壁上滚压碾碎 → 粉碎后的粉末被气流带到顶部的分级机 → 细粉随气流进入布袋收尘器 → 粗粉落回继续磨。<br><br>
+          <strong>关键</strong>：调节分级机转速就可以出不同细度的粉（100-325 目任意切换）。
+        </div>
+      </div>
+    </div>
+    <div class="col-right">
+      <div class="card" style="border-top:3px solid #ef4444;">
+        <div class="card-header">回转窑 N&#8322; 改造：为什么几乎不可能</div>
+        <div class="card-body" style="font-size:9.5pt;line-height:1.65;">
+          回转窑 = 一根 &Phi;2-4m &times; L30-80m 的钢筒，倾斜 3-5&deg;，以 1-3 转/分钟旋转。物料从高端滚到低端完成煅烧。<br><br>
+          <strong>N&#8322; 改造的三个工程难题</strong>：<br>
+          1. <strong>动密封</strong>：筒体在转，进出料口不动 &rarr; 旋转接头+气封装置 &rarr; 每个要几十万。<br>
+          2. <strong>N&#8322; 成本</strong>：窑腔体积几十 m&sup3; &rarr; 需 &gt;10,000 mL/min 持续吹扫 &rarr; N&#8322; 费用可能吃掉全部利润。<br>
+          3. <strong>安全</strong>：高温+N&#8322; 窒息风险+CO 可能产生 &rarr; 需防爆和通风系统。<br><br>
+          <strong>结论</strong>：Phase 1a不是「改进现有窑炉就能做」&mdash;是「需要窑炉设备商重新设计或评估现有设备能否改造」。不要假设它天然可行。
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>工业路线：先做好 Phase 0c（管式炉）拿到数据 &rarr; 有了数据再谈 Phase 1</span><span>30 / 49</span></div>
+</section>
+
+  
+  <!-- ==================== Slide 31: 商业现状与竞争格局 ==================== -->
+<section class="slide" id="s31">
+  <div class="section-tag">商业分析</div>
+  <h1 class="slide-title">商业现状与竞争格局</h1>
+  <div class="two-col">
+    <div class="col-left">
+      <div class="card" style="border-top:3px solid #1a365d;">
+        <div class="card-header">市场规模与价格阶梯</div>
+        <div class="card-body" style="font-size:10.5pt;line-height:1.8;">
+          <strong>全球产量</strong>: 690万吨/年 (USGS 2025) | 中国 ~140万吨 (与印度并列第一)<br>
+          <strong>价格阶梯</strong>:<br>
+          &bull; 黑滑石原矿: <span style="color:#9ca3af;">~200 元/吨</span> (最低端，建材填料)<br>
+          &bull; 煅烧白滑石粉: <span style="color:#6b7280;">~500–650 元/吨</span> (传统陶瓷/涂料)<br>
+          &bull; 纳米滑石粉: <span style="color:#374151;">~2,000–5,000 元/吨</span> (高端塑料/涂料)<br>
+          &bull; <strong>D3导电功能填料</strong>: <span style="color:var(--amber);font-weight:700;">5,000–20,000 元/吨</span> (目标区间)<br>
+          &bull; 商用石墨烯: <span style="color:var(--deep-blue);font-weight:700;">50,000–200,000 元/吨</span> (对比参照)<br>
+          <span style="color:#ef4444;font-size:9pt;">⚠ 价格为中国市场参考，部分为历史企业报价，时效性有局限</span>
+        </div>
+      </div>
+      <div class="card" style="border-top:3px solid #ef4444;">
+        <div class="card-header">行业趋势：传统市场在萎缩</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.7;">
+          &bull; <strong>陶瓷</strong>: 配方改革减少滑石用量 → 需求长期下滑<br>
+          &bull; <strong>涂料</strong>: 油性→水性转型，滑石因疏水性不适用<br>
+          &bull; <strong>造纸</strong>: 自1990s被化学助剂替代<br>
+          &bull; <strong>塑料</strong>: 仍占美国消费 32% — 功能性填料有增量空间<br>
+          &bull; <strong>石棉诉讼</strong>: 美国多家滑石公司破产 → 中国高纯无石棉产品有替代窗口
+        </div>
+      </div>
+    </div>
+    <div class="col-right">
+      <div class="card" style="border-top:3px solid #3b82f6;">
+        <div class="card-header">竞品格局 — 谁在跟我们做类似的事？</div>
+        <div class="card-body" style="font-size:9.5pt;line-height:1.65;">
+          <table style="width:100%;border-collapse:collapse;font-size:9.5pt;">
+            <tr style="border-bottom:1px solid #e5e7eb;"><th style="text-align:left;padding:3px 0;">竞争者</th><th>方向</th><th>与我们差异</th></tr>
+            <tr><td style="padding:3px 0;">上丰滑石集团(广丰)</td><td>纳米滑石粉</td><td>物理粉碎路线，非化学/热转化</td></tr>
+            <tr><td style="padding:3px 0;">桂林理工(Zhou组)</td><td>滑石基微波介质陶瓷</td><td>用高纯滑石粉，非黑滑石</td></tr>
+            <tr><td style="padding:3px 0;">杭电(Song组)</td><td>MgSiO₃掺杂陶瓷(D2)</td><td>高纯原料；滑石路线论文仅2篇</td></tr>
+            <tr><td style="padding:3px 0;">Imerys(法)/IMI Fabi(意)</td><td>高端滑石填料</td><td>白滑石；不涉及碳石墨烯化</td></tr>
+            <tr style="background:#f0fdf4;"><td style="padding:3px 0;font-weight:700;color:#065f46;">我们(D3)</td><td style="font-weight:700;">黑滑石原位石墨烯化</td><td style="font-weight:700;">独一无二 — 无机矿物+自身碳源</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="card" style="border-top:3px solid #10b981;">
+        <div class="card-header">替代品竞争 — 我们的D3产品要替代谁？</div>
+        <div class="card-body" style="font-size:9.5pt;line-height:1.65;">
+          <strong>导电填料赛道</strong>:<br>
+          &bull; 炭黑: ~5,000–15,000元/吨 (便宜但添加量大，只能做黑色)<br>
+          &bull; 碳纳米管: ~100,000–500,000元/吨 (性能好但太贵)<br>
+          &bull; 商用石墨烯: ~50,000–200,000元/吨 (价格虚高，分散困难)<br>
+          &bull; <strong>→ D3产品定位</strong>: 性能介于炭黑和CNT之间，价格接近炭黑<br>
+          <strong>关键优势</strong>: 矿物基(非石油基) + 原位生成(非外加) + 天然灰色(非炭黑的深黑)
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>数据: USGS MCS 2025; 企业报价(时效局限) | 竞品信息: 各论文作者单位</span><span>31 / 49</span></div>
+</section>
+
+  <!-- ==================== Slide 32: 方案不足 ==================== -->
+<section class="slide" id="s32">
+  <div class="section-tag">商业分析</div>
+  <h1 class="slide-title">初阶方案存在的不足（诚实自评）</h1>
+  <div class="two-col">
+    <div class="col-left">
+      <div class="card" style="border-top:3px solid #ef4444;">
+        <div class="card-header">技术与数据层面的不足</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.7;">
+          <strong>1. D3 路线实验数据极度稀缺</strong><br>
+          仅 PAPER-006 一篇4页短论文提供直接验证。N₂气氛下的 Raman ID/IG 定量数据、温度-石墨烯化程度曲线、碳含量与石墨烯化关联 — 全部空白。<br>
+          <strong>2. Phase 0b N₂列大部为推测</strong><br>
+          相图中「N₂气氛」列仅 1 个温度点有实测数据，其余均为基于热演化机理的理论推演 — 未经实验验证的假设不能作为结论。<br>
+          <strong>3. 原料批次差异未量化</strong><br>
+          不同矿区/矿层黑滑石的碳含量(0.5–2%)、石英含量(9–14%)、白云石含量(18–32%)差异显著 — 实验可重复性存疑。<br>
+          <strong>4. 缺乏完整 TEA (技术经济分析)</strong><br>
+          所有经济数据来自行业报告和USGS统计，没有针对 D3 路线的工艺模拟和成本核算(Mass Balance / Energy Balance / CAPEX-OPEX 模型)。<br>
+          <strong>5. 论文库覆盖不全</strong><br>
+          10篇论文中 D2 占 5 篇，D3 仅 1 篇。缺少 N₂气氛下其他粘土矿物碳化的交叉参考文献和 Ge⁴⁺掺杂最新论文。
+        </div>
+      </div>
+    </div>
+    <div class="col-right">
+      <div class="card" style="border-top:3px solid #f59e0b;">
+        <div class="card-header">工程放大与商业层面的不足</div>
+        <div class="card-body" style="font-size:10pt;line-height:1.7;">
+          <strong>6. 实验室→产业化的鸿沟</strong><br>
+          管式炉(5-10g/批) → 回转窑(100-500吨/天) = 放大倍数 ~10⁷。Phase 1a 回转窑 N₂改造几乎不可行 — 动密封和 N₂成本是工程难题。<br>
+          <strong>7. 产品市场定位模糊</strong><br>
+          「导电功能填料」是品类不是产品 — 具体卖给谁(塑料厂？涂料厂？电池厂？)、对标哪个型号、售价定多少、渠道在哪 — 全部未回答。<br>
+          <strong>8. 竞争分析浅层</strong><br>
+          未做系统的专利检索(仅依赖 PAPER-002 综述)；未访谈潜在客户；未对标竞品性能参数。<br>
+          <strong>9. 团队能力缺口</strong><br>
+          大一本科生独立承担所有 Phase 在实施层面不现实 — 实验技能(Raman/四探针/XRD分析)、论文写作、专利申请、企业对接均需导师和研究生深度参与。<br>
+          <strong>10. 原料供应链未建立</strong><br>
+          「联系矿区寄送」不是供应链 — 批次稳定性、长期供应协议、运输成本、矿权合规均未考虑。
+        </div>
+      </div>
+      <div style="font-size:10.5pt;color:var(--deep-blue);padding:12px;background:#f0fdf4;border-radius:6px;border:1px solid #bbf7d0;text-align:center;">
+        <strong>诚实是学术汇报的基础</strong>：以上不足并非否定方案价值，而是标明当前边界 — 知道什么还不知道，比假装知道更重要。
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>这些不足 = Phase 0c-0d 执行后优先解决的问题列表</span><span>32 / 49</span></div>
+</section>
+
+<!-- ==================== Slide 28: Phase 0 甘特图 (VERBATIM) ==================== -->
+<section class="slide" id="s33">
   <div class="section-tag">初阶方案 · 时间线</div>
   <h1 class="slide-title">Phase 0 总览：8 个月 · 4 项产出</h1>
   <div class="content" style="justify-content:center;">
@@ -1605,11 +1940,11 @@
       <text x="640" y="290" font-size="10" fill="var(--amber)" text-anchor="middle">发明专利 x1</text>
     </svg>
   </div>
-  <div class="slide-footer"><span>来源: tier-1-entry-level.md 3.5</span><span>28 / 44</span></div>
+  <div class="slide-footer"><span>来源: tier-1-entry-level.md 3.5</span><span>33 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 29: 初阶路线图 ==================== -->
-<section class="slide" id="s29">
+<section class="slide" id="s34">
   <div class="section-tag">初阶方案 · 路线图</div>
   <h1 class="slide-title">初阶路线图：从文献到企业验证</h1>
   <div class="content" style="justify-content:center;">
@@ -1641,7 +1976,7 @@
       <!-- Phase 1a -->
       <rect x="560" y="180" width="220" height="60" rx="6" fill="#8b5cf6" opacity="0.12" stroke="#8b5cf6" stroke-width="1.5"/>
       <text x="670" y="208" text-anchor="middle" fill="#8b5cf6" font-family="var(--font-title)" font-size="11" font-weight="700">Phase 1a</text>
-      <text x="670" y="225" text-anchor="middle" fill="#8b5cf6" font-size="10">回转窑N2改造 (公斤->百公斤)</text>
+      <text x="670" y="225" text-anchor="middle" fill="#8b5cf6" font-size="10">回转窑N2改造 (需设备商评估)</text>
       <!-- Phase 1b -->
       <rect x="810" y="260" width="220" height="60" rx="6" fill="#f59e0b" opacity="0.12" stroke="#f59e0b" stroke-width="1.5"/>
       <text x="920" y="288" text-anchor="middle" fill="#f59e0b" font-family="var(--font-title)" font-size="11" font-weight="700">Phase 1b</text>
@@ -1664,23 +1999,16 @@
       </defs>
     </svg>
   </div>
-  <div class="slide-footer"><span>路线图: 4学期 x 6阶段 逐步推进</span><span>29 / 44</span></div>
+  <div class="slide-footer"><span>路线图: 4学期 x 6阶段 逐步推进</span><span>34 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 30: 企业合作 ==================== -->
-<section class="slide" id="s30">
+<section class="slide" id="s35">
   <div class="section-tag">初阶方案 · 企业合作</div>
   <h1 class="slide-title">如何找到第一个合作企业</h1>
   <div class="two-col">
     <div class="col-left">
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">广丰煅烧厂照片</span>
-        <span class="placeholder-source">来源: 百度街景截图<br>江西上饶广丰区<br>典型黑滑石煅烧厂外观</span>
-      </div>
-      <div class="placeholder" style="flex:1;">
-        <span class="placeholder-label">广丰区标注地图</span>
-        <span class="placeholder-source">来源: 百度地图截图<br>标注东阳乡/排山镇矿区<br>周边煅烧/陶瓷企业分布</span>
-      </div>
+
     </div>
     <div class="col-right">
       <div class="card">
@@ -1723,11 +2051,11 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>初阶自有实验资金~8,000元, Phase 1 需企业少量参与</span><span>30 / 44</span></div>
+  <div class="slide-footer"><span>初阶自有实验资金~14,500元(可压至~6,000), Phase 1 需企业参与</span><span>35 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 31: 风险矩阵 ==================== -->
-<section class="slide" id="s31">
+<section class="slide" id="s36">
   <div class="section-tag">初阶方案 · 风险</div>
   <h1 class="slide-title">初阶风险矩阵</h1>
   <div class="content" style="gap:4px;">
@@ -1738,51 +2066,72 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td>学校无管式炉可用</td>
-          <td><span class="data-highlight">中</span></td>
+          <td>实验设备不可用（管式炉/Raman/XRD/SEM）</td>
+          <td><span style="color:#10b981;font-weight:700;">极低</span></td>
           <td><span style="color:#ef4444;font-weight:700;">高</span></td>
-          <td>先做 Phase 0a + 0b (零成本); 等待设备或外协</td>
+          <td>厦大材料学科平台齐全，博导课题组通常自有或可预约校内设备；极端情况外协厦大理工类共享平台</td>
         </tr>
         <tr>
           <td>2</td>
-          <td>N2气氛下未发生石墨烯化</td>
+          <td>N₂气氛下未发生石墨烯化</td>
           <td><span style="color:#6b7280;">低</span></td>
           <td><span style="color:#ef4444;font-weight:700;">高</span></td>
-          <td>已有多篇论文确证; 若发生则调整温度/流量/保温时间参数</td>
+          <td>PAPER-005 + PAPER-006 已独立确证该现象；若参数偏离则调整温度(800-950°C)/流量(50-200 mL/min)/保温时间</td>
         </tr>
         <tr>
           <td>3</td>
           <td>综述论文质量不够</td>
-          <td><span style="color:#6b7280;">低</span></td>
+          <td><span style="color:#10b981;font-weight:700;">极低</span></td>
           <td><span style="color:#f59e0b;">中</span></td>
-          <td>扩大搜索范围, 加入更多商业应用文献; 改投低一级期刊</td>
+          <td>博导指导 + 现有10篇论文基础扎实；扩大检索至商业应用文献；目标期刊明确（材料导报/硅酸盐通报）</td>
         </tr>
         <tr>
           <td>4</td>
           <td>专利被驳回</td>
           <td><span style="color:#f59e0b;">中</span></td>
           <td><span style="color:#6b7280;">低</span></td>
-          <td>修改权利要求缩小保护范围; D3方向无现有专利, 新颖性有保障</td>
+          <td>修改权利要求缩小保护范围；D3方向无现有专利，新颖性有保障；厦大高校专利申请有代理机构支持</td>
         </tr>
         <tr>
           <td>5</td>
-          <td>找不到合作企业</td>
+          <td>管式炉无法通 N₂（无气路接头/炉管材质不兼容）</td>
           <td><span style="color:#f59e0b;">中</span></td>
           <td><span style="color:#ef4444;font-weight:700;">高</span></td>
-          <td>先发论文建立专家身份; 通过行业会议/展会建立联系; 绕开企业独立完成初阶</td>
+          <td>先核查设备再启动实验（打印§3.3设备清单逐项核实）；若无 → 退回 Phase 0a+0b 纯文献路线，仍可发表 2 篇论文</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>矿样碳含量太低/天然即有石墨烯G峰 → 无法判断热处理效果</td>
+          <td><span style="color:#f59e0b;">中</span></td>
+          <td><span style="color:#f59e0b;">中</span></td>
+          <td>原料预表征（XRF+TG-DSC+原矿Raman ~750元）在烧结前确认起点；碳太低 → 换矿样；天然有G峰 → 改结论为\"热处理增强了原有石墨烯有序度\"</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Phase 1a 回转窑 N₂ 改造不可行（动密封/N₂成本/安全）</td>
+          <td><span style="color:#ef4444;font-weight:700;">高</span></td>
+          <td><span style="color:#6b7280;">低</span></td>
+          <td>Phase 1a 本标注为\"需设备商联合评估\"；不可行 → 用大型间歇气氛炉替代 或 跳过 Phase 1a，Phase 0c 数据足发论文</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>找不到合作企业</td>
+          <td><span style="color:#6b7280;">低</span></td>
+          <td><span style="color:#f59e0b;">中</span></td>
+          <td>厦大距广丰~4h车程；博导有人脉；初阶全部可校内完成，企业合作是加分项而非必须项</td>
         </tr>
       </tbody>
     </table>
     <div style="text-align:center;font-size:13pt;padding:12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;">
-      <strong>核心原则</strong>: 每一步都设计了不需要企业的备选路径<br>
-      初阶四个Phase全部可以用现有论文 + 学校资源完成
+      <strong>核心原则</strong>: 厦大材料学科平台 + 博导指导 → Phase 0a-0d 可全部在校内完成<br>
+      ⚠ 新增风险: 实验前必须逐项核查设备（打印核查清单）；原料必须先预表征
     </div>
   </div>
-  <div class="slide-footer"><span>风险应对: 所有高风险项都有备选方案</span><span>31 / 44</span></div>
+  <div class="slide-footer"><span>风险应对: 所有高风险项都有备选方案</span><span>36 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 32: 初阶完成标准 ==================== -->
-<section class="slide" id="s32">
+<section class="slide" id="s37">
   <div class="section-tag">初阶方案 · 检验</div>
   <h1 class="slide-title">初阶完成标准</h1>
   <div class="content" style="align-items:center;justify-content:center;">
@@ -1829,11 +2178,11 @@
       四个关卡逐级递进，每过一关意味着离商业化更近一步
     </div>
   </div>
-  <div class="slide-footer"><span>初阶完成 = 论文 + 专利 + 企业接触 + 中试数据</span><span>32 / 44</span></div>
+  <div class="slide-footer"><span>初阶完成 = 论文 + 专利 + 企业接触 + 中试数据</span><span>37 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 33: 身份转换 ==================== -->
-<section class="slide" id="s33">
+<section class="slide" id="s38">
   <div class="section-tag">初阶方案 · 身份</div>
   <h1 class="slide-title">初阶完成后的身份转换</h1>
   <div class="two-col">
@@ -1859,7 +2208,7 @@
           <br>
           1-2篇论文 (含SCI)<br>
           1-2项发明专利<br>
-          12组实验数据<br>
+          25样品数据<br>
           企业接触渠道
         </div>
       </div>
@@ -1868,7 +2217,7 @@
   <div style="text-align:center;margin-top:16px;font-size:16pt;color:var(--deep-blue);font-weight:700;">
     这个身份转换 = 进入中阶的门票
   </div>
-  <div class="slide-footer"><span>初阶目标: 从学生到初级研究者的跃迁</span><span>33 / 44</span></div>
+  <div class="slide-footer"><span>初阶目标: 从学生到初级研究者的跃迁</span><span>38 / 49</span></div>
 </section>
 
   <!-- ==================== Slides 16-33 End ==================== -->
@@ -1876,7 +2225,7 @@
   <!-- ==================== Slides 34-44: 中阶简览 + 高阶简览 + 收尾 ==================== -->
 
   <!-- ==================== Slide 34: 中阶总引 ==================== -->
-<section class="slide" id="s34">
+<section class="slide" id="s39">
   <div class="section-tag">中阶方案 · 总引</div>
   <h1 class="slide-title">中阶方案：从课题组到产学研合作</h1>
   <div class="two-col">
@@ -1886,7 +2235,7 @@
         <div class="card-body" style="font-size:13pt;line-height:2.0;">
           <span style="color:#10b981;">&#10003;</span> papers + patents<br>
           <span style="color:#10b981;">&#10003;</span> lab-scale validation<br>
-          <span style="color:#10b981;">&#10003;</span> budget ~8,000 元<br>
+          <span style="color:#10b981;">&#10003;</span> budget ~14,500 元<br>
           <span style="color:#10b981;">&#10003;</span> 3 papers + 1 patent<br>
           产出: 学术影响力
         </div>
@@ -1908,11 +2257,11 @@
   <div style="text-align:center;margin-top:auto;padding:12px;background:#f0f5ff;border:1px solid #bfdbfe;border-radius:6px;font-size:14pt;">
     <strong>核心策略</strong>: <span style="color:#3b82f6;font-weight:700;">D2 (5G陶瓷)</span> + <span style="color:#10b981;font-weight:700;">D3 (N&#8322;碳复合)</span> 双旗舰并行
   </div>
-  <div class="slide-footer"><span>从课题组到产学研合作的跃迁</span><span>34 / 44</span></div>
+  <div class="slide-footer"><span>从课题组到产学研合作的跃迁</span><span>39 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 35: 掺杂对比 ==================== -->
-<section class="slide" id="s35">
+<section class="slide" id="s40">
   <div class="section-tag">中阶方案 · 掺杂</div>
   <h1 class="slide-title">中阶核心决策：D2 路线选哪种掺杂？</h1>
   <div class="two-col">
@@ -1937,17 +2286,14 @@
       </table>
     </div>
     <div class="col-right">
-      <div class="placeholder" style="flex:1;min-height:200px;">
-        <span class="placeholder-label">Q&times;f vs &tau;f 散点图</span>
-        <span class="placeholder-source">来源: PAPER-010 Fig.7 + PAPER-011 Fig.8<br>位置: PDF 后半部分</span>
-      </div>
+
     </div>
   </div>
-  <div class="slide-footer"><span>推荐: Cu(3%)+Co(8%) 共掺杂 &mdash; 预期 Q&times;f&gt;120,000, |&tau;f|&lt;&plusmn;15</span><span>35 / 44</span></div>
+  <div class="slide-footer"><span>推荐: Cu(3%)+Co(8%) 共掺杂 &mdash; 预期 Q&times;f&gt;120,000, |&tau;f|&lt;&plusmn;15</span><span>40 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 36: 双旗舰 ==================== -->
-<section class="slide" id="s36">
+<section class="slide" id="s41">
   <div class="section-tag">中阶方案 · 双旗舰</div>
   <h1 class="slide-title">中阶双旗舰：D3 先盈利，D2 建壁垒</h1>
   <div class="content" style="align-items:center;justify-content:center;">
@@ -2015,11 +2361,11 @@
       </defs>
     </svg>
   </div>
-  <div class="slide-footer"><span>D3 快盈利 + D2 高壁垒 = 双旗舰互补战略</span><span>36 / 44</span></div>
+  <div class="slide-footer"><span>D3 快盈利 + D2 高壁垒 = 双旗舰互补战略</span><span>41 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 37: 经济模型 ==================== -->
-<section class="slide" id="s37">
+<section class="slide" id="s42">
   <div class="section-tag">中阶方案 · 财务</div>
   <h1 class="slide-title">中阶经济模型概要</h1>
   <div class="content" style="justify-content:center;gap:20px;">
@@ -2030,7 +2376,7 @@
       <tbody>
         <tr><td style="font-weight:600;">CAPEX</td><td><span class="data-highlight">50-80 万</span></td><td><span class="data-highlight">300-500 万</span></td></tr>
         <tr><td style="font-weight:600;">年产能</td><td>100-500 吨</td><td>10-50 吨</td></tr>
-        <tr><td style="font-weight:600;">单价</td><td><span class="data-highlight">0.5-2 万/吨</span></td><td><span class="data-highlight">5-10 万/吨</span></td></tr>
+        <tr><td style="font-weight:600;">单价</td><td><span class="data-highlight">0.5-2 万/吨<span style="font-size:8pt;color:#6b7280;">(保守估)</span></span></td><td><span class="data-highlight">5-10 万/吨<span style="font-size:8pt;color:#6b7280;">(保守估)</span></span></td></tr>
         <tr><td style="font-weight:600;">年营收</td><td>50-500 万</td><td>50-500 万</td></tr>
         <tr><td style="font-weight:600;">毛利率</td><td style="color:#10b981;font-weight:700;">70-93%</td><td style="color:#3b82f6;font-weight:700;">40-60%</td></tr>
       </tbody>
@@ -2039,11 +2385,11 @@
       <strong>合计</strong>: CAPEX ~<span class="data-highlight" style="font-size:20pt;">500 万</span> &nbsp;|&nbsp; 年营收目标 ~<span class="data-highlight" style="font-size:20pt;">500-1000 万</span>
     </div>
   </div>
-  <div class="slide-footer"><span>来源: tier-2-mid-level.md 经济模型</span><span>37 / 44</span></div>
+  <div class="slide-footer"><span>来源: tier-2-mid-level.md 经济模型</span><span>42 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 38: 风险与触发 ==================== -->
-<section class="slide" id="s38">
+<section class="slide" id="s43">
   <div class="section-tag">中阶方案 · 触发</div>
   <h1 class="slide-title">中阶关键风险与进入条件</h1>
   <div class="two-col">
@@ -2086,11 +2432,11 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>配套文件: tier-2-mid-level.md</span><span>38 / 44</span></div>
+  <div class="slide-footer"><span>配套文件: tier-2-mid-level.md</span><span>43 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 39: 高阶愿景 ==================== -->
-<section class="slide" id="s39">
+<section class="slide" id="s44">
   <div class="section-tag">高阶方案 · 愿景</div>
   <h1 class="slide-title">高阶方案：产学研联合体的全产业链整合</h1>
   <div class="content" style="align-items:center;justify-content:center;">
@@ -2133,11 +2479,11 @@
       <text x="500" y="68" text-anchor="middle" fill="var(--deep-blue)" font-size="13">原料消化: <span style="font-weight:700;">百万吨级</span> 黑滑石</text>
     </svg>
   </div>
-  <div class="slide-footer"><span>五条路线全线部署 = 全产业链整合</span><span>39 / 44</span></div>
+  <div class="slide-footer"><span>五条路线全线部署 = 全产业链整合</span><span>44 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 40: 原料分级 ==================== -->
-<section class="slide" id="s40">
+<section class="slide" id="s45">
   <div class="section-tag">高阶方案 · 分级</div>
   <h1 class="slide-title">原料分级：同一座矿，五种产品</h1>
   <div class="content" style="align-items:center;justify-content:center;">
@@ -2194,11 +2540,11 @@
       <text x="500" y="340" text-anchor="middle" fill="#b0b7c3" font-size="10">不同品位黑滑石的化学组成对比</text>
     </svg>
   </div>
-  <div class="slide-footer"><span>来源: PAPER-005 Meng 2022 Table 1; PAPER-007 Huang 2025 Table 1</span><span>40 / 44</span></div>
+  <div class="slide-footer"><span>来源: PAPER-005 Meng 2022 Table 1; PAPER-007 Huang 2025 Table 1</span><span>45 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 41: 协同效应 ==================== -->
-<section class="slide" id="s41">
+<section class="slide" id="s46">
   <div class="section-tag">高阶方案 · 协同</div>
   <h1 class="slide-title">五条路线的协同效应</h1>
   <div class="content" style="align-items:center;justify-content:center;">
@@ -2255,11 +2601,11 @@
       </defs>
     </svg>
   </div>
-  <div class="slide-footer"><span>协同效应 = 1+1+1+1+1 &gt; 5</span><span>41 / 44</span></div>
+  <div class="slide-footer"><span>协同效应 = 1+1+1+1+1 &gt; 5</span><span>46 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 42: 行动清单 ==================== -->
-<section class="slide" id="s42">
+<section class="slide" id="s47">
   <div class="section-tag">收尾 · 行动</div>
   <h1 class="slide-title">下一步行动：本周就能开始的三件事</h1>
   <div class="content" style="justify-content:center;">
@@ -2322,11 +2668,11 @@
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>立即行动 = 本周就能开始的三件事</span><span>42 / 44</span></div>
+  <div class="slide-footer"><span>立即行动 = 本周就能开始的三件事</span><span>47 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 43: 讨论问题 ==================== -->
-<section class="slide" id="s43">
+<section class="slide" id="s48">
   <div class="section-tag">收尾 · 讨论</div>
   <h1 class="slide-title">希望得到导师指导的四个问题</h1>
   <div class="content" style="justify-content:center;gap:8px;">
@@ -2362,23 +2708,28 @@
       </tbody>
     </table>
   </div>
-  <div class="slide-footer"><span>导师的指导将决定初阶方案的优先级排序</span><span>43 / 44</span></div>
+  <div class="slide-footer"><span>导师的指导将决定初阶方案的优先级排序</span><span>48 / 49</span></div>
 </section>
 
   <!-- ==================== Slide 44: 致谢 ==================== -->
-<section class="slide slide-dark" id="s44">
-  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(26,54,93,0.55);z-index:0;"></div>
+<section class="slide slide-dark" id="s49">
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.05;" viewBox="0 0 1280 720">
+    <line x1="0" y1="520" x2="400" y2="520" stroke="white" stroke-width="1"/>
+    <line x1="880" y1="200" x2="1280" y2="200" stroke="white" stroke-width="1"/>
+    <circle cx="1180" cy="600" r="180" fill="none" stroke="white" stroke-width="0.5"/>
+    <circle cx="100" cy="120" r="120" fill="none" stroke="white" stroke-width="0.5"/>
+  </svg>
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;">
-    <div class="section-tag" style="color:rgba(255,255,255,0.6);">收尾 · 致谢</div>
+    <div class="section-tag" style="color:rgba(255,255,255,0.45);">收尾 · 致谢</div>
     <h1 class="slide-title" style="margin-bottom:24px;">感谢导师的宝贵时间</h1>
-    <p style="font-size:18pt;opacity:0.85;margin-bottom:48px;">汇报人：[你的名字] &middot; [学校邮箱] &middot; 2026年7月</p>
-    <p style="font-size:14pt;opacity:0.65;font-style:italic;border-top:1px solid rgba(255,255,255,0.2);padding-top:24px;">10 亿吨黑滑石，从一个本科生做起</p>
+    <div style="width:50px;height:2px;background:var(--amber);margin:20px auto;opacity:0.5;"></div>
+    <p style="font-size:17pt;opacity:0.8;margin-bottom:48px;">2026年7月 &middot; 厦门大学 &middot; 材料科学与工程</p>
+    <p style="font-size:13pt;opacity:0.5;font-family:var(--font-body);border-top:1px solid rgba(255,255,255,0.15);padding-top:24px;">10 亿吨黑滑石，从一个本科生做起</p>
   </div>
-  <div class="placeholder" style="position:absolute;bottom:80px;right:64px;width:200px;height:60px;background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);">
-    <span class="placeholder-label" style="color:rgba(255,255,255,0.5);">广丰矿区远景照片</span>
-    <span class="placeholder-source" style="color:rgba(255,255,255,0.35);">广丰黑滑石矿区全景</span>
+  <div style="position:absolute;bottom:100px;right:72px;z-index:1;text-align:right;">
+    <p style="font-size:10pt;color:rgba(255,255,255,0.25);font-family:var(--font-body);">背景图：广丰矿区远景</p>
   </div>
-  <div class="slide-footer" style="border-top-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);"><span>黑滑石高值化商业化 · 初步研究汇报</span><span>44 / 44</span></div>
+  <div class="slide-footer" style="border-top-color:rgba(255,255,255,0.12);color:rgba(255,255,255,0.4);"><span>黑滑石高值化商业化 · 初步研究汇报</span><span>49 / 49</span></div>
 </section>
 
   <!-- ==================== Slides 34-44 End ==================== -->
@@ -2394,12 +2745,17 @@
   bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:var(--amber);z-index:9999;transition:width 0.25s ease;';
   document.body.appendChild(bar);
 
+  // 页码指示器
+  const indicator = document.createElement('div');
+  indicator.className = 'page-indicator';
+  document.body.appendChild(indicator);
+
   function goTo(idx) {
     if (idx < 0 || idx >= total) return;
     current = idx;
     slides[current].scrollIntoView({ behavior: 'smooth' });
     bar.style.width = ((current + 1) / total * 100) + '%';
-    // 更新 URL hash
+    indicator.textContent = (current + 1) + ' / ' + total;
     history.replaceState(null, null, '#' + (current + 1));
   }
 
@@ -2417,33 +2773,34 @@
     } else if (e.key === 'End') {
       e.preventDefault();
       goTo(total - 1);
+    } else if (e.key === 'f' || e.key === 'F') {
+      // 全屏切换
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.documentElement.requestFullscreen();
+      }
     }
   });
 
-  // 点击左右区域翻页
+  // 点击左右区域翻页（排除折叠面板等交互元素）
   document.addEventListener('click', function(e) {
-    const x = e.clientX;
-    const w = window.innerWidth;
-    if (x < w * 0.25) goTo(current - 1);
-    else if (x > w * 0.75) goTo(current + 1);
+    if (e.target.closest('details')) return;
+    var x = e.clientX;
+    var w = window.innerWidth;
+    if (x < w * 0.2) goTo(current - 1);
+    else if (x > w * 0.8) goTo(current + 1);
   });
 
   // 触摸滑动
-  let touchStartX = 0;
+  var touchStartX = 0;
   document.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
   document.addEventListener('touchend', function(e) {
-    const dx = e.changedTouches[0].clientX - touchStartX;
+    var dx = e.changedTouches[0].clientX - touchStartX;
     if (dx > 60) goTo(current - 1);
     else if (dx < -60) goTo(current + 1);
   });
 
-  // 渲染当前页码
-  function updatePageNumbers() {
-    slides.forEach(function(s, i) {
-      s.setAttribute('data-page', (i + 1) + ' / ' + total);
-    });
-  }
-  updatePageNumbers();
   goTo(0);
 })();
 </script>
