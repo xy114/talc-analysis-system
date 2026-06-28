@@ -125,21 +125,39 @@ def tree_to_dot(tree: dict) -> str:
     return '\n'.join(lines)
 
 
+def find_dot() -> str | None:
+    """查找 Graphviz dot 可执行文件路径。"""
+    # 1. 检查 PATH
+    found = shutil.which("dot")
+    if found:
+        return found
+    # 2. 检查 Windows 标准安装路径
+    windows_paths = [
+        "C:/Program Files/Graphviz/bin/dot.exe",
+        "C:/Program Files (x86)/Graphviz/bin/dot.exe",
+    ]
+    for p in windows_paths:
+        if Path(p).exists():
+            return p
+    return None
+
+
 def has_graphviz() -> bool:
     """检查 Graphviz dot 命令是否可用。"""
-    return shutil.which("dot") is not None
+    return find_dot() is not None
 
 
 def render_dot_to_image(dot_text: str, output_path: Path, fmt: str = "svg") -> bool:
     """调用 Graphviz dot 命令渲染。"""
-    if not has_graphviz():
+    dot_exe = find_dot()
+    if not dot_exe:
         print(f"[WARN] Graphviz (dot) 未安装——无法渲染为 {fmt}")
         print(f"  安装: winget install graphviz")
         print(f"  或在线渲染 DOT 文件: https://dreampuf.github.io/GraphvizOnline/")
         return False
 
     result = subprocess.run(
-        ["dot", f"-T{fmt}", "-o", str(output_path)],
+        [dot_exe, f"-T{fmt}", "-o", str(output_path)],
         input=dot_text,
         text=True,
         capture_output=True
