@@ -1,0 +1,37 @@
+{
+  "paper": {
+    "title": "江西广丰桃源黑滑石矿床矿物与元素组成特征及应用方向",
+    "authors": "饶峥 等",
+    "institution": "关键矿产资源勘查与开发江西省重点实验室 + 江西省核工业地质调查院",
+    "country": "中国", "year": 2024,
+    "analysis_date": "2026-06-28",
+    "journal": "中文期刊（待确认刊名）",
+    "research_type": "矿床矿物学+应用评价",
+    "problem_statement": "桃源黑滑石矿床为沉积改造型，矿石类型以鳞片状滑石岩为主，系统研究其矿物与元素组成特征，评估工业应用方向。",
+    "raw_material_source": "江西广丰区桃源矿床，震旦系陡山沱组上段。滑石含量54.3-71.7%，白云石17.7-31.7%，石英8.7-14.0%。杂质元素少，接近理想滑石晶体分子式。",
+    "has_experiment": 1, "has_economic_data": 0,
+    "experiment_scale": "矿物学表征+应用性能测试",
+    "tech_route_category": "资源评价+应用建议",
+    "tech_route_detail": "XRD+SEM+化学成分分析+白度测试。致黑原因确认为T-O-T层间类石墨烯碳层插层。原矿→陶瓷坯体/橡胶填料/涂料填料（低白度要求）；煅烧后→防水材料用滑石粉二级品/通用滑石粉三级品。",
+    "target_product_category": "陶瓷坯体、橡胶填料、涂料填料、煅烧滑石粉（防水/通用级）",
+    "target_product_name": "桃源黑滑石原矿/煅烧滑石粉（二级品/三级品达标）",
+    "trl_level": 4, "trl_scale": "实验室+应用标准测试",
+    "tech_feasibility_score": 5, "econ_feasibility_score": 4, "market_attractiveness_score": 4, "scaleup_feasibility_score": 4, "composite_score": 42.5,
+    "analyst_notes": "PAPER-022。桃源矿区的最新中国研究(2024)，提供精确矿物组成定量数据(滑石54.3-71.7%)和煅烧产品达标信息。确认致黑机制为TOT层间类石墨烯碳层（与PAPER-015 Li C X 2016 Am Min一致）。在综述§1引言中作为最新(2024)矿区数据来源。",
+    "process_params": "矿物组成: 滑石54.3-71.7%/白云石17.7-31.7%/石英8.7-14.0%; 煅烧后达标: 防水材料用滑石粉二级品/通用滑石粉三级品"
+  },
+  "attributes": [
+    {"category":"raw_material_spec","attr_key":"矿物_滑石含量","attr_value":"54.3-71.7","attr_unit":"%","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"矿物_白云石含量","attr_value":"17.7-31.7","attr_unit":"%","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"矿物_石英含量","attr_value":"8.7-14.0","attr_unit":"%","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"矿石类型","attr_value":"鳞片状滑石岩为主，少量变形假鲕状滑石岩","attr_unit":"","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"致黑机制","attr_value":"T-O-T层间类石墨烯碳层插层","attr_unit":"","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"矿床类型","attr_value":"沉积改造型","attr_unit":"","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"层位","attr_value":"震旦系陡山沱组上段","attr_unit":"","source_context":"摘要"},
+    {"category":"performance_metrics","attr_key":"煅烧后产品等级","attr_value":"防水材料用滑石粉二级品 + 通用滑石粉三级品","attr_unit":"","source_context":"摘要"}
+  ],
+  "synergies": [
+    {"paper_id_b":19,"synergy_type":"上下游衔接","synergy_strength":"强","synergy_description":"饶峥2024确认的致黑机制（TOT层间类石墨烯碳层）与PAPER-015 Li C X 2016 Am Min的STEM观察结果完全一致，互验了核心科学发现。","combined_potential_score":null},
+    {"paper_id_b":17,"synergy_type":"上下游衔接","synergy_strength":"中","synergy_description":"饶峥2024是桃源矿区的最新数据（2024），李成祥PAPER-013是广丰主矿区数据（2016），两矿区地质背景相似但矿物组成有差异，可做对比分析。","combined_potential_score":null}
+  ]
+}

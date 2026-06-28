@@ -1,0 +1,36 @@
+{
+  "paper": {
+    "title": "江西广丰杨村超大型滑石矿床成因探讨",
+    "authors": "雷焕玲, 蒋少涌, 孙岩, 罗平, 李艳红, 马振兴",
+    "institution": "南京大学地球科学与工程学院 + 江西省地质矿产局 + 江西省国土资源厅",
+    "country": "中国", "year": 2012,
+    "analysis_date": "2026-06-28",
+    "journal": "矿床地质, 2012, Vol.31 No.2, pp.241-254",
+    "doi": "10.16111/j.0258-7106.2012.02.006",
+    "research_type": "矿床地质研究（成因探讨）",
+    "problem_statement": "广丰杨村滑石矿储量上亿吨（世界超大型），但矿床成因不明。本文通过稀土元素配分、C-O-Sr同位素分析探讨成矿物质来源和成矿机制。",
+    "raw_material_source": "江西广丰杨村。矿石主要由鲕粒状滑石组成，含少量石英和碳酸盐矿物及浸染状有机质。赋矿围岩白云岩硅化较强。",
+    "has_experiment": 1, "has_economic_data": 0,
+    "experiment_scale": "地质样品分析（ICP-MS稀土/C-O-Sr同位素）",
+    "tech_route_category": "矿床成因研究",
+    "tech_route_detail": "稀土元素配分（白云岩与滑石矿一致—低总量/弱负Ce异常/重稀土弱富集）+ C-O-Sr同位素（87Sr/86Sr=0.7092-0.7101, δ13C=-4.9~+0.7‰, δ18O=+14.5~+19.7‰）→滑石与白云岩同源→同生热水沉积成因。Mg源=富镁海水，Si源=下渗淋滤古老硅铝质地层的富硅热液。后期叠加变质变形→滑石片岩。",
+    "target_product_category": "矿床成因研究（不适用产品）",
+    "target_product_name": "不适用",
+    "trl_level": 1, "trl_scale": "地质基础研究",
+    "tech_feasibility_score": 3, "econ_feasibility_score": 1, "market_attractiveness_score": 2, "scaleup_feasibility_score": 1, "composite_score": 17.5,
+    "analyst_notes": "PAPER-019。矿床成因经典文献。提供了广丰黑滑石的Sr-C-O同位素数据（87Sr/86Sr=0.7092-0.7101, δ18O=+14.5~+19.7‰），这些数据被PAPER-015（Li C X 2016 Am Min）直接引用以支持沉积成因模型。在综述§1引言中用于描述黑滑石的地质背景和成矿机制。",
+    "process_params": "87Sr/86Sr: 0.7092-0.7101; δ13C(V-PDB): -4.9~+0.7‰; δ18O(V-SMOW): +14.5~+19.7‰; 成因类型: 同生热水沉积+后期变质变形"
+  },
+  "attributes": [
+    {"category":"raw_material_spec","attr_key":"87Sr_86Sr","attr_value":"0.7092-0.7101","attr_unit":"","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"δ13C_VPDB","attr_value":"-4.9~+0.7","attr_unit":"‰","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"δ18O_VSMOW","attr_value":"+14.5~+19.7","attr_unit":"‰","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"成因类型","attr_value":"同生热水沉积+后期变质变形","attr_unit":"","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"Mg来源","attr_value":"富镁海水","attr_unit":"","source_context":"摘要"},
+    {"category":"raw_material_spec","attr_key":"Si来源","attr_value":"海水下渗淋滤古老硅铝质地层形成的富硅热液","attr_unit":"","source_context":"摘要"}
+  ],
+  "synergies": [
+    {"paper_id_b":19,"synergy_type":"上下游衔接","synergy_strength":"强","synergy_description":"雷焕玲2012的Sr-C-O同位素数据被PAPER-015 Li C X 2016 Am Min直接引用，作为沉积成因模型的关键证据。","combined_potential_score":null},
+    {"paper_id_b":17,"synergy_type":"上下游衔接","synergy_strength":"中","synergy_description":"雷焕玲的地球化学数据与李成祥PAPER-013博士论文的矿物学+成因模型互补——前者提供同位素约束，后者提供晶体结构证据。","combined_potential_score":null}
+  ]
+}
