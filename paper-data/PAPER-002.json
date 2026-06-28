@@ -1,0 +1,165 @@
+{
+  "paper": {
+    "id": "PAPER-002",
+    "title": "黑滑石的矿物学特征及加工与应用研究进展",
+    "authors": "刘茜, 梁晓正, 杨华明",
+    "year": 2023,
+    "journal": "材料导报",
+    "doi": "",
+    "research_type": "review",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "raw_black_talc",
+          "name": "黑滑石原矿",
+          "name_en": "Raw Black Talc Ore",
+          "formula": "Mg₃Si₄O₁₀(OH)₂ + <1%C",
+          "type": "raw_material",
+          "depth": 0,
+          "children": [
+            "dehydrated_talc",
+            "decarbonized_talc",
+            "dehydroxylated_talc",
+            "enstatite_from_talc",
+            "forsterite_from_talc",
+            "separated_mgo",
+            "separated_sio2"
+          ],
+          "parents": [],
+          "composition": {
+            "SiO₂": "58-62%",
+            "MgO": "26-30%",
+            "CaO": "2-3%",
+            "Al₂O₃": "0.2-2%",
+            "Fe₂O₃": "0.1-1.5%",
+            "C (TOC)": "<1%",
+            "LOI": "6-8%"
+          },
+          "source_papers": ["PAPER-002", "PAPER-013", "PAPER-014", "PAPER-020", "PAPER-022"],
+          "notes": "广丰超 10 亿吨矿床，世界最大黑滑石矿床。TOT 层间含类石墨烯碳层。矿石类型：鲕粒状/片理化/角砾状。"
+        },
+        {
+          "id": "forsterite_from_talc",
+          "name": "镁橄榄石（滑石热解产物）",
+          "name_en": "Forsterite (from Talc Decomposition)",
+          "formula": "Mg₂SiO₄",
+          "type": "intermediate_phase",
+          "depth": 1,
+          "children": ["refractory_brick"],
+          "parents": ["raw_black_talc"],
+          "properties": [
+            {
+              "property": "耐火度",
+              "value": ">1500°C",
+              "condition": "高温煅烧产物",
+              "source_papers": ["PAPER-002"]
+            }
+          ],
+          "notes": "综述引用：黑滑石→镁橄榄石耐火材料，需更高煅烧温度（>1100°C）"
+        },
+        {
+          "id": "separated_mgo",
+          "name": "高纯氧化镁（分离产物）",
+          "name_en": "High-Purity MgO (Separated)",
+          "formula": "MgO",
+          "type": "intermediate_phase",
+          "depth": 1,
+          "children": ["mg_chemicals", "refractory_mgo"],
+          "parents": ["raw_black_talc"],
+          "properties": [
+            {
+              "property": "Mg 浸出率",
+              "value": "最高 97.98%",
+              "condition": "HF+HCl 混合酸浸 (PAPER-007)",
+              "source_papers": ["PAPER-007"]
+            }
+          ],
+          "notes": "酸浸分离路线"
+        },
+        {
+          "id": "separated_sio2",
+          "name": "高纯二氧化硅（分离产物）",
+          "name_en": "High-Purity SiO₂ (Separated)",
+          "formula": "SiO₂",
+          "type": "intermediate_phase",
+          "depth": 1,
+          "children": ["white_carbon_black"],
+          "parents": ["raw_black_talc"],
+          "properties": [
+            {
+              "property": "SiO₂ 纯度",
+              "value": "最高 99.92%",
+              "condition": "HF+HCl 混合酸浸后残渣 (PAPER-007)",
+              "source_papers": ["PAPER-007"]
+            }
+          ],
+          "notes": "酸浸分离路线——白炭黑前驱体"
+        }
+      ],
+      "new_edges": [
+        {
+          "from": "raw_black_talc",
+          "to": "forsterite_from_talc",
+          "type": "process",
+          "label_short": ">1100°C→镁橄榄石",
+          "conditions": {
+            "temperature": {"min": 1100, "max": 1400, "unit": "°C"},
+            "atmosphere": "空气",
+            "additives": [],
+            "equipment": "高温窑炉"
+          },
+          "result_purity": "镁橄榄石主晶相",
+          "source_papers": ["PAPER-002"],
+          "trl": 5,
+          "notes": "综述引用——镁橄榄石耐火材料路线"
+        },
+        {
+          "from": "forsterite_from_talc",
+          "to": "refractory_brick",
+          "type": "property_link",
+          "label_short": "高耐火度→耐火砖",
+          "via_property": "耐火度 >1500°C + 低热膨胀系数",
+          "source_papers": ["PAPER-002"],
+          "trl": 7,
+          "notes": "镁橄榄石耐火砖——已有工业应用"
+        }
+      ],
+      "properties_added_to": {
+        "enstatite_from_talc": [
+          {
+            "property": "介电常数 εr",
+            "value": "5-7",
+            "condition": "烧结顽火辉石陶瓷",
+            "source_papers": ["PAPER-002", "PAPER-004"]
+          },
+          {
+            "property": "Q×f 范围",
+            "value": "56,782 - 145,846 GHz",
+            "condition": "Cu²⁺/Co²⁺ 掺杂优化后",
+            "source_papers": ["PAPER-002", "PAPER-010", "PAPER-011"]
+          }
+        ]
+      },
+      "papers_cross_validated": [
+        "PAPER-005", "PAPER-006", "PAPER-003", "PAPER-004",
+        "PAPER-007", "PAPER-008", "PAPER-009", "PAPER-010", "PAPER-011"
+      ]
+    },
+
+    "q3_reliability": {
+      "scale": "powder",
+      "full_params": true,
+      "replicates": false,
+      "journal_tier": "chinese_core",
+      "notes": "综述论文，约 86 篇参考文献，覆盖黑滑石全领域。通讯作者杨华明为国家杰青。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-005", "PAPER-006", "PAPER-003", "PAPER-004",
+        "PAPER-007", "PAPER-008", "PAPER-009", "PAPER-010", "PAPER-011"]
+    }
+  }
+}

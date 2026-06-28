@@ -10,7 +10,7 @@ digraph MgOSiO2_System {
 
   // 图标题
   labelloc="t";
-  label="黑滑石 MgO-SiO₂(-C-H₂O) 物相-应用体系树\n0.1.1 | 2026-06-28";
+  label="黑滑石 MgO-SiO₂(-C-H₂O) 物相-应用体系树\n0.1.2 | 2026-06-28";
   fontsize=16;
 
   "dehydrated_talc" [label="脱水滑石\nMg₃Si₄O₁₀(OH)₂ (H₂O 脱除)", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
@@ -21,6 +21,14 @@ digraph MgOSiO2_System {
 
   "enstatite_from_talc" [label="顽火辉石（滑石热解产物）\nMgSiO₃", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
 
+  "raw_black_talc" [label="黑滑石原矿\nMg₃Si₄O₁₀(OH)₂ + <1%C", fillcolor="#2c3e50", fontcolor="white", penwidth=2];
+
+  "forsterite_from_talc" [label="镁橄榄石（滑石热解产物）\nMg₂SiO₄", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
+  "separated_mgo" [label="高纯氧化镁（分离产物）\nMgO", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
+  "separated_sio2" [label="高纯二氧化硅（分离产物）\nSiO₂", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
   "raw_black_talc" -> "dehydrated_talc" [label="30-165°C 脱水\n[PAPER-005]", color="#e74c3c", fontcolor="#c0392b"];
 
   "raw_black_talc" -> "decarbonized_talc" [label="165-580°C 有机碳氧化\n[PAPER-005]", color="#e74c3c", fontcolor="#c0392b"];
@@ -28,5 +36,9 @@ digraph MgOSiO2_System {
   "raw_black_talc" -> "dehydroxylated_talc" [label="800-900°C 脱羟基活化\n[PAPER-005]", color="#e74c3c", fontcolor="#c0392b"];
 
   "raw_black_talc" -> "enstatite_from_talc" [label="900-1000°C 相转变→顽火辉石\n[PAPER-005]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "raw_black_talc" -> "forsterite_from_talc" [label=">1100°C→镁橄榄石\n[PAPER-002]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "forsterite_from_talc" -> "refractory_brick" [label="耐火度 >1500°C + 低热膨胀系数\n[PAPER-002]", color="#2980b9", fontcolor="#2c3e50", style=dashed];
 
 }
