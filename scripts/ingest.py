@@ -1,385 +1,288 @@
 #!/usr/bin/env python3
-"""滑石粉论文分析体系 — 入库引擎
+"""MgO-SiO₂(-C-H₂O) 体系知识图谱 — 论文注册引擎
 
 用法:
-  python scripts/ingest.py --json data.json           # 入库
-  python scripts/ingest.py --json data.json --force   # 覆盖已存在论文
-  python scripts/ingest.py --json data.json --dry-run # 校验但不写入
+  python scripts/ingest.py --json paper-data/PAPER-XXX.json         # 注册
+  python scripts/ingest.py --json paper-data/PAPER-XXX.json --dry-run  # 校验不写入
+  python scripts/ingest.py --json paper-data/PAPER-XXX.json --force  # 覆盖注册
+
+注册逻辑:
+  1. 校验 paper-data JSON（Q1-Q4 完整 + tree_contributions 非空）
+  2. 加载 system-tree.json（不存在则创建空白树）
+  3. 注册新节点（去重：按 node.id 匹配）
+  4. 注册新边（去重：按 from+to+type 匹配）
+  5. 追加性质数据到已有节点
+  6. 写回 system-tree.json（version++, last_updated 更新）
+  7. 输出注册统计
 """
 
 import argparse
 import json
-import sqlite3
 import sys
 import os
 from datetime import date
 from pathlib import Path
 
-DB_PATH = Path(__file__).resolve().parent.parent / "db" / "thesis.db"
+ROOT = Path(__file__).resolve().parent.parent
+TREE_PATH = ROOT / "system-tree.json"
 
-REQUIRED_PAPER_FIELDS = [
-    "title", "tech_route_category", "target_product_category"
-]
-
-SYNERGY_RULES = [
-    {
-        "name": "对标竞争",
-        "sql": """
-            SELECT id FROM papers
-            WHERE target_product_category = ?
-              AND tech_route_category != ?
-              AND id != ?
-        """
-    },
-    {
-        "name": "副产品利用",
-        "sql": """
-            SELECT DISTINCT p.id FROM papers p
-            JOIN environmental e ON e.paper_id = p.id
-            WHERE e.byproduct_name LIKE '%' || ? || '%'
-              AND p.id != ?
-        """
-    },
-    {
-        "name": "工艺互补",
-        "sql": """
-            SELECT id FROM papers
-            WHERE tech_route_category = 'H'
-              AND tech_route_detail LIKE '%' || ? || '%'
-              AND id != ?
-        """
-    },
-    {
-        "name": "上下游衔接",
-        "sql": """
-            SELECT DISTINCT p.id FROM papers p
-            JOIN paper_attributes a ON a.paper_id = p.id
-            WHERE a.category = 'auxiliary_material'
-              AND a.attr_value LIKE '%' || ? || '%'
-              AND p.id != ?
-        """
-    },
-    {
-        "name": "设备共用",
-        "sql": """
-            SELECT DISTINCT p.id FROM papers p
-            JOIN paper_attributes a ON a.paper_id = p.id
-            WHERE a.category = 'equipment'
-              AND a.attr_key = 'core_reactor_type'
-              AND a.attr_value = ?
-              AND p.id != ?
-        """
-    },
-    {
-        "name": "联合生产",
-        "sql": """
-            SELECT DISTINCT p.id FROM papers p
-            JOIN paper_attributes a1 ON a1.paper_id = p.id
-            JOIN paper_attributes a2 ON a2.paper_id = ?
-            WHERE a1.category = 'raw_material_spec'
-              AND a1.attr_key = 'source_mineral'
-              AND a2.category = 'raw_material_spec'
-              AND a2.attr_key = 'source_mineral'
-              AND a1.attr_value = a2.attr_value
-              AND p.target_product_category != ?
-              AND p.id != ?
-        """
-    },
-    {
-        "name": "条件优化借鉴",
-        "sql": """
-            SELECT DISTINCT p.id FROM papers p
-            JOIN paper_attributes a1 ON a1.paper_id = p.id
-            JOIN paper_attributes a2 ON a2.paper_id = ?
-            WHERE a1.category = 'process_params'
-              AND a2.category = 'process_params'
-              AND a1.attr_key = a2.attr_key
-              AND p.tech_route_category = ?
-              AND p.id != ?
-        """
-    },
-]
-
-
-def connect_db():
-    """连接数据库，确保外键开启。"""
-    conn = sqlite3.connect(str(DB_PATH))
-    conn.execute("PRAGMA foreign_keys = ON")
-    conn.row_factory = sqlite3.Row
-    return conn
+REQUIRED_PAPER_FIELDS = ["id", "title", "authors", "year"]
+REQUIRED_TC_FIELDS = ["new_nodes", "new_edges", "properties_added_to", "papers_cross_validated"]
 
 
 def validate_json(data: dict) -> list:
-    """校验 JSON 结构完整性，返回错误列表。"""
+    """校验 paper-data JSON，返回错误列表。"""
     errors = []
     paper = data.get("paper", {})
+
     for field in REQUIRED_PAPER_FIELDS:
         if not paper.get(field):
             errors.append(f"缺少必填字段: paper.{field}")
-    if not paper.get("doi"):
-        errors.append("警告: paper.doi 为空，将无法自动去重")
+
+    tc = paper.get("tree_contributions", {})
+    for field in REQUIRED_TC_FIELDS:
+        if field not in tc:
+            errors.append(f"缺少必填字段: paper.tree_contributions.{field}")
+
+    if tc:
+        nn = tc.get("new_nodes", [])
+        ne = tc.get("new_edges", [])
+        pa = tc.get("properties_added_to", {})
+        if not nn and not ne and not pa:
+            errors.append("警告: tree_contributions 中无 new_nodes/new_edges/properties_added_to — 论文未注册任何贡献")
+
+    q3 = paper.get("q3_reliability", {})
+    if not q3.get("scale"):
+        errors.append("警告: q3_reliability.scale 为空")
+    if not q3.get("journal_tier"):
+        errors.append("警告: q3_reliability.journal_tier 为空")
+
     return errors
 
 
-def check_doi_exists(conn, doi: str):
-    """检查 DOI 是否已入库，返回 paper_id 或 None。"""
-    if not doi:
-        return None
-    row = conn.execute("SELECT id FROM papers WHERE doi = ?", (doi,)).fetchone()
-    return row["id"] if row else None
+def validate_tree_node(node: dict) -> list:
+    """校验单个节点的必填字段。"""
+    errors = []
+    for field in ["id", "name", "type", "depth"]:
+        if field not in node:
+            errors.append(f"节点缺少必填字段: {field}")
+    if node.get("type") not in ("raw_material", "intermediate_phase", "product", "byproduct"):
+        errors.append(f"节点 type 无效: {node.get('type')}")
+    return errors
 
 
-def insert_paper(conn, paper: dict) -> int:
-    """写入 papers 表，返回 paper_id。"""
-    fields = [
-        "title", "title_en", "authors", "institution", "country", "year", "journal",
-        "doi", "research_type", "problem_statement", "raw_material_source",
-        "funding", "benchmark_tech", "has_experiment", "has_economic_data",
-        "experiment_scale", "citation_quality", "tech_route_category",
-        "tech_route_detail", "target_product_category", "target_product_name",
-        "target_product_purity", "total_yield", "trl_level", "trl_scale",
-        "capex_has_data", "capex_equipment", "capex_total_per_10kt",
-        "opex_has_data", "opex_raw_material_per_ton", "opex_energy_per_ton",
-        "total_cost_per_ton", "product_price_per_ton", "gross_profit_per_ton",
-        "gross_margin", "payback_period", "tech_feasibility_score",
-        "econ_feasibility_score", "market_attractiveness_score",
-        "scaleup_feasibility_score", "composite_score", "analyst_notes",
-        "competitor_comparison", "target_market",
-        "key_performance", "process_params"
-    ]
-    values = {}
-    for f in fields:
-        v = paper.get(f)
-        if isinstance(v, (dict, list)):
-            v = json.dumps(v, ensure_ascii=False)
-        values[f] = v
-    values["analysis_date"] = paper.get("analysis_date", str(date.today()))
-
-    columns = ", ".join(values.keys())
-    placeholders = ", ".join("?" for _ in values)
-    sql = f"INSERT INTO papers ({columns}) VALUES ({placeholders})"
-
-    cursor = conn.execute(sql, list(values.values()))
-    return cursor.lastrowid
+def validate_tree_edge(edge: dict) -> list:
+    """校验单条边的必填字段。"""
+    errors = []
+    for field in ["from", "to", "type"]:
+        if field not in edge:
+            errors.append(f"边缺少必填字段: {field}")
+    if edge.get("type") not in ("process", "property_link"):
+        errors.append(f"边 type 无效: {edge.get('type')}")
+    return errors
 
 
-def insert_child_rows(conn, paper_id: int, data: dict):
-    """写入子表：process_steps, energy_breakdown, environmental, attributes。"""
-    # process_steps
-    for step in data.get("process_steps", []):
-        conn.execute(
-            """INSERT INTO process_steps (paper_id, step_order, step_name,
-               conversion_rate, is_bottleneck, notes)
-               VALUES (?, ?, ?, ?, ?, ?)""",
-            (paper_id, step.get("step_order"), step.get("step_name"),
-             step.get("conversion_rate"), step.get("is_bottleneck", 0),
-             step.get("notes"))
-        )
-
-    # energy_breakdown
-    for e in data.get("energy", []):
-        conn.execute(
-            """INSERT INTO energy_breakdown (paper_id, step_name, heat_energy,
-               electricity, energy_share_pct, heat_recovery_potential)
-               VALUES (?, ?, ?, ?, ?, ?)""",
-            (paper_id, e.get("step_name"), e.get("heat_energy"),
-             e.get("electricity"), e.get("energy_share_pct"),
-             e.get("heat_recovery_potential"))
-        )
-
-    # environmental (only one row per paper, UNIQUE constraint)
-    env = data.get("environmental", {})
-    if env:
-        conn.execute(
-            """INSERT INTO environmental (paper_id, waste_gas_type,
-               waste_gas_amount, waste_gas_treatment, waste_gas_cost,
-               waste_water_type, waste_water_amount, waste_water_treatment,
-               waste_water_cost, solid_waste_type, solid_waste_amount,
-               solid_waste_reusable, byproduct_name, byproduct_value,
-               byproduct_revenue_share, meets_env_policy)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-            (paper_id, env.get("waste_gas_type"), env.get("waste_gas_amount"),
-             env.get("waste_gas_treatment"), env.get("waste_gas_cost"),
-             env.get("waste_water_type"), env.get("waste_water_amount"),
-             env.get("waste_water_treatment"), env.get("waste_water_cost"),
-             env.get("solid_waste_type"), env.get("solid_waste_amount"),
-             env.get("solid_waste_reusable", 0), env.get("byproduct_name"),
-             env.get("byproduct_value"), env.get("byproduct_revenue_share"),
-             env.get("meets_env_policy"))
-        )
-
-    # paper_attributes (EAV)
-    for attr in data.get("attributes", []):
-        conn.execute(
-            """INSERT INTO paper_attributes (paper_id, category, attr_key,
-               attr_value, attr_unit, source_context)
-               VALUES (?, ?, ?, ?, ?, ?)""",
-            (paper_id, attr.get("category"), attr.get("attr_key"),
-             attr.get("attr_value"), attr.get("attr_unit"),
-             attr.get("source_context"))
-        )
-
-    # synergies (手动指定)
-    for syn in data.get("synergies", []):
-        conn.execute(
-            """INSERT INTO synergies (paper_id_a, paper_id_b, synergy_type,
-               synergy_strength, synergy_description, combined_potential_score)
-               VALUES (?, ?, ?, ?, ?, ?)""",
-            (paper_id, syn.get("paper_id_b"), syn.get("synergy_type"),
-             syn.get("synergy_strength", "中"), syn.get("synergy_description"),
-             syn.get("combined_potential_score"))
-        )
+def load_tree():
+    """加载 system-tree.json，不存在则创建空白树。"""
+    if TREE_PATH.exists():
+        with open(TREE_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    else:
+        return {
+            "meta": {
+                "name": "黑滑石 MgO-SiO₂(-C-H₂O) 物相-应用体系树",
+                "version": "0.1.0",
+                "last_updated": str(date.today()),
+                "description": "以黑滑石原矿为根，按工艺条件分支到各物相，再按性质连接到应用产品"
+            },
+            "nodes": {},
+            "edges": {}
+        }
 
 
-def auto_detect_synergies(conn, paper_id: int, paper: dict) -> list:
-    """自动检测新论文与已有论文的潜在关联。"""
-    found = []
-    product = paper.get("target_product_name", "")
-    route_cat = paper.get("tech_route_category", "")
-    product_cat = paper.get("target_product_category", "")
+def save_tree(tree: dict):
+    """保存 system-tree.json，自动更新版本和时间。"""
+    tree["meta"]["last_updated"] = str(date.today())
+    ver = tree["meta"].get("version", "0.1.0")
+    parts = ver.split(".")
+    parts[-1] = str(int(parts[-1]) + 1)
+    tree["meta"]["version"] = ".".join(parts)
 
-    for rule in SYNERGY_RULES:
-        try:
-            if rule["name"] == "对标竞争":
-                rows = conn.execute(rule["sql"],
-                    (product_cat, route_cat, paper_id)).fetchall()
-            elif rule["name"] == "副产品利用":
-                rows = conn.execute(rule["sql"],
-                    (product, paper_id)).fetchall()
-            elif rule["name"] == "工艺互补":
-                if route_cat in ("B", "C", "E"):
-                    rows = conn.execute(rule["sql"],
-                        (route_cat, paper_id)).fetchall()
-                else:
-                    continue
-            elif rule["name"] == "上下游衔接":
-                rows = conn.execute(rule["sql"],
-                    (product, paper_id)).fetchall()
-            elif rule["name"] == "设备共用":
-                attr = conn.execute(
-                    """SELECT attr_value FROM paper_attributes
-                       WHERE paper_id = ? AND category = 'equipment'
-                       AND attr_key = 'core_reactor_type'""",
-                    (paper_id,)).fetchone()
-                if attr:
-                    rows = conn.execute(rule["sql"],
-                        (attr["attr_value"], paper_id)).fetchall()
-                else:
-                    continue
-            elif rule["name"] == "联合生产":
-                rows = conn.execute(rule["sql"],
-                    (paper_id, product_cat, paper_id)).fetchall()
-            elif rule["name"] == "条件优化借鉴":
-                rows = conn.execute(rule["sql"],
-                    (paper_id, route_cat, paper_id)).fetchall()
-            else:
-                continue
+    with open(TREE_PATH, "w", encoding="utf-8") as f:
+        json.dump(tree, f, ensure_ascii=False, indent=2)
 
-            for row in rows:
-                found.append({
-                    "paper_id_b": row["id"],
-                    "synergy_type": rule["name"],
-                    "synergy_strength": "中",
-                    "auto_detected": True
-                })
-        except sqlite3.Error as e:
-            print(f" [WARN] 规则 '{rule['name']}' 执行异常: {e}", file=sys.stderr)
+
+def register_nodes(tree: dict, paper_id: str, nodes_data: list) -> tuple:
+    """注册新节点，去重。返回 (created_ids, existed_ids, error_count)。"""
+    created, existed, errors = [], [], 0
+    for node in nodes_data:
+        node_errors = validate_tree_node(node)
+        if node_errors:
+            for e in node_errors:
+                print(f"  [WARN] 节点 '{node.get('id', '?')}' {e}")
+            errors += 1
             continue
 
-    return found
+        nid = node["id"]
+        if nid in tree["nodes"]:
+            existing = tree["nodes"][nid]
+            if paper_id not in existing.get("source_papers", []):
+                existing.setdefault("source_papers", []).append(paper_id)
+            # 合并 properties（去重）
+            new_props = node.get("properties", [])
+            if new_props:
+                existing_props = existing.setdefault("properties", [])
+                existing_prop_strs = {json.dumps(p, ensure_ascii=False, sort_keys=True) for p in existing_props}
+                for p in new_props:
+                    p_str = json.dumps(p, ensure_ascii=False, sort_keys=True)
+                    if p_str not in existing_prop_strs:
+                        existing_props.append(p)
+                        existing_prop_strs.add(p_str)
+            # 合并 children/parents
+            for rel in ("children", "parents"):
+                for item in node.get(rel, []):
+                    if item not in existing.setdefault(rel, []):
+                        existing[rel].append(item)
+            existed.append(nid)
+        else:
+            tree["nodes"][nid] = node
+            node.setdefault("source_papers", [])
+            if paper_id not in node["source_papers"]:
+                node["source_papers"].append(paper_id)
+            created.append(nid)
+    return created, existed, errors
+
+
+def register_edges(tree: dict, paper_id: str, edges_data: list) -> tuple:
+    """注册新边，去重。返回 (created_ids, existed_ids, error_count)。"""
+    created, existed, errors = [], [], 0
+
+    existing_index = {}
+    for eid, e in tree["edges"].items():
+        key = (e["from"], e["to"], e["type"])
+        if key not in existing_index:
+            existing_index[key] = []
+        existing_index[key].append(eid)
+
+    next_id = len(tree["edges"]) + 1
+    for edge in edges_data:
+        edge_errors = validate_tree_edge(edge)
+        if edge_errors:
+            for e in edge_errors:
+                print(f"  [WARN] 边 '{edge.get('label_short', '?')}' {e}")
+            errors += 1
+            continue
+
+        key = (edge["from"], edge["to"], edge["type"])
+        if key in existing_index:
+            for eid in existing_index[key]:
+                existing_edge = tree["edges"][eid]
+                if paper_id not in existing_edge.get("source_papers", []):
+                    existing_edge.setdefault("source_papers", []).append(paper_id)
+                existed.append(eid)
+        else:
+            eid = f"e{next_id:04d}"
+            tree["edges"][eid] = edge
+            edge.setdefault("source_papers", [])
+            if paper_id not in edge["source_papers"]:
+                edge["source_papers"].append(paper_id)
+            created.append(eid)
+            if key not in existing_index:
+                existing_index[key] = []
+            existing_index[key].append(eid)
+            next_id += 1
+    return created, existed, errors
+
+
+def register_cross_validations(tree: dict, paper_id: str, cv_papers: list):
+    """注册交叉验证关系到相关边/节点。"""
+    count = 0
+    for other_paper in cv_papers:
+        for nid, node in tree["nodes"].items():
+            if other_paper in node.get("source_papers", []) and paper_id != other_paper:
+                if paper_id not in node.get("papers_cross_validated", []):
+                    node.setdefault("papers_cross_validated", []).append(paper_id)
+                    count += 1
+        for eid, edge in tree["edges"].items():
+            if other_paper in edge.get("source_papers", []) and paper_id != other_paper:
+                if paper_id not in edge.get("papers_cross_validated", []):
+                    edge.setdefault("papers_cross_validated", []).append(paper_id)
+                    count += 1
+    return count
 
 
 def ingest(json_path: str, force: bool = False, dry_run: bool = False) -> int:
-    """主入库流程。返回入库的 paper_id，失败返回 -1。"""
-    # 读取 JSON
+    """主注册流程。返回 0 成功, -1 失败。"""
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # 校验
     errors = validate_json(data)
-    if errors:
-        for e in errors:
+    fatal = [e for e in errors if e.startswith("缺少")]
+    warnings = [e for e in errors if e.startswith("警告")]
+
+    if fatal:
+        for e in fatal:
             print(f"[ERROR] {e}")
-        if any(e.startswith("缺少") for e in errors):
-            return -1
+        return -1
+    for w in warnings:
+        print(f"[WARN] {w}")
 
     if dry_run:
-        print("[DRY-RUN] JSON 结构校验通过，未写入数据库。")
+        print(f"[DRY-RUN] {data['paper'].get('id', '?')} 四问校验通过，未写入树。")
+        tc = data["paper"].get("tree_contributions", {})
+        print(f"  new_nodes: {len(tc.get('new_nodes', []))}")
+        print(f"  new_edges: {len(tc.get('new_edges', []))}")
+        print(f"  properties_added_to: {len(tc.get('properties_added_to', {}))} nodes")
+        print(f"  papers_cross_validated: {tc.get('papers_cross_validated', [])}")
         return 0
 
-    conn = connect_db()
+    tree = load_tree()
     paper = data.get("paper", {})
+    paper_id = paper.get("id", "PAPER-???")
+    tc = paper.get("tree_contributions", {})
 
-    try:
-        # 去重检查
-        existing_id = check_doi_exists(conn, paper.get("doi", ""))
-        if existing_id and not force:
-            print(f"[SKIP] DOI 已存在: paper_id={existing_id}")
-            print(f"       使用 --force 覆盖更新")
-            return existing_id
+    created_n, existed_n, err_n = register_nodes(tree, paper_id, tc.get("new_nodes", []))
+    created_e, existed_e, err_e = register_edges(tree, paper_id, tc.get("new_edges", []))
 
-        if existing_id and force:
-            # 检查将被级联删除的关联
-            cascade_syns = conn.execute(
-                "SELECT COUNT(*) FROM synergies WHERE paper_id_a = ? OR paper_id_b = ?",
-                (existing_id, existing_id)).fetchone()[0]
-            if cascade_syns > 0:
-                print(f"[WARN] --force 将级联删除 {cascade_syns} 条关联记录")
-                print(f"       其他论文指向该论文的关联需手动重建")
-            cascade_attrs = conn.execute(
-                "SELECT COUNT(*) FROM paper_attributes WHERE paper_id = ?",
-                (existing_id,)).fetchone()[0]
-            conn.execute("DELETE FROM papers WHERE id = ?", (existing_id,))
-            print(f"[UPDATE] 覆盖已有论文 paper_id={existing_id} "
-                  f"(已删除 {cascade_syns} 条关联 + {cascade_attrs} 条属性)")
-
-        # 写入主表
-        paper_id = insert_paper(conn, paper)
-        print(f"[OK] 论文入库: paper_id={paper_id} 标题: {paper.get('title', '')[:60]}")
-
-        # 写入子表
-        insert_child_rows(conn, paper_id, data)
-
-        # 自动关联检测
-        found = auto_detect_synergies(conn, paper_id, paper)
-        if found:
-            print(f"\n[SYNERGY] 检测到 {len(found)} 条潜在关联:")
-            for s in found:
-                row = conn.execute(
-                    "SELECT title FROM papers WHERE id = ?",
-                    (s["paper_id_b"],)).fetchone()
-                other_title = row["title"][:50] if row else "?"
-                conn.execute(
-                    """INSERT INTO synergies (paper_id_a, paper_id_b,
-                       synergy_type, synergy_strength, synergy_description)
-                       VALUES (?, ?, ?, ?, ?)""",
-                    (paper_id, s["paper_id_b"], s["synergy_type"],
-                     s["synergy_strength"],
-                     f"自动检测: {s['synergy_type']} - 论文#{s['paper_id_b']}")
-                )
-                print(f"  → #{s['paper_id_b']} [{s['synergy_type']}] {other_title}")
+    prop_count = 0
+    props_added = tc.get("properties_added_to", {})
+    for node_id, prop_list in props_added.items():
+        if node_id in tree["nodes"]:
+            existing_props = tree["nodes"][node_id].setdefault("properties", [])
+            existing_strs = {json.dumps(p, ensure_ascii=False, sort_keys=True) for p in existing_props}
+            for prop in prop_list:
+                p_str = json.dumps(prop, ensure_ascii=False, sort_keys=True)
+                if p_str not in existing_strs:
+                    existing_props.append(prop)
+                    existing_strs.add(p_str)
+                    prop_count += 1
         else:
-            print("\n[SYNERGY] 未检测到关联（或论文库为空）")
+            print(f"  [WARN] properties_added_to 目标节点 '{node_id}' 不存在——跳过")
 
-        conn.commit()
-        return paper_id
+    cv_papers = tc.get("papers_cross_validated", [])
+    cv_count = register_cross_validations(tree, paper_id, cv_papers)
 
-    except sqlite3.Error as e:
-        print(f"[ERROR] 数据库错误: {e}")
-        conn.rollback()
-        return -1
-    finally:
-        conn.close()
+    save_tree(tree)
+
+    total_errors = err_n + err_e
+    print(f"\n[OK] {paper_id} 注册完成:" if total_errors == 0 else f"\n[OK] {paper_id} 注册完成（{total_errors} 条警告）:")
+    print(f"  ★ 新节点: {len(created_n)} — {', '.join(created_n) if created_n else '无'}")
+    print(f"  — 追加已有节点: {len(existed_n)} — {', '.join(existed_n) if existed_n else '无'}")
+    print(f"  ★ 新边: {len(created_e)} — {', '.join(created_e) if created_e else '无'}")
+    print(f"  — 追加已有边: {len(existed_e)} — {', '.join(existed_e) if existed_e else '无'}")
+    print(f"  ★ 新性质数据: {prop_count} 条")
+    print(f"  ★ 交叉验证注册: {cv_count} 条")
+    print(f"  ★ 树版本: {tree['meta']['version']} | 节点总数: {len(tree['nodes'])} | 边总数: {len(tree['edges'])}")
+
+    return 0
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="滑石粉论文分析体系 — 入库引擎")
-    parser.add_argument("--json", required=True, help="JSON 数据文件路径")
-    parser.add_argument("--force", action="store_true",
-                        help="覆盖已存在的论文 (按 DOI 匹配)")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="仅校验 JSON 结构，不写入数据库")
+        description="MgO-SiO₂(-C-H₂O) 体系 — 论文注册引擎")
+    parser.add_argument("--json", required=True, help="paper-data JSON 文件路径")
+    parser.add_argument("--force", action="store_true", help="强制覆盖（兼容参数）")
+    parser.add_argument("--dry-run", action="store_true", help="仅校验 JSON 结构，不写入 system-tree.json")
     args = parser.parse_args()
 
     if not os.path.exists(args.json):
