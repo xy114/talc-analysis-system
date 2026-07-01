@@ -4,8 +4,8 @@ db/thesis.db
 # Paper source files (potentially copyrighted PDFs/DOCXs)
 sources/
 
-# Generated paper reports
-papers/PAPER-*.md
+# Generated paper reports (old — now tracked in papers/)
+# papers/PAPER-*.md
 
 # Python cache
 __pycache__/
@@ -21,3 +21,6 @@ Thumbs.db
 
 # Export CSV
 papers_export.csv
+
+# 废弃材料归档（旧方法论成果，不入版本控制）
+废弃材料/
