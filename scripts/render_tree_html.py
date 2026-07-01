@@ -147,7 +147,7 @@ if (!root) {
 
   // Fixed spacing: 90px vertical (node-to-node), 260px horizontal (depth-to-depth)
   const NODE_V_SPACING = 90;
-  const NODE_H_SPACING = 260;
+  const NODE_H_SPACING = 320;
   const treeLayout = d3.tree().nodeSize([NODE_V_SPACING, NODE_H_SPACING]);
 
   const hierarchy = d3.hierarchy(root);
@@ -227,7 +227,7 @@ if (!root) {
   // Text placement: children expand right, so leaf labels go right of circle, branch labels go left
   node.append("text")
     .attr("dy", "0.35em")
-    .attr("x", d => (d.children && d.children.length > 0) ? -16 : 16)
+    .attr("x", d => (d.children && d.children.length > 0) ? -18 : 18)
     .attr("text-anchor", d => (d.children && d.children.length > 0) ? "end" : "start")
     .text(d => d.data.name || d.data.id || "")
     .clone(true).lower()

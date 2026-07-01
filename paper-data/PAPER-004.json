@@ -7,57 +7,72 @@
     "journal": "电子元件与材料",
     "doi": "10.14106/j.cnki.1001-2028.2024.0197",
     "research_type": "experiment",
-
     "tree_contributions": {
       "new_nodes": [
         {
-          "id": "black_talc_mw_ceramic",
-          "name": "黑滑石微波介质陶瓷",
+          "id": "black_talc_mw_direct",
+          "name": "黑滑石微波介质陶瓷(原矿1325°C)",
           "name_en": "Black Talc Microwave Dielectric Ceramic",
           "formula": "MgSiO₃ + SiO₂ 复合陶瓷",
           "type": "product",
           "depth": 2,
           "children": [],
-          "parents": ["enstatite_from_talc"],
+          "parents": [
+            "enstatite_from_talc"
+          ],
           "properties": [
             {
               "property": "最佳烧结温度",
               "value": "1325°C",
               "condition": "固相烧结法，保温4h",
-              "source_papers": ["PAPER-004"]
+              "source_papers": [
+                "PAPER-004"
+              ]
             },
             {
               "property": "介电常数 εr",
               "value": "5.11",
               "condition": "1325°C烧结，Hakki-Coleman法",
-              "source_papers": ["PAPER-004"]
+              "source_papers": [
+                "PAPER-004"
+              ]
             },
             {
               "property": "Q×f 值",
               "value": "56,782 GHz",
               "condition": "1325°C烧结",
-              "source_papers": ["PAPER-004"]
+              "source_papers": [
+                "PAPER-004"
+              ]
             },
             {
               "property": "τf (谐振频率温度系数)",
               "value": "-17.85×10⁻⁶/°C",
               "condition": "1325°C烧结，25-85°C",
-              "source_papers": ["PAPER-004"]
+              "source_papers": [
+                "PAPER-004"
+              ]
             },
             {
               "property": "体积密度(最大)",
               "value": "2.97 g/cm³",
               "condition": "1325°C烧结",
-              "source_papers": ["PAPER-004"]
+              "source_papers": [
+                "PAPER-004"
+              ]
             },
             {
               "property": "物相组成",
               "value": "正交顽火辉石 MgSiO₃ (主相) + 方石英 SiO₂ (次相)",
               "condition": "1250-1350°C烧结",
-              "source_papers": ["PAPER-004"]
+              "source_papers": [
+                "PAPER-004"
+              ]
             }
           ],
-          "source_papers": ["PAPER-004"],
+          "source_papers": [
+            "PAPER-004"
+          ],
           "notes": "直接用黑滑石原矿（非高纯化工原料）制备微波介质陶瓷。MgSiO₃理论εr=6.71, SiO₂理论εr=3.52，实测εr=5.11位于两者之间。Q×f低于纯MgSiO₃(约120,000GHz)主要因为微量矿物杂质。但原料成本远低于高纯化工路线。"
         }
       ],
@@ -68,24 +83,34 @@
           "type": "process",
           "label_short": "800°C预煅烧+球磨→1325°C烧结",
           "conditions": {
-            "temperature": {"min": 800, "max": 1325, "unit": "°C"},
+            "temperature": {
+              "min": 800,
+              "max": 1325,
+              "unit": "°C"
+            },
             "atmosphere": "空气",
             "time": "预煅烧2h + 烧结4h",
-            "additives": ["PVA 5% (粘结剂)"],
+            "additives": [
+              "PVA 5% (粘结剂)"
+            ],
             "equipment": "马弗炉+球磨机+金属模具"
           },
           "result_purity": "顽火辉石 MgSiO₃ (主相) + 方石英 SiO₂ (次相)",
-          "source_papers": ["PAPER-004"],
+          "source_papers": [
+            "PAPER-004"
+          ],
           "trl": 3,
           "notes": "固相烧结法。800°C预煅烧去除有机碳→湿法球磨8h→压制成型→1250-1350°C烧结。"
         },
         {
           "from": "enstatite_from_talc",
-          "to": "black_talc_mw_ceramic",
+          "to": "black_talc_mw_direct",
           "type": "property_link",
           "label_short": "低εr+低损耗→5G微波介质陶瓷",
           "via_property": "εr=5.11 + Q×f=56,782 GHz→适用于5G毫米波器件",
-          "source_papers": ["PAPER-004"],
+          "source_papers": [
+            "PAPER-004"
+          ],
           "trl": 3,
           "notes": "原料成本低（黑滑石原矿 vs 高纯化工原料），性能可接受。τf=-17.85×10⁻⁶/°C接近纯MgSiO₃。"
         }
@@ -96,30 +121,41 @@
             "property": "介电常数 εr (黑滑石基)",
             "value": "5.11 (1325°C烧结)",
             "condition": "黑滑石原矿直接烧结，MgSiO₃+SiO₂共存",
-            "source_papers": ["PAPER-004"]
+            "source_papers": [
+              "PAPER-004"
+            ]
           },
           {
             "property": "Q×f (黑滑石基)",
             "value": "56,782 GHz (1325°C)",
             "condition": "低于纯MgSiO₃(~120,000 GHz)因微量杂质",
-            "source_papers": ["PAPER-004"]
+            "source_papers": [
+              "PAPER-004"
+            ]
           },
           {
             "property": "τf (黑滑石基)",
             "value": "-17.85×10⁻⁶/°C",
             "condition": "接近纯MgSiO₃ τf ≈ -19×10⁻⁶/°C",
-            "source_papers": ["PAPER-004"]
+            "source_papers": [
+              "PAPER-004"
+            ]
           },
           {
             "property": "理论密度",
             "value": "3.11 g/cm³ (MgSiO₃), 2.33 g/cm³ (SiO₂)",
-            "source_papers": ["PAPER-004"]
+            "source_papers": [
+              "PAPER-004"
+            ]
           }
         ]
       },
-      "papers_cross_validated": ["PAPER-002", "PAPER-010", "PAPER-011"]
+      "papers_cross_validated": [
+        "PAPER-002",
+        "PAPER-010",
+        "PAPER-011"
+      ]
     },
-
     "q3_reliability": {
       "scale": "powder",
       "full_params": true,
@@ -128,11 +164,17 @@
       "funding": "国家自然科学基金(52301260)",
       "notes": "实验设计规范：XRD+S E M+E D S+阿基米德法+网络分析仪。TG-DSC确定预煅烧温度。5个烧结温度梯度(1250-1350°C)。缺点：未做掺杂优化（Q×f较低），未报告误差棒。"
     },
-
     "q4_cross_validation": {
-      "verified_by": ["PAPER-002"],
+      "verified_by": [
+        "PAPER-002"
+      ],
       "contradicts": [],
-      "complements": ["PAPER-010", "PAPER-011", "PAPER-008", "PAPER-009"]
+      "complements": [
+        "PAPER-010",
+        "PAPER-011",
+        "PAPER-008",
+        "PAPER-009"
+      ]
     }
   }
 }

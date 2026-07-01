@@ -1,0 +1,161 @@
+{
+  "paper": {
+    "id": "PAPER-020",
+    "title": "Synthesis of forsterite ceramics and the effect of B₂O₃ sintering aid on the microstructure and dielectric properties from black talc",
+    "authors": "Jiajun Wang, Yang Gao, Lulu Wen, Shangke Pan, Huixing Lin",
+    "year": 2026,
+    "journal": "Ceramics International",
+    "doi": "10.1016/j.ceramint.2026.02.071",
+    "research_type": "experiment",
+    "institution": "Ningbo University, State Key Laboratory Base of Novel Function Materials and Preparation Science + Shanghai Institute of Ceramics, CAS",
+    "tree_contributions": {
+      "new_nodes": [],
+      "new_edges": [
+        {
+          "from": "forsterite_from_talc",
+          "to": "forsterite_mw_talc",
+          "type": "process",
+          "label_short": "B₂O₃助烧+MgO补Mg→黑滑石基forsterite微波介质 (Q×f=151137)",
+          "conditions": {
+            "temperature": {
+              "min": 1350,
+              "max": 1400,
+              "unit": "°C"
+            },
+            "atmosphere": "空气",
+            "additives": [
+              "B₂O₃ (0.2 wt% 最优)",
+              "MgO (补充Mg不足，黑滑石Mg/Si低于forsterite计量比)"
+            ],
+            "equipment": "马弗炉，固相烧结法",
+            "precalcination": "1100°C/4h",
+            "sintering_time": "4h",
+            "heating_rate": "3°C/min"
+          },
+          "result_purity": "Mg₂SiO₄ 相纯度 96.14%，相对密度 98.24%",
+          "source_papers": [
+            "PAPER-020"
+          ],
+          "trl": 3,
+          "notes": "反应路径: 黑滑石(3MgO·4SiO₂·H₂O, 广丰) + 补充MgO → 1100°C预烧 → Mg₂SiO₄ + B₂O₃助烧 → 1350°C烧结→致密forsterite陶瓷。黑滑石原料成分: SiO₂ 59.09%, MgO 33.2%, CaO 6.93%, Al₂O₃ 0.04%, K₂O 0.27%, Fe₂O₃ 0.27%。黑滑石天然原子级混合降低了致密化温度(1400°C vs 纯试剂1450°C)，B₂O₃进一步降至1350°C。Ca杂质不进入Mg₂SiO₄晶格，富集于晶界非晶相。元素守恒✓（MgO补足Mg缺失）。"
+        }
+      ],
+      "properties_added_to": {
+        "forsterite_from_talc": [
+          {
+            "property": "广丰黑滑石成分 (Wang 2026)",
+            "value": "SiO₂ 59.09%, MgO 33.2%, CaO 6.93%, Al₂O₃ 0.04%, K₂O 0.27%, TiO₂ 0.01%, MnO₂ 0.18%, Fe₂O₃ 0.27%",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "黑滑石Mg/Si比 vs forsterite计量比",
+            "value": "黑滑石Mg/Si < forsterite Mg₂SiO₄ 化学计量比(2:1)，需补充高纯MgO",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "黑滑石致密化优势",
+            "value": "黑滑石→forsterite 1400°C致密化，低于纯MgO+SiO₂试剂的1450°C；天然矿物杂质助熔+层状结构促进颗粒密排",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "Ca杂质行为",
+            "value": "Ca²⁺离子半径过大不进入Mg₂SiO₄晶格，富集于晶界非晶相或形成次生硅酸盐相",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          }
+        ],
+        "forsterite_mw_talc": [
+          {
+            "property": "Q×f (黑滑石路线, 0.2wt% B₂O₃)",
+            "value": "151,137 GHz",
+            "condition": "1350°C 烧结",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "εr (黑滑石路线, 0.2wt% B₂O₃)",
+            "value": "6.71",
+            "condition": "1350°C 烧结",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "τf (黑滑石路线, 0.2wt% B₂O₃)",
+            "value": "−67.3 ppm/°C",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "相对密度 (黑滑石路线, 0.2wt% B₂O₃)",
+            "value": "98.24%",
+            "condition": "1350°C 烧结",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "Mg₂SiO₄ 相纯度 (黑滑石路线)",
+            "value": "96.14% (Rietveld精修)",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "Q×f (黑滑石路线, 无B₂O₃)",
+            "value": "122,171 GHz",
+            "condition": "1400°C 烧结",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "烧结温度 (黑滑石路线)",
+            "value": "1350°C (0.2wt% B₂O₃) vs 1400°C (无B₂O₃) vs 1450°C (纯试剂)",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          },
+          {
+            "property": "烧结助剂最优量",
+            "value": "0.2 wt% B₂O₃",
+            "source_papers": [
+              "PAPER-020"
+            ]
+          }
+        ]
+      },
+      "papers_cross_validated": [
+        "PAPER-004",
+        "PAPER-018",
+        "PAPER-019"
+      ]
+    },
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "funding": "国家自然科学基金 + 中科院",
+      "notes": "Ceramics International (SCI Q1)。宁波大学 + 中科院上海硅酸盐研究所。实验设计严谨: B₂O₃浓度梯度(0/0.2/0.4/0.6 wt%) + Rietveld精修定量相组成 + SEM微观结构 + VNA介电测试。黑滑石取自江西广丰(实际工业矿区)。关键发现: 黑滑石天然降低致密化温度50°C(1450→1400°C)，B₂O₃再降50°C(1400→1350°C)。Ca杂质不进入晶格→不影响介电性能。需补MgO因黑滑石Mg/Si比低于forsterite计量比。"
+    },
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": [
+        "PAPER-004",
+        "PAPER-018",
+        "PAPER-019"
+      ]
+    }
+  }
+}

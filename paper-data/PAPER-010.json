@@ -10,24 +10,62 @@
       "new_nodes": [],
       "new_edges": [
         {
-          "from": "enstatite_from_talc", "to": "black_talc_mw_ceramic", "type": "process",
+          "from": "enstatite_from_talc",
+          "to": "black_talc_mw_cu",
+          "type": "process",
           "label_short": "Cu²⁺掺杂→抑制相变→Q×f=93600",
-          "conditions": {"additives": ["CuO/Cu²⁺盐"]},
-          "result_purity": "Cu²⁺稳定MgSiO₃相", "source_papers": ["PAPER-010"], "trl": 3,
+          "conditions": {
+            "additives": [
+              "CuO/Cu²⁺盐"
+            ]
+          },
+          "result_purity": "Cu²⁺稳定MgSiO₃相",
+          "source_papers": [
+            "PAPER-010"
+          ],
+          "trl": 3,
           "notes": "SCI Q1。Cu²⁺进入MgSiO₃晶格→抑制高温相变（proto→ortho）→Q×f从56782提升至93600 GHz。"
         }
       ],
       "properties_added_to": {
-        "black_talc_mw_ceramic": [
-          {"property": "Q×f (Cu²⁺掺杂)", "value": "93,600 GHz", "condition": "Cu²⁺掺杂抑制相变", "source_papers": ["PAPER-010"]}
-        ],
         "enstatite_from_talc": [
-          {"property": "相变抑制(Cu²⁺)", "value": "Cu²⁺掺杂→稳定proto相→抑制proto→ortho相变", "source_papers": ["PAPER-010"]}
+          {
+            "property": "相变抑制(Cu²⁺)",
+            "value": "Cu²⁺掺杂→稳定proto相→抑制proto→ortho相变",
+            "source_papers": [
+              "PAPER-010"
+            ]
+          }
+        ],
+        "black_talc_mw_cu": [
+          {
+            "property": "Q×f (Cu²⁺掺杂)",
+            "value": "93,600 GHz",
+            "condition": "Cu²⁺掺杂抑制相变",
+            "source_papers": [
+              "PAPER-010"
+            ]
+          }
         ]
       },
-      "papers_cross_validated": ["PAPER-004", "PAPER-011"]
+      "papers_cross_validated": [
+        "PAPER-004",
+        "PAPER-011"
+      ]
     },
-    "q3_reliability": {"scale": "powder", "full_params": true, "replicates": false, "journal_tier": "SCI_Q1"},
-    "q4_cross_validation": {"verified_by": [], "contradicts": [], "complements": ["PAPER-004", "PAPER-011"]}
+    "q3_reliability": {
+      "scale": "powder",
+      "full_params": true,
+      "replicates": false,
+      "journal_tier": "SCI_Q1"
+    },
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": [
+        "PAPER-004",
+        "PAPER-011"
+      ]
+    }
   }
 }

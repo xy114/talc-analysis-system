@@ -10,26 +10,71 @@
       "new_nodes": [],
       "new_edges": [
         {
-          "from": "enstatite_from_talc", "to": "black_talc_mw_ceramic", "type": "process",
+          "from": "enstatite_from_talc",
+          "to": "black_talc_mw_co",
+          "type": "process",
           "label_short": "Co²⁺掺杂→Q×f=145846 (最高纪录)",
-          "conditions": {"additives": ["CoO/Co²⁺盐"]},
+          "conditions": {
+            "additives": [
+              "CoO/Co²⁺盐"
+            ]
+          },
           "result_purity": "Co²⁺掺杂MgSiO₃，Q×f=145846 GHz，近零τf",
-          "source_papers": ["PAPER-011"], "trl": 3,
+          "source_papers": [
+            "PAPER-011"
+          ],
+          "trl": 3,
           "notes": "SCI。本体系Q×f最高纪录。Co²⁺→优化MgSiO₃晶格→最低介电损耗+近零τf。"
         }
       ],
       "properties_added_to": {
-        "black_talc_mw_ceramic": [
-          {"property": "Q×f (Co²⁺掺杂最高值)", "value": "145,846 GHz", "condition": "Co²⁺掺杂优化", "source_papers": ["PAPER-011"]},
-          {"property": "τf (Co²⁺掺杂)", "value": "近零", "source_papers": ["PAPER-011"]}
-        ],
         "enstatite_from_talc": [
-          {"property": "Q×f最高纪录(Co²⁺掺杂)", "value": "145,846 GHz", "source_papers": ["PAPER-011"]}
+          {
+            "property": "Q×f最高纪录(Co²⁺掺杂)",
+            "value": "145,846 GHz",
+            "source_papers": [
+              "PAPER-011"
+            ]
+          }
+        ],
+        "black_talc_mw_co": [
+          {
+            "property": "Q×f (Co²⁺掺杂最高值)",
+            "value": "145,846 GHz",
+            "condition": "Co²⁺掺杂优化",
+            "source_papers": [
+              "PAPER-011"
+            ]
+          },
+          {
+            "property": "τf (Co²⁺掺杂)",
+            "value": "近零",
+            "source_papers": [
+              "PAPER-011"
+            ]
+          }
         ]
       },
-      "papers_cross_validated": ["PAPER-004", "PAPER-010"]
+      "papers_cross_validated": [
+        "PAPER-004",
+        "PAPER-010"
+      ]
     },
-    "q3_reliability": {"scale": "powder", "full_params": true, "replicates": false, "journal_tier": "SCI"},
-    "q4_cross_validation": {"verified_by": ["PAPER-002"], "contradicts": [], "complements": ["PAPER-004", "PAPER-010"]}
+    "q3_reliability": {
+      "scale": "powder",
+      "full_params": true,
+      "replicates": false,
+      "journal_tier": "SCI"
+    },
+    "q4_cross_validation": {
+      "verified_by": [
+        "PAPER-002"
+      ],
+      "contradicts": [],
+      "complements": [
+        "PAPER-004",
+        "PAPER-010"
+      ]
+    }
   }
 }
