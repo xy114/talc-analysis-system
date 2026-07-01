@@ -1,0 +1,22 @@
+{
+  "paper": {
+    "id": "PAPER-013",
+    "title": "江西广丰黑滑石矿物学研究 (博士学位论文)",
+    "authors": "李成祥",
+    "year": 2016,
+    "journal": "南京大学博士论文",
+    "research_type": "limited_value",
+    "tree_contributions": {
+      "new_nodes": [], "new_edges": [],
+      "properties_added_to": {
+        "raw_black_talc": [
+          {"property": "类石墨烯碳层特征(李成祥2016)", "value": "碳层以单层或多层形式处于TOT层间，(001)面倾向平行滑石(001)面，存在C-O杂键缺陷", "source_papers": ["PAPER-013"]},
+          {"property": "矿石分类(李成祥2016)", "value": "鳞片状滑石岩/鲕状黑滑石/变形鲕状滑石", "source_papers": ["PAPER-013"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002", "PAPER-005"]
+    },
+    "q3_reliability": {"scale": "powder", "full_params": true, "journal_tier": "phd_thesis", "notes": "博士学位论文（南京大学）。黑滑石矿物学领域最系统的研究。PDF扫描版，文本提取困难，数据来自PAPER-002引用。"},
+    "q4_cross_validation": {"verified_by": ["PAPER-002", "PAPER-005"], "contradicts": [], "complements": ["PAPER-002"]}
+  }
+}

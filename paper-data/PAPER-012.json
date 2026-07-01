@@ -1,0 +1,26 @@
+{
+  "paper": {
+    "id": "PAPER-012",
+    "title": "黑滑石材料化加工技术与多领域应用研究进展",
+    "authors": "徐芝亮",
+    "year": 2026,
+    "journal": "江西化工",
+    "research_type": "limited_value",
+    "tree_contributions": {
+      "new_nodes": [], "new_edges": [],
+      "properties_added_to": {
+        "raw_black_talc": [
+          {"property": "全国探明储量(2023)", "value": "2.8亿吨（占全球32%）", "source_papers": ["PAPER-012"]},
+          {"property": "广丰矿区储量", "value": "1.05亿吨（占全国37.5%）", "source_papers": ["PAPER-012"]},
+          {"property": "密度", "value": "2.7-2.8 g/cm³", "source_papers": ["PAPER-012"]},
+          {"property": "天然白度", "value": "45-65%", "source_papers": ["PAPER-012"]},
+          {"property": "原矿吨价", "value": "800-1200元/吨（传统应用）", "source_papers": ["PAPER-012"]},
+          {"property": "分布省区", "value": "赣、桂、湘、闽四省区", "source_papers": ["PAPER-012"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002"]
+    },
+    "q3_reliability": {"scale": "powder", "full_params": true, "journal_tier": "chinese_core", "notes": "综述论文（2026年新发表）。作者为江西省检验检测认证总院高级工程师。提供最新资源统计数据。"},
+    "q4_cross_validation": {"verified_by": ["PAPER-002"], "contradicts": [], "complements": ["PAPER-002"]}
+  }
+}

@@ -29,8 +29,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f8f9fa; display: flex; height: 100vh; }
-#tree-panel { flex: 0 0 55%; overflow: auto; border-right: 1px solid #dee2e6; background: white; }
+body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f8f9fa; display: flex; height: 100vh; overflow: hidden; }
+#tree-panel { flex: 0 0 60%; overflow: hidden; border-right: 2px solid #dee2e6; background: #fafbfc; position: relative; }
+#tree-panel svg { width: 100%; height: 100%; }
 #detail-panel { flex: 1; overflow-y: auto; padding: 24px; background: #f8f9fa; }
 #detail-panel h2 { margin-bottom: 12px; color: #2c3e50; font-size: 20px; }
 #detail-panel .section { margin-bottom: 20px; }
@@ -44,24 +45,34 @@ body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f
 .tag-phase { background: #bdc3c7; color: #2c3e50; }
 .tag-product { background: #27ae60; color: white; }
 .tag-byproduct { background: #95a5a6; color: white; }
-.node circle { fill: #fff; stroke: #34495e; stroke-width: 2px; cursor: pointer; r: 7; }
-.node.raw-material circle { fill: #2c3e50; stroke: #1a252f; r: 9; }
-.node.intermediate-phase circle { fill: #ecf0f1; stroke: #34495e; }
-.node.product circle { fill: #27ae60; stroke: #1e8449; stroke-width: 3px; }
+.node circle { fill: #fff; stroke: #34495e; stroke-width: 2.5px; cursor: pointer; r: 10; }
+.node.raw-material circle { fill: #2c3e50; stroke: #1a252f; r: 13; }
+.node.intermediate-phase circle { fill: #ecf0f1; stroke: #34495e; stroke-width: 3px; }
+.node.product circle { fill: #27ae60; stroke: #1e8449; stroke-width: 3.5px; r: 11; }
 .node.byproduct circle { fill: #95a5a6; stroke: #7f8c8d; }
-.node text { font-size: 11px; font-family: "Microsoft YaHei", sans-serif; }
-.link { fill: none; stroke: #bdc3c7; stroke-width: 1.5px; }
-.link.process { stroke: #e74c3c; }
-.link.property_link { stroke: #2980b9; stroke-dasharray: 6 3; }
-.edge-label { font-size: 9px; fill: #7f8c8d; }
+.node text { font-size: 14px; font-family: "Microsoft YaHei", "PingFang SC", sans-serif; font-weight: 500; cursor: pointer; }
+.node:hover circle { stroke: #e74c3c; stroke-width: 4px; }
+.link { fill: none; stroke: #bdc3c7; stroke-width: 2px; }
+.link.process { stroke: #e74c3c; stroke-width: 2.5px; }
+.link.property_link { stroke: #2980b9; stroke-dasharray: 8 4; stroke-width: 2px; }
+.edge-label { font-size: 12px; fill: #555; font-family: "Microsoft YaHei", sans-serif; }
+.edge-label-bg { stroke: white; stroke-width: 4px; }
 .empty-state { color: #95a5a6; text-align: center; margin-top: 60px; font-size: 16px; }
 .paper-badge { display: inline-block; background: #3498db; color: white; padding: 1px 6px; border-radius: 3px; font-size: 11px; margin: 1px; }
-.tree-header { position: absolute; top: 10px; left: 60px; font-size: 14px; color: #7f8c8d; }
+.legend { position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.92); border: 1px solid #dee2e6; border-radius: 6px; padding: 10px 14px; font-size: 12px; }
+.legend-item { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+.legend-line { width: 24px; height: 2.5px; flex-shrink: 0; }
+.legend-line.process { background: #e74c3c; }
+.legend-line.property_link { background: repeating-linear-gradient(90deg, #2980b9 0, #2980b9 8px, transparent 8px, transparent 12px); }
 </style>
 </head>
 <body>
 <div id="tree-panel">
-  <svg width="100%" height="100%"></svg>
+  <svg></svg>
+  <div class="legend">
+    <div class="legend-item"><span class="legend-line process"></span> 工艺边</div>
+    <div class="legend-item"><span class="legend-line property_link"></span> 性质→应用</div>
+  </div>
 </div>
 <div id="detail-panel"><div class="empty-state">点击节点查看详情</div></div>
 <script>
@@ -82,7 +93,6 @@ function buildHierarchy() {
   const nodes = TREE_DATA.nodes || {};
   const edges = TREE_DATA.edges || {};
 
-  // Find root
   let rootId = null;
   for (const [id, node] of Object.entries(nodes)) {
     if (node.type === "raw_material") { rootId = id; break; }
@@ -95,21 +105,28 @@ function buildHierarchy() {
   if (!rootId && Object.keys(nodes).length > 0) {
     rootId = Object.keys(nodes)[0];
   }
-
   if (!rootId) return null;
 
   function buildChildren(parentId) {
-    const children = [];
+    const seen = new Map(); // dedup by target node ID
     for (const [eid, edge] of Object.entries(edges)) {
       if (edge.from === parentId && nodes[edge.to]) {
-        const child = Object.assign({}, nodes[edge.to]);
-        child._incomingEdge = edge;
-        child._incomingEdgeId = eid;
-        child.children = buildChildren(edge.to);
-        children.push(child);
+        if (seen.has(edge.to)) {
+          // Additional edge to same target: record as secondary edge
+          const child = seen.get(edge.to);
+          if (!child._extraEdges) child._extraEdges = [];
+          child._extraEdges.push(edge);
+        } else {
+          const child = Object.assign({}, nodes[edge.to]);
+          child._incomingEdge = edge;
+          child._incomingEdgeId = eid;
+          child.children = buildChildren(edge.to);
+          child._extraEdges = [];
+          seen.set(edge.to, child);
+        }
       }
     }
-    return children;
+    return Array.from(seen.values());
   }
 
   const root = Object.assign({}, nodes[rootId]);
@@ -124,46 +141,76 @@ if (!root) {
   document.getElementById("tree-panel").innerHTML =
     '<div class="empty-state" style="margin-top:120px;">树为空，请先通过 ingest.py 注册论文</div>';
 } else {
+  const panel = document.getElementById("tree-panel");
   const svg = d3.select("#tree-panel svg");
-  const g = svg.append("g").attr("transform", "translate(60, 60)");
+  const g = svg.append("g");
 
-  const treeLayout = d3.tree().size([window.innerHeight - 120, 0]);
+  // Fixed spacing: 90px vertical (node-to-node), 260px horizontal (depth-to-depth)
+  const NODE_V_SPACING = 90;
+  const NODE_H_SPACING = 260;
+  const treeLayout = d3.tree().nodeSize([NODE_V_SPACING, NODE_H_SPACING]);
 
   const hierarchy = d3.hierarchy(root);
-  hierarchy.descendants().forEach(d => {
-    // Horizontal spacing
-    d._depth = d.depth;
-  });
-
-  // Set horizontal positions based on depth
-  const maxDepth = d3.max(hierarchy.descendants(), d => d.depth) || 1;
-  const panelWidth = () => document.getElementById("tree-panel").clientWidth;
-
-  hierarchy.descendants().forEach(d => {
-    d.y = (d.depth / Math.max(maxDepth, 1)) * (panelWidth() - 120);
-  });
-
   const treeData = treeLayout(hierarchy);
 
+  const descendants = treeData.descendants();
+  const xs = descendants.map(d => d.x);
+  const ys = descendants.map(d => d.y);
+  const minX = d3.min(xs), maxX = d3.max(xs);
+  const minY = d3.min(ys), maxY = d3.max(ys);
+
+  const PAD = 80;
+  const svgW = maxY + PAD * 2;
+  const svgH = maxX - minX + PAD * 2;
+
+  svg.attr("viewBox", `0 0 ${svgW} ${svgH}`)
+     .attr("preserveAspectRatio", "xMidYMid meet");
+
+  // Shift all nodes so minX is at PAD
+  descendants.forEach(d => { d.x -= minX - PAD; d.y += PAD; });
+
+  // Zoom behavior
+  const zoom = d3.zoom()
+    .scaleExtent([0.2, 3])
+    .on("zoom", (event) => { g.attr("transform", event.transform); });
+  svg.call(zoom);
+
+  // Initial transform: fit to panel
+  const panelW = panel.clientWidth;
+  const panelH = panel.clientHeight;
+  const scale = Math.min(panelW / svgW, panelH / svgH, 1.0) * 1.0;
+  const tx = (panelW - svgW * scale) / 2;
+  const ty = (panelH - svgH * scale) / 2;
+  svg.call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
+
   // Draw links
-  const link = g.selectAll(".link")
+  g.selectAll(".link")
     .data(treeData.links())
     .join("path")
     .attr("class", d => "link " + (d.target.data._incomingEdge ? d.target.data._incomingEdge.type : ""))
     .attr("d", d => {
-      return "M" + d.source.y + "," + d.source.x
-        + "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x
-        + " " + (d.source.y + d.target.y) / 2 + "," + d.target.x
-        + " " + d.target.y + "," + d.target.x;
+      const sx = d.source.y, sy = d.source.x;
+      const tx = d.target.y, ty = d.target.x;
+      const mx = (sx + tx) / 2;
+      return `M${sx},${sy} C${mx},${sy} ${mx},${ty} ${tx},${ty}`;
     });
 
-  // Edge labels
+  // Edge labels (with background for readability)
+  g.selectAll(".edge-label-bg")
+    .data(treeData.links())
+    .join("text")
+    .attr("class", "edge-label-bg")
+    .attr("x", d => (d.source.y + d.target.y) / 2)
+    .attr("y", d => (d.source.x + d.target.x) / 2 - 10)
+    .attr("text-anchor", "middle")
+    .text(d => d.target.data._incomingEdge ? d.target.data._incomingEdge.label_short || "" : "");
+
   g.selectAll(".edge-label")
     .data(treeData.links())
     .join("text")
     .attr("class", "edge-label")
     .attr("x", d => (d.source.y + d.target.y) / 2)
-    .attr("y", d => (d.source.x + d.target.x) / 2 - 8)
+    .attr("y", d => (d.source.x + d.target.x) / 2 - 10)
     .attr("text-anchor", "middle")
     .text(d => d.target.data._incomingEdge ? d.target.data._incomingEdge.label_short || "" : "");
 
@@ -173,17 +220,25 @@ if (!root) {
     .join("g")
     .attr("class", d => "node " + (d.data.type || ""))
     .attr("transform", d => `translate(${d.y},${d.x})`)
-    .on("click", (event, d) => showDetail(d.data));
+    .on("click", (event, d) => { event.stopPropagation(); showDetail(d.data); });
 
   node.append("circle");
 
+  // Text placement: children expand right, so leaf labels go right of circle, branch labels go left
   node.append("text")
-    .attr("dy", "0.31em")
-    .attr("x", d => d.children && d.children.length > 0 ? -12 : 12)
-    .attr("text-anchor", d => d.children && d.children.length > 0 ? "end" : "start")
+    .attr("dy", "0.35em")
+    .attr("x", d => (d.children && d.children.length > 0) ? -16 : 16)
+    .attr("text-anchor", d => (d.children && d.children.length > 0) ? "end" : "start")
     .text(d => d.data.name || d.data.id || "")
     .clone(true).lower()
-    .attr("stroke", "white").attr("stroke-width", 3);
+    .attr("stroke", "white").attr("stroke-width", 4).attr("stroke-linejoin", "round");
+
+  // Click on background to clear detail
+  svg.on("click", (event) => {
+    if (event.target === svg.node()) {
+      document.getElementById("detail-panel").innerHTML = '<div class="empty-state">点击节点查看详情</div>';
+    }
+  });
 }
 
 // ===== DETAIL PANEL =====

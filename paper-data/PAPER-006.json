@@ -1,0 +1,61 @@
+{
+  "paper": {
+    "id": "PAPER-006",
+    "title": "黑滑石高温物相行为变化及其复合材料性能研究",
+    "authors": "吴小文, 赵航, 张之介, 黄朝晖, 闵鑫, 房明浩, 刘艳改",
+    "year": 2017,
+    "journal": "陶瓷学报",
+    "doi": "10.13957/j.cnki.tcxb.2017.04.005",
+    "research_type": "experiment",
+
+    "tree_contributions": {
+      "new_nodes": [],
+      "new_edges": [
+        {
+          "from": "raw_black_talc",
+          "to": "enstatite_from_talc",
+          "type": "process",
+          "label_short": "N₂气氛煅烧→碳石墨化+顽火辉石",
+          "conditions": {
+            "temperature": {"min": 750, "max": 1050, "unit": "°C"},
+            "atmosphere": "N₂",
+            "additives": [],
+            "equipment": "气氛炉+无压烧结"
+          },
+          "result_purity": "顽火辉石+多层石墨烯（有机碳石墨化），导电/导热复合材料",
+          "source_papers": ["PAPER-006"],
+          "trl": 3,
+          "notes": "N₂气氛下有机碳石墨化为多层石墨烯→包覆顽火辉石颗粒→导电/导热网络。对比空气气氛: 抗折强度+10MPa, 电阻率低一个数量级(2.5 vs 26.8 ×10⁷Ω·m), 导热系数+6.2×10⁻¹W/(m·K)。"
+        }
+      ],
+      "properties_added_to": {
+        "enstatite_from_talc": [
+          {"property": "N₂气氛抗折强度(1050°C)", "value": "51.8 MPa (空气36.1 MPa)", "source_papers": ["PAPER-006"]},
+          {"property": "N₂气氛电阻率(1050°C)", "value": "2.9×10⁷ Ω·m (空气26.8×10⁷ Ω·m)", "source_papers": ["PAPER-006"]},
+          {"property": "N₂气氛导热系数(1050°C)", "value": "0.70 W/(m·K) (空气0.09 W/(m·K))", "source_papers": ["PAPER-006"]}
+        ],
+        "graphitized_carbon": [
+          {"property": "石墨烯结构确认", "value": "多层石墨烯(TEM确认)，有机碳在N₂气氛下石墨化", "source_papers": ["PAPER-006"]},
+          {"property": "导电网络机制", "value": "石墨烯包覆顽火辉石颗粒→电子隧道效应→导电率提升", "source_papers": ["PAPER-006"]},
+          {"property": "导热网络机制", "value": "石墨烯填充晶粒间隙→导热网格→导热系数提升6.9倍", "source_papers": ["PAPER-006"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-005", "PAPER-002"]
+    },
+
+    "q3_reliability": {
+      "scale": "powder",
+      "full_params": true,
+      "replicates": false,
+      "journal_tier": "chinese_core",
+      "funding": "国家自然科学基金(51372232)",
+      "notes": "XRD+TEM表征+三点弯曲+高电阻测试+导热系数测试。双气氛(Air/N₂)对比实验6个温度点。缺点：文本数据有限（PDF扫描图像为主）。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": ["PAPER-002"],
+      "contradicts": [],
+      "complements": ["PAPER-005"]
+    }
+  }
+}

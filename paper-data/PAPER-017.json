@@ -1,0 +1,23 @@
+{
+  "paper": {
+    "id": "PAPER-017",
+    "title": "我国黑滑石产业现状及发展趋势",
+    "authors": "宗培新",
+    "year": 2014,
+    "journal": "中国非金属矿工业导刊",
+    "research_type": "limited_value",
+    "tree_contributions": {
+      "new_nodes": [], "new_edges": [],
+      "properties_added_to": {
+        "raw_black_talc": [
+          {"property": "各地成分(宗培新2014)", "value": "辽宁海城: SiO₂57% MgO27% CaO3% LOI8%; 广西上林: SiO₂62% MgO30% CaO0.3% LOI6%(国内最高品位)", "source_papers": ["PAPER-017"]},
+          {"property": "国内滑石颜色分类", "value": "粉红/白/绿/灰/黑滑石五种，黑色因含有机质", "source_papers": ["PAPER-017"]},
+          {"property": "产地列表(宗培新2014)", "value": "江西广丰/重庆南桐/湖南保靖/甘肃金塔/江西九江/宜春/萍乡/广东平远/四川丰都/广西上林/湖北钟祥", "source_papers": ["PAPER-017"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002"]
+    },
+    "q3_reliability": {"scale": "powder", "full_params": true, "journal_tier": "chinese_core", "notes": "中国非金属矿工业有限公司。2014年产业现状综述。提供多产地化学成分对比数据。时效性有限。"},
+    "q4_cross_validation": {"verified_by": ["PAPER-002"], "contradicts": [], "complements": ["PAPER-002"]}
+  }
+}

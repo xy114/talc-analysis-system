@@ -1,0 +1,39 @@
+{
+  "paper": {
+    "id": "PAPER-009",
+    "title": "Talc-based Li₂MgSiO₄ microwave dielectric ceramics with low-temperature sintering",
+    "authors": "Bu et al.",
+    "year": 2025,
+    "journal": "Ceramics International (SCI Q1)",
+    "research_type": "experiment",
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "li2mgsio4_ceramic",
+          "name": "Li₂MgSiO₄ 微波介质陶瓷",
+          "name_en": "Li₂MgSiO₄ Microwave Dielectric Ceramic",
+          "formula": "Li₂MgSiO₄",
+          "type": "product", "depth": 2, "children": [], "parents": ["enstatite_from_talc"],
+          "properties": [
+            {"property": "烧结温度", "value": "1075°C (低温烧结)", "source_papers": ["PAPER-009"]}
+          ],
+          "source_papers": ["PAPER-009"],
+          "notes": "+Li₂CO₃→Li₂MgSiO₄。1075°C低温烧结优势→可与Ag电极共烧(LTCC)。"
+        }
+      ],
+      "new_edges": [
+        {
+          "from": "enstatite_from_talc", "to": "li2mgsio4_ceramic", "type": "process",
+          "label_short": "+Li₂CO₃→Li₂MgSiO₄ (1075°C低温)",
+          "conditions": {"temperature": {"min": 1075, "max": 1075, "unit": "°C"}, "atmosphere": "空气", "additives": ["Li₂CO₃"]},
+          "result_purity": "Li₂MgSiO₄主晶相", "source_papers": ["PAPER-009"], "trl": 3,
+          "notes": "SCI Q1。低温烧结→LTCC应用（可与Ag共烧）。"
+        }
+      ],
+      "properties_added_to": {},
+      "papers_cross_validated": ["PAPER-002", "PAPER-004", "PAPER-008"]
+    },
+    "q3_reliability": {"scale": "powder", "full_params": true, "replicates": false, "journal_tier": "SCI_Q1"},
+    "q4_cross_validation": {"verified_by": ["PAPER-002"], "contradicts": [], "complements": ["PAPER-004", "PAPER-008"]}
+  }
+}

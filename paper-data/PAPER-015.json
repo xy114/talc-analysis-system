@@ -1,0 +1,25 @@
+{
+  "paper": {
+    "id": "PAPER-015",
+    "title": "江西广丰桃源黑滑石矿床矿物与元素组成特征及应用方向",
+    "authors": "饶峥, 邹俊, 郝斌斌, 林忠良, 黄美俊, 赵立民, 戴振江",
+    "year": 2025,
+    "journal": "矿物学报",
+    "research_type": "limited_value",
+    "tree_contributions": {
+      "new_nodes": [], "new_edges": [],
+      "properties_added_to": {
+        "raw_black_talc": [
+          {"property": "矿物组成(桃源矿床)", "value": "滑石54.3-71.7% + 白云石17.7-31.7% + 石英8.7-14.0%", "source_papers": ["PAPER-015"]},
+          {"property": "致黑机理(饶峥2025)", "value": "T-O-T层间类石墨烯碳层插层，非有机质独立颗粒", "source_papers": ["PAPER-015"]},
+          {"property": "矿石工业类型(桃源)", "value": "沉积改造型，鳞片状滑石岩为主，少量变形假鲕状", "source_papers": ["PAPER-015"]},
+          {"property": "晶体纯度(桃源)", "value": "杂质元素较少，接近理想滑石晶体化学式", "source_papers": ["PAPER-015"]},
+          {"property": "煅烧产品等级(桃源)", "value": "满足防水材料用滑石粉二级品/通用滑石粉三级品", "source_papers": ["PAPER-015"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002"]
+    },
+    "q3_reliability": {"scale": "powder", "full_params": true, "journal_tier": "chinese_core", "notes": "光学显微镜+XRD+EPMA+XRF多技术表征。桃源矿床（广丰区内独立矿段）。第一作者为中级工程师/博士。"},
+    "q4_cross_validation": {"verified_by": ["PAPER-002"], "contradicts": [], "complements": ["PAPER-002"]}
+  }
+}

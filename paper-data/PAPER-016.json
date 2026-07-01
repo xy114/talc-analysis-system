@@ -1,0 +1,24 @@
+{
+  "paper": {
+    "id": "PAPER-016",
+    "title": "我国黑滑石资源及其应用状况",
+    "authors": "吴基球, 文忠和, 李竟先",
+    "year": 2008,
+    "journal": "中国非金属矿工业导刊",
+    "research_type": "limited_value",
+    "tree_contributions": {
+      "new_nodes": [], "new_edges": [],
+      "properties_added_to": {
+        "raw_black_talc": [
+          {"property": "全国储量(2008)", "value": "6-8亿吨", "source_papers": ["PAPER-016"]},
+          {"property": "成矿类型", "value": "区域变质型/热液交代型/风化沉积型", "source_papers": ["PAPER-016"]},
+          {"property": "产地分布(2008)", "value": "江西广丰/湖南卡棚/重庆南桐/四川南川/广西上林/广东平远等", "source_papers": ["PAPER-016"]},
+          {"property": "应用行业", "value": "陶瓷/涂料/耐火材料/化工/造纸/塑料/橡胶/化妆品/医药等十余行业", "source_papers": ["PAPER-016"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002"]
+    },
+    "q3_reliability": {"scale": "powder", "full_params": true, "journal_tier": "chinese_core", "notes": "华南理工大学。2008年资源与应用综述。数据时效性有限，但提供早期资源统计基线。"},
+    "q4_cross_validation": {"verified_by": ["PAPER-002"], "contradicts": [], "complements": ["PAPER-002"]}
+  }
+}

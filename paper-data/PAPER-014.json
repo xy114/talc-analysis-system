@@ -1,0 +1,24 @@
+{
+  "paper": {
+    "id": "PAPER-014",
+    "title": "江西广丰超大型高品质黑滑石矿石地球化学特征及应用建议",
+    "authors": "王运, 胡宝群, 李满根, 范鹏飞",
+    "year": 2020,
+    "journal": "矿产保护与利用",
+    "research_type": "limited_value",
+    "tree_contributions": {
+      "new_nodes": [], "new_edges": [],
+      "properties_added_to": {
+        "raw_black_talc": [
+          {"property": "矿石类型(王运2020)", "value": "假鲕状滑石岩/角砾状滑石岩/片理化滑石岩", "source_papers": ["PAPER-014"]},
+          {"property": "有机物含量(片理化型)", "value": "有机碳含量明显高于假鲕状和角砾状", "source_papers": ["PAPER-014"]},
+          {"property": "广丰资源量(王运2020)", "value": "累计探获超2亿t，超大型矿床", "source_papers": ["PAPER-014"]},
+          {"property": "应用等级(王运2020)", "value": "初步达到塑料/陶瓷/橡胶/涂料用滑石一级标准", "source_papers": ["PAPER-014"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002"]
+    },
+    "q3_reliability": {"scale": "powder", "full_params": true, "journal_tier": "chinese_core", "notes": "东华理工大学。野外调查+岩相学+地球化学分析+碳含量分类。为广丰百亿元产业基地提供数据支撑。"},
+    "q4_cross_validation": {"verified_by": ["PAPER-002"], "contradicts": [], "complements": ["PAPER-002"]}
+  }
+}

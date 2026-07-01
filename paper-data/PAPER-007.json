@@ -1,0 +1,74 @@
+{
+  "paper": {
+    "id": "PAPER-007",
+    "title": "Innovative Mixed Acid Leaching of Talc for Highly Efficient Magnesium Extraction and Valorization of Silicon Resources",
+    "authors": "Huang Y, Wang Z, Zhao Y, Wei Y, Hao T, Chen J, Cheng J, Shi M, Yan X, Chai L, Wang Q, Zhang L",
+    "year": 2025,
+    "journal": "Minerals Engineering (SCI Q1)",
+    "doi": "10.1016/j.mineng.2025.109511",
+    "research_type": "experiment",
+    "tree_contributions": {
+      "new_nodes": [],
+      "new_edges": [
+        {
+          "from": "raw_black_talc",
+          "to": "separated_mgo",
+          "type": "process",
+          "label_short": "HF+HCl混合酸浸→Mg浸出97.98%",
+          "conditions": {
+            "temperature": {"min": 25, "max": 80, "unit": "°C"},
+            "atmosphere": "空气",
+            "additives": ["HF", "HCl"],
+            "equipment": "PTFE反应釜+油浴"
+          },
+          "result_purity": "Mg浸出率97.98%（较纯HCl提升近80%），产物MgCl₂",
+          "source_papers": ["PAPER-007"],
+          "trl": 3,
+          "notes": "SCI Q1。HF选择性攻击[SiO₄]四面体→创造HCl进入通道→Mg高效提取。DFT计算揭示机理。副产品Na₂SiF₆和SiO₂。"
+        },
+        {
+          "from": "raw_black_talc",
+          "to": "separated_sio2",
+          "type": "process",
+          "label_short": "HF+HCl混合酸浸→高纯SiO₂",
+          "conditions": {
+            "temperature": {"min": 25, "max": 80, "unit": "°C"},
+            "atmosphere": "空气",
+            "additives": ["HF", "HCl"],
+            "equipment": "PTFE反应釜+油浴"
+          },
+          "result_purity": "酸浸后纯化分离→高纯SiO₂+Na₂SiF₆副产品",
+          "source_papers": ["PAPER-007"],
+          "trl": 3,
+          "notes": "硅资源同时回收——不同于单一的Mg提取。闭合循环：氟以Na₂SiF₆形式回收。"
+        }
+      ],
+      "properties_added_to": {
+        "separated_mgo": [
+          {"property": "Mg浸出率(HF+HCl)", "value": "97.98%", "condition": "HF+HCl混合酸，优化条件", "source_papers": ["PAPER-007"]},
+          {"property": "Mg浸出率(纯HCl对比)", "value": "~18%（无HF时）", "condition": "仅HCl，无HF攻击SiO₄层", "source_papers": ["PAPER-007"]}
+        ],
+        "separated_sio2": [
+          {"property": "SiO₂纯度(HF+HCl路线)", "value": "最高99.92%", "condition": "酸浸残渣纯化后", "source_papers": ["PAPER-007"]}
+        ],
+        "raw_black_talc": [
+          {"property": "XRF组成(Huang 2025)", "value": "SiO₂ 64.48%, MgO 27.32%, CaO 4.23%, C 2.15%, F 1.18%", "source_papers": ["PAPER-007"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002", "PAPER-003"]
+    },
+    "q3_reliability": {
+      "scale": "powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "funding": "未明确（中南大学冶金与环境学院）",
+      "notes": "SCI Q1 (Minerals Engineering, IF~5)。XRD+XRF+ICP+ISE+DFT计算。实验设计完整：HF浓度/温度/时间/固液比优化。DFT机理验证。权威性高。"
+    },
+    "q4_cross_validation": {
+      "verified_by": ["PAPER-002"],
+      "contradicts": [],
+      "complements": ["PAPER-003"]
+    }
+  }
+}

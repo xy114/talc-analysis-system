@@ -4,7 +4,7 @@
     "title": "Evolution of Black Talc upon Thermal Treatment",
     "authors": "Meng Y, Xie W, Wu H, Tariq S M, Yang H",
     "year": 2022,
-    "journal": "Minerals 2022, 12, 155 (MDPI, SCI)",
+    "journal": "Minerals (MDPI, SCI)",
     "doi": "10.3390/min12020155",
     "research_type": "experiment",
 
@@ -14,26 +14,18 @@
           "id": "dehydrated_talc",
           "name": "脱水滑石",
           "name_en": "Dehydrated Talc",
-          "formula": "Mg₃Si₄O₁₀(OH)₂ (H₂O 脱除)",
+          "formula": "Mg₃Si₄O₁₀(OH)₂ (吸附水脱除)",
           "type": "intermediate_phase",
           "depth": 1,
           "children": [],
           "parents": ["raw_black_talc"],
           "properties": [
-            {
-              "property": "脱水温度区间",
-              "value": "30-165°C",
-              "condition": "空气气氛，10°C/min 升温",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "质量损失（脱水阶段）",
-              "value": "0.32%",
-              "condition": "30-165°C",
-              "source_papers": ["PAPER-005"]
-            }
+            {"property": "脱水温度区间", "value": "30-165°C", "condition": "空气，10°C/min升温", "source_papers": ["PAPER-005"]},
+            {"property": "质量损失(阶段I)", "value": "0.32%", "condition": "30-165°C", "source_papers": ["PAPER-005"]},
+            {"property": "d(006)变化", "value": "未减小（水仅吸附于表面，未进入层间）", "source_papers": ["PAPER-005"]}
           ],
-          "notes": "吸附水脱除，d(006) 未减小→仅表面水，未进入层间"
+          "source_papers": ["PAPER-005"],
+          "notes": "阶段I/四阶段模型。吸附水脱除，H₂O (m/z=18) MS信号在~152°C归零。晶体结构不变。"
         },
         {
           "id": "decarbonized_talc",
@@ -45,26 +37,14 @@
           "children": [],
           "parents": ["raw_black_talc"],
           "properties": [
-            {
-              "property": "有机碳氧化温度区间",
-              "value": "165-580°C",
-              "condition": "空气气氛",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "CO₂ 释放峰值",
-              "value": "600°C (MS m/z=44)",
-              "condition": "TG-MS 在线检测",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "白度变化",
-              "value": "显著增加（有机碳氧化）",
-              "condition": "T > 500°C",
-              "source_papers": ["PAPER-005"]
-            }
+            {"property": "有机碳氧化区间", "value": "165-580°C", "condition": "空气", "source_papers": ["PAPER-005"]},
+            {"property": "CO₂释放峰值", "value": "600°C (MS m/z=44)", "condition": "TG-MS在线检测", "source_papers": ["PAPER-005"]},
+            {"property": "质量损失(阶段II)", "value": "0.65%", "condition": "165-580°C", "source_papers": ["PAPER-005"]},
+            {"property": "d(006)膨胀", "value": "0.313→0.315 nm", "condition": "CO₂逸出撑开层间距", "source_papers": ["PAPER-005"]},
+            {"property": "DSC", "value": "336.7°C弱吸热谷", "source_papers": ["PAPER-005"]}
           ],
-          "notes": "DSC 336.7°C 弱吸热谷，d(006) 从 0.313nm→0.315nm（CO₂逸出撑开层间距）"
+          "source_papers": ["PAPER-005"],
+          "notes": "阶段II/四阶段模型。层间有机碳氧化→CO₂逸出→层间距膨胀。白度开始提升。"
         },
         {
           "id": "dehydroxylated_talc",
@@ -76,157 +56,67 @@
           "children": [],
           "parents": ["raw_black_talc"],
           "properties": [
-            {
-              "property": "脱羟基起始温度",
-              "value": "800°C",
-              "condition": "空气气氛",
-              "source_papers": ["PAPER-005"],
-              "notes": "低于普通滑石(850-900°C)——节能优势的定量证据"
-            },
-            {
-              "property": "相对结晶度 CI",
-              "value": "75.8% → 51.0% (T800→T900)",
-              "condition": "in-situ XRD",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "BET 比表面积变化",
-              "value": "18.8 → 15.0 m²/g (原矿→T800)",
-              "condition": "空气气氛",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "无定形 SiO₂/MgO 含量",
-              "value": ">800°C 后显著增加",
-              "condition": "H₂SO₄/NaOH 分别浸取+ICP",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "活化窗口",
-              "value": "800-900°C",
-              "condition": "保持层状结构+介孔，同时无定形含量增加",
-              "source_papers": ["PAPER-005"],
-              "notes": "表面功能化改性的最佳煅烧区间"
-            }
+            {"property": "脱羟基起始温度", "value": "800°C", "condition": "低于普通滑石850-900°C→节能优势", "source_papers": ["PAPER-005"]},
+            {"property": "结晶度CI变化", "value": "75.8%→51.0% (T800→T900)", "condition": "in-situ XRD定量", "source_papers": ["PAPER-005"]},
+            {"property": "BET比表面积", "value": "18.8→15.0 m²/g (原矿→T800)", "condition": "N₂吸附", "source_papers": ["PAPER-005"]},
+            {"property": "FTIR O-H伸缩", "value": "3676→3666 cm⁻¹ 红移", "condition": "OH脱除→结构变化", "source_papers": ["PAPER-005"]},
+            {"property": "FTIR Si-O-Si", "value": "1017→1000 cm⁻¹ 红移", "condition": "SiO₄四面体变形", "source_papers": ["PAPER-005"]},
+            {"property": "Zeta电位(T800)", "value": "~天然滑石一半", "condition": "脱羟基→表面去质子化能力降低", "source_papers": ["PAPER-005"]},
+            {"property": "无定形SiO₂/MgO含量", "value": ">800°C后显著增加", "condition": "H₂SO₄/NaOH分别浸取+ICP定量", "source_papers": ["PAPER-005"]},
+            {"property": "活化窗口", "value": "800-900°C", "condition": "保持层状结构+介孔(4.0nm)，无定形含量增加→表面功能化最佳区间", "source_papers": ["PAPER-005"]},
+            {"property": "晶格变形度", "value": "800°C后显著增大", "condition": "Williamson-Hall βcosθ~sinθ分析", "source_papers": ["PAPER-005"]}
           ],
-          "notes": "FTIR: O-H 伸缩 3676→3666 cm⁻¹ 红移，Si-O-Si 1017→1000 cm⁻¹ 红移"
-        },
-        {
-          "id": "enstatite_from_talc",
-          "name": "顽火辉石（滑石热解产物）",
-          "name_en": "Enstatite (from Talc Decomposition)",
-          "formula": "MgSiO₃",
-          "type": "intermediate_phase",
-          "depth": 1,
-          "children": ["5g_ceramic", "refractory", "filler_coating"],
-          "parents": ["raw_black_talc"],
-          "properties": [
-            {
-              "property": "相转变起始温度",
-              "value": "900°C",
-              "condition": "空气气氛，DSC 920.7°C 吸热谷",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "完全转变温度",
-              "value": "1000°C",
-              "condition": "滑石 XRD 反射完全消失，CI→0",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "BET（T1000 产物）",
-              "value": "5.3 m²/g",
-              "condition": "1000°C 煅烧后",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "粒径（T1000 产物）",
-              "value": "32.78 μm",
-              "condition": "激光粒度",
-              "source_papers": ["PAPER-005"]
-            },
-            {
-              "property": "产物白度",
-              "value": "显著提升（有机碳去除+相转变）",
-              "condition": ">900°C",
-              "source_papers": ["PAPER-005"]
-            }
-          ],
-          "notes": "T1000 产物仍保持 4.0nm 介孔结构"
+          "source_papers": ["PAPER-005"],
+          "notes": "阶段III/四阶段模型。800°C是关键温度：脱羟基开始，结晶度急剧下降，FTIR特征峰红移。T800仍保持层状结构和4.0nm介孔→'活化窗口'。SEM+SAED确认非晶化。"
         }
       ],
       "new_edges": [
         {
-          "from": "raw_black_talc",
-          "to": "dehydrated_talc",
-          "type": "process",
+          "from": "raw_black_talc", "to": "dehydrated_talc", "type": "process",
           "label_short": "30-165°C 脱水",
-          "conditions": {
-            "temperature": {"min": 30, "max": 165, "unit": "°C"},
-            "atmosphere": "空气",
-            "time": "120min (保温)",
-            "additives": [],
-            "equipment": "马弗炉"
-          },
-          "result_purity": "表面吸附水脱除，质量损失 0.32%",
-          "source_papers": ["PAPER-005"],
-          "trl": 2,
-          "notes": "阶段 I / 四阶段模型"
+          "conditions": {"temperature": {"min": 30, "max": 165, "unit": "°C"}, "atmosphere": "空气", "time": "120min保温", "additives": [], "equipment": "马弗炉", "heating_rate": "10°C/min"},
+          "result_purity": "表面吸附水脱除，质量损失0.32%，晶体结构不变",
+          "source_papers": ["PAPER-005"], "trl": 2, "notes": "阶段I。in-situ XRD证实d(006)未减小→水仅吸附于表面。"
         },
         {
-          "from": "raw_black_talc",
-          "to": "decarbonized_talc",
-          "type": "process",
+          "from": "raw_black_talc", "to": "decarbonized_talc", "type": "process",
           "label_short": "165-580°C 有机碳氧化",
-          "conditions": {
-            "temperature": {"min": 165, "max": 580, "unit": "°C"},
-            "atmosphere": "空气",
-            "time": "120min (保温)",
-            "additives": [],
-            "equipment": "马弗炉"
-          },
-          "result_purity": "有机碳氧化为 CO₂，质量损失 0.65%，白度提升",
-          "source_papers": ["PAPER-005"],
-          "trl": 2,
-          "notes": "阶段 II / 四阶段模型"
+          "conditions": {"temperature": {"min": 165, "max": 580, "unit": "°C"}, "atmosphere": "空气", "time": "120min保温", "additives": [], "equipment": "马弗炉", "heating_rate": "10°C/min"},
+          "result_purity": "有机碳氧化为CO₂，质量损失0.65%，层间距膨胀至0.315nm",
+          "source_papers": ["PAPER-005"], "trl": 2, "notes": "阶段II。TG-MS m/z=44在600°C有峰值。CO₂逸出→d(006)膨胀。"
         },
         {
-          "from": "raw_black_talc",
-          "to": "dehydroxylated_talc",
-          "type": "process",
+          "from": "raw_black_talc", "to": "dehydroxylated_talc", "type": "process",
           "label_short": "800-900°C 脱羟基活化",
-          "conditions": {
-            "temperature": {"min": 800, "max": 900, "unit": "°C"},
-            "atmosphere": "空气",
-            "time": "120min (保温)",
-            "additives": [],
-            "equipment": "马弗炉"
-          },
-          "result_purity": "脱羟基导致结构非晶化，CI 降至 51%，无定形含量增加",
-          "source_papers": ["PAPER-005"],
-          "trl": 2,
-          "notes": "阶段 III / 四阶段模型 / '活化窗口'——表面功能化最佳区间"
+          "conditions": {"temperature": {"min": 800, "max": 900, "unit": "°C"}, "atmosphere": "空气", "time": "120min保温", "additives": [], "equipment": "马弗炉", "heating_rate": "10°C/min"},
+          "result_purity": "脱羟基→结晶度CI降至51%，无定形SiO₂/MgO增加，表面活化",
+          "source_papers": ["PAPER-005"], "trl": 2, "notes": "阶段III/活化窗口。800°C是黑滑石结构转变关键温度（低于普通滑石850-900°C）。"
         },
         {
-          "from": "raw_black_talc",
-          "to": "enstatite_from_talc",
-          "type": "process",
+          "from": "raw_black_talc", "to": "enstatite_from_talc", "type": "process",
           "label_short": "900-1000°C 相转变→顽火辉石",
-          "conditions": {
-            "temperature": {"min": 900, "max": 1000, "unit": "°C"},
-            "atmosphere": "空气",
-            "time": "120min (保温)",
-            "additives": [],
-            "equipment": "马弗炉"
-          },
-          "result_purity": "完全转变为顽火辉石 MgSiO₃，白度最高",
-          "source_papers": ["PAPER-005"],
-          "trl": 2,
-          "notes": "阶段 IV / 四阶段模型 / DSC 920.7°C 吸热谷"
+          "conditions": {"temperature": {"min": 900, "max": 1000, "unit": "°C"}, "atmosphere": "空气", "time": "120min保温", "additives": [], "equipment": "马弗炉", "heating_rate": "10°C/min"},
+          "result_purity": "完全转变为顽火辉石MgSiO₃，CI→27.3%(T950)→0(T1000)",
+          "source_papers": ["PAPER-005"], "trl": 2, "notes": "阶段IV。DSC 920.7°C吸热谷。T1000 XRD滑石反射完全消失。T1000仍保持4.0nm介孔。"
         }
       ],
-      "properties_added_to": {},
-      "papers_cross_validated": ["PAPER-002"]
+      "properties_added_to": {
+        "enstatite_from_talc": [
+          {"property": "相转变起始温度(in-situ XRD)", "value": "900°C (T950出现顽火辉石反射)", "source_papers": ["PAPER-005"]},
+          {"property": "完全转变温度", "value": "1000°C (T1000滑石反射消失)", "source_papers": ["PAPER-005"]},
+          {"property": "DSC吸热谷", "value": "920.7°C (相转变)", "source_papers": ["PAPER-005"]},
+          {"property": "BET(T1000)", "value": "5.3 m²/g", "source_papers": ["PAPER-005"]},
+          {"property": "粒径(T1000)", "value": "32.78 μm", "source_papers": ["PAPER-005"]},
+          {"property": "T1000仍保持介孔", "value": "4.0 nm (BJH)", "source_papers": ["PAPER-005"]}
+        ],
+        "raw_black_talc": [
+          {"property": "XRF组成(SiO₂/MgO/CaO)", "value": "65.03/30.67/2.72 wt%", "source_papers": ["PAPER-005"]},
+          {"property": "BET比表面积(原矿)", "value": "18.8 m²/g", "source_papers": ["PAPER-005"]},
+          {"property": "粒径(原矿)", "value": "21.94 μm", "source_papers": ["PAPER-005"]},
+          {"property": "BJH介孔孔径", "value": "3-4.5 nm", "source_papers": ["PAPER-005"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002", "PAPER-006"]
     },
 
     "q3_reliability": {
@@ -235,7 +125,7 @@
       "replicates": false,
       "journal_tier": "SCI",
       "funding": "国家杰出青年科学基金(51225403)+国家自然科学基金(51974367)+湖南省研究生创新基金(CX2017B057)",
-      "notes": "方法论极其完善：in-situ XRD + in-situ FTIR + ex-situ TG-DSC/TG-MS/BET/SEM/TEM 多技术交叉验证。15 个温度点。通讯作者杨华明为国家杰青。"
+      "notes": "方法论极其完善且权威：in-situ XRD + in-situ FTIR + ex-situ TG-DSC/TG-MS/BET/SEM/TEM/SAED/ICP 多技术正交验证。15个温度点(30-1000°C)。Williamson-Hall晶格变形定量分析+FHH分形维数。通讯作者杨华明为国家杰青。论文发表于Minerals (SCI)。"
     },
 
     "q4_cross_validation": {

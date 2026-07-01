@@ -1,0 +1,40 @@
+{
+  "paper": {
+    "id": "PAPER-008",
+    "title": "Talc-based CaMgSiO₄ microwave dielectric ceramics with 80% cost reduction",
+    "authors": "Xiao et al.",
+    "year": 2025,
+    "journal": "Ceramics International (SCI Q1)",
+    "research_type": "experiment",
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "camgsio4_ceramic",
+          "name": "钙镁橄榄石微波介质陶瓷",
+          "name_en": "CaMgSiO₄ Microwave Dielectric Ceramic",
+          "formula": "CaMgSiO₄",
+          "type": "product", "depth": 2, "children": [], "parents": ["enstatite_from_talc"],
+          "properties": [
+            {"property": "Q×f", "value": "59,212 GHz", "source_papers": ["PAPER-008"]},
+            {"property": "成本降低", "value": "80%（较传统高纯原料路线）", "source_papers": ["PAPER-008"]}
+          ],
+          "source_papers": ["PAPER-008"],
+          "notes": "CaO + MgSiO₃（顽火辉石）→ CaMgSiO₄（钙镁橄榄石），元素守恒。黑滑石热分解提供MgO+SiO₂（天然原子级混合），仅需外加CaO即可完成化学重构，无需外购高纯硅源/镁源。成本较传统高纯原料路线降80%。"
+        }
+      ],
+      "new_edges": [
+        {
+          "from": "enstatite_from_talc", "to": "camgsio4_ceramic", "type": "process",
+          "label_short": "+CaO→CaMgSiO₄ (成本降80%)",
+          "conditions": {"temperature": {"min": 1100, "max": 1300, "unit": "°C"}, "atmosphere": "空气", "additives": ["CaO"]},
+          "result_purity": "CaMgSiO₄主晶相", "source_papers": ["PAPER-008"], "trl": 3,
+          "notes": "SCI Q1。利用矿物自身SiO₂+MgO资源→仅需外加CaO→成本降80%。"
+        }
+      ],
+      "properties_added_to": {},
+      "papers_cross_validated": ["PAPER-002", "PAPER-004"]
+    },
+    "q3_reliability": {"scale": "powder", "full_params": true, "replicates": false, "journal_tier": "SCI_Q1"},
+    "q4_cross_validation": {"verified_by": ["PAPER-002"], "contradicts": [], "complements": ["PAPER-004", "PAPER-009"]}
+  }
+}

@@ -10,24 +10,74 @@ digraph MgOSiO2_System {
 
   // 图标题
   labelloc="t";
-  label="黑滑石 MgO-SiO₂(-C-H₂O) 物相-应用体系树\n0.1.2 | 2026-06-28";
+  label="黑滑石 MgO-SiO₂(-C-H₂O) 物相-应用体系树\n0.1.18 | 2026-07-01";
   fontsize=16;
 
-  "dehydrated_talc" [label="脱水滑石\nMg₃Si₄O₁₀(OH)₂ (H₂O 脱除)", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+  "raw_black_talc" [label="黑滑石原矿\nMg₃Si₄O₁₀(OH)₂ + <1%C", fillcolor="#2c3e50", fontcolor="white", penwidth=2];
+
+  "enstatite_from_talc" [label="顽火辉石（滑石热解产物）\nMgSiO₃", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
+  "forsterite_from_talc" [label="镁橄榄石（滑石高温产物）\nMg₂SiO₄", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
+  "separated_mgo" [label="高纯氧化镁（酸浸分离产物）\nMgO", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
+  "separated_sio2" [label="高纯二氧化硅（酸浸分离产物）\nSiO₂", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
+  "graphitized_carbon" [label="石墨化碳（黑滑石衍生）\nC (类石墨烯)", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
+  "cordierite_ceramic" [label="堇青石陶瓷（黑滑石基）\nMg₂Al₄Si₅O₁₈", fillcolor="#27ae60", fontcolor="white", penwidth=2];
+
+  "talc_photocatalyst" [label="黑滑石基光催化剂\nTiO₂/黑滑石 复合材料", fillcolor="#27ae60", fontcolor="white", penwidth=2];
+
+  "talc_antibacterial" [label="黑滑石基抗菌材料\n黑滑石+抗菌金属离子", fillcolor="#27ae60", fontcolor="white", penwidth=2];
+
+  "acid_activated_enstatite" [label="酸活化顽火辉石\nMg₁₋ₓH₂ₓSiO₃ (H⁺取代Mg²⁺)", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+
+  "zn_enstatite_antibacterial" [label="Zn-顽火辉石抗菌材料\nMg₁₋ₓZnₓSiO₃ (Zn²⁺晶格重建)", fillcolor="#27ae60", fontcolor="white", penwidth=2];
+
+  "black_talc_mw_ceramic" [label="黑滑石微波介质陶瓷\nMgSiO₃ + SiO₂ 复合陶瓷", fillcolor="#27ae60", fontcolor="white", penwidth=2];
+
+  "dehydrated_talc" [label="脱水滑石\nMg₃Si₄O₁₀(OH)₂ (吸附水脱除)", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
 
   "decarbonized_talc" [label="脱碳滑石\nMg₃Si₄O₁₀(OH)₂ (有机碳氧化)", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
 
   "dehydroxylated_talc" [label="脱羟基滑石（非晶化）\nMg₃Si₄O₁₁ (非晶/半晶)", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
 
-  "enstatite_from_talc" [label="顽火辉石（滑石热解产物）\nMgSiO₃", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+  "camgsio4_ceramic" [label="钙镁橄榄石微波介质陶瓷\nCaMgSiO₄", fillcolor="#27ae60", fontcolor="white", penwidth=2];
 
-  "raw_black_talc" [label="黑滑石原矿\nMg₃Si₄O₁₀(OH)₂ + <1%C", fillcolor="#2c3e50", fontcolor="white", penwidth=2];
+  "li2mgsio4_ceramic" [label="Li₂MgSiO₄ 微波介质陶瓷\nLi₂MgSiO₄", fillcolor="#27ae60", fontcolor="white", penwidth=2];
 
-  "forsterite_from_talc" [label="镁橄榄石（滑石热解产物）\nMg₂SiO₄", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+  "refractory_brick" [label="镁橄榄石耐火砖\nMg₂SiO₄", fillcolor="#27ae60", fontcolor="white", penwidth=2];
 
-  "separated_mgo" [label="高纯氧化镁（分离产物）\nMgO", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+  "forsterite_mw_ceramic" [label="镁橄榄石微波介质陶瓷\nMg₂SiO₄ (+ TiO₂ τf补偿)", fillcolor="#27ae60", fontcolor="white", penwidth=2];
 
-  "separated_sio2" [label="高纯二氧化硅（分离产物）\nSiO₂", fillcolor="#ecf0f1", color="#34495e", fontcolor="#2c3e50"];
+  "forsterite_tbc" [label="镁橄榄石热障涂层\nMg₂SiO₄ (APS涂层)", fillcolor="#27ae60", fontcolor="white", penwidth=2];
+
+  "raw_black_talc" -> "enstatite_from_talc" [label="850-1000°C 煅烧→顽火辉石\n[PAPER-002, PAPER-004, PAPER-005, PAPER-006]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "raw_black_talc" -> "forsterite_from_talc" [label=">1100°C 高温煅烧→镁橄榄石\n[PAPER-002]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "raw_black_talc" -> "separated_mgo" [label="酸浸分离→高纯MgO\n[PAPER-002, PAPER-007]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "raw_black_talc" -> "separated_sio2" [label="酸浸分离→高纯SiO₂\n[PAPER-002, PAPER-007]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "raw_black_talc" -> "graphitized_carbon" [label="N₂气氛→碳石墨化\n[PAPER-002]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "enstatite_from_talc" -> "cordierite_ceramic" [label="2MgSiO₃ + 2Al₂O₃ + 3SiO₂ → Mg₂Al₄Si₅O₁₈（堇青石）：元素守恒，低膨胀+高红外辐射\n[PAPER-002]", color="#2980b9", fontcolor="#2c3e50", style=dashed];
+
+  "forsterite_from_talc" -> "refractory_brick" [label="镁橄榄石 Mg₂SiO₄：耐火度>1500°C + 低热膨胀系数→耐火砖/耐高温材料\n[PAPER-002]", color="#2980b9", fontcolor="#2c3e50", style=dashed];
+
+  "raw_black_talc" -> "talc_photocatalyst" [label="TOT层状结构可限域纳米TiO₂→高效光催化降解有机污染物\n[PAPER-002]", color="#2980b9", fontcolor="#2c3e50", style=dashed];
+
+  "raw_black_talc" -> "talc_antibacterial" [label="酸活化后八面体Mg²⁺溶出→离子交换植入Ag⁺/Cu²⁺/Zn²⁺→缓释抗菌\n[PAPER-002]", color="#2980b9", fontcolor="#2c3e50", style=dashed];
+
+  "enstatite_from_talc" -> "acid_activated_enstatite" [label="HCl酸活化→Mg²⁺溶出\n[PAPER-003]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "acid_activated_enstatite" -> "zn_enstatite_antibacterial" [label="ZnSO₄处理→Zn²⁺晶格重建\n[PAPER-003]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "zn_enstatite_antibacterial" -> "talc_antibacterial" [label="Zn²⁺晶格重建→特定条件缓释→抑制大肠杆菌和金黄色葡萄球菌生长\n[PAPER-003]", color="#2980b9", fontcolor="#2c3e50", style=dashed];
+
+  "enstatite_from_talc" -> "black_talc_mw_ceramic" [label="εr=5.11 + Q×f=56,782 GHz→适用于5G毫米波器件\n[PAPER-004]", color="#2980b9", fontcolor="#2c3e50", style=dashed];
 
   "raw_black_talc" -> "dehydrated_talc" [label="30-165°C 脱水\n[PAPER-005]", color="#e74c3c", fontcolor="#c0392b"];
 
@@ -35,10 +85,14 @@ digraph MgOSiO2_System {
 
   "raw_black_talc" -> "dehydroxylated_talc" [label="800-900°C 脱羟基活化\n[PAPER-005]", color="#e74c3c", fontcolor="#c0392b"];
 
-  "raw_black_talc" -> "enstatite_from_talc" [label="900-1000°C 相转变→顽火辉石\n[PAPER-005]", color="#e74c3c", fontcolor="#c0392b"];
+  "enstatite_from_talc" -> "camgsio4_ceramic" [label="+CaO→CaMgSiO₄ (成本降80%)\n[PAPER-008]", color="#e74c3c", fontcolor="#c0392b"];
 
-  "raw_black_talc" -> "forsterite_from_talc" [label=">1100°C→镁橄榄石\n[PAPER-002]", color="#e74c3c", fontcolor="#c0392b"];
+  "enstatite_from_talc" -> "li2mgsio4_ceramic" [label="+Li₂CO₃→Li₂MgSiO₄+CO₂↑ (1075°C低温)\n[PAPER-009]", color="#e74c3c", fontcolor="#c0392b"];
 
-  "forsterite_from_talc" -> "refractory_brick" [label="耐火度 >1500°C + 低热膨胀系数\n[PAPER-002]", color="#2980b9", fontcolor="#2c3e50", style=dashed];
+  "forsterite_from_talc" -> "forsterite_mw_ceramic" [label="造孔+LPD-TiO₂→τf补偿 (－73→－46 ppm/°C)\n[PAPER-018]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "enstatite_from_talc" -> "black_talc_mw_ceramic" [label="Cu²⁺掺杂→抑制相变→Q×f=93600\n[PAPER-010]", color="#e74c3c", fontcolor="#c0392b"];
+
+  "forsterite_from_talc" -> "forsterite_tbc" [label="APS喷涂→TBC (>830次热循环 1273K)\n[PAPER-019]", color="#e74c3c", fontcolor="#c0392b"];
 
 }

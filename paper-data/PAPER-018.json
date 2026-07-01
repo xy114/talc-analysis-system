@@ -1,0 +1,77 @@
+{
+  "paper": {
+    "id": "PAPER-018",
+    "title": "Microwave dielectric properties of porous Mg₂SiO₄ filling with TiO₂ prepared by a liquid phase deposition process",
+    "authors": "Sugihara J, Kakimoto K, Kagomiya I, Ohsato H",
+    "year": 2006,
+    "journal": "Journal of the European Ceramic Society",
+    "doi": "10.1016/j.jeurceramsoc.2006.11.032",
+    "research_type": "experiment",
+    "institution": "Nagoya Institute of Technology, Japan",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "forsterite_mw_ceramic",
+          "name": "镁橄榄石微波介质陶瓷",
+          "name_en": "Forsterite Microwave Dielectric Ceramic",
+          "formula": "Mg₂SiO₄ (+ TiO₂ τf补偿)",
+          "type": "product",
+          "depth": 2,
+          "children": [],
+          "parents": ["forsterite_from_talc"],
+          "properties": [
+            {"property": "Q×f (纯 Mg₂SiO₄)", "value": "270,000 GHz", "source_papers": ["PAPER-018"]},
+            {"property": "介电常数 εr", "value": "6.8", "source_papers": ["PAPER-018"]},
+            {"property": "τf (纯 Mg₂SiO₄)", "value": "−73 ppm/°C", "source_papers": ["PAPER-018"]},
+            {"property": "τf (TiO₂-LPD 复合)", "value": "−46 ppm/°C", "condition": "LPD 5次沉积TiO₂，~6.5wt% TiO₂填充多孔Mg₂SiO₄", "source_papers": ["PAPER-018"]},
+            {"property": "TiO₂-LPD 工艺", "value": "(NH₄)₂TiF₆ 0.1mol/L + H₃BO₃ 0.2mol/L，24h沉积，700°C退火", "source_papers": ["PAPER-018"]}
+          ],
+          "source_papers": ["PAPER-018"],
+          "notes": "⚠ 注：论文用高纯 Mg(OH)₂+SiO₂ 固相合成 Mg₂SiO₄（1150°C/2h预烧→1400°C/2h烧结），非滑石路线。但介电性质为本征性质，适用于黑滑石>1100°C煅烧所得 Mg₂SiO₄。τf 补偿策略（LPD-TiO₂填充多孔骨架）通用于任何来源的 Mg₂SiO₄。"
+        }
+      ],
+      "new_edges": [
+        {
+          "from": "forsterite_from_talc",
+          "to": "forsterite_mw_ceramic",
+          "type": "process",
+          "label_short": "造孔+LPD-TiO₂→τf补偿 (－73→－46 ppm/°C)",
+          "conditions": {
+            "temperature": {"min": 1150, "max": 1400, "unit": "°C"},
+            "atmosphere": "空气",
+            "additives": ["PMMA (造孔剂)", "TiO₂ (LPD沉积)"],
+            "equipment": "马弗炉+LPD湿化处理槽"
+          },
+          "result_purity": "Mg₂SiO₄-TiO₂ 复合陶瓷（无第二相），Q×f保持~10,000（填充后劣化），τf改善至−46",
+          "source_papers": ["PAPER-018"],
+          "trl": 3,
+          "notes": "反应式: Mg(OH)₂ + SiO₂ → MgSiO₃ + H₂O↑(预烧)，MgSiO₃ + Mg(OH)₂ → Mg₂SiO₄ + H₂O↑(烧结)。元素守恒✓。LPD法避免了传统固相混合产生的 MgTi₂O₅/MgSiO₃ 杂相——TiO₂仅沉积于孔壁而不与 Mg₂SiO₄ 反应。"
+        }
+      ],
+      "properties_added_to": {
+        "forsterite_from_talc": [
+          {"property": "Q×f (本征)", "value": "270,000 GHz", "source_papers": ["PAPER-018"]},
+          {"property": "介电常数 εr (本征)", "value": "6.8", "source_papers": ["PAPER-018"]},
+          {"property": "τf (本征)", "value": "−73 ppm/°C", "source_papers": ["PAPER-018"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-004", "PAPER-010", "PAPER-011"]
+    },
+
+    "q3_reliability": {
+      "scale": "powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "funding": "日本文部科学省科学研究费补助金（基盘研究B）",
+      "notes": "J. Eur. Ceram. Soc.（SCI Q1，陶瓷领域顶刊）。Hakki-Coleman 谐振法测介电（TE₀₁₁模）。实验设计完整：PMMA含量/粒径/CIP三重变量控制孔隙率→LPD次数变量→TiO₂增重/εr/τf/Q×f四响应。缺点：Q×f 在 TiO₂填充后显著劣化（270,000→~10,000 GHz）未解决；非滑石路线（高纯试剂合成），介电性质是本征的。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-004", "PAPER-010", "PAPER-011"]
+    }
+  }
+}

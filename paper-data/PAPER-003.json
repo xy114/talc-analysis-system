@@ -1,0 +1,181 @@
+{
+  "paper": {
+    "id": "PAPER-003",
+    "title": "黑滑石煅烧产物的酸活化及晶格重建",
+    "authors": "裘林莉, 张平萍, 陈雪刚, 秦文莉, 葛柳钦, 叶瑛",
+    "year": 2017,
+    "journal": "硅酸盐通报",
+    "doi": "10.16552/j.cnki.issn1001-1625.2017.06.001",
+    "research_type": "experiment",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "acid_activated_enstatite",
+          "name": "酸活化顽火辉石",
+          "name_en": "Acid-Activated Enstatite",
+          "formula": "Mg₁₋ₓH₂ₓSiO₃ (H⁺取代Mg²⁺)",
+          "type": "intermediate_phase",
+          "depth": 2,
+          "children": ["zn_enstatite_antibacterial"],
+          "parents": ["enstatite_from_talc"],
+          "properties": [
+            {
+              "property": "酸活化条件",
+              "value": "2 mol/L HCl, 80°C, 固液比1:10, 4-32h",
+              "source_papers": ["PAPER-003"]
+            },
+            {
+              "property": "Mg²⁺溶出量(16h)",
+              "value": "352 mmol/L",
+              "condition": "2 mol/L HCl, 80°C, 16h",
+              "source_papers": ["PAPER-003"]
+            },
+            {
+              "property": "晶胞参数c值变化",
+              "value": "0.51052→0.52587 nm (0h→32h)",
+              "condition": "H₃O⁺(0.135nm)取代Mg²⁺(0.066nm)→c轴膨胀",
+              "source_papers": ["PAPER-003"]
+            },
+            {
+              "property": "FWHM变化(顽火辉石220)",
+              "value": "0.214→0.280 (0h→16h)",
+              "condition": "结晶度随酸活化时间降低",
+              "source_papers": ["PAPER-003"]
+            }
+          ],
+          "source_papers": ["PAPER-003"],
+          "notes": "酸活化机理：H⁺(以H₃O⁺形式)选择性地取代八面体Mg²⁺，Si-O四面体骨架保留。Mg-O八面体比Si-O四面体更易溶解。石英耐酸，结构保留。"
+        },
+        {
+          "id": "zn_enstatite_antibacterial",
+          "name": "Zn-顽火辉石抗菌材料",
+          "name_en": "Zn-Incorporated Enstatite Antibacterial",
+          "formula": "Mg₁₋ₓZnₓSiO₃ (Zn²⁺晶格重建)",
+          "type": "product",
+          "depth": 3,
+          "children": [],
+          "parents": ["acid_activated_enstatite"],
+          "properties": [
+            {
+              "property": "晶格重建条件",
+              "value": "2 mol/L ZnSO₄, 80°C, 固液比1:10, 4-16h",
+              "source_papers": ["PAPER-003"]
+            },
+            {
+              "property": "FWHM恢复(顽火辉石220)",
+              "value": "0.280→0.199 (酸化16h→Zn重建16h)",
+              "condition": "Zn²⁺进入八面体空穴→结晶度恢复",
+              "source_papers": ["PAPER-003"]
+            },
+            {
+              "property": "I'/I峰高比恢复",
+              "value": "0.952→1.226 (酸化16h→Zn重建16h)",
+              "condition": "原矿比值为2.632，部分恢复",
+              "source_papers": ["PAPER-003"]
+            },
+            {
+              "property": "大肠杆菌抑制(6h)",
+              "value": "吸光度0.157 vs 原矿0.220（菌生长速率降低29%）",
+              "condition": "2.5mg载Zn矿物，培养6h",
+              "source_papers": ["PAPER-003"]
+            },
+            {
+              "property": "金黄色葡萄球菌抑制(6h)",
+              "value": "吸光度0.088 vs 原矿0.106（菌生长速率降低17%）",
+              "condition": "2.5mg载Zn矿物，培养6h",
+              "source_papers": ["PAPER-003"]
+            }
+          ],
+          "source_papers": ["PAPER-003"],
+          "notes": "Zn²⁺通过晶格重建进入顽火辉石八面体空穴（非简单离子交换），矿物结构部分恢复。Zn²⁺可在特定条件下缓释→持续抗菌。性能优于黑滑石煅烧产物原矿但未完全灭菌。"
+        }
+      ],
+      "new_edges": [
+        {
+          "from": "enstatite_from_talc",
+          "to": "acid_activated_enstatite",
+          "type": "process",
+          "label_short": "HCl酸活化→Mg²⁺溶出",
+          "conditions": {
+            "temperature": {"min": 80, "max": 80, "unit": "°C"},
+            "atmosphere": "空气",
+            "additives": ["HCl 2mol/L"],
+            "solid_liquid_ratio": "1:10",
+            "time": "4-32h",
+            "equipment": "水浴反应器"
+          },
+          "result_purity": "H⁺取代八面体Mg²⁺，顽火辉石结构部分破坏，结晶度降低",
+          "source_papers": ["PAPER-003"],
+          "trl": 3,
+          "notes": "酸活化窗口：16h时Mg²⁺溶出量352mmol/L，c轴膨胀至0.522nm。过长时间(32h)导致过度结构破坏。"
+        },
+        {
+          "from": "acid_activated_enstatite",
+          "to": "zn_enstatite_antibacterial",
+          "type": "process",
+          "label_short": "ZnSO₄处理→Zn²⁺晶格重建",
+          "conditions": {
+            "temperature": {"min": 80, "max": 80, "unit": "°C"},
+            "atmosphere": "空气",
+            "additives": ["ZnSO₄ 2mol/L"],
+            "solid_liquid_ratio": "1:10",
+            "time": "4-16h",
+            "equipment": "水浴反应器"
+          },
+          "result_purity": "Zn²⁺进入八面体空穴，结晶度部分恢复，FWHM从0.280降至0.199",
+          "source_papers": ["PAPER-003"],
+          "trl": 3,
+          "notes": "晶格重建机制：H₃O⁺从八面体溶出→Zn²⁺(0.074nm)占据空穴→晶格收缩恢复。重构不完全（I'/I仅恢复到原矿46%）。"
+        },
+        {
+          "from": "zn_enstatite_antibacterial",
+          "to": "talc_antibacterial",
+          "type": "property_link",
+          "label_short": "Zn²⁺缓释→抗菌",
+          "via_property": "Zn²⁺晶格重建→特定条件缓释→抑制大肠杆菌和金黄色葡萄球菌生长",
+          "source_papers": ["PAPER-003"],
+          "trl": 3,
+          "notes": "抗菌机理：载体晶体结构+客体Zn²⁺+载体-客体相互作用。非完全灭菌但显著抑制。"
+        }
+      ],
+      "properties_added_to": {
+        "enstatite_from_talc": [
+          {
+            "property": "酸溶特性",
+            "value": "Mg-O八面体优先溶解，Si-O四面体骨架耐酸保留",
+            "condition": "HCl 2mol/L, 80°C",
+            "source_papers": ["PAPER-003"]
+          },
+          {
+            "property": "Mg²⁺最大溶出量(16h)",
+            "value": "352 mmol/L",
+            "condition": "2mol/L HCl, 80°C, 固液比1:10",
+            "source_papers": ["PAPER-003"]
+          },
+          {
+            "property": "酸活化后BET变化",
+            "value": "表面溶蚀→比表面积增加（定性）",
+            "source_papers": ["PAPER-003"]
+          }
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002"]
+    },
+
+    "q3_reliability": {
+      "scale": "powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "chinese_core",
+      "funding": "国家自然科学基金(21406193)",
+      "notes": "实验设计严谨：XRD+SEM+EDS+ICP-MS多技术交叉验证。定量分析Mg²⁺/Ca²⁺溶出动力学。抗菌实验含对照组（未加矿物/原矿/载Zn矿物）。缺点：抗菌实验仅做吸光度法（非平板计数），未报告标准偏差。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": ["PAPER-002"],
+      "contradicts": [],
+      "complements": ["PAPER-007"]
+    }
+  }
+}

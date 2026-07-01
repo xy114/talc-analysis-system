@@ -164,7 +164,16 @@ def register_edges(tree: dict, paper_id: str, edges_data: list) -> tuple:
             existing_index[key] = []
         existing_index[key].append(eid)
 
-    next_id = len(tree["edges"]) + 1
+    # 使用最大已有ID+1而非len()+1，避免删除边后ID冲突覆盖
+    max_id = 0
+    for eid in tree["edges"]:
+        try:
+            num = int(eid[1:])  # eXXXX → XXXX
+            if num > max_id:
+                max_id = num
+        except (ValueError, IndexError):
+            pass
+    next_id = max_id + 1 if max_id > 0 else 1
     for edge in edges_data:
         edge_errors = validate_tree_edge(edge)
         if edge_errors:

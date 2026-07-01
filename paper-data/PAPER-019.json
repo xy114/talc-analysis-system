@@ -1,0 +1,86 @@
+{
+  "paper": {
+    "id": "PAPER-019",
+    "title": "Mg₂SiO₄ as a novel thermal barrier coating material for gas turbine applications",
+    "authors": "Chen S, Zhou X, Song W, Sun J, Zhang H, Jiang J, Deng L, Dong S, Cao X",
+    "year": 2019,
+    "journal": "Journal of the European Ceramic Society",
+    "doi": "10.1016/j.jeurceramsoc.2019.02.016",
+    "research_type": "experiment",
+    "institution": "Wuhan University of Technology, State Key Laboratory of Silicate Materials for Architectures",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "forsterite_tbc",
+          "name": "镁橄榄石热障涂层",
+          "name_en": "Forsterite Thermal Barrier Coating (TBC)",
+          "formula": "Mg₂SiO₄ (APS涂层)",
+          "type": "product",
+          "depth": 2,
+          "children": [],
+          "parents": ["forsterite_from_talc"],
+          "properties": [
+            {"property": "涂层热循环寿命", "value": ">830 次 (1273 K, 34min保温/2min冷却)", "source_papers": ["PAPER-019"]},
+            {"property": "喷涂方法", "value": "大气等离子喷涂 (APS), NiCoCrAlY 粘结层, DZ125 镍基高温合金基体", "source_papers": ["PAPER-019"]},
+            {"property": "涂层孔隙率", "value": "17.5%", "source_papers": ["PAPER-019"]},
+            {"property": "涂层结合强度", "value": "24.7 MPa", "source_papers": ["PAPER-019"]},
+            {"property": "失效模式", "value": "层内剥离（非界面剥离），重结晶+热膨胀失配+MgCr₂O₄/MgSiO₃ 反应层增厚", "source_papers": ["PAPER-019"]}
+          ],
+          "source_papers": ["PAPER-019"],
+          "notes": "⚠ 注：论文用高纯 MgCO₃·Mg(OH)₂·5H₂O + SiO₂ 固相合成 Mg₂SiO₄（1873K/12h），非滑石路线。但 TBC 所需的低热导、抗热震、抗烧结等为本征性质，适用于黑滑石 >1100°C 煅烧所得 Mg₂SiO₄。Cr₂O₃ 反应兼容性问题（Mg₂SiO₄+Cr₂O₃→MgCr₂O₄+MgSiO₃）通用于任何来源的 Mg₂SiO₄ 涂层。"
+        }
+      ],
+      "new_edges": [
+        {
+          "from": "forsterite_from_talc",
+          "to": "forsterite_tbc",
+          "type": "process",
+          "label_short": "APS喷涂→TBC (>830次热循环 1273K)",
+          "conditions": {
+            "temperature": {"min": 1573, "max": 1873, "unit": "K"},
+            "atmosphere": "空气/氩气等离子",
+            "additives": ["NiCoCrAlY粘结层", "DZ125基底"],
+            "equipment": "大气等离子喷涂 (APS, Oerlikon Metco)"
+          },
+          "result_purity": "Mg₂SiO₄ 涂层（近化学计量比），孔隙率17.5%",
+          "source_papers": ["PAPER-019"],
+          "trl": 4,
+          "notes": "反应式: 2MgCO₃·Mg(OH)₂·5H₂O + 3SiO₂ → 3Mg₂SiO₄ + 2CO₂↑ + 11H₂O↑。元素守恒✓。TBC失效机理: (1)涂层重结晶导致平行收缩裂纹；(2)粘结层Cr扩散→Mg₂SiO₄+Cr₂O₃→MgCr₂O₄+MgSiO₃（脆性尖晶石反应层，右式元素守恒✓）。水淬热震寿命~16次(1573K)优于8YSZ(~7次)。"
+        }
+      ],
+      "properties_added_to": {
+        "forsterite_from_talc": [
+          {"property": "相稳定性上限", "value": "1573 K (1300°C), 100h 无相变无分解", "source_papers": ["PAPER-019"]},
+          {"property": "热导率 (298 K)", "value": "3.6 W/m·K", "source_papers": ["PAPER-019"]},
+          {"property": "热导率 (1073 K)", "value": "1.68 W/m·K", "source_papers": ["PAPER-019"]},
+          {"property": "热导率 (1273 K)", "value": "比 8YSZ 低 ~20%", "source_papers": ["PAPER-019"]},
+          {"property": "热膨胀系数 (473-1623 K)", "value": "8.6→11.3×10⁻⁶ K⁻¹", "source_papers": ["PAPER-019"]},
+          {"property": "维氏硬度", "value": "~10 GPa", "source_papers": ["PAPER-019"]},
+          {"property": "断裂韧性", "value": "2.8 MPa·m¹/² (与8YSZ相当)", "source_papers": ["PAPER-019"]},
+          {"property": "杨氏模量", "value": "185±10 GPa", "source_papers": ["PAPER-019"]},
+          {"property": "热震寿命 (1573 K水淬)", "value": "~16 次 (8YSZ ~7次)", "source_papers": ["PAPER-019"]},
+          {"property": "抗烧结性 (1773K/6h)", "value": "体积收缩仅13% (8YSZ=18%)", "source_papers": ["PAPER-019"]},
+          {"property": "理论密度", "value": "3.21 g/cm³ (比 8YSZ 轻45%)", "source_papers": ["PAPER-019"]},
+          {"property": "熔点", "value": "~2173 K (1900°C)", "source_papers": ["PAPER-019"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002", "PAPER-018"]
+    },
+
+    "q3_reliability": {
+      "scale": "powder + coating",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "funding": "国家自然科学基金 (51702244, 51501137) + 湖北省自然科学基金 + 中央高校基本科研业务费",
+      "notes": "J. Eur. Ceram. Soc.（SCI Q1）。武理工曹学强团队——国内TBC领域顶尖课题组。实验链路极完整：固相合成→喷雾造粒→APS喷涂（NiCoCrAlY/DZ125）→XRD/SEM/EDS/TG-DSC/激光闪光/高温膨胀仪/显微硬度/断裂韧性/拉拔测试→热循环830+次→失效分析。缺点：非滑石路线，合成温度1873K(1600°C)远超黑滑石煅烧温度。TBC性质为本征性质，但需验证黑滑石煅烧所得Mg₂SiO₄的杂质对涂层性能的影响。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-002", "PAPER-018"]
+    }
+  }
+}
