@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "黑滑石 MgO-SiO₂(-C-H₂O) 物相-应用体系树",
-    "version": "0.2.0",
+    "version": "0.2.8",
     "last_updated": "2026-07-01",
     "description": "v2 schema: 产品节点按工艺路线拆分，边=工艺路线，性质=该路线数据"
   },
@@ -274,6 +274,47 @@
           "source_papers": [
             "PAPER-017"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "2:1型 (T-O-T) 层状硅酸盐，三斜晶系 P1。单层结构：SiO₄ 四面体片(T)—Mg(O,OH)₆ 八面体片(O)—SiO₄ 四面体片(T)，TOT 层间以 van der Waals 力 + 类石墨烯碳层 (sp² C-C) 结合，层间距 d(001)≈0.94 nm",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键分析",
+          "value": "层内 Si-O 共价键 (键能 ~466 kJ/mol, 电负性差 1.54)→结构刚性骨架；Mg-O 离子键 (电负性差 2.13)→八面体层柔韧、易选择性溶解；层间 van der Waals + C-C sp² π 键 (层间碳层)→极低层间剪切强度→莫氏硬度仅 1",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "① 层间弱键→易层间滑移→天然润滑性+低硬度→超细粉碎低成本(天然纳米级)。② TOT 层含 OH→800°C+脱羟基→层状结构崩塌→非晶化+新物相(顽火辉石)。③ Mg-O 八面体层 vs Si-O 四面体层键强差异→酸浸时 Mg 优先溶出而 Si 骨架保留→选择性分离 Mg/Si。④ 层间 sp² 碳→类石墨烯层内 π 电子离域→潜在导电性",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① TOT 层间空间(~0.94 nm 层间距)→可插层化学(Li⁺/Na⁺等离子插层)→潜在电池电极材料或离子交换剂。② 层间碳层 sp² 结构→N₂气氛下可石墨化为类石墨烯→导电/导热功能相。③ SiO₄ 四面体片可剥离为二维纳米片(类蒙脱石)→纳米填料增强聚合物/阻隔材料。④ TOT 层天然限域空间→原位合成纳米颗粒(量子点/催化金属)→限域催化",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "滑石中NH₄⁺类物种发现(PAPER-023)",
+          "value": "天然滑石中首次检测到 NH₄⁺ 类物种(N-H 伸缩~2980/3020/3048/3169 cm⁻¹)，浓度约几十~几百 ppm。NH₄⁺ 的热分解温度与 OH 脱羟基相同(~850-900°C)——非巧合，可能是热触发整体结构崩塌导致两者同时脱除",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "滑石纯端员组成(龙胜+海城样品)",
+          "value": "广西龙胜: MgO 30.56%, SiO₂ 63.58%, FeO 0.60%(含Fe→3660 cm⁻¹ Mg₂Fe-OH带)。辽宁海城: MgO 30.77%, SiO₂ 63.84%, FeO 0.02%(近理想纯Mg端员，3676 cm⁻¹ 带在20K下分裂为3个子带)",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "纯滑石参照组成 (广西龙广, PAPER-027)",
+          "value": "SiO₂ 67.68%, MgO 31.04%, Al₂O₃ 0.77%, Fe₂O₃ 0.50%, CaO 0.01%。滑石含量 >98 wt%。与黑滑石(含碳层+高Fe)对照的纯滑石基准",
+          "source_papers": [
+            "PAPER-027"
+          ]
         }
       ],
       "source_papers": [
@@ -294,7 +335,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "enstatite_from_talc": {
@@ -463,6 +505,98 @@
           "source_papers": [
             "PAPER-011"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "正交晶系 Pbca (proto-MgSiO₃ 为 P2₁/c), 链状硅酸盐(辉石族)。SiO₄ 四面体共角顶形成沿 c 轴延伸的单链 [SiO₃]²⁻，链间由 MgO₆ 八面体连接。Mg²⁺ 占据 M1 和 M2 两种八面体位(M1 较规则, M2 扭曲稍大)。晶胞参数 a≈18.23Å, b≈8.81Å, c≈5.18Å",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键分析",
+          "value": "Si-O 共价键(键能 ~466 kJ/mol)→刚性四面体链骨架，决定低极化率；Mg-O 离子键→八面体层提供结构连接但贡献极化。电负性：Si(1.90) vs O(3.44)→Si-O 差 1.54(共价为主); Mg(1.31) vs O→差 2.13(离子为主)。Mg-O 键强较弱(~167 kJ/mol)，是热膨胀和离子取代的主要位点",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "【εr≈5-7 低】Si-O 共价四面体链→电子被紧束缚→低离子极化率→Clausius-Mossotti 关系给出 εr≈5-7(实验 5.11 PAPER-004)。【Q×f 高 >100,000 GHz】刚性共价链 + 轻重原子质量差大(Si 28 vs Mg 24 vs O 16)→声子频谱展宽小→非谐声子散射弱→本征介电损耗极低→Q×f 可达 145,846(PAPER-011)。【τf<0 负值】Mg-O 离子键热膨胀→MgO₆ 八面体体积↑→键长↑→单位体积极化率↓→τf≈−17~−19 ppm/°C。【polymorphism 相变】proto→ortho 相变源于 MgO₆ 扭曲+SiO₄ 链旋转→降温过程产生微裂纹→Q×f 劣化(PAPER-010 Cu²⁺ 抑制此相变)",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① 链状 SiO₄ 结构→强各向异性热膨胀(链向 vs 链间不同)→可设计定向热管理材料或应力缓冲层。② 宽能隙(~7 eV, DFT 计算)→紫外透明窗口(200-300 nm)→UV-LED 封装或光学窗口。③ Mg²⁺ 可被过渡金属(TM⁺²)取代→八面体位掺杂(TM-O₆)→调控磁性/荧光/催化→可能用于发光材料(Mn⁴⁺ 红色荧光粉)、催化剂载体。④ 链状结构较层状更开放→潜在离子导体(Mg²⁺ 沿链迁移)→固态电解质？⑤ 低 εr+低损耗→不仅微波介质，也可作为高频 PCB 基板填料",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "滑石瓷配方 εr 范围 (50-500 MHz)",
+          "value": "4.32–5.25",
+          "condition": "1250°C 烧结，200 MHz 同轴腔测量",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "滑石瓷配方 tan δ",
+          "value": "<0.01 (低于同轴腔可靠测量阈值)",
+          "condition": "50–200 MHz",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "滑石瓷工业配方组成",
+          "value": "滑石 80% + 黏结剂(膨润土/高岭土)10% + 助熔剂(长石/BaCO₃)10%",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "原顽火辉石稳定化机理",
+          "value": "助熔剂在500-900°C形成液相→包裹新结晶原顽火辉石晶体→抑制proto→clino可逆相变→防止微裂纹和介电性能劣化",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "IR·正顽火辉石+斜顽火辉石共存(1000°C)",
+          "value": "1000°C 脱羟基化物的远红外光谱同时含正顽火辉石(Pbca)和斜顽火辉石(P2₁/c)的特征带(246, 378, 484 cm⁻¹ 为斜顽火辉石标志)。IR 光谱减除 SiO₂ 玻璃信号后与正顽火辉石匹配良好，但峰较宽→结晶度低、缺陷多",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "IR·脱羟基顽火辉石 vs 纯合成顽火辉石差异",
+          "value": "脱羟基产物 FIR 峰较宽、波数偏低、<150 cm⁻¹ 无特征峰→'poor crystallization and defective structure'。1253 cm⁻¹ 附近出现异常宽峰→暗示低维结构硅酸盐共存",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "OH对比·滑石脱羟基产物 vs 天然正顽火辉石",
+          "value": "天然正顽火辉石(Birm)有 3411/3519/3563 cm⁻¹ 三个 OH 带，但部分/完全脱羟基滑石中均未观察到这些带→滑石脱羟基产物与地质正顽火辉石的 OH 环境不同",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "顽火辉石晶粒生长动力学 (PAPER-027)",
+          "value": "800°C: 15.0 nm → 1200°C: 43.2 nm。(610)面衍射强度: 800°C 44 counts → 1200°C 530 counts。晶粒在 800-1200°C 间线性增长 ~3×",
+          "source_papers": [
+            "PAPER-027"
+          ]
+        },
+        {
+          "property": "斜顽火辉石形成温度 (PAPER-027)",
+          "value": "~1300°C——顽火辉石→斜顽火辉石(clinoenstatite)。30.7°2θ 峰移至 31.7°2θ, 27.5°2θ 新峰出现(JCPDS 35-0610)",
+          "source_papers": [
+            "PAPER-027"
+          ]
+        },
+        {
+          "property": "无定形 SiO₂→opal-C 转变温度 (PAPER-027)",
+          "value": "~1200°C——无定形 SiO₂→次晶蛋白石(opal-C, JCPDS 39-1425)。21.9°2θ 特征峰。1050°C 退火 24h 后 FWHM 不变→opal-C 为稳定相非过渡态",
+          "source_papers": [
+            "PAPER-027"
+          ]
         }
       ],
       "source_papers": [
@@ -483,7 +617,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "forsterite_from_talc": {
@@ -643,6 +778,54 @@
           "source_papers": [
             "PAPER-020"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "正交晶系 Pbnm (Olivine 结构)，孤立 SiO₄ 四面体被 MgO₆ 八面体包围。Mg²⁺ 占据 M1(反演中心, 较规则八面体)和 M2(镜面对称, 较扭曲八面体)两体位。O²⁻ 近似六方密堆积(hcp)，Si⁴⁺ 占据 1/8 四面体空隙，Mg²⁺ 占据 1/2 八面体空隙。晶胞参数 a≈4.75Å, b≈10.20Å, c≈5.98Å",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键分析",
+          "value": "孤立 SiO₄→无四面体间桥氧→四面体不共享顶点→极度刚性(无链/层变形自由度)；Mg-O 离子键(M1: 键长 2.07-2.10Å, M2: 键长 2.03-2.13Å)→八面体提供 3D 连接但本身柔韧。Si-O 键(~466 kJ/mol)远强于 Mg-O(~167 kJ/mol)→孤立 SiO₄ 为'刚性岛'嵌入 Mg-O 离子'海洋'→整体晶格刚性极高",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "【Q×f=270,000 GHz 极高 PAPER-018】孤立 SiO₄→无四面体链/环变形→极度低非谐性→本征声子散射极弱→Q×f 为所有硅酸盐中最高之一。【εr=6.8】SiO₄ 孤立→无离子协同极化→仅 Mg-O 对和 Si-O 键贡献极化→中等偏低介电常数。【低热导 3.6→1.68 W/m·K PAPER-019】复杂晶体结构(Z=4/晶胞, 28 atoms)→声子频谱复杂+轻重原子质量差大(Si 28 vs Mg 24)→低声子群速度+强Umklapp散射→热导比8YSZ低~20%。【高熔点 1890°C】孤立 SiO₄+紧密氧堆积→高晶格能→难熔。【热膨胀 CTE 8.6-11.3×10⁻⁶/K】离子键 Mg-O 主导热膨胀(非 Si-O 共价)→CTE 偏大但可控",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① Cr⁴⁺/Mn⁴⁺ 可取代 Si⁴⁺(四面体位)或 Mg²⁺(八面体位)→d-d 电子跃迁→可调谐近红外激光晶体(Cr:forsterite 已是商用激光晶体 1.1-1.3μm)。② Mg²⁺+Si⁴⁺ 均是生物必需元素→镁橄榄石具有本征生物相容性和生物可降解性→骨组织工程支架(已有个别研究 PAPER-002 提及)。③ 低热导+高熔点+良好热稳定性→热障涂层(TBC)理想候选(已由 PAPER-019 验证 >830 次循环)。④ 孤立 SiO₄→无链/层各向异性→3D 各向同性机械性能→优于链状顽火辉石。⑤ 两个独立八面体位 M1/M2→可选择性掺杂不同离子到不同位→多色荧光或双功能材料",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "纯试剂 forsterite Q×f 基准 (PAPER-025)",
+          "value": "240,000 GHz——纯试剂路线的 Q×f 上限。可与黑滑石路线(如 PAPER-020: Q×f=151,137 with B₂O₃)对照",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "TiO₂ 不能补偿 forsterite τf 的机理 (PAPER-025)",
+          "value": "TiO₂ 与 MgO-SiO₂ 反应生成 MgTi₂O₅→TiO₂ 不能作为独立 τf 补偿相。τf 始终在 -63~-70 ppm/°C。解释为何 PAPER-020 选择 B₂O₃ 而非 TiO₂",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "LiF 低温烧结 forsterite 数据 (PAPER-026 交叉验证)",
+          "value": "Mg₂SiO₄ + LiF → 900°C 烧结: εr=6.1, Qf=109,700 GHz, τf=-61 ppm/°C。LiF 液相烧结将 forsterite 烧结温度从 1400°C 降至 900°C 同时保持高 Qf",
+          "source_papers": [
+            "PAPER-026"
+          ]
+        },
+        {
+          "property": "纯试剂 forsterite 正常烧结温度 (PAPER-028 引用)",
+          "value": "~1500°C——纯 Mg₂SiO₄ 无添加剂时的致密化温度。远高于黑滑石路线 forsterite (PAPER-020: 1200-1300°C with B₂O₃)",
+          "source_papers": [
+            "PAPER-028"
+          ]
         }
       ],
       "source_papers": [
@@ -663,7 +846,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "separated_mgo": {
@@ -701,6 +885,26 @@
           "source_papers": [
             "PAPER-007"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "立方晶系 Fm3̄m (岩盐/NaCl 结构)，Mg²⁺ 和 O²⁻ 均为六配位(八面体配位)，晶胞参数 a≈4.21Å。高度对称结构→各向同性物理性质",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键分析",
+          "value": "纯离子键：Mg²⁺(r=0.72Å) + O²⁻(r=1.40Å)，电负性差 2.13(Pauling)→离子性 ~63%。强 Madelung 能→高晶格能(3795 kJ/mol)→极高熔点 2852°C",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "【宽能隙 ~7.8 eV (DFT GW 计算)】纯离子键→满价带(O 2p)+空导带(Mg 3s)→大能隙→绝缘体、紫外透明。【高熔点 2852°C】强 Madelung 能+紧密离子堆积→高晶格能→优异耐火材料。【碱性与催化】表面 O²⁻ 离子→Lewis 碱位→可催化 aldol 缩合等碱催化反应。【MgO 酸溶】离子键→极性溶剂(H₂O/H⁺)攻击→Mg²⁺ 水合释出(PAPER-007 验证→97.98% 浸出率)",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① 宽能隙+低介电常数(~9.8)→良好绝缘栅介质→薄膜晶体管(TFT)栅极绝缘层候选。② 表面 O²⁻ Lewis 碱性+Mg²⁺ Lewis 酸性→双功能催化→CO₂ 吸附/转化(形成 MgCO₃)。③ 纳米 MgO→高比表面+丰富表面缺陷(F-center)→抗菌/光催化(已有研究)。④ 隧道势垒：MgO(001)能隙大→自旋电子学中 MTJ (磁隧道结)标准势垒材料。⑤ 岩盐结构→与 FeO, CoO, NiO 晶格匹配→可外延生长异质结构",
+          "type": "first_principles_insight"
         }
       ],
       "source_papers": [
@@ -721,7 +925,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "separated_sio2": {
@@ -751,6 +956,26 @@
           "source_papers": [
             "PAPER-007"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "酸浸残渣 SiO₂ 以无定形为主(部分方石英微晶)。无定形 SiO₂: 连续随机网络(CRN), 每个 Si 四配位 O, 每个 O 桥接 2 个 Si (Q⁴/Q³ 分布)。方石英: 四方晶系 P4₁2₁2 或立方 Fd3̄m, SiO₄ 四面体共角顶形成类似金刚石的三维网络",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键分析",
+          "value": "Si-O 共价键为主(键能 ~466 kJ/mol, 电负性差 1.54)→约 50% 离子性+50% 共价性。Si-O-Si 桥键角 ~144°(无定形分布 120-180°)→连续三维共价网络→化学稳定性极高(HF 除外)",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "【低 εr ~3.8(无定形), 4.4(方石英)】Si-O 共价键→低极化率+无偶极矩→最低介电常数之一→CMOS 器件关键介质(非本体系但物理本质相通)。【高化学稳定性→仅 HF 能攻击 Si-O-Si 桥键→PAPER-007 中 δ-MgO 过程依赖 HF 破解 Si-O 网络】【高比表面(纳米 SiO₂)→酸浸残渣多孔→可用作吸附剂/催化剂载体】【绝缘→宽能隙 ~9 eV→深紫外透明】",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① 无定形 SiO₂→高比表面+表面 Si-OH 基团→功能化接枝(硅烷偶联剂)→填料增强、色谱固定相。② 纳米 SiO₂→低折射率(~1.46)+低 εr→光学减反膜、低介电介质层。③ 多孔 SiO₂(酸浸残渣)→天然多孔模板→限域合成纳米材料(分子筛前驱体)。④ 方石英→负热膨胀相变(α↔β 在 ~270°C)→可设计零膨胀复合材料(与正膨胀相复合)。⑤ SiO₂ 微球→光子晶体结构单元→结构色/光学传感",
+          "type": "first_principles_insight"
         }
       ],
       "source_papers": [
@@ -771,7 +996,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "graphitized_carbon": {
@@ -821,6 +1047,26 @@
           "source_papers": [
             "PAPER-006"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "类石墨烯层状结构：sp² 杂化碳六元环二维网络，层内 C-C 键长 ~1.42Å(石墨烯本征)，层间距 d(002)≈0.335-0.340 nm(N₂气氛高温石墨化后接近理想石墨 d=0.3354 nm)。存在 C-O 杂键缺陷(碳层边缘/面内氧化位点)→非完美石墨烯",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键分析",
+          "value": "层内 sp² C-C σ 键(~610 kJ/mol)+ 离域 π 键→极高面内强度+导电性；层间 van der Waals→弱结合→可滑移/可剥离。每个 C 贡献 1 个 pz 电子形成 π 共轭体系→π→π* 带间跃迁→Dirac 锥电子结构(理想石墨烯)/窄能隙半导体(缺陷石墨烯)",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "【导电性(PAPER-006: 电阻率从 26.8→2.9×10⁷ Ω·m)】sp² π 电子离域→层内载流子迁移率高→电子隧道效应→导电网络。【导热性(PAPER-006: 导热↑6.9倍)】sp² 键→高德拜温度→高声子速度→面内高导热(弹道输运)。【润滑性】层间弱 van der Waals→层间易滑移→固体润滑剂。【C-O 缺陷→反应活性】缺陷位 sp³ 碳→悬挂键→可功能化接枝/吸附位点",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① 类石墨烯碳层→电化学储能(超级电容器/锂电负极)→sp² 碳+缺陷位→高比电容/嵌锂容量。② 碳层包覆陶瓷颗粒→核-壳结构→阻隔热腐蚀+导电双功能。③ 层间插层化学→可插入离子/分子→改性碳层电子结构(类似石墨插层化合物 GIC)。④ sp² 碳+缺陷→氧还原反应(ORR)催化活性位→潜在无金属电催化剂。⑤ 碳层表面等离子体效应→SERS 基底候选(增强拉曼信号)",
+          "type": "first_principles_insight"
         }
       ],
       "source_papers": [
@@ -841,7 +1087,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "cordierite_ceramic": {
@@ -869,6 +1116,56 @@
           "value": "高",
           "source_papers": [
             "PAPER-002"
+          ]
+        },
+        {
+          "property": "CTE (MgO=2.0)",
+          "value": "2.5×10⁻⁶/K",
+          "source_papers": [
+            "PAPER-021"
+          ]
+        },
+        {
+          "property": "CTE (MgO=4.0)",
+          "value": "2.0×10⁻⁶/K",
+          "source_papers": [
+            "PAPER-021"
+          ]
+        },
+        {
+          "property": "介电常数 ε' (1 MHz-1.8 GHz)",
+          "value": "5-6.5",
+          "source_papers": [
+            "PAPER-021"
+          ]
+        },
+        {
+          "property": "介电损耗 tan δ (1 MHz-1.8 GHz)",
+          "value": "~10⁻²",
+          "source_papers": [
+            "PAPER-021"
+          ]
+        },
+        {
+          "property": "最优 MgO 摩尔比",
+          "value": "2.8 (MgO:Al₂O₃:SiO₂ = 2.8:2:5)",
+          "condition": "α-堇青石含量最高94.1%",
+          "source_papers": [
+            "PAPER-021"
+          ]
+        },
+        {
+          "property": "合成方法(玻璃析晶法)",
+          "value": "滑石+高岭土→1500°C熔融→淬冷→900°C析晶，无烧结助剂",
+          "source_papers": [
+            "PAPER-021"
+          ]
+        },
+        {
+          "property": "MgO过量效应",
+          "value": "MgO>2.8时镁橄榄石(forsterite)作为次生相出现，α-堇青石含量下降",
+          "source_papers": [
+            "PAPER-021"
           ]
         }
       ],
@@ -982,6 +1279,26 @@
           "source_papers": [
             "PAPER-003"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "顽火辉石(Pbca)经 HCl 酸活化→Mg²⁺ 从 MgO₆ 八面体位部分溶出→H⁺(以 H₃O⁺ 形式, r≈0.135 nm)取代 Mg²⁺(r=0.072 nm)→c 轴膨胀(0.51052→0.52587 nm, PAPER-003)。Si-O 四面体链骨架保留→酸活化是'选择性溶解'而非整体溶解",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键 + 酸溶选择性机理",
+          "value": "选择性溶解由键型差异决定：Mg-O 离子键(键能 ~167 kJ/mol)→H⁺ 攻击→Mg²⁺ + 2H₂O → [Mg(H₂O)₆]²⁺(水合)→溶出。Si-O 共价键(键能 ~466 kJ/mol)→H⁺ 攻击无效→Si-O-Si 桥键不被 HCl 断裂→SiO₄ 链保留。H₃O⁺ 半径(0.135 nm)远大于 Mg²⁺(0.072 nm)→进入八面体空穴后撑大晶格→c 轴膨胀。石英(SiO₂)共存相→完全耐酸→结构保留",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "【Mg²⁺ 溶出 352 mmol/L (16h, PAPER-003)】Mg-O 键弱→H⁺ 攻击效率高→大量 Mg²⁺ 溶出。【结晶度下降(FWHM: 0.214→0.280)】H₃O⁺ 取代→晶格膨胀+无序增加→XRD 峰宽化。【BET 增加(定性)】Mg 溶出→八面体位留空→微孔/介孔增加→比表面积增大。【硅骨架保留→可进一步功能化】Si-O 链残存→可作为模板/载体→后续离子重建(PAPER-003 Zn²⁺ 晶格重建)",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① 溶出 Mg²⁺后留下的 SiO₄ 骨架→天然介孔/微孔材料→分子筛前驱体或吸附剂。② H⁺ 交换位→可进一步离子交换植入其他功能阳离子(Ag⁺/Cu²⁺/稀土等)→多品种功能材料平台(不仅抗菌)。③ Mg²⁺ 溶出液→可沉淀为 Mg(OH)₂/MgO 纳米颗粒→高纯镁产品线(已验证 PAPER-007)。④ 酸活化作为通用'激活'步骤→任何需要暴露 Si-O 表面或增加反应活性的下游工艺均可用",
+          "type": "first_principles_insight"
         }
       ],
       "source_papers": [
@@ -1210,6 +1527,26 @@
           "source_papers": [
             "PAPER-005"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "与滑石原矿相同(2:1 TOT 层状硅酸盐, P1 三斜)，仅表面物理吸附水脱除，TOT 层结构完整, d(006) 未变化。层间碳层保留",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键 + 脱水机理",
+          "value": "吸附水以氢键结合于 TOT 层外表面(非层间)→结合能弱(<40 kJ/mol vs 层间 OH ~400 kJ/mol)→30-165°C 即可脱除。质量损失仅 0.32%，不含结构 OH 断裂→Si-O/Mg-O 键全保留→晶体结构不变",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "脱除吸附水后表面暴露 Si-O-Si/Si-OH/Mg-OH 位点→表面能增加→轻微疏水性改变→后续加热过程中反应活性微增。但整体性质(硬度/层间距/结构稳定性)与原矿几乎相同",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "脱水后表面活性位暴露→可作为温和预处理步骤→增强后续表面功能化(硅烷接枝、离子交换)效率。脱水温度低(165°C)→能耗极低→工业友好预处理",
+          "type": "first_principles_insight"
         }
       ],
       "source_papers": [
@@ -1218,7 +1555,9 @@
       "notes": "阶段I/四阶段模型。吸附水脱除，H₂O (m/z=18) MS信号在~152°C归零。晶体结构不变。",
       "papers_cross_validated": [
         "PAPER-006",
-        "PAPER-013"
+        "PAPER-013",
+        "PAPER-023",
+        "PAPER-027"
       ]
     },
     "decarbonized_talc": {
@@ -1271,6 +1610,47 @@
           "source_papers": [
             "PAPER-005"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "TOT 层状结构保留但层间距微胀(d(006): 0.313→0.315 nm)。层间有机碳氧化为 CO₂ 逸出→层间留下纳米空隙→层间距轻微膨胀。TOT 层内 Si-O/Mg-O 键仍完整",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键 + 脱碳机理",
+          "value": "层间有机碳 sp²/sp³ C-C/C-H 键 + O₂ → CO₂↑ + H₂O↑ (氧化燃烧反应, 165-580°C)。CO₂ 分子(~0.33 nm 动力学直径)从层间逸出时撑开 TOT 层→d(006) 膨胀。有机碳完全氧化后层间仅余 van der Waals 间隙→白度开始提升(DSC 336.7°C 吸热谷验证)",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "脱碳后: ① 白度提升→有机碳(致黑)→去除→视觉白度↑。② 层间空隙→微增 BET 比表面→反应活性微增。③ 层间距微胀→TOT 层间结合力略有减弱→后续脱羟基温度略降低。④ CO₂ 逸出通道可能成为后续反应(酸浸/插层)的传质通道",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① 层间纳米空隙→可作为分子筛分通道→选择性吸附小分子(H₂O/CO₂)。② 脱碳后层间干净→利于后续插层化学(客体分子/离子无障碍进入层间)。③ 有机碳氧化为 CO₂ 可利用→若在封闭系统中可捕获 CO₂→碳负排放工艺设计",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "CO₂外源扩散证据(原位 vs 淬冷对比)",
+          "value": "淬冷样(空气中退火): 600°C 即检测到 CO₂(~2345 cm⁻¹)，950°C 达峰值→1300°C 消失。原位真空加热: 740°C 仍无 CO₂。→碳来自外部大气 CO₂ 在脱羟基过程中扩散进入，非原料固有",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "CO₂进入机制",
+          "value": "CO₂ 与脱羟基 H₂O 共用同一扩散通道——H₂O 逸出时留下的纳米空隙成为 CO₂ 反扩散入口。CO₂ 位于层间/空腔/晶界",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "CO₂ vs 新生OH 非耦合",
+          "value": "CO₂ 在 600°C 出现，新生 OH 带在 ~900°C 出现→两者无关。CO₂ 不参与稳定新生 OH 物种",
+          "source_papers": [
+            "PAPER-023"
+          ]
         }
       ],
       "source_papers": [
@@ -1279,7 +1659,9 @@
       "notes": "阶段II/四阶段模型。层间有机碳氧化→CO₂逸出→层间距膨胀。白度开始提升。",
       "papers_cross_validated": [
         "PAPER-006",
-        "PAPER-013"
+        "PAPER-013",
+        "PAPER-023",
+        "PAPER-027"
       ]
     },
     "dehydroxylated_talc": {
@@ -1365,6 +1747,124 @@
           "source_papers": [
             "PAPER-005"
           ]
+        },
+        {
+          "property": "第一性原理 · 晶体结构",
+          "value": "部分非晶化：TOT 层状结构残留但长程有序丧失。OH 从八面体层脱除→Mg(O,OH)₆ 八面体→MgO₅ 畸变多面体+部分 MgO₆ 八面体。Si-O 四面体网络部分保留→无定形 SiO₂/MgO 纳米域形成。结晶度 CI 从 75.8% 降至 51.0%(T800→T900, PAPER-005)",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 化学键 + 脱羟基机理",
+          "value": "Mg-OH 键断裂(键能 ~380-400 kJ/mol, >800°C)→2(OH⁻)→O²⁻+H₂O↑(脱羟基反应)。OH 脱除后八面体层 Mg-O 配位失衡→Mg 配位数从 6 向 5/4 过渡→Mg-O 多面体重排→无定形 MgOₓ 域形成。Si-O-Si 桥键在 800-900°C 可维持→SiO₄ 四面体框架尚有残留(PAPER-005: 1017→1000 cm⁻¹ 红移表明 Si-O-Si 角变化但键未断)",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 结构→性质推导",
+          "value": "【活化窗口 800-900°C(PAPER-005)】OH 脱除+部分非晶化→表面丰富断键/悬挂键→高反应活性→酸浸效率大幅提高(对比未煅烧滑石几乎不酸溶)。【Zeta 电位降至一半】OH 脱除→表面质子化/去质子化位减少→表面电荷密度降→胶体稳定性改变。【FTIR 红移(3676→3666, 1017→1000 cm⁻¹)】OH 脱除→残余 OH 环境变化+Si-O 键角变形→力常数降低→振动频率红移",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "第一性原理 · 推导可能新性质",
+          "value": "① 非晶化+高比表面→天然'活性中间体'→作为前驱体合成其他 Mg-Si 基材料(无需完全分解为顽火辉石)。② 表面断键→高化学吸附活性→CO₂ 捕获剂(MgO 碳化)+重金属离子吸附剂。③ 无定形 MgO-SiO₂ 混合域→类地质聚合物前驱体→碱激发胶凝材料(类似矿渣/粉煤灰)。④ 介孔保留(4.0 nm)+表面活化→双功能(吸附+催化)→催化剂载体或吸附剂",
+          "type": "first_principles_insight"
+        },
+        {
+          "property": "原位IR·质子迁移起始温度",
+          "value": "~200°C——远低于脱羟基温度(800°C+)。3500 cm⁻¹ 出现不可淬冷的新 OH 物种",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "原位IR·不可淬冷OH物种(3500 cm⁻¹)",
+          "value": "原位加热时 200°C 出现→700°C 增强→降温消失→室温不存在。说明脱羟基之前质子已开始迁移，形成高温下存在的瞬态 OH",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "淬冷样·额外OH带(3665 cm⁻¹)",
+          "value": "~900°C 出现→1200°C 后消失。定位在部分脱羟基的缺陷滑石结构或顽火辉石相中",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "淬冷样·额外OH带(3745 cm⁻¹)",
+          "value": "~900°C 出现→1350°C 后才消失。比 3665 带更耐高温。可能位于 SiO₂ 相或晶界",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "IR·OH 频率变化 vs 温度 (原位)",
+          "value": "3676→3666 cm⁻¹ (700°C, 变化仅 0.27%, 10 cm⁻¹)——远小于 Si-O 骨架振动频率变化(2.4%)。说明 O-H 键在脱羟基前并未显著弱化→脱羟基驱动力不是简单的 O-H 键热断裂，而是整体结构失稳",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "IR·脱羟基产物结构",
+          "value": "1000°C 脱羟基化物=无序 SiO₂ + 顽火辉石(MgSiO₃)。层状结构特征消失(20-200 cm⁻¹ 层间振动带消失)。Si-O 伸缩区出现多个新带→SiO₄ 四面体重组为新连接方式",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "IR·OH泛频异常",
+          "value": "脱羟基进程中 7185 和 10535 cm⁻¹ (OH 第一/第二泛频)强度异常微增——可能因脱气形成纳米空腔/裂纹导致光散射→使用泛频计算 OH 含量需谨慎",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "OD同位素·热行为",
+          "value": "天然滑石中检测到 OD 伸缩振动(2710 cm⁻¹, D/H≈1.5×10⁻⁵)。OD 与 OH 在脱羟基过程中有完全相同的温度依赖性——说明 H 和 D 的脱除由同一机制控制",
+          "source_papers": [
+            "PAPER-023"
+          ]
+        },
+        {
+          "property": "脱羟基起始温度 (XRD 检测)",
+          "value": "~800°C——顽火辉石 XRD 峰首次出现(30.7°2θ, (610)面)。800°C 以下仅脱水(吸附水丢失~0.9% at 120°C)，无物相变化",
+          "source_papers": [
+            "PAPER-027"
+          ]
+        },
+        {
+          "property": "脱羟基峰值温度 (DSC)",
+          "value": "~895°C——DSC 宽吸热峰，对应热失重速率最大点",
+          "source_papers": [
+            "PAPER-027"
+          ]
+        },
+        {
+          "property": "脱羟基总失重",
+          "value": "~4.3 wt%（800-1000°C 区间）。理论值: 4.75 wt% (滑石→顽火辉石+SiO₂+H₂O)。实验值略低→可能与部分脱羟基在升温过程中已发生有关",
+          "source_papers": [
+            "PAPER-027"
+          ]
+        },
+        {
+          "property": "脱羟基活化能 (Coats-Redfern 法)",
+          "value": "69 kcal/mol = 289 kJ/mol。一级反应 (n=1), N₂ 气氛, 12°C/min 升温速率",
+          "source_papers": [
+            "PAPER-027"
+          ]
+        },
+        {
+          "property": "脱羟基反应式 (PAPER-027 验证)",
+          "value": "2Mg₃Si₄O₁₀(OH)₂ → 3Mg₂Si₂O₆ (顽火辉石) + 2SiO₂ (无定形) + 2H₂O(g)。800°C 开始, 1000°C 完成",
+          "source_papers": [
+            "PAPER-027"
+          ]
+        },
+        {
+          "property": "脱羟基前结构退化 (结晶度指数)",
+          "value": "25°C: C=100% → 700°C: C=32.2%。d₀₀₁ 从 0.94→0.92 nm。200-700°C 区间内无新相，但结晶度持续下降→脱羟基前已有显著结构损伤（层间距收缩+晶格畸变）",
+          "source_papers": [
+            "PAPER-027"
+          ]
         }
       ],
       "source_papers": [
@@ -1373,7 +1873,9 @@
       "notes": "阶段III/四阶段模型。800°C是关键温度：脱羟基开始，结晶度急剧下降，FTIR特征峰红移。T800仍保持层状结构和4.0nm介孔→'活化窗口'。SEM+SAED确认非晶化。",
       "papers_cross_validated": [
         "PAPER-006",
-        "PAPER-013"
+        "PAPER-013",
+        "PAPER-023",
+        "PAPER-027"
       ]
     },
     "camgsio4_ceramic": {
@@ -1656,6 +2158,415 @@
         "PAPER-019"
       ],
       "notes": "⚠ 注：论文用高纯 MgCO₃·Mg(OH)₂·5H₂O + SiO₂ 固相合成 Mg₂SiO₄（1873K/12h），非滑石路线。但 TBC 所需的低热导、抗热震、抗烧结等为本征性质，适用于黑滑石 >1100°C 煅烧所得 Mg₂SiO₄。Cr₂O₃ 反应兼容性问题（Mg₂SiO₄+Cr₂O₃→MgCr₂O₄+MgSiO₃）通用于任何来源的 Mg₂SiO₄ 涂层。"
+    },
+    "steatite_electrical_insulator": {
+      "id": "steatite_electrical_insulator",
+      "name": "滑石瓷电工绝缘陶瓷(配方烧结)",
+      "name_en": "Steatite Electrical Insulator Ceramic",
+      "formula": "MgSiO₃ + 玻璃相 (原顽火辉石 + 黏结剂/助熔剂衍生非晶相)",
+      "type": "product",
+      "depth": 2,
+      "properties": [
+        {
+          "property": "εr (S1: 膨润土+长石, 1250°C)",
+          "value": "5.16",
+          "condition": "200 MHz, 同轴腔法",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "εr (S2: 高岭土+长石, 1250°C) 最优",
+          "value": "5.19",
+          "condition": "200 MHz, 同轴腔法。推荐配方：滑石-长石-高岭土",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "εr (S3: 膨润土+BaCO₃, 1250°C) 最优",
+          "value": "5.25",
+          "condition": "200 MHz, 同轴腔法。推荐配方：滑石-膨润土-BaCO₃",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "εr (S4: 高岭土+BaCO₃, 1250°C) 最低",
+          "value": "4.95",
+          "condition": "200 MHz。BaCO₃+高岭土组合过早形成玻璃相→多孔结构→εr偏低",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "εr 全配方范围",
+          "value": "4.32–5.25",
+          "condition": "50–500 MHz, 1000°C→1250°C",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "介电损耗 tan δ (全配方)",
+          "value": "<0.01 (低于测量阈值)",
+          "condition": "50–200 MHz 同轴腔，200–500 MHz 开放夹具",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "最优烧结温度",
+          "value": "1250°C",
+          "condition": "原顽火辉石(protoenstatite)为稳定主晶相，含少量方石英/鳞石英及Ba相关相",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "配方组成",
+          "value": "滑石80 wt% + 黏结剂(膨润土或高岭土)10 wt% + 助熔剂(长石或BaCO₃)10 wt%",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "主晶相",
+          "value": "原顽火辉石 (protoenstatite, MgSiO₃) ~70% + 玻璃相 ~30%",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "典型应用",
+          "value": "电工绝缘子/开关部件/卤素灯座/加热元件支架/NH熔断器/温控器外壳/接线盒。高机械强度+低介电损耗+耐高温",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "致密化温度窗口",
+          "value": "1000–1250°C，1250°C完全致密化并完成再结晶",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        },
+        {
+          "property": "助熔剂效应(BaCO₃ vs 长石)",
+          "value": "BaCO₃→加速石英多晶转变(更快形成方石英/鳞石英)→更多Ba相关晶相→更多玻璃相；长石→较温和助熔→较低玻璃相含量→较高结晶度",
+          "source_papers": [
+            "PAPER-022"
+          ]
+        }
+      ],
+      "notes": "滑石瓷(steatite)是传统电工陶瓷，以滑石(80%)+黏土黏结剂+助熔剂经1000-1250°C烧结制成。主晶相为原顽火辉石(MgSiO₃)，含~30%玻璃相包围晶体。本论文测试频率为50-500 MHz(非微波频段)，属于传统电工绝缘应用，与已有微波介质陶瓷产品(GHz频段)是不同的应用方向。推荐配方组合: S2(滑石-长石-高岭土)和S3(滑石-膨润土-BaCO₃)。",
+      "source_papers": [
+        "PAPER-022"
+      ]
+    },
+    "enstatite_mw_pure_reagent": {
+      "id": "enstatite_mw_pure_reagent",
+      "name": "纯试剂 MgSiO₃ 微波介质陶瓷(固相反应)",
+      "name_en": "Pure-Reagent MgSiO₃ Microwave Dielectric Ceramic (Solid-State Reaction)",
+      "formula": "MgSiO₃ (原顽火辉石, Pbca 正交)",
+      "type": "product",
+      "depth": 2,
+      "properties": [
+        {
+          "property": "εr (1380°C/13h 最优)",
+          "value": "6.7",
+          "condition": "Hakki-Coleman 介质谐振法, ~10 GHz",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        },
+        {
+          "property": "Q×f (1380°C/13h 最优)",
+          "value": "121,200 GHz",
+          "condition": "1380°C 烧结 13h, 相对密度 97-98%",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        },
+        {
+          "property": "τf (全烧结温度范围)",
+          "value": "-17 ppm/°C",
+          "condition": "25°C–90°C 温度范围测量",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        },
+        {
+          "property": "相对密度 (最优条件)",
+          "value": "97-98%",
+          "condition": "1380°C 烧结, 阿基米德法",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        },
+        {
+          "property": "物相组成",
+          "value": "原顽火辉石(orthorhombic, protoenstatite) + 少量斜顽火辉石(monoclinic, clinoenstatite)。>1400°C 斜顽火辉石增多。无 orthoenstatite 出现",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        },
+        {
+          "property": "形成路径 (纯试剂)",
+          "value": "MgO+SiO₂ → Mg₂SiO₄ (<1200°C) → Mg₂SiO₄+SiO₂ → MgSiO₃ (≥1200°C)。MgSiO₃ 由 Mg₂SiO₄ 与残余 SiO₂ 反应生成",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        },
+        {
+          "property": "致密化温度窗口",
+          "value": "1350-1400°C。1350°C 多孔(晶粒~0.4 μm)→1400°C 致密化→>1400°C 过烧(晶粒异常长大+液相)",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        },
+        {
+          "property": "熔点行为",
+          "value": "~1450°C 开始熔化(低于相图 1546°C——因液相促进)。1450°C 晶界和三角点出现大量液相",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        },
+        {
+          "property": "工艺参数 (最优)",
+          "value": "预烧 1300°C/10h + 球磨 24h + 烧结 1380°C/13h。原料: 高纯 MgO+SiO₂ (>99%)",
+          "source_papers": [
+            "PAPER-024"
+          ]
+        }
+      ],
+      "notes": "本论文是 MgSiO₃ 作为微波介质陶瓷的首次报道（开山之作）。纯试剂固相反应路线：MgO+SiO₂→Mg₂SiO₄→MgSiO₃。与 PAPER-004（黑滑石直接烧结→MgSiO₃+SiO₂ 复相, εr=5.11, Q×f=56782）形成对照：纯试剂单相 MgSiO₃ εr=6.7 > 黑滑石路线 εr=5.11（因黑滑石路线残留 SiO₂ 第二相拉低 εr）。Q×f=121200 是黑滑石路线的 2.1 倍——说明黑滑石路线的 SiO₂ 第二相和杂质显著降低了 Q 值。此项为黑滑石路线的优化目标提供了纯试剂 benchmark。",
+      "source_papers": [
+        "PAPER-024"
+      ]
+    },
+    "forsterite_mw_dense_tio2": {
+      "id": "forsterite_mw_dense_tio2",
+      "name": "纯试剂 Mg₂SiO₄ + TiO₂ 密实微波介质陶瓷(本论文是 forsterite 微波介质陶瓷领域被引次数最高的奠基性论文。核心贡)",
+      "name_en": "Dense Forsterite + TiO₂ Microwave Dielectric Ceramic (Pure Reagent, Solid-State Sintering)",
+      "formula": "Mg₂SiO₄ + TiO₂ (rutile) → Mg₂SiO₄ (TiO₂ 固溶/反应)",
+      "type": "product",
+      "depth": 2,
+      "properties": [
+        {
+          "property": "Q×f (纯 forsterite, 无 TiO₂)",
+          "value": "240,000 GHz",
+          "condition": "1400°C 烧结, 23 GHz TE011 模, Hakki-Coleman 法。当时最高纪录",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "Q×f (1 wt% TiO₂ 最优)",
+          "value": "230,000 GHz (Q=10,000 at 16 GHz)",
+          "condition": "1300°C 烧结 2h (比无 TiO₂ 降低 ~100°C)",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "εr (纯 forsterite)",
+          "value": "6.8",
+          "condition": "23 GHz, 室温",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "εr (1 wt% TiO₂)",
+          "value": "7.0",
+          "condition": "1300°C 烧结, 密度增加效应",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "τf (全 TiO₂ 添加范围 0-30 wt%)",
+          "value": "-63 至 -70 ppm/°C（几乎不随 TiO₂ 量变化）",
+          "condition": "20-80°C。TiO₂ 未能补偿 τf 至近零——因 TiO₂ 与 MgO-SiO₂ 反应消耗",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "TiO₂ 烧结助熔效应",
+          "value": "0.5-5 wt% TiO₂ → 烧结温度降低 ~100°C（1400→1300°C）。TiO₂>10 wt% → 烧结温度反而升高",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "TiO₂ 相行为",
+          "value": "0-10 wt% TiO₂ → 只检测到 forsterite 相（TiO₂ 固溶或进入玻璃相）。>10 wt% → MgTi₂O₅ 第二相出现。rutile 相在所有组成中消失——TiO₂ 不与 forsterite 形成简单复合，而是化学反应",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "rutile vs anatase TiO₂",
+          "value": "rutile 型 TiO₂ 在改善密度、εr、Q×f 方面均优于 anatase",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "微观结构 (1-5 wt% TiO₂)",
+          "value": "几乎无气孔 + 晶界无玻璃相。晶粒尺寸随 TiO₂ 增加(0.5-5 wt%)线性增长，5-30 wt% 线性减小",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        },
+        {
+          "property": "τf 补偿失败机理",
+          "value": "TiO₂ 与 MgO-SiO₂ 发生化学反应而非物理混合。按混合法则计算需 13.3 wt% TiO₂ 可使 τf=0，但 TiO₂ 被消耗生成 MgTi₂O₅，无法作为独立 τf 补偿相存在",
+          "source_papers": [
+            "PAPER-025"
+          ]
+        }
+      ],
+      "notes": "本论文是 forsterite 微波介质陶瓷领域被引次数最高的奠基性论文。核心贡献：(1) 以高纯 MgO+SiO₂ 制备了 Q×f=240,000 GHz 的纯 forsterite——当时最高值；(2) 发现 TiO₂ 可降低烧结温度 ~100°C 同时保持高 Q；(3) 揭示了 TiO₂ 在 forsterite 体系中不是物理混合而是化学反应——MgTi₂O₅ 的形成阻止了 TiO₂ 作为 τf 补偿剂的预期功能。这一机理发现直接解释了为什么后来的研究（PAPER-020 Wang 2026）改用 B₂O₃ 而非 TiO₂ 作为黑滑石路线 forsterite 的烧结助剂——因为 TiO₂ 的 τf 补偿作用被其与 MgO 的化学反应抵消。元素守恒✓——2MgO+SiO₂→Mg₂SiO₄。",
+      "source_papers": [
+        "PAPER-025"
+      ]
+    },
+    "diopside_ltcc_lif": {
+      "id": "diopside_ltcc_lif",
+      "name": "透辉石 CaMgSi₂O₆ + LiF 低温共烧微波介质陶瓷 (LTCC)",
+      "name_en": "Diopside CaMgSi₂O₆ + LiF Low-Temperature Co-fired Microwave Dielectric Ceramic (LTCC)",
+      "formula": "CaMgSi₂O₆ + LiF → CaMgSi₂O₆ + Li₂MgSiO₄ (次相)",
+      "type": "product",
+      "depth": 2,
+      "properties": [
+        {
+          "property": "εr (CaMgSi₂O₆ + 2 wt% LiF, 900°C)",
+          "value": "7.45",
+          "condition": "Hakki-Coleman 法, 900°C 烧结 4h, LTCC 兼容",
+          "source_papers": [
+            "PAPER-026"
+          ]
+        },
+        {
+          "property": "Qf (CaMgSi₂O₆ + 2 wt% LiF, 900°C)",
+          "value": "64,800 GHz",
+          "condition": "900°C 烧结 4h。无 LiF 对照: 1250°C 烧结",
+          "source_papers": [
+            "PAPER-026"
+          ]
+        },
+        {
+          "property": "τf (CaMgSi₂O₆ + 2 wt% LiF, 900°C)",
+          "value": "-34 ppm/°C",
+          "condition": "900°C 烧结 4h",
+          "source_papers": [
+            "PAPER-026"
+          ]
+        },
+        {
+          "property": "烧结温度 (CaMgSi₂O₆ + LiF 最低)",
+          "value": "900°C（降 ~350°C vs 无 LiF 需 1250°C）",
+          "condition": "LiF 熔点 848°C→液相烧结。<961°C (Ag 熔点)→LTCC 兼容",
+          "source_papers": [
+            "PAPER-026"
+          ]
+        },
+        {
+          "property": "LiF 次相演化",
+          "value": "LiF ≥ 1 wt% → Li₂MgSiO₄ 次相出现。2 wt% LiF → 最致密微观结构。Li⁺ 作为受主掺杂进入 CaMgSi₂O₆ 晶格",
+          "source_papers": [
+            "PAPER-026"
+          ]
+        },
+        {
+          "property": "Ag 电极化学兼容性",
+          "value": "CaMgSi₂O₆ + 2 wt% LiF 与 20 wt% Ag 在 900°C 共烧 4h → 无化学反应/扩散→LTCC 工艺兼容 ✅",
+          "source_papers": [
+            "PAPER-026"
+          ]
+        },
+        {
+          "property": "Qf vs LiF 含量趋势",
+          "value": "Qf 随 LiF 增加先升后降。2 wt% LiF 最优(64800)→LiF 过量致 Li₂MgSiO₄ 次相过多→Qf 下降",
+          "source_papers": [
+            "PAPER-026"
+          ]
+        }
+      ],
+      "notes": "透辉石(diopside, CaMgSi₂O₆)为首次纳入本体系的 CaO-MgO-SiO₂ 三元相。与已有 CaMgSiO₄(moniticellite, PAPER-008)为不同物相——CaMgSi₂O₆ 为单斜辉石结构(CaO·MgO·2SiO₂)，CaMgSiO₄为橄榄石结构(CaO·MgO·SiO₂)。LiF 的液相烧结机理(熔点 848°C)实现了硅酸盐微波陶瓷的 900°C 低温烧结——这是本体系首次出现 LTCC(低温共烧陶瓷)应用方向。LiF 方法的通用性在 Mg₂SiO₄(forsterite)上得到验证: εr=6.1, Qf=109700 GHz, τf=-61 ppm/°C (900°C 烧结)。元素守恒✓——CaO+MgO+2SiO₂→CaMgSi₂O₆。",
+      "source_papers": [
+        "PAPER-026"
+      ]
+    },
+    "forsterite_ltcc_lif": {
+      "id": "forsterite_ltcc_lif",
+      "name": "纯试剂 Mg₂SiO₄ + LiF 低温共烧微波介质陶瓷 (LTCC, 800°C)",
+      "name_en": "Low-Firing Forsterite + LiF LTCC Microwave Dielectric (800°C Sintering)",
+      "formula": "Mg₂SiO₄ + LiF → Mg₂SiO₄ (F⁻ 部分取代 O²⁻)",
+      "type": "product",
+      "depth": 2,
+      "properties": [
+        {
+          "property": "εr (2 wt% LiF, 800°C 最优)",
+          "value": "6.81",
+          "condition": "Hakki-Coleman 法, 800°C 烧结 4h。接近纯 forsterite 理论值 6.8",
+          "source_papers": [
+            "PAPER-028"
+          ]
+        },
+        {
+          "property": "Q×f (2 wt% LiF, 800°C 最优)",
+          "value": "167,000 GHz",
+          "condition": "800°C 烧结 4h。纯 forsterite 需 1500°C 烧结才能达到~200,000-240,000 GHz",
+          "source_papers": [
+            "PAPER-028"
+          ]
+        },
+        {
+          "property": "τf (2 wt% LiF, 800°C)",
+          "value": "-47.9 ppm/°C",
+          "condition": "25-80°C 温度范围",
+          "source_papers": [
+            "PAPER-028"
+          ]
+        },
+        {
+          "property": "最低烧结温度 (LiF 助烧 forsterite)",
+          "value": "800°C——纯 forsterite 需 1500°C，降幅达 ~700°C",
+          "condition": "2 wt% LiF, 远超 LiF 自身熔点(848°C)的助烧效果",
+          "source_papers": [
+            "PAPER-028"
+          ]
+        },
+        {
+          "property": "烧结温度窗口",
+          "value": "~300°C 宽窗口——对 LTCC 器件制造极为有利(工艺容差大)",
+          "source_papers": [
+            "PAPER-028"
+          ]
+        },
+        {
+          "property": "LiF 助烧机理",
+          "value": "F⁻ 取代 Si-O 四面体中 O²⁻→Si-F 非桥接键断裂网络连续性→晶格活化→降低烧结温度。F⁻ 同时作为 LTCC 体系的成核剂",
+          "source_papers": [
+            "PAPER-028"
+          ]
+        },
+        {
+          "property": "LiF 含量优化范围",
+          "value": "0.5-3 wt%。2 wt% 为最优——过低(0.5 wt%)烧结不足，过高(>3 wt%)可能生成次相或 F 挥发致性能下降",
+          "source_papers": [
+            "PAPER-028"
+          ]
+        }
+      ],
+      "notes": "本论文首次实现 forsterite (Mg₂SiO₄) 在 800°C 的低温致密烧结——比纯 forsterite 的正常烧结温度(1500°C)降低了 ~700°C。这是本体系所有微波介质陶瓷中最低的烧结温度，且保持了优异的介电性能(Q×f=167000, εr=6.81)。LiF 的 F⁻→O²⁻ 取代机理与 PAPER-026 (Lai 2019, LiF 助烧 CaMgSi₂O₆+Mg₂SiO₄) 互补——本文聚焦纯 forsterite 体系且实现了更低的烧结温度(800 vs 900°C)和更高的 Qf(167000 vs 109700)。与 PAPER-025 (Tsunooka 2003, TiO₂ 助烧 forsterite) 形成鲜明对比: TiO₂ 仅降 ~100°C(1400→1300°C) 且 τf 无法补偿, LiF 降 ~700°C(1500→800°C)。元素守恒✓——MgO+SiO₂→Mg₂SiO₄, LiF 为添加剂。",
+      "source_papers": [
+        "PAPER-028"
+      ]
     }
   },
   "edges": {
@@ -1697,7 +2608,12 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021",
+        "PAPER-022",
+        "PAPER-023",
+        "PAPER-024",
+        "PAPER-027"
       ]
     },
     "e0024": {
@@ -1735,7 +2651,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "e0025": {
@@ -1777,7 +2694,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "e0026": {
@@ -1819,7 +2737,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "e0027": {
@@ -1857,7 +2776,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "e0028": {
@@ -1885,7 +2805,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "e0029": {
@@ -1900,7 +2821,8 @@
       "trl": 7,
       "notes": "镁橄榄石耐火砖——已有工业应用。",
       "papers_cross_validated": [
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "e0030": {
@@ -1928,7 +2850,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "e0031": {
@@ -1956,7 +2879,8 @@
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-021"
       ]
     },
     "e0032": {
@@ -2062,7 +2986,9 @@
         "PAPER-010",
         "PAPER-011",
         "PAPER-018",
-        "PAPER-020"
+        "PAPER-020",
+        "PAPER-022",
+        "PAPER-024"
       ]
     },
     "e0036": {
@@ -2090,7 +3016,9 @@
       "notes": "阶段I。in-situ XRD证实d(006)未减小→水仅吸附于表面。",
       "papers_cross_validated": [
         "PAPER-006",
-        "PAPER-013"
+        "PAPER-013",
+        "PAPER-023",
+        "PAPER-027"
       ]
     },
     "e0037": {
@@ -2118,7 +3046,9 @@
       "notes": "阶段II。TG-MS m/z=44在600°C有峰值。CO₂逸出→d(006)膨胀。",
       "papers_cross_validated": [
         "PAPER-006",
-        "PAPER-013"
+        "PAPER-013",
+        "PAPER-023",
+        "PAPER-027"
       ]
     },
     "e0038": {
@@ -2146,7 +3076,9 @@
       "notes": "阶段III/活化窗口。800°C是黑滑石结构转变关键温度（低于普通滑石850-900°C）。",
       "papers_cross_validated": [
         "PAPER-006",
-        "PAPER-013"
+        "PAPER-013",
+        "PAPER-023",
+        "PAPER-027"
       ]
     },
     "e0039": {
@@ -2172,7 +3104,8 @@
       "trl": 3,
       "notes": "SCI Q1。利用矿物自身SiO₂+MgO资源→仅需外加CaO→成本降80%。",
       "papers_cross_validated": [
-        "PAPER-009"
+        "PAPER-009",
+        "PAPER-026"
       ]
     },
     "e0040": {
@@ -2197,7 +3130,9 @@
       ],
       "trl": 3,
       "notes": "反应式: MgSiO₃ + Li₂CO₃ → Li₂MgSiO₄ + CO₂↑，Li(2↔2)✓ Mg(1↔1)✓ Si(1↔1)✓ C(1↔1)✓ O(3+3↔4+2)✓。低温烧结→LTCC应用（可与Ag共烧）。",
-      "papers_cross_validated": []
+      "papers_cross_validated": [
+        "PAPER-026"
+      ]
     },
     "e0041": {
       "from": "forsterite_from_talc",
@@ -2225,7 +3160,8 @@
       "notes": "反应式: Mg(OH)₂ + SiO₂ → MgSiO₃ + H₂O↑(预烧)，MgSiO₃ + Mg(OH)₂ → Mg₂SiO₄ + H₂O↑(烧结)。元素守恒✓。LPD法避免了传统固相混合产生的 MgTi₂O₅/MgSiO₃ 杂相——TiO₂仅沉积于孔壁而不与 Mg₂SiO₄ 反应。",
       "papers_cross_validated": [
         "PAPER-019",
-        "PAPER-020"
+        "PAPER-020",
+        "PAPER-025"
       ]
     },
     "e0042": {
@@ -2256,7 +3192,10 @@
       "notes": "黑滑石(广丰) + 补充MgO → 1100°C预烧 → B₂O₃助烧 → 1350°C烧结→Mg₂SiO₄。黑滑石天然降低致密化温度，B₂O₃形成液相进一步促进烧结。元素守恒✓。",
       "papers_cross_validated": [
         "PAPER-019",
-        "PAPER-020"
+        "PAPER-020",
+        "PAPER-025",
+        "PAPER-026",
+        "PAPER-028"
       ]
     },
     "e0043": {
@@ -2281,7 +3220,9 @@
         "PAPER-010",
         "PAPER-011",
         "PAPER-018",
-        "PAPER-020"
+        "PAPER-020",
+        "PAPER-022",
+        "PAPER-024"
       ]
     },
     "e0044": {
@@ -2331,7 +3272,38 @@
         "PAPER-011"
       ],
       "trl": 7,
-      "notes": "自动补建边 (PAPER-011 在旧 schema 中被去重合并丢失)"
+      "notes": "自动补建边 (PAPER-011 在旧 schema 中被去重合并丢失)",
+      "papers_cross_validated": [
+        "PAPER-022",
+        "PAPER-024"
+      ]
+    },
+    "e0046": {
+      "from": "enstatite_from_talc",
+      "to": "steatite_electrical_insulator",
+      "type": "process",
+      "label_short": "+黏结剂+助熔剂→配方烧结→电工绝缘陶瓷",
+      "conditions": {
+        "temperature": {
+          "min": 1000,
+          "max": 1250,
+          "unit": "°C"
+        },
+        "atmosphere": "空气",
+        "additives": [
+          "膨润土或高岭土 (10 wt%, 黏结剂)",
+          "长石或BaCO₃ (10 wt%, 助熔剂)"
+        ],
+        "equipment": "实验室电炉",
+        "sintering_time": "60 min (最高温度保温)",
+        "heating_rate": "10°C/min"
+      },
+      "result_purity": "原顽火辉石 ~70% + 玻璃相 ~30% + 少量SiO₂多晶/Ba相关相",
+      "source_papers": [
+        "PAPER-022"
+      ],
+      "trl": 7,
+      "notes": "滑石瓷(steatite)工业化已成熟(TRL 7+)。滑石→预烧/成型→配方烧结→原顽火辉石主晶相被玻璃相粘合→致密电工绝缘陶瓷。推荐配方: ①滑石+长石+高岭土(S2, εr=5.19) ②滑石+膨润土+BaCO₃(S3, εr=5.25)。测试频率50-500 MHz——与微波介质陶瓷(GHz)应用场景不同，属于传统电工绝缘。元素守恒✓——所有配方均为物理混合+液相烧结，无化学反应生成新元素。"
     }
   }
 }

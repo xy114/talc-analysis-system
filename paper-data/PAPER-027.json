@@ -1,0 +1,90 @@
+{
+  "paper": {
+    "id": "PAPER-027",
+    "title": "Investigation of the Thermal Decomposition of Talc",
+    "authors": "Xiaowen Liu, Xiaoxu Liu, Yuehua Hu",
+    "year": 2014,
+    "journal": "Clays and Clay Minerals",
+    "doi": "10.1346/CCMN.2014.0620206",
+    "research_type": "experiment",
+    "institution": "Central South University (中南大学), School of Minerals Processing and Bioengineering",
+
+    "tree_contributions": {
+      "new_nodes": [],
+      "new_edges": [],
+      "properties_added_to": {
+        "dehydroxylated_talc": [
+          {
+            "property": "脱羟基起始温度 (XRD 检测)",
+            "value": "~800°C——顽火辉石 XRD 峰首次出现(30.7°2θ, (610)面)。800°C 以下仅脱水(吸附水丢失~0.9% at 120°C)，无物相变化",
+            "source_papers": ["PAPER-027"]
+          },
+          {
+            "property": "脱羟基峰值温度 (DSC)",
+            "value": "~895°C——DSC 宽吸热峰，对应热失重速率最大点",
+            "source_papers": ["PAPER-027"]
+          },
+          {
+            "property": "脱羟基总失重",
+            "value": "~4.3 wt%（800-1000°C 区间）。理论值: 4.75 wt% (滑石→顽火辉石+SiO₂+H₂O)。实验值略低→可能与部分脱羟基在升温过程中已发生有关",
+            "source_papers": ["PAPER-027"]
+          },
+          {
+            "property": "脱羟基活化能 (Coats-Redfern 法)",
+            "value": "69 kcal/mol = 289 kJ/mol。一级反应 (n=1), N₂ 气氛, 12°C/min 升温速率",
+            "source_papers": ["PAPER-027"]
+          },
+          {
+            "property": "脱羟基反应式 (PAPER-027 验证)",
+            "value": "2Mg₃Si₄O₁₀(OH)₂ → 3Mg₂Si₂O₆ (顽火辉石) + 2SiO₂ (无定形) + 2H₂O(g)。800°C 开始, 1000°C 完成",
+            "source_papers": ["PAPER-027"]
+          },
+          {
+            "property": "脱羟基前结构退化 (结晶度指数)",
+            "value": "25°C: C=100% → 700°C: C=32.2%。d₀₀₁ 从 0.94→0.92 nm。200-700°C 区间内无新相，但结晶度持续下降→脱羟基前已有显著结构损伤（层间距收缩+晶格畸变）",
+            "source_papers": ["PAPER-027"]
+          }
+        ],
+        "enstatite_from_talc": [
+          {
+            "property": "顽火辉石晶粒生长动力学 (PAPER-027)",
+            "value": "800°C: 15.0 nm → 1200°C: 43.2 nm。(610)面衍射强度: 800°C 44 counts → 1200°C 530 counts。晶粒在 800-1200°C 间线性增长 ~3×",
+            "source_papers": ["PAPER-027"]
+          },
+          {
+            "property": "斜顽火辉石形成温度 (PAPER-027)",
+            "value": "~1300°C——顽火辉石→斜顽火辉石(clinoenstatite)。30.7°2θ 峰移至 31.7°2θ, 27.5°2θ 新峰出现(JCPDS 35-0610)",
+            "source_papers": ["PAPER-027"]
+          },
+          {
+            "property": "无定形 SiO₂→opal-C 转变温度 (PAPER-027)",
+            "value": "~1200°C——无定形 SiO₂→次晶蛋白石(opal-C, JCPDS 39-1425)。21.9°2θ 特征峰。1050°C 退火 24h 后 FWHM 不变→opal-C 为稳定相非过渡态",
+            "source_papers": ["PAPER-027"]
+          }
+        ],
+        "raw_black_talc": [
+          {
+            "property": "纯滑石参照组成 (广西龙广, PAPER-027)",
+            "value": "SiO₂ 67.68%, MgO 31.04%, Al₂O₃ 0.77%, Fe₂O₃ 0.50%, CaO 0.01%。滑石含量 >98 wt%。与黑滑石(含碳层+高Fe)对照的纯滑石基准",
+            "source_papers": ["PAPER-027"]
+          }
+        ]
+      },
+      "papers_cross_validated": ["PAPER-005", "PAPER-023"]
+    },
+
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI",
+      "notes": "Clays and Clay Minerals（粘土矿物学旗舰 SCI 期刊）。中南大学(矿物加工与生物工程学院)。系统实验设计: 200-1300°C, 每 100°C 一步 + 等温 1000°C/1200°C/1300°C。XRD + FTIR + TG-DSC + SEM + XRF + 磷酸消化法 多技术交叉验证。Coats-Redfern 积分法动力学分析(线性拟合良好)。数据完整、严谨。广西龙广滑石(>98% 纯度)为纯滑石理想模型体系——与黑滑石含碳/含铁体系形成互补。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-005", "PAPER-023"]
+    }
+  }
+}

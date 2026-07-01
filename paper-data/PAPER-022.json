@@ -1,0 +1,163 @@
+{
+  "paper": {
+    "id": "PAPER-022",
+    "title": "Influence of different bonding and fluxing agents on the sintering behavior and dielectric properties of steatite ceramic materials",
+    "authors": "Anja Terzić, Nina Obradović, Jovica Stojanović, Vladimir Pavlović, Ljubiša Andrić, Dragan Olćan, Antonije Đorđević",
+    "year": 2017,
+    "journal": "Ceramics International",
+    "doi": "10.1016/j.ceramint.2017.07.024",
+    "research_type": "experiment",
+    "institution": "Institute for Testing of Materials IMS (Serbia) + Institute of Technical Sciences SASA + University of Belgrade",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "steatite_electrical_insulator",
+          "name": "滑石瓷电工绝缘陶瓷(配方烧结)",
+          "name_en": "Steatite Electrical Insulator Ceramic",
+          "formula": "MgSiO₃ + 玻璃相 (原顽火辉石 + 黏结剂/助熔剂衍生非晶相)",
+          "type": "product",
+          "depth": 2,
+          "properties": [
+            {
+              "property": "εr (S1: 膨润土+长石, 1250°C)",
+              "value": "5.16",
+              "condition": "200 MHz, 同轴腔法",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "εr (S2: 高岭土+长石, 1250°C) 最优",
+              "value": "5.19",
+              "condition": "200 MHz, 同轴腔法。推荐配方：滑石-长石-高岭土",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "εr (S3: 膨润土+BaCO₃, 1250°C) 最优",
+              "value": "5.25",
+              "condition": "200 MHz, 同轴腔法。推荐配方：滑石-膨润土-BaCO₃",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "εr (S4: 高岭土+BaCO₃, 1250°C) 最低",
+              "value": "4.95",
+              "condition": "200 MHz。BaCO₃+高岭土组合过早形成玻璃相→多孔结构→εr偏低",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "εr 全配方范围",
+              "value": "4.32–5.25",
+              "condition": "50–500 MHz, 1000°C→1250°C",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "介电损耗 tan δ (全配方)",
+              "value": "<0.01 (低于测量阈值)",
+              "condition": "50–200 MHz 同轴腔，200–500 MHz 开放夹具",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "最优烧结温度",
+              "value": "1250°C",
+              "condition": "原顽火辉石(protoenstatite)为稳定主晶相，含少量方石英/鳞石英及Ba相关相",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "配方组成",
+              "value": "滑石80 wt% + 黏结剂(膨润土或高岭土)10 wt% + 助熔剂(长石或BaCO₃)10 wt%",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "主晶相",
+              "value": "原顽火辉石 (protoenstatite, MgSiO₃) ~70% + 玻璃相 ~30%",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "典型应用",
+              "value": "电工绝缘子/开关部件/卤素灯座/加热元件支架/NH熔断器/温控器外壳/接线盒。高机械强度+低介电损耗+耐高温",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "致密化温度窗口",
+              "value": "1000–1250°C，1250°C完全致密化并完成再结晶",
+              "source_papers": ["PAPER-022"]
+            },
+            {
+              "property": "助熔剂效应(BaCO₃ vs 长石)",
+              "value": "BaCO₃→加速石英多晶转变(更快形成方石英/鳞石英)→更多Ba相关晶相→更多玻璃相；长石→较温和助熔→较低玻璃相含量→较高结晶度",
+              "source_papers": ["PAPER-022"]
+            }
+          ],
+          "notes": "滑石瓷(steatite)是传统电工陶瓷，以滑石(80%)+黏土黏结剂+助熔剂经1000-1250°C烧结制成。主晶相为原顽火辉石(MgSiO₃)，含~30%玻璃相包围晶体。本论文测试频率为50-500 MHz(非微波频段)，属于传统电工绝缘应用，与已有微波介质陶瓷产品(GHz频段)是不同的应用方向。推荐配方组合: S2(滑石-长石-高岭土)和S3(滑石-膨润土-BaCO₃)。"
+        }
+      ],
+      "new_edges": [
+        {
+          "from": "enstatite_from_talc",
+          "to": "steatite_electrical_insulator",
+          "type": "process",
+          "label_short": "+黏结剂+助熔剂→配方烧结→电工绝缘陶瓷",
+          "conditions": {
+            "temperature": {
+              "min": 1000,
+              "max": 1250,
+              "unit": "°C"
+            },
+            "atmosphere": "空气",
+            "additives": [
+              "膨润土或高岭土 (10 wt%, 黏结剂)",
+              "长石或BaCO₃ (10 wt%, 助熔剂)"
+            ],
+            "equipment": "实验室电炉",
+            "sintering_time": "60 min (最高温度保温)",
+            "heating_rate": "10°C/min"
+          },
+          "result_purity": "原顽火辉石 ~70% + 玻璃相 ~30% + 少量SiO₂多晶/Ba相关相",
+          "source_papers": ["PAPER-022"],
+          "trl": 7,
+          "notes": "滑石瓷(steatite)工业化已成熟(TRL 7+)。滑石→预烧/成型→配方烧结→原顽火辉石主晶相被玻璃相粘合→致密电工绝缘陶瓷。推荐配方: ①滑石+长石+高岭土(S2, εr=5.19) ②滑石+膨润土+BaCO₃(S3, εr=5.25)。测试频率50-500 MHz——与微波介质陶瓷(GHz)应用场景不同，属于传统电工绝缘。元素守恒✓——所有配方均为物理混合+液相烧结，无化学反应生成新元素。"
+        }
+      ],
+      "properties_added_to": {
+        "enstatite_from_talc": [
+          {
+            "property": "滑石瓷配方 εr 范围 (50-500 MHz)",
+            "value": "4.32–5.25",
+            "condition": "1250°C 烧结，200 MHz 同轴腔测量",
+            "source_papers": ["PAPER-022"]
+          },
+          {
+            "property": "滑石瓷配方 tan δ",
+            "value": "<0.01 (低于同轴腔可靠测量阈值)",
+            "condition": "50–200 MHz",
+            "source_papers": ["PAPER-022"]
+          },
+          {
+            "property": "滑石瓷工业配方组成",
+            "value": "滑石 80% + 黏结剂(膨润土/高岭土)10% + 助熔剂(长石/BaCO₃)10%",
+            "source_papers": ["PAPER-022"]
+          },
+          {
+            "property": "原顽火辉石稳定化机理",
+            "value": "助熔剂在500-900°C形成液相→包裹新结晶原顽火辉石晶体→抑制proto→clino可逆相变→防止微裂纹和介电性能劣化",
+            "source_papers": ["PAPER-022"]
+          }
+        ]
+      },
+      "papers_cross_validated": ["PAPER-004", "PAPER-010", "PAPER-011"]
+    },
+
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": false,
+      "journal_tier": "SCI_Q1",
+      "notes": "Ceramics International (SCI Q1)。实验设计严谨：4配方×4烧结温度(1000/1100/1200/1250°C)全因子实验 + XRD + SEM+EDS + DTA/TG + 介电测试(50-500 MHz, 同轴腔+开放夹具)。塞尔维亚国家项目资助(ON 172057 + III 45008)。注意：介电测试频率为50-500 MHz(非微波GHz)，tan δ低于同轴腔可靠阈值(<0.01)，高频(>200 MHz)开放夹具数据因辐射损耗精度下降。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-004", "PAPER-010", "PAPER-011"]
+    }
+  }
+}

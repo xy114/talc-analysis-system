@@ -1,0 +1,92 @@
+{
+  "paper": {
+    "id": "PAPER-026",
+    "title": "Low-temperature sintering of microwave ceramics with high Qf values through LiF addition",
+    "authors": "Yuanming Lai, Hua Su, Gang Wang, Xiaoli Tang, Xin Huang, Xiaofeng Liang, Huaiwu Zhang, Yuanxun Li, Ke Huang, Xiao Renshaw Wang",
+    "year": 2019,
+    "journal": "Journal of the American Ceramic Society",
+    "doi": "10.1111/jace.16086",
+    "research_type": "experiment",
+    "institution": "University of Electronic Science and Technology of China (电子科技大学) + Nanyang Technological University (NTU Singapore)",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "diopside_ltcc_lif",
+          "name": "透辉石 CaMgSi₂O₆ + LiF 低温共烧微波介质陶瓷 (LTCC)",
+          "name_en": "Diopside CaMgSi₂O₆ + LiF Low-Temperature Co-fired Microwave Dielectric Ceramic (LTCC)",
+          "formula": "CaMgSi₂O₆ + LiF → CaMgSi₂O₆ + Li₂MgSiO₄ (次相)",
+          "type": "product",
+          "depth": 2,
+          "properties": [
+            {
+              "property": "εr (CaMgSi₂O₆ + 2 wt% LiF, 900°C)",
+              "value": "7.45",
+              "condition": "Hakki-Coleman 法, 900°C 烧结 4h, LTCC 兼容",
+              "source_papers": ["PAPER-026"]
+            },
+            {
+              "property": "Qf (CaMgSi₂O₆ + 2 wt% LiF, 900°C)",
+              "value": "64,800 GHz",
+              "condition": "900°C 烧结 4h。无 LiF 对照: 1250°C 烧结",
+              "source_papers": ["PAPER-026"]
+            },
+            {
+              "property": "τf (CaMgSi₂O₆ + 2 wt% LiF, 900°C)",
+              "value": "-34 ppm/°C",
+              "condition": "900°C 烧结 4h",
+              "source_papers": ["PAPER-026"]
+            },
+            {
+              "property": "烧结温度 (CaMgSi₂O₆ + LiF 最低)",
+              "value": "900°C（降 ~350°C vs 无 LiF 需 1250°C）",
+              "condition": "LiF 熔点 848°C→液相烧结。<961°C (Ag 熔点)→LTCC 兼容",
+              "source_papers": ["PAPER-026"]
+            },
+            {
+              "property": "LiF 次相演化",
+              "value": "LiF ≥ 1 wt% → Li₂MgSiO₄ 次相出现。2 wt% LiF → 最致密微观结构。Li⁺ 作为受主掺杂进入 CaMgSi₂O₆ 晶格",
+              "source_papers": ["PAPER-026"]
+            },
+            {
+              "property": "Ag 电极化学兼容性",
+              "value": "CaMgSi₂O₆ + 2 wt% LiF 与 20 wt% Ag 在 900°C 共烧 4h → 无化学反应/扩散→LTCC 工艺兼容 ✅",
+              "source_papers": ["PAPER-026"]
+            },
+            {
+              "property": "Qf vs LiF 含量趋势",
+              "value": "Qf 随 LiF 增加先升后降。2 wt% LiF 最优(64800)→LiF 过量致 Li₂MgSiO₄ 次相过多→Qf 下降",
+              "source_papers": ["PAPER-026"]
+            }
+          ],
+          "notes": "透辉石(diopside, CaMgSi₂O₆)为首次纳入本体系的 CaO-MgO-SiO₂ 三元相。与已有 CaMgSiO₄(moniticellite, PAPER-008)为不同物相——CaMgSi₂O₆ 为单斜辉石结构(CaO·MgO·2SiO₂)，CaMgSiO₄为橄榄石结构(CaO·MgO·SiO₂)。LiF 的液相烧结机理(熔点 848°C)实现了硅酸盐微波陶瓷的 900°C 低温烧结——这是本体系首次出现 LTCC(低温共烧陶瓷)应用方向。LiF 方法的通用性在 Mg₂SiO₄(forsterite)上得到验证: εr=6.1, Qf=109700 GHz, τf=-61 ppm/°C (900°C 烧结)。元素守恒✓——CaO+MgO+2SiO₂→CaMgSi₂O₆。"
+        }
+      ],
+      "new_edges": [],
+      "properties_added_to": {
+        "forsterite_from_talc": [
+          {
+            "property": "LiF 低温烧结 forsterite 数据 (PAPER-026 交叉验证)",
+            "value": "Mg₂SiO₄ + LiF → 900°C 烧结: εr=6.1, Qf=109,700 GHz, τf=-61 ppm/°C。LiF 液相烧结将 forsterite 烧结温度从 1400°C 降至 900°C 同时保持高 Qf",
+            "source_papers": ["PAPER-026"]
+          }
+        ]
+      },
+      "papers_cross_validated": ["PAPER-008", "PAPER-009", "PAPER-020"]
+    },
+
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "notes": "J. Am. Ceram. Soc.（陶瓷领域顶刊）。电子科技大学(电子薄膜与集成器件国家重点实验室) + NTU 新加坡。双体系验证(CaMgSi₂O₆ + Mg₂SiO₄)。LiF 0-6 wt% 全范围(主体系) + LiF 2-10 wt%(验证体系)。XRD + Raman + SEM + Hakki-Coleman + 腔体法。Ag 共烧兼容性测试。数据完整、设计严谨。LiF 低温烧结机理的通用性(两类硅酸盐均有效)是重要发现。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-008", "PAPER-009", "PAPER-020"]
+    }
+  }
+}

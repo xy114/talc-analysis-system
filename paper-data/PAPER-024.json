@@ -1,0 +1,117 @@
+{
+  "paper": {
+    "id": "PAPER-024",
+    "title": "Synthesis and Microwave Dielectric Properties of MgSiO3 Ceramics",
+    "authors": "Myung-Eun Song, Jin-Seong Kim, Mi-Ri Joung, Sahn Nahm, Young-Sik Kim, Jong-Hoo Paik, Byung-Hyun Choi",
+    "year": 2008,
+    "journal": "Journal of the American Ceramic Society",
+    "doi": "10.1111/j.1551-2916.2008.02499.x",
+    "research_type": "experiment",
+    "institution": "Korea University, Department of Materials Science and Engineering + Korea Institute of Ceramic Engineering and Technology",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "enstatite_mw_pure_reagent",
+          "name": "纯试剂 MgSiO₃ 微波介质陶瓷(固相反应)",
+          "name_en": "Pure-Reagent MgSiO₃ Microwave Dielectric Ceramic (Solid-State Reaction)",
+          "formula": "MgSiO₃ (原顽火辉石, Pbca 正交)",
+          "type": "product",
+          "depth": 2,
+          "properties": [
+            {
+              "property": "εr (1380°C/13h 最优)",
+              "value": "6.7",
+              "condition": "Hakki-Coleman 介质谐振法, ~10 GHz",
+              "source_papers": ["PAPER-024"]
+            },
+            {
+              "property": "Q×f (1380°C/13h 最优)",
+              "value": "121,200 GHz",
+              "condition": "1380°C 烧结 13h, 相对密度 97-98%",
+              "source_papers": ["PAPER-024"]
+            },
+            {
+              "property": "τf (全烧结温度范围)",
+              "value": "-17 ppm/°C",
+              "condition": "25°C–90°C 温度范围测量",
+              "source_papers": ["PAPER-024"]
+            },
+            {
+              "property": "相对密度 (最优条件)",
+              "value": "97-98%",
+              "condition": "1380°C 烧结, 阿基米德法",
+              "source_papers": ["PAPER-024"]
+            },
+            {
+              "property": "物相组成",
+              "value": "原顽火辉石(orthorhombic, protoenstatite) + 少量斜顽火辉石(monoclinic, clinoenstatite)。>1400°C 斜顽火辉石增多。无 orthoenstatite 出现",
+              "source_papers": ["PAPER-024"]
+            },
+            {
+              "property": "形成路径 (纯试剂)",
+              "value": "MgO+SiO₂ → Mg₂SiO₄ (<1200°C) → Mg₂SiO₄+SiO₂ → MgSiO₃ (≥1200°C)。MgSiO₃ 由 Mg₂SiO₄ 与残余 SiO₂ 反应生成",
+              "source_papers": ["PAPER-024"]
+            },
+            {
+              "property": "致密化温度窗口",
+              "value": "1350-1400°C。1350°C 多孔(晶粒~0.4 μm)→1400°C 致密化→>1400°C 过烧(晶粒异常长大+液相)",
+              "source_papers": ["PAPER-024"]
+            },
+            {
+              "property": "熔点行为",
+              "value": "~1450°C 开始熔化(低于相图 1546°C——因液相促进)。1450°C 晶界和三角点出现大量液相",
+              "source_papers": ["PAPER-024"]
+            },
+            {
+              "property": "工艺参数 (最优)",
+              "value": "预烧 1300°C/10h + 球磨 24h + 烧结 1380°C/13h。原料: 高纯 MgO+SiO₂ (>99%)",
+              "source_papers": ["PAPER-024"]
+            }
+          ],
+          "notes": "本论文是 MgSiO₃ 作为微波介质陶瓷的首次报道（开山之作）。纯试剂固相反应路线：MgO+SiO₂→Mg₂SiO₄→MgSiO₃。与 PAPER-004（黑滑石直接烧结→MgSiO₃+SiO₂ 复相, εr=5.11, Q×f=56782）形成对照：纯试剂单相 MgSiO₃ εr=6.7 > 黑滑石路线 εr=5.11（因黑滑石路线残留 SiO₂ 第二相拉低 εr）。Q×f=121200 是黑滑石路线的 2.1 倍——说明黑滑石路线的 SiO₂ 第二相和杂质显著降低了 Q 值。此项为黑滑石路线的优化目标提供了纯试剂 benchmark。"
+        }
+      ],
+      "new_edges": [
+        {
+          "from": "enstatite_from_talc",
+          "to": "enstatite_mw_pure_reagent",
+          "type": "reference_benchmark",
+          "label_short": "纯试剂 MgO+SiO₂→固相反应→MgSiO₃ 微波介质(基准对照)",
+          "conditions": {
+            "temperature": {
+              "min": 1350,
+              "max": 1450,
+              "unit": "°C"
+            },
+            "atmosphere": "空气",
+            "additives": ["无——高纯 MgO + SiO₂ (>99%)"],
+            "equipment": "实验室电炉",
+            "sintering_time": "3-13 h (最优 13h)",
+            "calcination": "1300°C/10h 预烧"
+          },
+          "result_purity": "原顽火辉石 + 少量斜顽火辉石 (单相 MgSiO₃, 无 SiO₂ 残留)",
+          "source_papers": ["PAPER-024"],
+          "trl": 4,
+          "notes": "纯试剂固相反应路线——非黑滑石路线，而是作为黑滑石路线 MgSiO₃ 微波介质产品的性能基准(benchmark)。对比 PAPER-004 黑滑石路线(1325°C, εr=5.11, Q×f=56782, MgSiO₃+SiO₂ 复相)：纯试剂单相 εr 更高(6.7 vs 5.11), Q×f 更高(121200 vs 56782), τf 相近(-17 vs -17.85)。元素守恒✓——MgO+SiO₂→MgSiO₃。"
+        }
+      ],
+      "properties_added_to": {},
+      "papers_cross_validated": ["PAPER-004", "PAPER-010", "PAPER-011"]
+    },
+
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "notes": "J. Am. Ceram. Soc.（陶瓷领域顶刊）。韩国大学+韩国陶瓷工程技术研究院。全因子实验: 4烧结温度(1350-1450°C)×4保温时间(3-13h)。XRD + SEM + 阿基米德密度 + Hakki-Coleman/Courtney 法微波介电表征。实验设计完整。注意: 本论文是 MgSiO₃ 微波介电的首次报道，此前文献仅将 MgSiO₃ 视为 Mg₂SiO₄ 陶瓷中的有害第二相。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-004", "PAPER-010", "PAPER-011"]
+    }
+  }
+}

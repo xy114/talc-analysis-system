@@ -1,0 +1,113 @@
+{
+  "paper": {
+    "id": "PAPER-025",
+    "title": "Effects of TiO2 on sinterability and dielectric properties of high-Q forsterite ceramics",
+    "authors": "T. Tsunooka, M. Androu, Y. Higashida, H. Sugiura, H. Ohsato",
+    "year": 2003,
+    "journal": "Journal of the European Ceramic Society",
+    "doi": "10.1016/S0955-2219(03)00177-8",
+    "research_type": "experiment",
+    "institution": "Japan Fine Ceramics Center (JFCC) + Nagoya Institute of Technology + Aishin Seiki Co Ltd",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "forsterite_mw_dense_tio2",
+          "name": "纯试剂 Mg₂SiO₄ + TiO₂ 密实微波介质陶瓷",
+          "name_en": "Dense Forsterite + TiO₂ Microwave Dielectric Ceramic (Pure Reagent, Solid-State Sintering)",
+          "formula": "Mg₂SiO₄ + TiO₂ (rutile) → Mg₂SiO₄ (TiO₂ 固溶/反应)",
+          "type": "product",
+          "depth": 2,
+          "properties": [
+            {
+              "property": "Q×f (纯 forsterite, 无 TiO₂)",
+              "value": "240,000 GHz",
+              "condition": "1400°C 烧结, 23 GHz TE011 模, Hakki-Coleman 法。当时最高纪录",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "Q×f (1 wt% TiO₂ 最优)",
+              "value": "230,000 GHz (Q=10,000 at 16 GHz)",
+              "condition": "1300°C 烧结 2h (比无 TiO₂ 降低 ~100°C)",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "εr (纯 forsterite)",
+              "value": "6.8",
+              "condition": "23 GHz, 室温",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "εr (1 wt% TiO₂)",
+              "value": "7.0",
+              "condition": "1300°C 烧结, 密度增加效应",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "τf (全 TiO₂ 添加范围 0-30 wt%)",
+              "value": "-63 至 -70 ppm/°C（几乎不随 TiO₂ 量变化）",
+              "condition": "20-80°C。TiO₂ 未能补偿 τf 至近零——因 TiO₂ 与 MgO-SiO₂ 反应消耗",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "TiO₂ 烧结助熔效应",
+              "value": "0.5-5 wt% TiO₂ → 烧结温度降低 ~100°C（1400→1300°C）。TiO₂>10 wt% → 烧结温度反而升高",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "TiO₂ 相行为",
+              "value": "0-10 wt% TiO₂ → 只检测到 forsterite 相（TiO₂ 固溶或进入玻璃相）。>10 wt% → MgTi₂O₅ 第二相出现。rutile 相在所有组成中消失——TiO₂ 不与 forsterite 形成简单复合，而是化学反应",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "rutile vs anatase TiO₂",
+              "value": "rutile 型 TiO₂ 在改善密度、εr、Q×f 方面均优于 anatase",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "微观结构 (1-5 wt% TiO₂)",
+              "value": "几乎无气孔 + 晶界无玻璃相。晶粒尺寸随 TiO₂ 增加(0.5-5 wt%)线性增长，5-30 wt% 线性减小",
+              "source_papers": ["PAPER-025"]
+            },
+            {
+              "property": "τf 补偿失败机理",
+              "value": "TiO₂ 与 MgO-SiO₂ 发生化学反应而非物理混合。按混合法则计算需 13.3 wt% TiO₂ 可使 τf=0，但 TiO₂ 被消耗生成 MgTi₂O₅，无法作为独立 τf 补偿相存在",
+              "source_papers": ["PAPER-025"]
+            }
+          ],
+          "notes": "本论文是 forsterite 微波介质陶瓷领域被引次数最高的奠基性论文。核心贡献：(1) 以高纯 MgO+SiO₂ 制备了 Q×f=240,000 GHz 的纯 forsterite——当时最高值；(2) 发现 TiO₂ 可降低烧结温度 ~100°C 同时保持高 Q；(3) 揭示了 TiO₂ 在 forsterite 体系中不是物理混合而是化学反应——MgTi₂O₅ 的形成阻止了 TiO₂ 作为 τf 补偿剂的预期功能。这一机理发现直接解释了为什么后来的研究（PAPER-020 Wang 2026）改用 B₂O₃ 而非 TiO₂ 作为黑滑石路线 forsterite 的烧结助剂——因为 TiO₂ 的 τf 补偿作用被其与 MgO 的化学反应抵消。元素守恒✓——2MgO+SiO₂→Mg₂SiO₄。"
+        }
+      ],
+      "new_edges": [],
+      "properties_added_to": {
+        "forsterite_from_talc": [
+          {
+            "property": "纯试剂 forsterite Q×f 基准 (PAPER-025)",
+            "value": "240,000 GHz——纯试剂路线的 Q×f 上限。可与黑滑石路线(如 PAPER-020: Q×f=151,137 with B₂O₃)对照",
+            "source_papers": ["PAPER-025"]
+          },
+          {
+            "property": "TiO₂ 不能补偿 forsterite τf 的机理 (PAPER-025)",
+            "value": "TiO₂ 与 MgO-SiO₂ 反应生成 MgTi₂O₅→TiO₂ 不能作为独立 τf 补偿相。τf 始终在 -63~-70 ppm/°C。解释为何 PAPER-020 选择 B₂O₃ 而非 TiO₂",
+            "source_papers": ["PAPER-025"]
+          }
+        ]
+      },
+      "papers_cross_validated": ["PAPER-018", "PAPER-020"]
+    },
+
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "notes": "J. Eur. Ceram. Soc.（陶瓷领域 SCI Q1 顶刊）。日本精细陶瓷中心(JFCC) + 名古屋工业大学(Ohsato 实验室——forsterite 微波介电领域的开创团队)。系统实验设计：TiO₂ 含量 0-30 wt% × rutile/anatase 两种晶型 × 1200-1600°C 烧结温度范围。XRD + SEM/EDX + Hakki-Coleman 法 + τf 测量。数据完整。本论文是 forsterite 微波介电方向的奠基之作，Q×f=240,000 GHz 在 2003 年为世界纪录。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-018", "PAPER-020"]
+    }
+  }
+}

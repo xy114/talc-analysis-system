@@ -1,0 +1,92 @@
+{
+  "paper": {
+    "id": "PAPER-028",
+    "title": "Novel Low-Firing Forsterite-Based Microwave Dielectric for LTCC Applications",
+    "authors": "Jie Zhang, Zhenxing Yue, Yu Luo, Xiaohua Zhang, Longtu Li",
+    "year": 2016,
+    "journal": "Journal of the American Ceramic Society",
+    "doi": "10.1111/jace.14132",
+    "research_type": "experiment",
+    "institution": "Tsinghua University (清华大学), State Key Laboratory of New Ceramics and Fine Processing",
+
+    "tree_contributions": {
+      "new_nodes": [
+        {
+          "id": "forsterite_ltcc_lif",
+          "name": "纯试剂 Mg₂SiO₄ + LiF 低温共烧微波介质陶瓷 (LTCC, 800°C)",
+          "name_en": "Low-Firing Forsterite + LiF LTCC Microwave Dielectric (800°C Sintering)",
+          "formula": "Mg₂SiO₄ + LiF → Mg₂SiO₄ (F⁻ 部分取代 O²⁻)",
+          "type": "product",
+          "depth": 2,
+          "properties": [
+            {
+              "property": "εr (2 wt% LiF, 800°C 最优)",
+              "value": "6.81",
+              "condition": "Hakki-Coleman 法, 800°C 烧结 4h。接近纯 forsterite 理论值 6.8",
+              "source_papers": ["PAPER-028"]
+            },
+            {
+              "property": "Q×f (2 wt% LiF, 800°C 最优)",
+              "value": "167,000 GHz",
+              "condition": "800°C 烧结 4h。纯 forsterite 需 1500°C 烧结才能达到~200,000-240,000 GHz",
+              "source_papers": ["PAPER-028"]
+            },
+            {
+              "property": "τf (2 wt% LiF, 800°C)",
+              "value": "-47.9 ppm/°C",
+              "condition": "25-80°C 温度范围",
+              "source_papers": ["PAPER-028"]
+            },
+            {
+              "property": "最低烧结温度 (LiF 助烧 forsterite)",
+              "value": "800°C——纯 forsterite 需 1500°C，降幅达 ~700°C",
+              "condition": "2 wt% LiF, 远超 LiF 自身熔点(848°C)的助烧效果",
+              "source_papers": ["PAPER-028"]
+            },
+            {
+              "property": "烧结温度窗口",
+              "value": "~300°C 宽窗口——对 LTCC 器件制造极为有利(工艺容差大)",
+              "source_papers": ["PAPER-028"]
+            },
+            {
+              "property": "LiF 助烧机理",
+              "value": "F⁻ 取代 Si-O 四面体中 O²⁻→Si-F 非桥接键断裂网络连续性→晶格活化→降低烧结温度。F⁻ 同时作为 LTCC 体系的成核剂",
+              "source_papers": ["PAPER-028"]
+            },
+            {
+              "property": "LiF 含量优化范围",
+              "value": "0.5-3 wt%。2 wt% 为最优——过低(0.5 wt%)烧结不足，过高(>3 wt%)可能生成次相或 F 挥发致性能下降",
+              "source_papers": ["PAPER-028"]
+            }
+          ],
+          "notes": "本论文首次实现 forsterite (Mg₂SiO₄) 在 800°C 的低温致密烧结——比纯 forsterite 的正常烧结温度(1500°C)降低了 ~700°C。这是本体系所有微波介质陶瓷中最低的烧结温度，且保持了优异的介电性能(Q×f=167000, εr=6.81)。LiF 的 F⁻→O²⁻ 取代机理与 PAPER-026 (Lai 2019, LiF 助烧 CaMgSi₂O₆+Mg₂SiO₄) 互补——本文聚焦纯 forsterite 体系且实现了更低的烧结温度(800 vs 900°C)和更高的 Qf(167000 vs 109700)。与 PAPER-025 (Tsunooka 2003, TiO₂ 助烧 forsterite) 形成鲜明对比: TiO₂ 仅降 ~100°C(1400→1300°C) 且 τf 无法补偿, LiF 降 ~700°C(1500→800°C)。元素守恒✓——MgO+SiO₂→Mg₂SiO₄, LiF 为添加剂。"
+        }
+      ],
+      "new_edges": [],
+      "properties_added_to": {
+        "forsterite_from_talc": [
+          {
+            "property": "纯试剂 forsterite 正常烧结温度 (PAPER-028 引用)",
+            "value": "~1500°C——纯 Mg₂SiO₄ 无添加剂时的致密化温度。远高于黑滑石路线 forsterite (PAPER-020: 1200-1300°C with B₂O₃)",
+            "source_papers": ["PAPER-028"]
+          }
+        ]
+      },
+      "papers_cross_validated": ["PAPER-020", "PAPER-025", "PAPER-026"]
+    },
+
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "notes": "J. Am. Ceram. Soc. Rapid Communication（陶瓷顶刊快报）。清华大学新型陶瓷与精细工艺国家重点实验室。LiF 0.5-3 wt% × 750-1450°C 全范围烧结实验。XRD + SEM + 阿基米德密度 + Hakki-Coleman 法 + 温度腔 τf 测量。实验设计系统，数据完整。作者此前已在 CaMg₀.₉Zn₀.₁Si₂O₆ 体系验证了 LiF 助烧效果(JACS 2012, Qf~70000)，本文是 LiF 策略在 forsterite 体系的成功推广。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-020", "PAPER-025", "PAPER-026"]
+    }
+  }
+}

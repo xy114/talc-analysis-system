@@ -1,0 +1,43 @@
+{
+  "paper": {
+    "id": "PAPER-021",
+    "title": "Thermal expansion coefficient and dielectric properties of non-stoichiometric cordierite compositions with excess MgO mole ratio synthesized from mainly kaolin and talc by the glass crystallization method",
+    "authors": "Johar Banjuraizah, Hasmaliza Mohamad, Zainal Arifin Ahmad",
+    "year": 2010,
+    "journal": "Journal of Alloys and Compounds",
+    "doi": "10.1016/j.jallcom.2010.01.002",
+    "research_type": "experiment",
+    "institution": "Universiti Sains Malaysia",
+
+    "tree_contributions": {
+      "new_nodes": [],
+      "new_edges": [],
+      "properties_added_to": {
+        "cordierite_ceramic": [
+          {"property": "CTE (MgO=2.0)", "value": "2.5×10⁻⁶/K", "source_papers": ["PAPER-021"]},
+          {"property": "CTE (MgO=4.0)", "value": "2.0×10⁻⁶/K", "source_papers": ["PAPER-021"]},
+          {"property": "介电常数 ε' (1 MHz-1.8 GHz)", "value": "5-6.5", "source_papers": ["PAPER-021"]},
+          {"property": "介电损耗 tan δ (1 MHz-1.8 GHz)", "value": "~10⁻²", "source_papers": ["PAPER-021"]},
+          {"property": "最优 MgO 摩尔比", "value": "2.8 (MgO:Al₂O₃:SiO₂ = 2.8:2:5)", "condition": "α-堇青石含量最高94.1%", "source_papers": ["PAPER-021"]},
+          {"property": "合成方法(玻璃析晶法)", "value": "滑石+高岭土→1500°C熔融→淬冷→900°C析晶，无烧结助剂", "source_papers": ["PAPER-021"]},
+          {"property": "MgO过量效应", "value": "MgO>2.8时镁橄榄石(forsterite)作为次生相出现，α-堇青石含量下降", "source_papers": ["PAPER-021"]}
+        ]
+      },
+      "papers_cross_validated": ["PAPER-002"]
+    },
+
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI_Q1",
+      "notes": "Journal of Alloys and Compounds (SCI Q1)。7种MgO配比(2.0-4.0)梯度实验+Rietveld定量相组成。玻璃析晶法不同于PAPER-002的固相烧结法。原料为滑石+高岭土，无烧结助剂。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-002"]
+    }
+  }
+}

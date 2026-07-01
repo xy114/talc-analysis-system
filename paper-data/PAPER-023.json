@@ -1,0 +1,122 @@
+{
+  "paper": {
+    "id": "PAPER-023",
+    "title": "Dehydroxylation, proton migration, and structural changes in heated talc: An infrared spectroscopic study",
+    "authors": "Ming Zhang, Qun Hui, Xiao-Jie Lou, Simon A.T. Redfern, Ekhard K.H. Salje, Serena C. Tarantino",
+    "year": 2006,
+    "journal": "American Mineralogist",
+    "doi": "10.2138/am.2006.1945",
+    "research_type": "experiment",
+    "institution": "University of Cambridge, Department of Earth Sciences + Università di Pavia",
+
+    "tree_contributions": {
+      "new_nodes": [],
+      "new_edges": [],
+      "properties_added_to": {
+        "dehydroxylated_talc": [
+          {
+            "property": "原位IR·质子迁移起始温度",
+            "value": "~200°C——远低于脱羟基温度(800°C+)。3500 cm⁻¹ 出现不可淬冷的新 OH 物种",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "原位IR·不可淬冷OH物种(3500 cm⁻¹)",
+            "value": "原位加热时 200°C 出现→700°C 增强→降温消失→室温不存在。说明脱羟基之前质子已开始迁移，形成高温下存在的瞬态 OH",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "淬冷样·额外OH带(3665 cm⁻¹)",
+            "value": "~900°C 出现→1200°C 后消失。定位在部分脱羟基的缺陷滑石结构或顽火辉石相中",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "淬冷样·额外OH带(3745 cm⁻¹)",
+            "value": "~900°C 出现→1350°C 后才消失。比 3665 带更耐高温。可能位于 SiO₂ 相或晶界",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "IR·OH 频率变化 vs 温度 (原位)",
+            "value": "3676→3666 cm⁻¹ (700°C, 变化仅 0.27%, 10 cm⁻¹)——远小于 Si-O 骨架振动频率变化(2.4%)。说明 O-H 键在脱羟基前并未显著弱化→脱羟基驱动力不是简单的 O-H 键热断裂，而是整体结构失稳",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "IR·脱羟基产物结构",
+            "value": "1000°C 脱羟基化物=无序 SiO₂ + 顽火辉石(MgSiO₃)。层状结构特征消失(20-200 cm⁻¹ 层间振动带消失)。Si-O 伸缩区出现多个新带→SiO₄ 四面体重组为新连接方式",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "IR·OH泛频异常",
+            "value": "脱羟基进程中 7185 和 10535 cm⁻¹ (OH 第一/第二泛频)强度异常微增——可能因脱气形成纳米空腔/裂纹导致光散射→使用泛频计算 OH 含量需谨慎",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "OD同位素·热行为",
+            "value": "天然滑石中检测到 OD 伸缩振动(2710 cm⁻¹, D/H≈1.5×10⁻⁵)。OD 与 OH 在脱羟基过程中有完全相同的温度依赖性——说明 H 和 D 的脱除由同一机制控制",
+            "source_papers": ["PAPER-023"]
+          }
+        ],
+        "enstatite_from_talc": [
+          {
+            "property": "IR·正顽火辉石+斜顽火辉石共存(1000°C)",
+            "value": "1000°C 脱羟基化物的远红外光谱同时含正顽火辉石(Pbca)和斜顽火辉石(P2₁/c)的特征带(246, 378, 484 cm⁻¹ 为斜顽火辉石标志)。IR 光谱减除 SiO₂ 玻璃信号后与正顽火辉石匹配良好，但峰较宽→结晶度低、缺陷多",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "IR·脱羟基顽火辉石 vs 纯合成顽火辉石差异",
+            "value": "脱羟基产物 FIR 峰较宽、波数偏低、<150 cm⁻¹ 无特征峰→'poor crystallization and defective structure'。1253 cm⁻¹ 附近出现异常宽峰→暗示低维结构硅酸盐共存",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "OH对比·滑石脱羟基产物 vs 天然正顽火辉石",
+            "value": "天然正顽火辉石(Birm)有 3411/3519/3563 cm⁻¹ 三个 OH 带，但部分/完全脱羟基滑石中均未观察到这些带→滑石脱羟基产物与地质正顽火辉石的 OH 环境不同",
+            "source_papers": ["PAPER-023"]
+          }
+        ],
+        "decarbonized_talc": [
+          {
+            "property": "CO₂外源扩散证据(原位 vs 淬冷对比)",
+            "value": "淬冷样(空气中退火): 600°C 即检测到 CO₂(~2345 cm⁻¹)，950°C 达峰值→1300°C 消失。原位真空加热: 740°C 仍无 CO₂。→碳来自外部大气 CO₂ 在脱羟基过程中扩散进入，非原料固有",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "CO₂进入机制",
+            "value": "CO₂ 与脱羟基 H₂O 共用同一扩散通道——H₂O 逸出时留下的纳米空隙成为 CO₂ 反扩散入口。CO₂ 位于层间/空腔/晶界",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "CO₂ vs 新生OH 非耦合",
+            "value": "CO₂ 在 600°C 出现，新生 OH 带在 ~900°C 出现→两者无关。CO₂ 不参与稳定新生 OH 物种",
+            "source_papers": ["PAPER-023"]
+          }
+        ],
+        "raw_black_talc": [
+          {
+            "property": "滑石中NH₄⁺类物种发现(PAPER-023)",
+            "value": "天然滑石中首次检测到 NH₄⁺ 类物种(N-H 伸缩~2980/3020/3048/3169 cm⁻¹)，浓度约几十~几百 ppm。NH₄⁺ 的热分解温度与 OH 脱羟基相同(~850-900°C)——非巧合，可能是热触发整体结构崩塌导致两者同时脱除",
+            "source_papers": ["PAPER-023"]
+          },
+          {
+            "property": "滑石纯端员组成(龙胜+海城样品)",
+            "value": "广西龙胜: MgO 30.56%, SiO₂ 63.58%, FeO 0.60%(含Fe→3660 cm⁻¹ Mg₂Fe-OH带)。辽宁海城: MgO 30.77%, SiO₂ 63.84%, FeO 0.02%(近理想纯Mg端员，3676 cm⁻¹ 带在20K下分裂为3个子带)",
+            "source_papers": ["PAPER-023"]
+          }
+        ]
+      },
+      "papers_cross_validated": ["PAPER-005", "PAPER-006", "PAPER-013"]
+    },
+
+    "q3_reliability": {
+      "scale": "lab/powder",
+      "full_params": true,
+      "replicates": true,
+      "journal_tier": "SCI",
+      "notes": "American Mineralogist (矿物学旗舰期刊)。剑桥大学地球科学系顶尖矿物物理团队。两样品(广西龙胜+辽宁海城)双向验证。20-12000 cm⁻¹ 全频段 IR + 淬冷实验(300-1400°C, 每100°C一步) + 原位加热(真空, 至740°C) + H/D同位素检测 + 微区IR + 拉曼验证。单晶XRD定向切片(a*/b*垂直切割抛光)。电子探针确认近理想滑石组成。数据质量极高——能检测天然丰度OD (D/H~1.5×10⁻⁵)。"
+    },
+
+    "q4_cross_validation": {
+      "verified_by": [],
+      "contradicts": [],
+      "complements": ["PAPER-005", "PAPER-006", "PAPER-013"]
+    }
+  }
+}
