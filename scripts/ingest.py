@@ -112,6 +112,28 @@ def save_tree(tree: dict):
         json.dump(tree, f, ensure_ascii=False, indent=2)
 
 
+def generate_product_node_id(parent_id: str, paper_id: str, route_key: str) -> str:
+    """为 product 节点生成 v2 schema 兼容的 ID。"""
+    prefix_map = {
+        "enstatite_from_talc": "enstatite_mw",
+        "forsterite_from_talc": "forsterite_mw",
+        "separated_mgo": "mgo_product",
+        "separated_sio2": "sio2_product",
+        "graphitized_carbon": "carbon_product",
+        "raw_black_talc": "talc_product",
+    }
+    prefix = prefix_map.get(parent_id, "product")
+    return f"{prefix}_{route_key}"
+
+
+def find_product_node_by_route(tree: dict, old_product_id: str, paper_id: str) -> str:
+    """在 v2 schema 中，根据旧产品 ID 和论文 ID 找到对应的新产品节点。"""
+    for nid, node in tree["nodes"].items():
+        if node.get("type") == "product" and paper_id in node.get("source_papers", []):
+            return nid
+    return old_product_id
+
+
 def register_nodes(tree: dict, paper_id: str, nodes_data: list) -> tuple:
     """注册新节点，去重。返回 (created_ids, existed_ids, error_count)。"""
     created, existed, errors = [], [], 0
@@ -145,6 +167,10 @@ def register_nodes(tree: dict, paper_id: str, nodes_data: list) -> tuple:
                         existing[rel].append(item)
             existed.append(nid)
         else:
+            # v2: product 节点名称自动附加工艺来源
+            if node.get("type") == "product" and not node.get("name", "").endswith(")"):
+                route_desc = node.get("notes", "")[:40] or paper_id
+                node["name"] = f"{node['name']}({route_desc})"
             tree["nodes"][nid] = node
             node.setdefault("source_papers", [])
             if paper_id not in node["source_papers"]:
@@ -208,6 +234,9 @@ def register_cross_validations(tree: dict, paper_id: str, cv_papers: list):
     count = 0
     for other_paper in cv_papers:
         for nid, node in tree["nodes"].items():
+            # v2: 产品节点的交叉验证已迁移到边，仅中间相/原料节点保留
+            if node.get("type") == "product":
+                continue
             if other_paper in node.get("source_papers", []) and paper_id != other_paper:
                 if paper_id not in node.get("papers_cross_validated", []):
                     node.setdefault("papers_cross_validated", []).append(paper_id)
