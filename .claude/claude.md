@@ -26,21 +26,22 @@
 |:---:|------|:--:|------|:---:|
 | **PAPER-002** | 杨华明 — 黑滑石矿物学特征及加工应用研究进展 (综述) | 2023 | 材料导报 | 综述：黑滑石→多物相→多应用全景 |
 | **PAPER-003** | 裘林莉 — 黑滑石煅烧产物的酸活化及晶格重建 | 2017 | 硅酸盐通报 | 煅烧→酸活化→Zn²⁺晶格重建→抗菌 |
-| **PAPER-004** | 刘子峥 — 黑滑石基微波介质陶瓷材料的结构与性能 | 2024 | 电子元件与材料 | 黑滑石→MgSiO₃ 微波介质陶瓷 εr=5.11 |
+| **PAPER-004** | 刘子峥 — 黑滑石基微波介质陶瓷材料的结构与性能 | 2024 | 电子元件与材料 | 黑滑石→MgSiO₃ 微波介质陶瓷(原矿1325°C) εr=5.11 |
 | **PAPER-005** | Meng — Evolution of Black Talc upon Thermal Treatment | 2022 | Minerals (SCI) | 核心基础：30-1000°C 完整物相演化序列 |
 | **PAPER-006** | 吴小文 — 黑滑石高温物相行为变化及复合材料性能 | 2017 | 陶瓷学报 | N₂气氛→碳石墨化→导电顽火辉石复合材料 |
 | **PAPER-007** | Huang — HF+HCl 混合酸浸滑石 (Mg 97.98%) | 2025 | Minerals Eng. (SCI Q1) | 酸浸分离→高纯 MgO + SiO₂ |
 | **PAPER-008** | Xiao — 滑石基 CaMgSiO₄ 微波介质陶瓷 (成本降80%) | 2025 | Ceramics Int. (SCI Q1) | +CaO→CaMgSiO₄ 微波介质陶瓷 Q×f=59212 |
 | **PAPER-009** | Bu — 滑石基 Li₂MgSiO₄ 微波介质陶瓷 | 2025 | Ceramics Int. (SCI Q1) | +Li₂CO₃→Li₂MgSiO₄ 低温烧结 1075°C |
-| **PAPER-010** | Fang — Cu²⁺ 掺杂抑制 MgSiO₃ 相变 (Q×f=93600) | 2024 | Ceramics Int. (SCI Q1) | Cu²⁺掺杂→稳定 MgSiO₃ 相、抑制相变 |
-| **PAPER-011** | Ullah — Co²⁺ 掺杂 MgSiO₃ 陶瓷 (Q×f=145846) | 2019 | J Mater Sci: Mater Electron (SCI) | Co²⁺掺杂→最高 Q×f=145846 近零 τf |
+| **PAPER-010** | Fang — Cu²⁺ 掺杂抑制 MgSiO₃ 相变 (Q×f=93600) | 2024 | Ceramics Int. (SCI Q1) | Cu²⁺掺杂→MgSiO₃ 微波介质陶瓷(Cu²⁺掺杂) Q×f=93600 |
+| **PAPER-011** | Ullah — Co²⁺ 掺杂 MgSiO₃ 陶瓷 (Q×f=145846) | 2019 | J Mater Sci: Mater Electron (SCI) | Co²⁺掺杂→MgSiO₃ 微波介质陶瓷(Co²⁺掺杂) Q×f=145846 近零τf |
 | **PAPER-012** | 徐芝亮 — 黑滑石材料化加工技术 (综述) | 2026 | 江西化工 | 补充：资源储量/白度/产业数据 |
 | **PAPER-013** | 李成祥 — 江西广丰黑滑石矿物学研究 (博士论文) | 2016 | 南京大学 | 补充：类石墨烯碳层特征/矿石分类 |
 | **PAPER-014** | 王运 — 广丰黑滑石矿石地球化学特征 | 2020 | 矿产保护与利用 | 补充：矿石类型/有机物分布/资源量 |
 | **PAPER-015** | 饶峥 — 桃源黑滑石矿床矿物与元素组成 | 2025 | 矿物学报 | 补充：矿物组成定量/致黑机理/产品等级 |
 | **PAPER-016** | 吴基球 — 我国黑滑石资源及其应用状况 | 2008 | 中国非金属矿工业导刊 | 补充：早期资源储量/成矿类型分类 |
 | **PAPER-017** | 宗培新 — 我国黑滑石产业现状及发展趋势 | 2014 | 中国非金属矿工业导刊 | 补充：多产地成分对比/产地列表 |
-| **PAPER-018** | Sugihara — 多孔 Mg₂SiO₄+LPD-TiO₂ 微波介电 | 2006 | J. Eur. Ceram. Soc. (SCI Q1) | forsterite→微波介质陶瓷 Q×f=270,000 (全体系最高) |
+| **PAPER-018** | Sugihara — 多孔 Mg₂SiO₄+LPD-TiO₂ 微波介电 | 2006 | J. Eur. Ceram. Soc. (SCI Q1) | forsterite(纯试剂+LPD-TiO₂)→微波介质陶瓷 Q×f=270,000 |
+| **PAPER-020** | Wang — 黑滑石基 forsterite 微波介质陶瓷 B₂O₃ 助烧 | 2026 | Ceramics Int. (SCI Q1) | 黑滑石+MgO+B₂O₃→Mg₂SiO₄ 微波介质 Q×f=151137 |
 | **PAPER-019** | Chen — Mg₂SiO₄ 新型热障涂层 TBC | 2019 | J. Eur. Ceram. Soc. (SCI Q1) | forsterite→TBC >830次热循环 热导比8YSZ低20% |
 
 > **注**: PAPER-012~017 为「有限价值补充论文」——仅向已有节点（主要是 raw_black_talc）追加性质数据和交叉验证链接，不创建新节点或边。
