@@ -1,9 +1,9 @@
 {
   "meta": {
     "name": "黑滑石 MgO-SiO₂(-C-H₂O) 物相-应用体系树",
-    "version": "0.1.18",
+    "version": "0.2.0",
     "last_updated": "2026-07-01",
-    "description": "以黑滑石原矿为根，按工艺条件分支到各物相，再按性质连接到应用产品"
+    "description": "v2 schema: 产品节点按工艺路线拆分，边=工艺路线，性质=该路线数据"
   },
   "nodes": {
     "raw_black_talc": {
@@ -14,14 +14,16 @@
       "type": "raw_material",
       "depth": 0,
       "children": [
-        "dehydrated_talc",
-        "decarbonized_talc",
-        "dehydroxylated_talc",
         "enstatite_from_talc",
         "forsterite_from_talc",
         "separated_mgo",
         "separated_sio2",
-        "graphitized_carbon"
+        "graphitized_carbon",
+        "talc_photocatalyst",
+        "talc_antibacterial",
+        "dehydrated_talc",
+        "decarbonized_talc",
+        "dehydroxylated_talc"
       ],
       "parents": [],
       "composition": {
@@ -303,9 +305,13 @@
       "type": "intermediate_phase",
       "depth": 1,
       "children": [
-        "5g_ceramic",
-        "refractory_brick",
-        "filler_coating"
+        "cordierite_ceramic",
+        "acid_activated_enstatite",
+        "black_talc_mw_direct",
+        "camgsio4_ceramic",
+        "li2mgsio4_ceramic",
+        "black_talc_mw_cu",
+        "black_talc_mw_co"
       ],
       "parents": [
         "raw_black_talc"
@@ -488,7 +494,10 @@
       "type": "intermediate_phase",
       "depth": 1,
       "children": [
-        "refractory_brick"
+        "refractory_brick",
+        "forsterite_mw_pure",
+        "forsterite_mw_talc",
+        "forsterite_tbc"
       ],
       "parents": [
         "raw_black_talc"
@@ -606,6 +615,34 @@
           "source_papers": [
             "PAPER-019"
           ]
+        },
+        {
+          "property": "广丰黑滑石成分 (Wang 2026)",
+          "value": "SiO₂ 59.09%, MgO 33.2%, CaO 6.93%, Al₂O₃ 0.04%, K₂O 0.27%, TiO₂ 0.01%, MnO₂ 0.18%, Fe₂O₃ 0.27%",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "黑滑石Mg/Si比 vs forsterite计量比",
+          "value": "黑滑石Mg/Si < forsterite Mg₂SiO₄ 化学计量比(2:1)，需补充高纯MgO",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "黑滑石致密化优势",
+          "value": "黑滑石→forsterite 1400°C致密化，低于纯MgO+SiO₂试剂的1450°C；天然矿物杂质助熔+层状结构促进颗粒密排",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "Ca杂质行为",
+          "value": "Ca²⁺离子半径过大不进入Mg₂SiO₄晶格，富集于晶界非晶相或形成次生硅酸盐相",
+          "source_papers": [
+            "PAPER-020"
+          ]
         }
       ],
       "source_papers": [
@@ -636,10 +673,7 @@
       "formula": "MgO",
       "type": "intermediate_phase",
       "depth": 1,
-      "children": [
-        "mg_chemicals",
-        "refractory_mgo"
-      ],
+      "children": [],
       "parents": [
         "raw_black_talc"
       ],
@@ -697,10 +731,7 @@
       "formula": "SiO₂",
       "type": "intermediate_phase",
       "depth": 1,
-      "children": [
-        "white_carbon_black",
-        "silica_filler"
-      ],
+      "children": [],
       "parents": [
         "raw_black_talc"
       ],
@@ -750,11 +781,7 @@
       "formula": "C (类石墨烯)",
       "type": "intermediate_phase",
       "depth": 1,
-      "children": [
-        "battery_anode",
-        "conductive_filler",
-        "em_absorber"
-      ],
+      "children": [],
       "parents": [
         "raw_black_talc"
       ],
@@ -819,7 +846,7 @@
     },
     "cordierite_ceramic": {
       "id": "cordierite_ceramic",
-      "name": "堇青石陶瓷（黑滑石基）",
+      "name": "堇青石陶瓷(煤矸石+铝矾土)",
       "name_en": "Cordierite Ceramic (from Black Talc)",
       "formula": "Mg₂Al₄Si₅O₁₈",
       "type": "product",
@@ -848,27 +875,11 @@
       "source_papers": [
         "PAPER-002"
       ],
-      "notes": "熊里[55]以煤矸石、黑滑石和铝矾土制备堇青石质卫生陶瓷，具有强抗热震性和高红外辐射率。",
-      "papers_cross_validated": [
-        "PAPER-003",
-        "PAPER-004",
-        "PAPER-005",
-        "PAPER-006",
-        "PAPER-007",
-        "PAPER-008",
-        "PAPER-009",
-        "PAPER-012",
-        "PAPER-013",
-        "PAPER-014",
-        "PAPER-015",
-        "PAPER-016",
-        "PAPER-017",
-        "PAPER-019"
-      ]
+      "notes": "熊里[55]以煤矸石、黑滑石和铝矾土制备堇青石质卫生陶瓷，具有强抗热震性和高红外辐射率。"
     },
     "talc_photocatalyst": {
       "id": "talc_photocatalyst",
-      "name": "黑滑石基光催化剂",
+      "name": "黑滑石光催化剂(TiO₂限域)",
       "name_en": "Black Talc-Based Photocatalyst",
       "formula": "TiO₂/黑滑石 复合材料",
       "type": "product",
@@ -898,34 +909,19 @@
       "source_papers": [
         "PAPER-002"
       ],
-      "notes": "利用黑滑石层状结构限域TiO₂纳米颗粒，低成本可回收光催化剂。",
-      "papers_cross_validated": [
-        "PAPER-003",
-        "PAPER-004",
-        "PAPER-005",
-        "PAPER-006",
-        "PAPER-007",
-        "PAPER-008",
-        "PAPER-009",
-        "PAPER-012",
-        "PAPER-013",
-        "PAPER-014",
-        "PAPER-015",
-        "PAPER-016",
-        "PAPER-017",
-        "PAPER-019"
-      ]
+      "notes": "利用黑滑石层状结构限域TiO₂纳米颗粒，低成本可回收光催化剂。"
     },
     "talc_antibacterial": {
       "id": "talc_antibacterial",
-      "name": "黑滑石基抗菌材料",
+      "name": "黑滑石抗菌材料(离子交换)",
       "name_en": "Black Talc-Based Antibacterial Material",
       "formula": "黑滑石+抗菌金属离子",
       "type": "product",
       "depth": 2,
       "children": [],
       "parents": [
-        "raw_black_talc"
+        "raw_black_talc",
+        "zn_enstatite_antibacterial"
       ],
       "properties": [
         {
@@ -940,23 +936,7 @@
       "source_papers": [
         "PAPER-002"
       ],
-      "notes": "酸活化后八面体Mg²⁺/Ca²⁺溶出→植入抗菌金属离子→缓释抗菌。防污级达五级，耐磨6000转。",
-      "papers_cross_validated": [
-        "PAPER-003",
-        "PAPER-004",
-        "PAPER-005",
-        "PAPER-006",
-        "PAPER-007",
-        "PAPER-008",
-        "PAPER-009",
-        "PAPER-012",
-        "PAPER-013",
-        "PAPER-014",
-        "PAPER-015",
-        "PAPER-016",
-        "PAPER-017",
-        "PAPER-019"
-      ]
+      "notes": "酸活化后八面体Mg²⁺/Ca²⁺溶出→植入抗菌金属离子→缓释抗菌。防污级达五级，耐磨6000转。"
     },
     "acid_activated_enstatite": {
       "id": "acid_activated_enstatite",
@@ -1014,12 +994,14 @@
     },
     "zn_enstatite_antibacterial": {
       "id": "zn_enstatite_antibacterial",
-      "name": "Zn-顽火辉石抗菌材料",
+      "name": "Zn-顽火辉石抗菌材料(ZnSO₄晶格重建)",
       "name_en": "Zn-Incorporated Enstatite Antibacterial",
       "formula": "Mg₁₋ₓZnₓSiO₃ (Zn²⁺晶格重建)",
       "type": "product",
       "depth": 3,
-      "children": [],
+      "children": [
+        "talc_antibacterial"
+      ],
       "parents": [
         "acid_activated_enstatite"
       ],
@@ -1067,14 +1049,11 @@
       "source_papers": [
         "PAPER-003"
       ],
-      "notes": "Zn²⁺通过晶格重建进入顽火辉石八面体空穴（非简单离子交换），矿物结构部分恢复。Zn²⁺可在特定条件下缓释→持续抗菌。性能优于黑滑石煅烧产物原矿但未完全灭菌。",
-      "papers_cross_validated": [
-        "PAPER-007"
-      ]
+      "notes": "Zn²⁺通过晶格重建进入顽火辉石八面体空穴（非简单离子交换），矿物结构部分恢复。Zn²⁺可在特定条件下缓释→持续抗菌。性能优于黑滑石煅烧产物原矿但未完全灭菌。"
     },
-    "black_talc_mw_ceramic": {
-      "id": "black_talc_mw_ceramic",
-      "name": "黑滑石微波介质陶瓷",
+    "black_talc_mw_direct": {
+      "id": "black_talc_mw_direct",
+      "name": "黑滑石微波介质陶瓷(原矿1325°C)",
       "name_en": "Black Talc Microwave Dielectric Ceramic",
       "formula": "MgSiO₃ + SiO₂ 复合陶瓷",
       "type": "product",
@@ -1131,7 +1110,25 @@
           "source_papers": [
             "PAPER-004"
           ]
-        },
+        }
+      ],
+      "source_papers": [
+        "PAPER-004"
+      ],
+      "notes": "直接用黑滑石原矿（非高纯化工原料）制备微波介质陶瓷。MgSiO₃理论εr=6.71, SiO₂理论εr=3.52，实测εr=5.11位于两者之间。Q×f低于纯MgSiO₃(约120,000GHz)主要因为微量矿物杂质。但原料成本远低于高纯化工路线。"
+    },
+    "black_talc_mw_cu": {
+      "id": "black_talc_mw_cu",
+      "name": "黑滑石微波介质陶瓷(Cu²⁺掺杂)",
+      "name_en": "Black Talc Microwave Dielectric Ceramic",
+      "formula": "MgSiO₃ + SiO₂ 复合陶瓷",
+      "type": "product",
+      "depth": 2,
+      "children": [],
+      "parents": [
+        "enstatite_from_talc"
+      ],
+      "properties": [
         {
           "property": "Q×f (Cu²⁺掺杂)",
           "value": "93,600 GHz",
@@ -1139,7 +1136,25 @@
           "source_papers": [
             "PAPER-010"
           ]
-        },
+        }
+      ],
+      "source_papers": [
+        "PAPER-010"
+      ],
+      "notes": "直接用黑滑石原矿（非高纯化工原料）制备微波介质陶瓷。MgSiO₃理论εr=6.71, SiO₂理论εr=3.52，实测εr=5.11位于两者之间。Q×f低于纯MgSiO₃(约120,000GHz)主要因为微量矿物杂质。但原料成本远低于高纯化工路线。"
+    },
+    "black_talc_mw_co": {
+      "id": "black_talc_mw_co",
+      "name": "黑滑石微波介质陶瓷(Co²⁺掺杂)",
+      "name_en": "Black Talc Microwave Dielectric Ceramic",
+      "formula": "MgSiO₃ + SiO₂ 复合陶瓷",
+      "type": "product",
+      "depth": 2,
+      "children": [],
+      "parents": [
+        "enstatite_from_talc"
+      ],
+      "properties": [
         {
           "property": "Q×f (Co²⁺掺杂最高值)",
           "value": "145,846 GHz",
@@ -1157,16 +1172,9 @@
         }
       ],
       "source_papers": [
-        "PAPER-004"
+        "PAPER-011"
       ],
-      "notes": "直接用黑滑石原矿（非高纯化工原料）制备微波介质陶瓷。MgSiO₃理论εr=6.71, SiO₂理论εr=3.52，实测εr=5.11位于两者之间。Q×f低于纯MgSiO₃(约120,000GHz)主要因为微量矿物杂质。但原料成本远低于高纯化工路线。",
-      "papers_cross_validated": [
-        "PAPER-008",
-        "PAPER-009",
-        "PAPER-010",
-        "PAPER-011",
-        "PAPER-018"
-      ]
+      "notes": "直接用黑滑石原矿（非高纯化工原料）制备微波介质陶瓷。MgSiO₃理论εr=6.71, SiO₂理论εr=3.52，实测εr=5.11位于两者之间。Q×f低于纯MgSiO₃(约120,000GHz)主要因为微量矿物杂质。但原料成本远低于高纯化工路线。"
     },
     "dehydrated_talc": {
       "id": "dehydrated_talc",
@@ -1370,7 +1378,7 @@
     },
     "camgsio4_ceramic": {
       "id": "camgsio4_ceramic",
-      "name": "钙镁橄榄石微波介质陶瓷",
+      "name": "钙镁橄榄石微波介质陶瓷(CaO固相反应)",
       "name_en": "CaMgSiO₄ Microwave Dielectric Ceramic",
       "formula": "CaMgSiO₄",
       "type": "product",
@@ -1398,14 +1406,11 @@
       "source_papers": [
         "PAPER-008"
       ],
-      "notes": "CaO + MgSiO₃（顽火辉石）→ CaMgSiO₄（钙镁橄榄石），元素守恒（1Ca+1Mg+1Si+4O）。黑滑石热分解提供MgO+SiO₂（天然原子级混合），仅需外加CaO即可完成化学重构，无需外购高纯硅源/镁源。成本较传统高纯原料路线降80%。",
-      "papers_cross_validated": [
-        "PAPER-009"
-      ]
+      "notes": "CaO + MgSiO₃（顽火辉石）→ CaMgSiO₄（钙镁橄榄石），元素守恒（1Ca+1Mg+1Si+4O）。黑滑石热分解提供MgO+SiO₂（天然原子级混合），仅需外加CaO即可完成化学重构，无需外购高纯硅源/镁源。成本较传统高纯原料路线降80%。"
     },
     "li2mgsio4_ceramic": {
       "id": "li2mgsio4_ceramic",
-      "name": "Li₂MgSiO₄ 微波介质陶瓷",
+      "name": "硅酸镁锂微波介质陶瓷(Li₂CO₃低温烧结)",
       "name_en": "Li₂MgSiO₄ Microwave Dielectric Ceramic",
       "formula": "Li₂MgSiO₄",
       "type": "product",
@@ -1430,7 +1435,7 @@
     },
     "refractory_brick": {
       "id": "refractory_brick",
-      "name": "镁橄榄石耐火砖",
+      "name": "镁橄榄石耐火砖(高温烧结)",
       "name_en": "Forsterite Refractory Brick",
       "formula": "Mg₂SiO₄",
       "type": "product",
@@ -1465,14 +1470,11 @@
       "source_papers": [
         "PAPER-002"
       ],
-      "notes": "镁橄榄石耐火砖已有工业应用（TRL 7+）。高耐火度源于 Mg₂SiO₄ 的高熔点（1890°C）和低热膨胀系数。黑滑石 >1100°C 煅烧→Mg₂SiO₄→直接成型烧结→耐火砖。",
-      "papers_cross_validated": [
-        "PAPER-019"
-      ]
+      "notes": "镁橄榄石耐火砖已有工业应用（TRL 7+）。高耐火度源于 Mg₂SiO₄ 的高熔点（1890°C）和低热膨胀系数。黑滑石 >1100°C 煅烧→Mg₂SiO₄→直接成型烧结→耐火砖。"
     },
-    "forsterite_mw_ceramic": {
-      "id": "forsterite_mw_ceramic",
-      "name": "镁橄榄石微波介质陶瓷",
+    "forsterite_mw_pure": {
+      "id": "forsterite_mw_pure",
+      "name": "镁橄榄石微波介质陶瓷(纯试剂+LPD-TiO₂)",
       "name_en": "Forsterite Microwave Dielectric Ceramic",
       "formula": "Mg₂SiO₄ (+ TiO₂ τf补偿)",
       "type": "product",
@@ -1522,14 +1524,89 @@
       "source_papers": [
         "PAPER-018"
       ],
-      "notes": "⚠ 注：论文用高纯 Mg(OH)₂+SiO₂ 固相合成 Mg₂SiO₄（1150°C/2h预烧→1400°C/2h烧结），非滑石路线。但介电性质为本征性质，适用于黑滑石>1100°C煅烧所得 Mg₂SiO₄。τf 补偿策略（LPD-TiO₂填充多孔骨架）通用于任何来源的 Mg₂SiO₄。",
-      "papers_cross_validated": [
-        "PAPER-019"
-      ]
+      "notes": "⚠ 注：论文用高纯 Mg(OH)₂+SiO₂ 固相合成 Mg₂SiO₄（1150°C/2h预烧→1400°C/2h烧结），非滑石路线。但介电性质为本征性质，适用于黑滑石>1100°C煅烧所得 Mg₂SiO₄。τf 补偿策略（LPD-TiO₂填充多孔骨架）通用于任何来源的 Mg₂SiO₄。"
+    },
+    "forsterite_mw_talc": {
+      "id": "forsterite_mw_talc",
+      "name": "镁橄榄石微波介质陶瓷(黑滑石+B₂O₃)",
+      "name_en": "Forsterite Microwave Dielectric Ceramic",
+      "formula": "Mg₂SiO₄ (+ TiO₂ τf补偿)",
+      "type": "product",
+      "depth": 2,
+      "children": [],
+      "parents": [
+        "forsterite_from_talc"
+      ],
+      "properties": [
+        {
+          "property": "Q×f (黑滑石路线, 0.2wt% B₂O₃)",
+          "value": "151,137 GHz",
+          "condition": "1350°C 烧结",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "εr (黑滑石路线, 0.2wt% B₂O₃)",
+          "value": "6.71",
+          "condition": "1350°C 烧结",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "τf (黑滑石路线, 0.2wt% B₂O₃)",
+          "value": "−67.3 ppm/°C",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "相对密度 (黑滑石路线, 0.2wt% B₂O₃)",
+          "value": "98.24%",
+          "condition": "1350°C 烧结",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "Mg₂SiO₄ 相纯度 (黑滑石路线)",
+          "value": "96.14% (Rietveld精修)",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "Q×f (黑滑石路线, 无B₂O₃)",
+          "value": "122,171 GHz",
+          "condition": "1400°C 烧结",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "烧结温度 (黑滑石路线)",
+          "value": "1350°C (0.2wt% B₂O₃) vs 1400°C (无B₂O₃) vs 1450°C (纯试剂)",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        },
+        {
+          "property": "烧结助剂最优量",
+          "value": "0.2 wt% B₂O₃",
+          "source_papers": [
+            "PAPER-020"
+          ]
+        }
+      ],
+      "source_papers": [
+        "PAPER-020"
+      ],
+      "notes": "⚠ 注：论文用高纯 Mg(OH)₂+SiO₂ 固相合成 Mg₂SiO₄（1150°C/2h预烧→1400°C/2h烧结），非滑石路线。但介电性质为本征性质，适用于黑滑石>1100°C煅烧所得 Mg₂SiO₄。τf 补偿策略（LPD-TiO₂填充多孔骨架）通用于任何来源的 Mg₂SiO₄。"
     },
     "forsterite_tbc": {
       "id": "forsterite_tbc",
-      "name": "镁橄榄石热障涂层",
+      "name": "镁橄榄石热障涂层(APS喷涂)",
       "name_en": "Forsterite Thermal Barrier Coating (TBC)",
       "formula": "Mg₂SiO₄ (APS涂层)",
       "type": "product",
@@ -1582,7 +1659,7 @@
     }
   },
   "edges": {
-    "e0001": {
+    "e0023": {
       "from": "raw_black_talc",
       "to": "enstatite_from_talc",
       "type": "process",
@@ -1614,19 +1691,16 @@
         "PAPER-007",
         "PAPER-008",
         "PAPER-009",
-        "PAPER-010",
-        "PAPER-011",
         "PAPER-012",
         "PAPER-013",
         "PAPER-014",
         "PAPER-015",
         "PAPER-016",
         "PAPER-017",
-        "PAPER-018",
         "PAPER-019"
       ]
     },
-    "e0002": {
+    "e0024": {
       "from": "raw_black_talc",
       "to": "forsterite_from_talc",
       "type": "process",
@@ -1664,7 +1738,7 @@
         "PAPER-019"
       ]
     },
-    "e0003": {
+    "e0025": {
       "from": "raw_black_talc",
       "to": "separated_mgo",
       "type": "process",
@@ -1706,7 +1780,7 @@
         "PAPER-019"
       ]
     },
-    "e0004": {
+    "e0026": {
       "from": "raw_black_talc",
       "to": "separated_sio2",
       "type": "process",
@@ -1748,7 +1822,7 @@
         "PAPER-019"
       ]
     },
-    "e0005": {
+    "e0027": {
       "from": "raw_black_talc",
       "to": "graphitized_carbon",
       "type": "process",
@@ -1786,7 +1860,7 @@
         "PAPER-019"
       ]
     },
-    "e0006": {
+    "e0028": {
       "from": "enstatite_from_talc",
       "to": "cordierite_ceramic",
       "type": "property_link",
@@ -1814,7 +1888,7 @@
         "PAPER-019"
       ]
     },
-    "e0008": {
+    "e0029": {
       "from": "forsterite_from_talc",
       "to": "refractory_brick",
       "type": "property_link",
@@ -1826,23 +1900,10 @@
       "trl": 7,
       "notes": "镁橄榄石耐火砖——已有工业应用。",
       "papers_cross_validated": [
-        "PAPER-003",
-        "PAPER-004",
-        "PAPER-005",
-        "PAPER-006",
-        "PAPER-007",
-        "PAPER-008",
-        "PAPER-009",
-        "PAPER-012",
-        "PAPER-013",
-        "PAPER-014",
-        "PAPER-015",
-        "PAPER-016",
-        "PAPER-017",
         "PAPER-019"
       ]
     },
-    "e0009": {
+    "e0030": {
       "from": "raw_black_talc",
       "to": "talc_photocatalyst",
       "type": "property_link",
@@ -1870,7 +1931,7 @@
         "PAPER-019"
       ]
     },
-    "e0010": {
+    "e0031": {
       "from": "raw_black_talc",
       "to": "talc_antibacterial",
       "type": "property_link",
@@ -1898,7 +1959,7 @@
         "PAPER-019"
       ]
     },
-    "e0011": {
+    "e0032": {
       "from": "enstatite_from_talc",
       "to": "acid_activated_enstatite",
       "type": "process",
@@ -1927,7 +1988,7 @@
         "PAPER-007"
       ]
     },
-    "e0012": {
+    "e0033": {
       "from": "acid_activated_enstatite",
       "to": "zn_enstatite_antibacterial",
       "type": "process",
@@ -1956,7 +2017,7 @@
         "PAPER-007"
       ]
     },
-    "e0013": {
+    "e0034": {
       "from": "zn_enstatite_antibacterial",
       "to": "talc_antibacterial",
       "type": "property_link",
@@ -1968,12 +2029,25 @@
       "trl": 3,
       "notes": "抗菌机理：载体晶体结构+客体Zn²⁺+载体-客体相互作用。非完全灭菌但显著抑制。",
       "papers_cross_validated": [
-        "PAPER-007"
+        "PAPER-003",
+        "PAPER-004",
+        "PAPER-005",
+        "PAPER-006",
+        "PAPER-007",
+        "PAPER-008",
+        "PAPER-009",
+        "PAPER-012",
+        "PAPER-013",
+        "PAPER-014",
+        "PAPER-015",
+        "PAPER-016",
+        "PAPER-017",
+        "PAPER-019"
       ]
     },
-    "e0014": {
+    "e0035": {
       "from": "enstatite_from_talc",
-      "to": "black_talc_mw_ceramic",
+      "to": "black_talc_mw_direct",
       "type": "property_link",
       "label_short": "低εr+低损耗→5G微波介质陶瓷",
       "via_property": "εr=5.11 + Q×f=56,782 GHz→适用于5G毫米波器件",
@@ -1987,10 +2061,11 @@
         "PAPER-009",
         "PAPER-010",
         "PAPER-011",
-        "PAPER-018"
+        "PAPER-018",
+        "PAPER-020"
       ]
     },
-    "e0015": {
+    "e0036": {
       "from": "raw_black_talc",
       "to": "dehydrated_talc",
       "type": "process",
@@ -2018,7 +2093,7 @@
         "PAPER-013"
       ]
     },
-    "e0016": {
+    "e0037": {
       "from": "raw_black_talc",
       "to": "decarbonized_talc",
       "type": "process",
@@ -2046,7 +2121,7 @@
         "PAPER-013"
       ]
     },
-    "e0017": {
+    "e0038": {
       "from": "raw_black_talc",
       "to": "dehydroxylated_talc",
       "type": "process",
@@ -2074,7 +2149,7 @@
         "PAPER-013"
       ]
     },
-    "e0018": {
+    "e0039": {
       "from": "enstatite_from_talc",
       "to": "camgsio4_ceramic",
       "type": "process",
@@ -2100,7 +2175,7 @@
         "PAPER-009"
       ]
     },
-    "e0019": {
+    "e0040": {
       "from": "enstatite_from_talc",
       "to": "li2mgsio4_ceramic",
       "type": "process",
@@ -2121,11 +2196,12 @@
         "PAPER-009"
       ],
       "trl": 3,
-      "notes": "反应式: MgSiO₃ + Li₂CO₃ → Li₂MgSiO₄ + CO₂↑，Li(2↔2)✓ Mg(1↔1)✓ Si(1↔1)✓ C(1↔1)✓ O(3+3↔4+2)✓。低温烧结→LTCC应用（可与Ag共烧）。"
+      "notes": "反应式: MgSiO₃ + Li₂CO₃ → Li₂MgSiO₄ + CO₂↑，Li(2↔2)✓ Mg(1↔1)✓ Si(1↔1)✓ C(1↔1)✓ O(3+3↔4+2)✓。低温烧结→LTCC应用（可与Ag共烧）。",
+      "papers_cross_validated": []
     },
-    "e0021": {
+    "e0041": {
       "from": "forsterite_from_talc",
-      "to": "forsterite_mw_ceramic",
+      "to": "forsterite_mw_pure",
       "type": "process",
       "label_short": "造孔+LPD-TiO₂→τf补偿 (－73→－46 ppm/°C)",
       "conditions": {
@@ -2148,12 +2224,42 @@
       "trl": 3,
       "notes": "反应式: Mg(OH)₂ + SiO₂ → MgSiO₃ + H₂O↑(预烧)，MgSiO₃ + Mg(OH)₂ → Mg₂SiO₄ + H₂O↑(烧结)。元素守恒✓。LPD法避免了传统固相混合产生的 MgTi₂O₅/MgSiO₃ 杂相——TiO₂仅沉积于孔壁而不与 Mg₂SiO₄ 反应。",
       "papers_cross_validated": [
-        "PAPER-019"
+        "PAPER-019",
+        "PAPER-020"
       ]
     },
-    "e0020": {
+    "e0042": {
+      "from": "forsterite_from_talc",
+      "to": "forsterite_mw_talc",
+      "type": "process",
+      "label_short": "造孔+LPD-TiO₂→τf补偿 (－73→－46 ppm/°C)",
+      "conditions": {
+        "temperature": {
+          "min": 1150,
+          "max": 1400,
+          "unit": "°C"
+        },
+        "atmosphere": "空气",
+        "additives": [
+          "PMMA (造孔剂)",
+          "TiO₂ (LPD沉积)"
+        ],
+        "equipment": "马弗炉+LPD湿化处理槽"
+      },
+      "result_purity": "Mg₂SiO₄-TiO₂ 复合陶瓷（无第二相），Q×f保持~10,000（填充后劣化），τf改善至−46",
+      "source_papers": [
+        "PAPER-020"
+      ],
+      "trl": 3,
+      "notes": "反应式: Mg(OH)₂ + SiO₂ → MgSiO₃ + H₂O↑(预烧)，MgSiO₃ + Mg(OH)₂ → Mg₂SiO₄ + H₂O↑(烧结)。元素守恒✓。LPD法避免了传统固相混合产生的 MgTi₂O₅/MgSiO₃ 杂相——TiO₂仅沉积于孔壁而不与 Mg₂SiO₄ 反应。",
+      "papers_cross_validated": [
+        "PAPER-019",
+        "PAPER-020"
+      ]
+    },
+    "e0043": {
       "from": "enstatite_from_talc",
-      "to": "black_talc_mw_ceramic",
+      "to": "black_talc_mw_cu",
       "type": "process",
       "label_short": "Cu²⁺掺杂→抑制相变→Q×f=93600",
       "conditions": {
@@ -2166,9 +2272,17 @@
         "PAPER-010"
       ],
       "trl": 3,
-      "notes": "SCI Q1。Cu²⁺进入MgSiO₃晶格→抑制高温相变（proto→ortho）→Q×f从56782提升至93600 GHz。"
+      "notes": "SCI Q1。Cu²⁺进入MgSiO₃晶格→抑制高温相变（proto→ortho）→Q×f从56782提升至93600 GHz。",
+      "papers_cross_validated": [
+        "PAPER-008",
+        "PAPER-009",
+        "PAPER-010",
+        "PAPER-011",
+        "PAPER-018",
+        "PAPER-020"
+      ]
     },
-    "e0022": {
+    "e0044": {
       "from": "forsterite_from_talc",
       "to": "forsterite_tbc",
       "type": "process",
@@ -2191,7 +2305,31 @@
         "PAPER-019"
       ],
       "trl": 4,
-      "notes": "反应式: 2MgCO₃·Mg(OH)₂·5H₂O + 3SiO₂ → 3Mg₂SiO₄ + 2CO₂↑ + 11H₂O↑。元素守恒✓。TBC失效机理: (1)涂层重结晶导致平行收缩裂纹；(2)粘结层Cr扩散→Mg₂SiO₄+Cr₂O₃→MgCr₂O₄+MgSiO₃（脆性尖晶石反应层，右式元素守恒✓）。水淬热震寿命~16次(1573K)优于8YSZ(~7次)。"
+      "notes": "反应式: 2MgCO₃·Mg(OH)₂·5H₂O + 3SiO₂ → 3Mg₂SiO₄ + 2CO₂↑ + 11H₂O↑。元素守恒✓。TBC失效机理: (1)涂层重结晶导致平行收缩裂纹；(2)粘结层Cr扩散→Mg₂SiO₄+Cr₂O₃→MgCr₂O₄+MgSiO₃（脆性尖晶石反应层，右式元素守恒✓）。水淬热震寿命~16次(1573K)优于8YSZ(~7次)。",
+      "papers_cross_validated": [
+        "PAPER-020"
+      ]
+    },
+    "e0045": {
+      "from": "enstatite_from_talc",
+      "to": "black_talc_mw_co",
+      "type": "process",
+      "label_short": "Co²⁺掺杂→Q×f=145846 近零τf",
+      "conditions": {
+        "temperature": {
+          "min": 850,
+          "max": 1000,
+          "unit": "°C"
+        },
+        "atmosphere": "空气",
+        "additives": [],
+        "equipment": "回转窑/马弗炉"
+      },
+      "source_papers": [
+        "PAPER-011"
+      ],
+      "trl": 7,
+      "notes": "自动补建边 (PAPER-011 在旧 schema 中被去重合并丢失)"
     }
   }
 }
